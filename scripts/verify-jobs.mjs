@@ -32,19 +32,21 @@ async function checkJob(job) {
     });
 
     if (res.status >= 400) {
-      return { alive: false, reason: `HTTP ${res.status}` };
+      return { status: "dead", reason: `HTTP ${res.status}` };
     }
 
     const html = await res.text();
-    for (const pattern of SOFT_404_PATTERNS) {
-      if (pattern.test(html)) {
-        return { alive: false, reason: "soft-404" };
+    if (html.length < 50000) {
+      for (const pattern of SOFT_404_PATTERNS) {
+        if (pattern.test(html)) {
+          return { status: "dead", reason: "soft-404" };
+        }
       }
     }
 
-    return { alive: true };
+    return { status: "alive" };
   } catch (e) {
-    return { alive: false, reason: e.message };
+    return { status: "error", reason: e.message };
   }
 }
 
@@ -73,17 +75,21 @@ async function main() {
 
   const alive = [];
   const dead = [];
+  const errored = [];
 
   for (let i = 0; i < data.jobs.length; i += CONCURRENCY) {
     const batch = data.jobs.slice(i, i + CONCURRENCY);
     const results = await Promise.all(batch.map(j => checkJob(j)));
 
     for (let j = 0; j < batch.length; j++) {
-      if (results[j].alive) {
+      if (results[j].status === "alive") {
         alive.push(batch[j]);
-      } else {
+      } else if (results[j].status === "dead") {
         dead.push(batch[j]);
         console.log(`  DEAD: ${batch[j].title} (${batch[j].company}) — ${results[j].reason}`);
+      } else {
+        errored.push(batch[j]);
+        console.log(`  NETWORK ERROR: ${batch[j].title} (${batch[j].company}) — ${results[j].reason}`);
       }
     }
 
@@ -92,16 +98,23 @@ async function main() {
     }
   }
 
-  console.log(`\nResults: ${alive.length} alive, ${dead.length} dead`);
+  console.log(`\nResults: ${alive.length} alive, ${dead.length} dead, ${errored.length} network errors (kept)`);
+
+  if (alive.length === 0) {
+    console.error("ERROR: 0 jobs verified as alive. Refusing to write empty feed.");
+    console.error("Check soft-404 patterns and karriere.at markup.");
+    process.exit(1);
+  }
+
+  data.jobs = [...alive, ...errored];
+  data.count = data.jobs.length;
+  data.lastVerified = new Date().toISOString();
+  writeFileSync(path, JSON.stringify(data, null, 2));
 
   if (dead.length > 0) {
-    data.jobs = alive;
-    data.count = alive.length;
-    data.lastVerified = new Date().toISOString();
-    writeFileSync(path, JSON.stringify(data, null, 2));
     console.log(`Updated ${path} (removed ${dead.length} dead listings)`);
   } else {
-    console.log("All listings are alive, no changes needed.");
+    console.log("All listings are alive, updated lastVerified.");
   }
 }
 

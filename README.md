@@ -45,6 +45,8 @@ The test suite covers the salary estimation model (parsing, adjustments, clampin
 
 This is a test-engineering project; the testing is the point.
 
+Scraped jobs pass a strict validator at extraction time that rejects listings without numeric karriere.at IDs, short titles, or missing test-related keywords. A weekly workflow then issues a liveness check against every stored URL and prunes listings that 404 or soft-404 to expired templates.
+
 ## Tech stack
 
 React 18, Vite 5, Leaflet 1.9, CSS Modules with a custom dark theme, Vitest with React Testing Library for unit and component tests, Playwright for end-to-end tests, ESLint for static analysis.

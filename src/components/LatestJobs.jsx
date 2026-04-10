@@ -29,7 +29,7 @@ export default function LatestJobs() {
         <div>
           <h3 className={styles.title}>🔄 Live Job Feed</h3>
           <span className={styles.subtitle}>
-            {data.count} listings — updated {new Date(data.lastUpdated).toLocaleDateString("en-AT", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}{data.ageInDays > 3 && " (may be out of date)"}
+            {data.count} listings — updated {new Date(data.lastUpdated).toLocaleDateString("en-AT", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}{data.ageInDays > 3 && " (may be out of date)"}{data.validation?.accepted > 0 && ` · ${data.validation.accepted} validated`}
           </span>
         </div>
         <div className={styles.searchLinks}>
