@@ -8,11 +8,18 @@ export default function LatestJobs() {
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + "latest-jobs.json")
       .then(r => r.ok ? r.json() : null)
-      .then(d => setData(d))
+      .then(d => {
+        if (d?.lastUpdated) {
+          d.ageInDays = (Date.now() - new Date(d.lastUpdated)) / 86400000;
+        }
+        setData(d);
+      })
       .catch(() => {});
   }, []);
 
   if (!data || !data.jobs || data.jobs.length === 0) return null;
+
+  if (data.ageInDays > 7) return null;
 
   const shown = expanded ? data.jobs : data.jobs.slice(0, 8);
 
@@ -22,7 +29,7 @@ export default function LatestJobs() {
         <div>
           <h3 className={styles.title}>🔄 Live Job Feed</h3>
           <span className={styles.subtitle}>
-            {data.count} listings — updated {new Date(data.lastUpdated).toLocaleDateString("en-AT", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}
+            {data.count} listings — updated {new Date(data.lastUpdated).toLocaleDateString("en-AT", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}{data.ageInDays > 3 && " (may be out of date)"}
           </span>
         </div>
         <div className={styles.searchLinks}>
