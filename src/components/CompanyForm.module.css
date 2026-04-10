@@ -1,0 +1,137 @@
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #27272a;
+  background: #09090b;
+  color: #fafafa;
+  font-size: 14px;
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.langContainer {
+  display: flex;
+  gap: 6px;
+}
+
+.statusButton {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #27272a;
+  background: transparent;
+  color: #71717a;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.cultureButton {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #27272a;
+  background: transparent;
+  color: #71717a;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.cultureActive {
+  border-color: #6366f1;
+  background: #6366f120;
+  color: #6366f1;
+}
+
+.langButton {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #27272a;
+  background: transparent;
+  color: #71717a;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.langActive {
+  border-color: #06b6d4;
+  background: #06b6d420;
+  color: #06b6d4;
+}
+
+.techInputRow {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.techInputField {
+  flex: 1;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.techItem {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #10b98118;
+  color: #10b981;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid #10b98130;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.cancelButton {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #27272a;
+  background: transparent;
+  color: #a1a1aa;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.saveButton {
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+}

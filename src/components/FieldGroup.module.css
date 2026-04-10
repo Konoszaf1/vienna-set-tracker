@@ -1,0 +1,14 @@
+.group {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  color: #a1a1aa;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+}

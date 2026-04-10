@@ -1,0 +1,37 @@
+{
+  "primarySkills": [
+    "Playwright",
+    "TypeScript",
+    "JavaScript",
+    "Python",
+    "CI/CD",
+    "Selenium",
+    "Cypress",
+    "REST APIs",
+    "Git",
+    "Jira"
+  ],
+  "secondarySkills": [
+    "Java",
+    "C#",
+    "Docker",
+    "Kubernetes",
+    "Jenkins",
+    "Azure DevOps",
+    "Postman",
+    "SQL",
+    "Agile",
+    "BDD"
+  ],
+  "domainExperience": [
+    "FinTech",
+    "SaaS",
+    "E-Commerce"
+  ],
+  "certifications": [],
+  "education": "bachelors",
+  "languages": {
+    "English": "fluent",
+    "German": "none"
+  }
+}

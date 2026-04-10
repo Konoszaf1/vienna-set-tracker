@@ -1,0 +1,19 @@
+{
+  "home": {
+    "lat": 48.2082,
+    "lng": 16.3738,
+    "address": "Stephansplatz, 1010 Wien",
+    "label": "Home"
+  },
+  "germanLevel": "none",
+  "englishLevel": "fluent",
+  "roleLevel": "mid-senior",
+  "targetRole": "SDET",
+  "salaryFloor": 55,
+  "salaryTarget": 70,
+  "salaryStretch": 85,
+  "yearsExperience": 5,
+  "preferredWorkStyle": ["hybrid", "remote-friendly"],
+  "willingToCommute": true,
+  "maxCommuteKm": 15
+}
