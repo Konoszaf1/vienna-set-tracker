@@ -18,6 +18,7 @@
  */
 
 import { parse } from "node-html-parser";
+import { validateJob } from "./jobValidator.mjs";
 
 const USER_AGENT =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 " +
@@ -73,6 +74,9 @@ async function main() {
 
   const allJobs = new Map();
   const failedSlugs = [];
+  const rejectionCounts = {};
+  let accepted = 0;
+  let rejected = 0;
 
   for (const s of SEARCHES) {
     const jobs = await fetchSearch(s);
@@ -81,16 +85,28 @@ async function main() {
       failedSlugs.push(s.slug);
     }
     for (const j of jobs) {
-      if (!allJobs.has(j.url)) {
+      if (allJobs.has(j.url)) continue;
+      const result = validateJob(j);
+      if (result.valid) {
         allJobs.set(j.url, j);
+        accepted++;
+      } else {
+        rejected++;
+        rejectionCounts[result.reason] = (rejectionCounts[result.reason] || 0) + 1;
       }
     }
     // Rate-limit: 1 second between requests
     await new Promise(r => setTimeout(r, 1000));
   }
 
+  // Validation summary
+  const reasonSummary = Object.entries(rejectionCounts)
+    .map(([r, c]) => `${c} ${r}`)
+    .join(", ");
+  console.log(`\nValidation: ${accepted} accepted, ${rejected} rejected${reasonSummary ? ` (${reasonSummary})` : ""}`);
+
   if (allJobs.size === 0) {
-    console.error("\nERROR: All searches returned zero results.");
+    console.error("\nERROR: All searches returned zero valid results.");
     console.error("karriere.at may have changed its markup, or the site is unreachable.");
     console.error("Check .m-jobsListItem selector against the live page.");
     process.exit(1);
@@ -110,12 +126,13 @@ async function main() {
       { label: "StepStone", url: "https://www.stepstone.at/jobs/test-automation/in-wien" },
       { label: "indeed.at", url: "https://at.indeed.com/jobs?q=SDET&l=Wien" },
     ],
+    validation: { accepted, rejected, reasons: rejectionCounts },
   };
 
   const { writeFileSync, mkdirSync } = await import("fs");
   mkdirSync("public", { recursive: true });
   writeFileSync("public/latest-jobs.json", JSON.stringify(result, null, 2));
-  console.log(`\nWrote ${allJobs.size} unique jobs to public/latest-jobs.json`);
+  console.log(`Wrote ${allJobs.size} unique jobs to public/latest-jobs.json`);
 }
 
 main();
