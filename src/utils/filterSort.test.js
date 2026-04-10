@@ -104,4 +104,29 @@ describe("filterAndSort", () => {
     const result = filterAndSort({ ...defaults, companyInsights: noInsights, sortBy: "salary" });
     expect(result[result.length - 1].id).toBe("b");
   });
+
+  // ---- Salary range filter ----
+
+  it("salaryMin excludes companies below the minimum", () => {
+    const result = filterAndSort({ ...defaults, salaryMin: 60 });
+    // a=75, c=65 pass; b=55 excluded
+    expect(result.map(c => c.id)).toEqual(["a", "c"]);
+  });
+
+  it("salaryMax excludes companies above the maximum", () => {
+    const result = filterAndSort({ ...defaults, salaryMax: 65 });
+    // b=55, c=65 pass; a=75 excluded
+    expect(result.map(c => c.id)).toEqual(["b", "c"]);
+  });
+
+  it("salaryMin + salaryMax keeps only companies in the inclusive range", () => {
+    const result = filterAndSort({ ...defaults, salaryMin: 60, salaryMax: 70 });
+    // only c=65 is in [60, 70]
+    expect(result.map(c => c.id)).toEqual(["c"]);
+  });
+
+  it("both null applies no salary filter", () => {
+    const result = filterAndSort({ ...defaults, salaryMin: null, salaryMax: null });
+    expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
+  });
 });

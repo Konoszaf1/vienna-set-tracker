@@ -22,6 +22,8 @@ export default function App() {
   const [filterLang, setFilterLang] = useState("all");
   const [filterCulture, setFilterCulture] = useState("all");
   const [sortBy, setSortBy] = useState("name");
+  const [salaryMin, setSalaryMin] = useState(null);
+  const [salaryMax, setSalaryMax] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [editCompany, setEditCompany] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -119,8 +121,8 @@ export default function App() {
   }, []);
 
   const filtered = useMemo(() => {
-    return filterAndSort({ companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy });
-  }, [companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy]);
+    return filterAndSort({ companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax });
+  }, [companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax]);
 
   const statusCounts = useMemo(() => {
     return STATUS_OPTIONS.map(s => ({
@@ -195,6 +197,31 @@ export default function App() {
             <option value="match">Sort: Match ↓</option>
             <option value="rating">Sort: Rating ↓</option>
           </select>
+
+          <div className={styles.salaryRange}>
+            <input
+              type="number"
+              placeholder="Min €k"
+              value={salaryMin ?? ""}
+              onChange={e => setSalaryMin(e.target.value === "" ? null : parseInt(e.target.value, 10))}
+              min="0"
+              max="200"
+              step="1"
+              className={`${styles.input} ${styles.salaryInput}`}
+              aria-label="Minimum salary in thousands EUR"
+            />
+            <input
+              type="number"
+              placeholder="Max €k"
+              value={salaryMax ?? ""}
+              onChange={e => setSalaryMax(e.target.value === "" ? null : parseInt(e.target.value, 10))}
+              min="0"
+              max="200"
+              step="1"
+              className={`${styles.input} ${styles.salaryInput}`}
+              aria-label="Maximum salary in thousands EUR"
+            />
+          </div>
 
           <div className={styles.viewToggle}>
             <button onClick={() => setView("grid")} className={`${styles.viewButton} ${view === "grid" ? styles.viewActive : ''}`}>Cards</button>

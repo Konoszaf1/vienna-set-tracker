@@ -137,6 +137,15 @@
 .cultureSelect { max-width: 160px; }
 .sortSelect { max-width: 150px; }
 
+.salaryRange {
+  display: flex;
+  gap: 6px;
+}
+
+.salaryInput {
+  width: 80px;
+}
+
 .viewToggle {
   margin-left: auto;
   display: flex;

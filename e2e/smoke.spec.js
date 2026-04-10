@@ -53,6 +53,20 @@ test('changing german level in settings changes salary estimates', async ({ page
   expect(before).not.toBe(after);
 });
 
+test('salary min filter reduces visible cards and clearing restores them', async ({ page }) => {
+  const cards = page.locator('[class*="cardGrid"] > div');
+  await expect(cards.first()).toBeVisible();
+  const initial = await cards.count();
+
+  await page.getByPlaceholder('Min €k').fill('70');
+  const filtered = await cards.count();
+  expect(filtered).toBeLessThan(initial);
+  expect(filtered).toBeGreaterThan(0);
+
+  await page.getByPlaceholder('Min €k').clear();
+  await expect(cards).toHaveCount(initial);
+});
+
 test('pressing Escape closes an open modal', async ({ page }) => {
   await page.getByRole('button', { name: '+ Add Company' }).click();
   const dialog = page.getByRole('dialog');
