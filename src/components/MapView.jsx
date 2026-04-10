@@ -2,11 +2,27 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS, STATUS_OPTIONS } from "../constants";
 import styles from './MapView.module.css';
 
+function escapeHtml(str) {
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function isSafeUrl(url) {
+  if (!url) return false;
+  return /^https?:\/\//i.test(url);
+}
+
 export default function MapView({ companies, profile, companyInsights }) {
   const containerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef([]);
   const extraLayersRef = useRef([]);
+  const prevHomeRef = useRef(null);
   const [ready, setReady] = useState(false);
 
   // Derive home location from profile, falling back to neutral default
@@ -58,9 +74,19 @@ export default function MapView({ companies, profile, companyInsights }) {
           .leaflet-control-attribution a{color:#6366f1!important}`;
         document.head.appendChild(s);
       }
+
+      prevHomeRef.current = home;
     }
 
     const map = mapInstanceRef.current;
+
+    // Re-center only when home coordinates actually changed (e.g. Settings update)
+    const prev = prevHomeRef.current;
+    if (prev && (prev[0] !== home[0] || prev[1] !== home[1])) {
+      map.setView(home, 13);
+    }
+    prevHomeRef.current = home;
+
     markersRef.current.forEach(m => map.removeLayer(m));
     markersRef.current = [];
     extraLayersRef.current.forEach(l => map.removeLayer(l));
@@ -103,7 +129,7 @@ export default function MapView({ companies, profile, companyInsights }) {
     });
     L.marker(home, { icon: homeIcon, zIndexOffset: 1000 })
       .addTo(map)
-      .bindPopup(`<div style="font-family:DM Sans,sans-serif;padding:4px"><div style="font-size:15px;font-weight:700;color:#fafafa">🏠 Home Base</div><div style="font-size:12px;color:#a1a1aa;margin-top:4px">${homeAddress}</div></div>`, { className: "dark-popup", closeButton: true });
+      .bindPopup(`<div style="font-family:DM Sans,sans-serif;padding:4px"><div style="font-size:15px;font-weight:700;color:#fafafa">🏠 Home Base</div><div style="font-size:12px;color:#a1a1aa;margin-top:4px">${escapeHtml(homeAddress)}</div></div>`, { className: "dark-popup", closeButton: true });
 
     const salaryColor = (s) => !s ? "#6366f1" : s >= 70 ? "#10b981" : s >= 60 ? "#f59e0b" : s >= 55 ? "#fb923c" : "#ef4444";
 
@@ -115,10 +141,13 @@ export default function MapView({ companies, profile, companyInsights }) {
       const color = salaryColor(estimate);
       const salaryLabel = estimate ? `€${estimate}k` : "";
 
+      const eName = escapeHtml(c.name);
+      const eId = escapeHtml(c.id);
+
       const icon = L.divIcon({
         className: "",
-        html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer" data-company="${c.id}">
-          <div style="background:${color};color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 12px ${color}60;border:2px solid ${color}40;transition:transform .2s">${c.logo} ${c.name}${salaryLabel ? ` · ${salaryLabel}` : ""}</div>
+        html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer" data-company="${eId}">
+          <div style="background:${color};color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 12px ${color}60;border:2px solid ${color}40;transition:transform .2s">${escapeHtml(c.logo)} ${eName}${salaryLabel ? ` · ${salaryLabel}` : ""}</div>
           <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid ${color};margin-top:-1px"></div>
           <div style="width:8px;height:8px;border-radius:50%;background:${color};margin-top:2px;box-shadow:0 0 8px ${color}80"></div>
         </div>`,
@@ -132,13 +161,22 @@ export default function MapView({ companies, profile, companyInsights }) {
         ? `<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Match</div><div style="font-size:14px;font-weight:700;color:${matchResult.score >= 70 ? "#10b981" : matchResult.score >= 50 ? "#f59e0b" : "#ef4444"}">${matchResult.score}%</div></div>`
         : "";
 
+      const eIndustry = escapeHtml(c.industry);
+      const eAddress = escapeHtml(c.address);
+      const eNotes = escapeHtml(c.notes);
+      const eLogo = escapeHtml(c.logo);
+      const eLangs = c.languages.map(l => escapeHtml(l)).join(", ");
+      const eTech = c.techStack.slice(0, 6).map(t => `<span style="background:#10b98118;color:#10b981;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600">${escapeHtml(t)}</span>`).join("");
+      const eCulture = c.cultureTags.map(t => `<span style="background:#8b5cf618;color:#8b5cf6;padding:2px 6px;border-radius:4px;font-size:10px">${escapeHtml(t)}</span>`).join("");
+      const safeJobUrl = isSafeUrl(c.jobUrl) ? escapeHtml(c.jobUrl) : null;
+
       const popup = `
         <div style="font-family:DM Sans,sans-serif;min-width:260px;padding:4px">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-            <span style="font-size:28px">${c.logo}</span>
+            <span style="font-size:28px">${eLogo}</span>
             <div>
-              <div style="font-size:15px;font-weight:700;color:#fafafa">${c.name}</div>
-              <div style="font-size:11px;color:#a1a1aa">${c.industry}</div>
+              <div style="font-size:15px;font-weight:700;color:#fafafa">${eName}</div>
+              <div style="font-size:11px;color:#a1a1aa">${eIndustry}</div>
             </div>
             <span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:${st.color};background:${st.bg};border:1px solid ${st.color}30">${st.label}</span>
           </div>
@@ -152,12 +190,12 @@ export default function MapView({ companies, profile, companyInsights }) {
             <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating != null ? c.kununuRating+" ★" : "N/A"}</div></div>
             <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Glassdoor</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.glassdoorRating != null ? c.glassdoorRating+" ★" : "N/A"}</div></div>
           </div>
-          <div style="margin-bottom:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Tech</div><div style="display:flex;flex-wrap:wrap;gap:3px">${c.techStack.slice(0,6).map(t=>`<span style="background:#10b98118;color:#10b981;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600">${t}</span>`).join("")}</div></div>
-          <div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px">${c.cultureTags.map(t=>`<span style="background:#8b5cf618;color:#8b5cf6;padding:2px 6px;border-radius:4px;font-size:10px">${t}</span>`).join("")}</div>
-          <div style="font-size:11px;color:#a1a1aa">📍 ${c.address}</div>
-          <div style="font-size:11px;color:#71717a;margin-top:2px">🗣 ${c.languages.join(", ")}</div>
-          ${c.notes?`<div style="margin-top:8px;padding:6px 8px;background:#6366f110;border-left:2px solid #6366f1;border-radius:4px;font-size:11px;color:#a1a1aa;font-style:italic">${c.notes}</div>`:""}
-          ${c.jobUrl?`<div style="margin-top:10px"><a href="${c.jobUrl}" target="_blank" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">View Job ↗</a></div>`:""}
+          <div style="margin-bottom:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Tech</div><div style="display:flex;flex-wrap:wrap;gap:3px">${eTech}</div></div>
+          <div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px">${eCulture}</div>
+          <div style="font-size:11px;color:#a1a1aa">📍 ${eAddress}</div>
+          <div style="font-size:11px;color:#71717a;margin-top:2px">🗣 ${eLangs}</div>
+          ${eNotes?`<div style="margin-top:8px;padding:6px 8px;background:#6366f110;border-left:2px solid #6366f1;border-radius:4px;font-size:11px;color:#a1a1aa;font-style:italic">${eNotes}</div>`:""}
+          ${safeJobUrl?`<div style="margin-top:10px"><a href="${safeJobUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">View Job ↗</a></div>`:""}
         </div>`;
 
       const marker = L.marker([c.lat, c.lng], { icon })
@@ -177,8 +215,6 @@ export default function MapView({ companies, profile, companyInsights }) {
 
       markersRef.current.push(marker);
     });
-
-    map.setView(home, 13);
   }, [ready, companies, home, homeAddress, companyInsights]);
 
   useEffect(() => () => { if (mapInstanceRef.current) { mapInstanceRef.current.remove(); mapInstanceRef.current = null; } }, []);

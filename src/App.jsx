@@ -123,8 +123,6 @@ export default function App() {
             !c.industry.toLowerCase().includes(search.toLowerCase()) &&
             !c.techStack.some(t => t.toLowerCase().includes(search.toLowerCase()))) return false;
         if (filterStatus !== "all" && c.status !== filterStatus) return false;
-        if (filterLang === "en" && c.langReq !== "en") return false;
-        if (filterLang === "de-basic" && c.langReq !== "de-basic") return false;
         if (filterLang === "de-fluent" && c.langReq !== "de-fluent") return false;
         if (filterLang === "accessible" && c.langReq === "de-fluent") return false;
         if (filterCulture !== "all" && !c.cultureTags.includes(filterCulture)) return false;

@@ -15,11 +15,16 @@ export default function CompanyForm({ company, onSave, onCancel }) {
 
   const update = (k, v) => setForm(p => ({ ...p, [k]: v }));
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(form);
+  };
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <div className={styles.grid2}>
         <FieldGroup label="Company Name">
-          <input className={styles.input} value={form.name} onChange={e => update("name", e.target.value)} placeholder="e.g. Bitpanda" />
+          <input className={styles.input} value={form.name} onChange={e => update("name", e.target.value)} placeholder="e.g. Bitpanda" required />
         </FieldGroup>
         <FieldGroup label="Emoji Logo">
           <input className={styles.input} value={form.logo} onChange={e => update("logo", e.target.value)} placeholder="🏢" />
@@ -56,6 +61,7 @@ export default function CompanyForm({ company, onSave, onCancel }) {
         <div className={styles.tagContainer}>
           {STATUS_OPTIONS.map(s => (
             <button
+              type="button"
               key={s.value}
               onClick={() => update("status", s.value)}
               className={styles.statusButton}
@@ -70,6 +76,7 @@ export default function CompanyForm({ company, onSave, onCancel }) {
         <div className={styles.tagContainer}>
           {CULTURE_OPTIONS.map(t => (
             <button
+              type="button"
               key={t}
               onClick={() => update("cultureTags", form.cultureTags.includes(t) ? form.cultureTags.filter(x => x !== t) : [...form.cultureTags, t])}
               className={`${styles.cultureButton} ${form.cultureTags.includes(t) ? styles.cultureActive : ''}`}
@@ -83,6 +90,7 @@ export default function CompanyForm({ company, onSave, onCancel }) {
         <div className={styles.langContainer}>
           {["English", "German"].map(l => (
             <button
+              type="button"
               key={l}
               onClick={() => update("languages", form.languages.includes(l) ? form.languages.filter(x => x !== l) : [...form.languages, l])}
               className={`${styles.langButton} ${form.languages.includes(l) ? styles.langActive : ''}`}
@@ -98,28 +106,28 @@ export default function CompanyForm({ company, onSave, onCancel }) {
             className={`${styles.input} ${styles.techInputField}`}
             value={techInput}
             onChange={e => setTechInput(e.target.value)}
-            onKeyDown={e => { if (e.key === "Enter" && techInput.trim()) { update("techStack", [...form.techStack, techInput.trim()]); setTechInput(""); } }}
+            onKeyDown={e => { if (e.key === "Enter") { e.preventDefault(); if (techInput.trim()) { update("techStack", [...form.techStack, techInput.trim()]); setTechInput(""); } } }}
             placeholder="Type & press Enter"
           />
         </div>
         <div className={styles.techTags}>
           {form.techStack.map((t, i) => (
-            <span key={i} onClick={() => update("techStack", form.techStack.filter((_, j) => j !== i))} className={styles.techItem}>
+            <button type="button" key={i} onClick={() => update("techStack", form.techStack.filter((_, j) => j !== i))} className={styles.techItem} aria-label={`Remove ${t}`}>
               {t} ✕
-            </span>
+            </button>
           ))}
         </div>
       </FieldGroup>
       <FieldGroup label="Job Posting URL">
-        <input className={styles.input} value={form.jobUrl} onChange={e => update("jobUrl", e.target.value)} placeholder="https://..." />
+        <input type="url" className={styles.input} value={form.jobUrl} onChange={e => update("jobUrl", e.target.value)} placeholder="https://..." />
       </FieldGroup>
       <FieldGroup label="Personal Notes">
         <textarea className={`${styles.input} ${styles.textarea}`} value={form.notes} onChange={e => update("notes", e.target.value)} placeholder="Your thoughts, impressions, contact info..." />
       </FieldGroup>
       <div className={styles.actions}>
-        <button onClick={onCancel} className={styles.cancelButton}>Cancel</button>
-        <button onClick={() => onSave(form)} className={styles.saveButton}>Save Company</button>
+        <button type="button" onClick={onCancel} className={styles.cancelButton}>Cancel</button>
+        <button type="submit" className={styles.saveButton}>Save Company</button>
       </div>
-    </div>
+    </form>
   );
 }

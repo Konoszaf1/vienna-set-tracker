@@ -54,7 +54,8 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
           <button
             className={styles.modelToggle}
             onClick={() => setExpanded(prev => !prev)}
-            title="Show salary model breakdown"
+            aria-expanded={expanded}
+            aria-label="Toggle salary breakdown"
           >
             <span className={styles.modelHeader}>
               <span className={styles.modelLabel}>Expected Salary</span>
@@ -174,7 +175,7 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
           </a>
         )}
         <button onClick={() => onEdit(company)} className={styles.editButton}>Edit</button>
-        <button onClick={() => onDelete(company.id)} className={styles.deleteButton}>✕</button>
+        <button onClick={() => onDelete(company.id)} className={styles.deleteButton} aria-label="Delete company">✕</button>
       </div>
     </div>
   );
