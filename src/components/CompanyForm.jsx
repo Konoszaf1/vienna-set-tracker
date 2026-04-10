@@ -6,7 +6,7 @@ import styles from './CompanyForm.module.css';
 export default function CompanyForm({ company, onSave, onCancel }) {
   const [form, setForm] = useState(company || {
     id: Date.now().toString(), name: "", logo: "🏢", district: "", address: "",
-    lat: 48.2082, lng: 16.3738, myExpected: 60, langReq: "de-basic",
+    lat: 48.2082, lng: 16.3738, langReq: "de-basic",
     kununuRating: null, glassdoorRating: null, cultureTags: [],
     techStack: [], languages: ["English"], notes: "", status: "interested",
     jobUrl: "", industry: "",
@@ -42,11 +42,6 @@ export default function CompanyForm({ company, onSave, onCancel }) {
         </FieldGroup>
         <FieldGroup label="Longitude">
           <input type="number" step="0.0001" className={styles.input} value={form.lng} onChange={e => update("lng", parseFloat(e.target.value) || 0)} />
-        </FieldGroup>
-      </div>
-      <div className={styles.grid2}>
-        <FieldGroup label="Expected Salary (€k)">
-          <input type="number" className={styles.input} value={form.myExpected || 0} onChange={e => update("myExpected", parseInt(e.target.value) || 0)} />
         </FieldGroup>
       </div>
       <div className={styles.grid2}>

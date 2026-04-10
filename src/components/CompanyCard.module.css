@@ -152,6 +152,17 @@
 .modelValue[data-tier="mid"] { color: #f59e0b; }
 .modelValue[data-tier="low"] { color: #ef4444; }
 
+.overrideBadge {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #f59e0b20;
+  color: #f59e0b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .matchBadge {
   font-size: 10px;
   font-weight: 600;

@@ -17,7 +17,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://jobs.smartrecruiters.com/Entain",
     industry: "Gaming & Betting",
     langReq: "en",
-    myExpected: 62,
+
   },
   {
     id: "2",
@@ -37,7 +37,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://sportradar.com/careers",
     industry: "Sports Data & Analytics",
     langReq: "en",
-    myExpected: 72,
+
   },
   {
     id: "3",
@@ -57,7 +57,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://bitpanda.com/careers",
     industry: "FinTech / Crypto",
     langReq: "en",
-    myExpected: 70,
+
   },
   {
     id: "4",
@@ -77,7 +77,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://tttech.com/careers",
     industry: "Safety-Critical Systems",
     langReq: "de-basic",
-    myExpected: 72,
+
   },
   {
     id: "5",
@@ -97,7 +97,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://finmatics.com/careers",
     industry: "AI / SaaS / FinTech",
     langReq: "de-basic",
-    myExpected: 65,
+
   },
   {
     id: "6",
@@ -117,7 +117,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://wikifolio.com/careers",
     industry: "FinTech / Investing",
     langReq: "de-basic",
-    myExpected: 60,
+
   },
   {
     id: "7",
@@ -137,7 +137,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://novomatic.com/careers",
     industry: "Gaming Technology",
     langReq: "de-fluent",
-    myExpected: 55,
+
   },
   {
     id: "8",
@@ -157,7 +157,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://compaxdigital.com/careers",
     industry: "SaaS / Cloud",
     langReq: "de-basic",
-    myExpected: 58,
+
   },
   {
     id: "9",
@@ -177,7 +177,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://rbi.com/careers",
     industry: "Banking & Finance",
     langReq: "de-basic",
-    myExpected: 75,
+
   },
   {
     id: "10",
@@ -197,7 +197,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://altova.com/careers",
     industry: "Developer Tools",
     langReq: "de-basic",
-    myExpected: 60,
+
   },
   {
     id: "11",
@@ -217,7 +217,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://careers.dynatrace.com/jobs/",
     industry: "Observability / AI Software",
     langReq: "en",
-    myExpected: 88,
+
   },
   {
     id: "12",
@@ -237,7 +237,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.tricentis.com/company/careers",
     industry: "Test Automation Software",
     langReq: "en",
-    myExpected: 78,
+
   },
   {
     id: "13",
@@ -257,7 +257,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://jobs.frequentis.com/",
     industry: "Safety-Critical Communications",
     langReq: "de-basic",
-    myExpected: 70,
+
   },
   {
     id: "14",
@@ -277,7 +277,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.willhaben.at/jobs",
     industry: "E-Commerce / Marketplace",
     langReq: "de-fluent",
-    myExpected: 68,
+
   },
   {
     id: "15",
@@ -297,7 +297,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.erstedigital.com/en/career/positions-Austria",
     industry: "Banking & Finance / IT",
     langReq: "de-basic",
-    myExpected: 75,
+
   },
   {
     id: "16",
@@ -317,7 +317,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://jobs.a1.com/job-search/",
     industry: "Telecommunications",
     langReq: "de-fluent",
-    myExpected: 72,
+
   },
   {
     id: "17",
@@ -337,7 +337,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.kapsch.net/en/career",
     industry: "Intelligent Transportation",
     langReq: "de-basic",
-    myExpected: 65,
+
   },
   {
     id: "18",
@@ -357,7 +357,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://jobs.siemens.com/",
     industry: "Industrial Technology",
     langReq: "de-basic",
-    myExpected: 78,
+
   },
   {
     id: "19",
@@ -377,7 +377,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://karriere.post.at/",
     industry: "Logistics / E-Commerce",
     langReq: "de-fluent",
-    myExpected: 68,
+
   },
   {
     id: "20",
@@ -397,7 +397,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://mysugr.com/jobs/qa/",
     industry: "HealthTech / MedTech",
     langReq: "en",
-    myExpected: 75,
+
   },
   {
     id: "21",
@@ -417,7 +417,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://career.cloudflight.io/",
     industry: "IT Consulting / Software Dev",
     langReq: "de-basic",
-    myExpected: 65,
+
   },
   {
     id: "22",
@@ -437,7 +437,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://jobs.shpock.com/",
     industry: "E-Commerce / Marketplace",
     langReq: "en",
-    myExpected: 62,
+
   },
   {
     id: "23",
@@ -457,7 +457,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.bawaggroup.com/careers",
     industry: "Banking & Finance",
     langReq: "de-fluent",
-    myExpected: 72,
+
   },
   {
     id: "24",
@@ -477,7 +477,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.kontron.com/ktrdn/jobs",
     industry: "Railway / IoT Technology",
     langReq: "de-basic",
-    myExpected: 68,
+
   },
   {
     id: "25",
@@ -497,7 +497,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://careers.greentube.com/",
     industry: "iGaming / Online Casino",
     langReq: "en",
-    myExpected: 68,
+
   },
   {
     id: "26",
@@ -517,7 +517,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.karriere.at/jobs/7698626",
     industry: "Electrical / Energy Tech",
     langReq: "de-fluent",
-    myExpected: 72,
+
   },
   {
     id: "27",
@@ -537,7 +537,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.karriere.at/jobs/7781381",
     industry: "Transport / Railway",
     langReq: "de-fluent",
-    myExpected: 70,
+
   },
   {
     id: "28",
@@ -557,7 +557,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.admiral-technologies.at/job/test-automation-engineer-c-m-f-x/",
     industry: "Sports Betting / iGaming",
     langReq: "en",
-    myExpected: 65,
+
   },
   {
     id: "29",
@@ -577,7 +577,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://boards.greenhouse.io/ketryx/jobs/4256476008",
     industry: "DevOps / Compliance SaaS",
     langReq: "en",
-    myExpected: 82,
+
   },
   {
     id: "30",
@@ -597,7 +597,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://qnit.de/en/job/test-automation-engineer-m-f-d/",
     industry: "IT Consulting / QA Services",
     langReq: "de-fluent",
-    myExpected: 60,
+
   },
   {
     id: "31",
@@ -617,7 +617,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://karriere.ebcont.com/en/karriere/jobs/job-details/12",
     industry: "IT Consulting",
     langReq: "de-basic",
-    myExpected: 60,
+
   },
   {
     id: "32",
@@ -637,7 +637,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://tourradar.talentlyft.com/jobs/qa-manager-ydV",
     industry: "Travel / Online Platform",
     langReq: "en",
-    myExpected: 80,
+    authorOverride: { value: 80, reason: "QA Manager role — seniority premium not captured by SDET model" },
   },
   {
     id: "33",
@@ -657,7 +657,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://echojobs.io/job/accenture-senior-test-automation-engineer-all-genders-0rpxw",
     industry: "IT Consulting",
     langReq: "de-basic",
-    myExpected: 78,
+
   },
   {
     id: "34",
@@ -677,7 +677,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.karriere.at/f/santander-consumer-bank",
     industry: "Banking / Consumer Finance",
     langReq: "de-basic",
-    myExpected: 62,
+
   },
   {
     id: "35",
@@ -697,7 +697,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.adesso.at/de_at/jobs-karriere/unsere-stellenangebote/consultant-test-automation-engineer-all-genders.jsp",
     industry: "IT Consulting",
     langReq: "de-basic",
-    myExpected: 62,
+
   },
   {
     id: "36",
@@ -717,7 +717,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://bewerbung.pke.at/jobportal/Programme/onlinebewerbung_detail.asp?template=2&objnr=45116",
     industry: "Security Technology",
     langReq: "de-basic",
-    myExpected: 68,
+
   },
   {
     id: "37",
@@ -737,7 +737,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.stepstone.at/stellenangebote--Software-Test-Automation-Specialist-m-w-d-Job-ID-484709-Vienna-AT-1220-Eviden-Austria-GmbH--757983-inline.html",
     industry: "IT Services / Digital Transformation",
     langReq: "de-basic",
-    myExpected: 62,
+
   },
   {
     id: "38",
@@ -757,7 +757,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://www.karriere.at/jobs/10015248",
     industry: "Digital Security / Smart Cards",
     langReq: "de-basic",
-    myExpected: 58,
+
   },
   {
     id: "39",
@@ -777,7 +777,7 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://allaboutapps.at/en/career/quality-assurance/",
     industry: "Mobile App Development",
     langReq: "de-fluent",
-    myExpected: 55,
+
   },
   {
     id: "40",
@@ -797,6 +797,6 @@ export const DEFAULT_COMPANIES = [
     jobUrl: "https://careers.telekom.com/en/jobs/search/jobs/at/223628/",
     industry: "Telecommunications / IT Services",
     langReq: "de-basic",
-    myExpected: 68,
+
   },
 ];

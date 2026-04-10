@@ -49,16 +49,7 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
         )}
       </div>
 
-      {company.myExpected && (
-        <div className={styles.salaryBox}>
-          <div className={styles.salaryLabel}>Expected Salary</div>
-          <span className={styles.salaryAmount} data-tier={company.myExpected >= 65 ? "high" : company.myExpected >= 58 ? "mid" : "low"}>
-            €{company.myExpected}k
-          </span>
-        </div>
-      )}
-
-      {salary && (
+      {salary ? (
         <div className={styles.modelBox}>
           <button
             className={styles.modelToggle}
@@ -66,10 +57,13 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
             title="Show salary model breakdown"
           >
             <span className={styles.modelHeader}>
-              <span className={styles.modelLabel}>Model Estimate</span>
+              <span className={styles.modelLabel}>Expected Salary</span>
               <span className={styles.modelValue} data-tier={salary.estimate >= 65 ? "high" : salary.estimate >= 58 ? "mid" : "low"}>
                 €{salary.estimate}k
               </span>
+              {salary.isOverridden && (
+                <span className={styles.overrideBadge}>override</span>
+              )}
               {match && (
                 <span className={styles.matchBadge} data-grade={match.grade.toLowerCase()}>
                   {match.score}% match
@@ -135,6 +129,11 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
               )}
             </div>
           )}
+        </div>
+      ) : (
+        <div className={styles.salaryBox}>
+          <div className={styles.salaryLabel}>Expected Salary</div>
+          <span className={styles.salaryAmount} style={{ color: '#52525b' }}>—</span>
         </div>
       )}
 

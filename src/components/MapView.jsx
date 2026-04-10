@@ -109,13 +109,11 @@ export default function MapView({ companies, profile, companyInsights }) {
 
     companies.forEach(c => {
       const km = dist(home[0], home[1], c.lat, c.lng);
-      const color = salaryColor(c.myExpected);
-      const salaryLabel = c.myExpected ? `€${c.myExpected}k` : "";
-
-      // Get model estimate for popup display
       const insight = companyInsights?.[c.id];
-      const modelEstimate = insight?.salary?.estimate;
+      const estimate = insight?.salary?.estimate;
       const matchResult = insight?.match;
+      const color = salaryColor(estimate);
+      const salaryLabel = estimate ? `€${estimate}k` : "";
 
       const icon = L.divIcon({
         className: "",
@@ -130,10 +128,6 @@ export default function MapView({ companies, profile, companyInsights }) {
       const commuteNote = km < 2 ? "🚶 walkable" : km < 5 ? "🚲 bikeable" : km < 12 ? "🚇 quick transit" : "🚆 longer commute";
       const st = STATUS_OPTIONS.find(s => s.value === c.status) || STATUS_OPTIONS[0];
 
-      // Model row for popup (only if model data available)
-      const modelRow = modelEstimate
-        ? `<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Model</div><div style="font-size:14px;font-weight:700;color:${salaryColor(modelEstimate)}">€${modelEstimate}k</div></div>`
-        : "";
       const matchRow = matchResult
         ? `<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Match</div><div style="font-size:14px;font-weight:700;color:${matchResult.score >= 70 ? "#10b981" : matchResult.score >= 50 ? "#f59e0b" : "#ef4444"}">${matchResult.score}%</div></div>`
         : "";
@@ -149,11 +143,11 @@ export default function MapView({ companies, profile, companyInsights }) {
             <span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:${st.color};background:${st.bg};border:1px solid ${st.color}30">${st.label}</span>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px">
-            ${c.myExpected?`<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Salary</div><div style="font-size:16px;font-weight:700;color:${color}">€${c.myExpected}k</div></div>`:""}
+            ${estimate?`<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Salary</div><div style="font-size:16px;font-weight:700;color:${color}">€${estimate}k</div></div>`:""}
             <div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Distance</div><div style="font-size:14px;font-weight:700;color:#a1a1aa">${km.toFixed(1)} km</div></div>
             <div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Commute</div><div style="font-size:11px;font-weight:600;color:#a1a1aa">${commuteNote}</div></div>
           </div>
-          ${(modelRow || matchRow) ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">${modelRow}${matchRow}</div>` : ""}
+          ${matchRow ? `<div style="display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:10px">${matchRow}</div>` : ""}
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
             <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating != null ? c.kununuRating+" ★" : "N/A"}</div></div>
             <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Glassdoor</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.glassdoorRating != null ? c.glassdoorRating+" ★" : "N/A"}</div></div>

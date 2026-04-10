@@ -10,6 +10,7 @@ import CompanyForm from "./components/CompanyForm";
 import MapView from "./components/MapView";
 import LatestJobs from "./components/LatestJobs";
 import Modal from "./components/Modal";
+import SettingsModal from "./components/SettingsModal";
 import styles from './App.module.css';
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
   const [sortBy, setSortBy] = useState("name");
   const [modalOpen, setModalOpen] = useState(false);
   const [editCompany, setEditCompany] = useState(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
   // Profile and CV — loaded from localStorage or seed defaults.
@@ -44,9 +46,9 @@ export default function App() {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        const defaultsMap = Object.fromEntries(DEFAULT_COMPANIES.map(c => [c.id, c]));
-        const updated = parsed.map(c => defaultsMap[c.id] ? { ...c, myExpected: defaultsMap[c.id].myExpected, langReq: defaultsMap[c.id].langReq } : c);
-        const storedIds = new Set(parsed.map(c => c.id));
+        // Strip residual myExpected from old localStorage data (migration)
+        const updated = parsed.map(({ myExpected, ...rest }) => rest);
+        const storedIds = new Set(updated.map(c => c.id));
         const missing = DEFAULT_COMPANIES.filter(c => !storedIds.has(c.id));
         const merged = [...updated, ...missing];
         setCompanies(merged);
@@ -109,6 +111,11 @@ export default function App() {
     persist(DEFAULT_COMPANIES);
   }, [persist]);
 
+  const handleSaveProfile = useCallback((newProfile) => {
+    setProfile(newProfile);
+    try { localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(newProfile)); } catch {}
+  }, []);
+
   const filtered = useMemo(() => {
     return companies
       .filter(c => {
@@ -125,7 +132,16 @@ export default function App() {
       })
       .sort((a, b) => {
         if (sortBy === "name") return a.name.localeCompare(b.name);
-        if (sortBy === "salary") return (b.myExpected || 0) - (a.myExpected || 0);
+        if (sortBy === "salary") {
+          const sa = companyInsights[a.id]?.salary?.estimate ?? -1;
+          const sb = companyInsights[b.id]?.salary?.estimate ?? -1;
+          return sb - sa;
+        }
+        if (sortBy === "match") {
+          const ma = companyInsights[a.id]?.match?.score ?? -1;
+          const mb = companyInsights[b.id]?.match?.score ?? -1;
+          return mb - ma;
+        }
         if (sortBy === "rating") {
           const ra = [a.kununuRating, a.glassdoorRating].filter(r => r != null);
           const rb = [b.kununuRating, b.glassdoorRating].filter(r => r != null);
@@ -135,7 +151,7 @@ export default function App() {
         }
         return 0;
       });
-  }, [companies, search, filterStatus, filterLang, filterCulture, sortBy]);
+  }, [companies, search, filterStatus, filterLang, filterCulture, sortBy, companyInsights]);
 
   const statusCounts = useMemo(() => {
     return STATUS_OPTIONS.map(s => ({
@@ -164,6 +180,7 @@ export default function App() {
               </p>
             </div>
             <div className={styles.headerActions}>
+              <button onClick={() => setSettingsOpen(true)} className={styles.resetButton}>⚙ Settings</button>
               <button onClick={handleReset} className={styles.resetButton}>Reset Data</button>
               <button onClick={() => { setEditCompany(null); setModalOpen(true); }} className={styles.addButton}>+ Add Company</button>
             </div>
@@ -206,6 +223,7 @@ export default function App() {
           <select value={sortBy} onChange={e => setSortBy(e.target.value)} className={`${styles.input} ${styles.sortSelect}`}>
             <option value="name">Sort: Name</option>
             <option value="salary">Sort: Salary ↓</option>
+            <option value="match">Sort: Match ↓</option>
             <option value="rating">Sort: Rating ↓</option>
           </select>
 
@@ -237,6 +255,14 @@ export default function App() {
       <Modal open={modalOpen} onClose={() => { setModalOpen(false); setEditCompany(null); }} title={editCompany ? `Edit ${editCompany.name}` : "Add New Company"}>
         <CompanyForm company={editCompany} onSave={handleSave} onCancel={() => { setModalOpen(false); setEditCompany(null); }} />
       </Modal>
+
+      <SettingsModal
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        profile={profile}
+        defaultProfile={defaultProfileData}
+        onSave={handleSaveProfile}
+      />
     </div>
   );
 }

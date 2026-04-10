@@ -331,16 +331,6 @@ function advertisedSalaryAdjustment(company, profile) {
 }
 
 // ---------------------------------------------------------------------------
-// Author overrides — for companies where the model can't capture the
-// real expected salary (role seniority, inside information, etc.)
-// ---------------------------------------------------------------------------
-
-const AUTHOR_OVERRIDES = {
-  // TourRadar: QA Manager role (not IC SDET), significantly higher than model
-  "32": { value: 80, reason: "QA Manager role — seniority premium not captured by SDET model" },
-};
-
-// ---------------------------------------------------------------------------
 // Main function
 // ---------------------------------------------------------------------------
 
@@ -430,8 +420,8 @@ export function estimateSalary(company, profile, cv) {
   const clamped = rawEstimate < FLOOR || rawEstimate > CEILING;
   const estimate = Math.max(FLOOR, Math.min(CEILING, Math.round(rawEstimate)));
 
-  // Check for author override
-  const override = AUTHOR_OVERRIDES[company.id] || null;
+  // Check for author override on the company record itself
+  const override = company.authorOverride || null;
 
   return {
     estimate: override ? override.value : estimate,
@@ -446,4 +436,4 @@ export function estimateSalary(company, profile, cv) {
 }
 
 // Export for use elsewhere
-export { BASELINE, FLOOR, CEILING, AUTHOR_OVERRIDES, parseAdvertisedSalary };
+export { BASELINE, FLOOR, CEILING, parseAdvertisedSalary };
