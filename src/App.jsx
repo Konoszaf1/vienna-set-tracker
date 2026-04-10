@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { STORAGE_KEY, PROFILE_STORAGE_KEY, STATUS_OPTIONS, CULTURE_OPTIONS } from "./constants";
+import { filterAndSort } from "./utils/filterSort";
 import { DEFAULT_COMPANIES } from "./data/companies";
 import defaultProfileData from "./data/defaultProfile.json";
 import defaultCvData from "./data/defaultCv.json";
@@ -29,16 +30,17 @@ export default function App() {
   // Profile and CV — loaded from localStorage or seed defaults.
   // These are NOT subject to the force-reset that company data gets.
   const [profile, setProfile] = useState(defaultProfileData);
-  const [cv, setCv] = useState(defaultCvData);
+  const [cv] = useState(defaultCvData);
 
   useEffect(() => {
     // Load profile/CV from localStorage if available (not force-reset)
     try {
       const storedProfile = localStorage.getItem(PROFILE_STORAGE_KEY);
       if (storedProfile) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- mount-time load from localStorage, runs once
         setProfile(JSON.parse(storedProfile));
       }
-    } catch { /* use defaults */ }
+    } catch {}
   }, []);
 
   useEffect(() => {
@@ -47,11 +49,11 @@ export default function App() {
       if (stored) {
         const parsed = JSON.parse(stored);
         // Strip residual myExpected from old localStorage data (migration)
-        const updated = parsed.map(({ myExpected, ...rest }) => rest);
+        const updated = parsed.map(({ myExpected: _strip, ...rest }) => rest);
         const storedIds = new Set(updated.map(c => c.id));
         const missing = DEFAULT_COMPANIES.filter(c => !storedIds.has(c.id));
         const merged = [...updated, ...missing];
-        setCompanies(merged);
+        setCompanies(merged); // eslint-disable-line react-hooks/set-state-in-effect -- mount-time load from localStorage
         localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
       } else {
         setCompanies(DEFAULT_COMPANIES);
@@ -117,39 +119,8 @@ export default function App() {
   }, []);
 
   const filtered = useMemo(() => {
-    return companies
-      .filter(c => {
-        if (search && !c.name.toLowerCase().includes(search.toLowerCase()) &&
-            !c.industry.toLowerCase().includes(search.toLowerCase()) &&
-            !c.techStack.some(t => t.toLowerCase().includes(search.toLowerCase()))) return false;
-        if (filterStatus !== "all" && c.status !== filterStatus) return false;
-        if (filterLang === "de-fluent" && c.langReq !== "de-fluent") return false;
-        if (filterLang === "accessible" && c.langReq === "de-fluent") return false;
-        if (filterCulture !== "all" && !c.cultureTags.includes(filterCulture)) return false;
-        return true;
-      })
-      .sort((a, b) => {
-        if (sortBy === "name") return a.name.localeCompare(b.name);
-        if (sortBy === "salary") {
-          const sa = companyInsights[a.id]?.salary?.estimate ?? -1;
-          const sb = companyInsights[b.id]?.salary?.estimate ?? -1;
-          return sb - sa;
-        }
-        if (sortBy === "match") {
-          const ma = companyInsights[a.id]?.match?.score ?? -1;
-          const mb = companyInsights[b.id]?.match?.score ?? -1;
-          return mb - ma;
-        }
-        if (sortBy === "rating") {
-          const ra = [a.kununuRating, a.glassdoorRating].filter(r => r != null);
-          const rb = [b.kununuRating, b.glassdoorRating].filter(r => r != null);
-          const avgA = ra.length ? ra.reduce((x, y) => x + y, 0) / ra.length : 0;
-          const avgB = rb.length ? rb.reduce((x, y) => x + y, 0) / rb.length : 0;
-          return avgB - avgA;
-        }
-        return 0;
-      });
-  }, [companies, search, filterStatus, filterLang, filterCulture, sortBy, companyInsights]);
+    return filterAndSort({ companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy });
+  }, [companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy]);
 
   const statusCounts = useMemo(() => {
     return STATUS_OPTIONS.map(s => ({

@@ -1,21 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS, STATUS_OPTIONS } from "../constants";
+import { escapeHtml, isSafeUrl } from "../utils/escape";
 import styles from './MapView.module.css';
-
-function escapeHtml(str) {
-  if (str == null) return "";
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function isSafeUrl(url) {
-  if (!url) return false;
-  return /^https?:\/\//i.test(url);
-}
 
 export default function MapView({ companies, profile, companyInsights }) {
   const containerRef = useRef(null);

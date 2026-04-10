@@ -1,76 +1,60 @@
-# 📍 Vienna SET/SDET Tracker
+# Vienna SET/SDET Tracker
 
-A comprehensive dashboard for tracking Software Engineer in Test (SET/SDET) job opportunities across Vienna, Austria.
+A salary-modeling job-application tracker for Vienna SDET roles — built as a testbed for my own job search.
 
-![Dashboard Preview](https://img.shields.io/badge/React-18-blue) ![Vite](https://img.shields.io/badge/Vite-5-purple) ![Leaflet](https://img.shields.io/badge/Leaflet-1.9-green)
+[![CI](https://github.com/Konoszaf1/vienna-set-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Konoszaf1/vienna-set-tracker/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://konoszaf1.github.io/vienna-set-tracker/)
 
-## Features
+<!-- TODO: add screenshot at docs/screenshot.png -->
 
-- **Card Grid View** — Company cards with ratings, salary ranges, tech stacks, culture tags, language badges, and personal notes
-- **Interactive Map View** — Leaflet-powered dark-themed map of Vienna with company markers and rich popups
-- **Filtering & Sorting** — Filter by status, language (English/German), culture type, and free-text search across companies, industries, and tech stacks. Sort by name, salary, or rating
-- **Application Pipeline** — Track your status: Interested → Applied → Interviewing → Offer → Rejected → Withdrawn
-- **Persistent Storage** — All data saved to localStorage across sessions
-- **Add / Edit / Delete** — Full CRUD with a detailed form modal
-- **Pre-populated** — 10 real Vienna companies with Glassdoor/Kununu ratings, salary estimates, and tech stacks
+## The problem
 
-## Pre-loaded Companies
+I was applying for Software Engineer in Test roles in Vienna and needed a way to compare companies across dimensions that matter for the decision: salary expectations, tech-stack fit, German language requirements, employer reputation, and commute distance. Existing job trackers treat all of this as free-text notes. I wanted something that actually models it.
 
-| Company | Industry | Glassdoor | Salary Range |
-|---------|----------|-----------|--------------|
-| Entain | Gaming & Betting | 3.6 | €50k – €75k |
-| Sportradar | Sports Data | 4.0 | €55k – €80k |
-| Bitpanda | FinTech / Crypto | 3.7 | €55k – €85k |
-| TTTech | Safety-Critical Systems | 3.5 | €45k – €70k |
-| Finmatics | AI / SaaS | — | €50k – €72k |
-| wikifolio | FinTech / Investing | 3.9 | €50k – €70k |
-| Novomatic | Gaming Technology | 3.4 | €45k – €68k |
-| CompaxDigital | SaaS / Cloud | — | €45k – €65k |
-| Raiffeisen Bank | Banking & Finance | 3.7 | €52k – €78k |
-| Altova | Developer Tools | 3.8 | €48k – €68k |
+This tracker takes structured company data — ratings from Kununu and Glassdoor, tech stacks, language requirements, culture tags — and runs it through a configurable salary estimation model and a weighted match-scoring model. Instead of guessing what a role might pay, I can see a computed estimate with a breakdown of how it got there, and compare it against my own salary targets.
 
-## Quick Start
+The app ships with 40 Vienna companies pre-loaded. A stranger can fork it, edit the profile and CV seed data to match their own background, and get personalized estimates immediately.
+
+## The salary model
+
+Salary estimates are computed by a pure function that takes a company record, a candidate profile, and a CV, then returns a number with a human-readable breakdown. The model starts from a Vienna SDET baseline and applies additive adjustments for industry sector, language friction (a non-German speaker faces real negotiating headwinds on German-required roles), employer reputation, brand/company size, tech stack modernity, CV alignment, and any advertised salary data parsed from the company notes. When a company advertises a range, that signal dominates and the other factors become secondary corrections. The full logic lives in [`src/utils/salaryModel.js`](src/utils/salaryModel.js) and is tested extensively.
+
+## Running locally
 
 ```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/vienna-set-tracker.git
+git clone https://github.com/Konoszaf1/vienna-set-tracker.git
 cd vienna-set-tracker
-
-# Install dependencies
 npm install
-
-# Start dev server
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Run the test suite with `npm test` for unit tests and `npm run e2e` for Playwright end-to-end tests.
 
-## Build for Production
+## Architecture notes
 
-```bash
-npm run build
-npm run preview
-```
+The salary and match models are pure functions with no side effects, no React dependencies, and no DOM access. They take data in and return data out, which makes them trivial to unit-test and reason about. The profile (preferences, salary targets, location) is separated from the CV (skills, experience) so that the models have clean signatures and the two concerns don't blur together.
 
-## Tech Stack
+All state lives in localStorage with no backend. The app loads seed data from JSON files on first visit and merges it with any saved state on subsequent visits. This means you can fork the repo, swap out the seed files, and have a personalized tracker without touching any component code.
 
-- **React 18** — UI framework
-- **Vite 5** — Build tool & dev server
-- **Leaflet** — Interactive map with CARTO dark tiles
-- **localStorage** — Persistent data storage
-- **DM Sans / DM Mono** — Typography (loaded via Google Fonts)
+The Leaflet map uses a custom dark theme with CARTO tiles. Company markers are color-coded by salary estimate and show commute distance rings from the user's home location. Popups render rich company details with the same data the card view uses.
 
-## Project Structure
+## Testing
 
-```
-vienna-set-tracker/
-├── index.html          # Entry HTML with fonts & Leaflet CSS
-├── package.json
-├── vite.config.js
-└── src/
-    ├── main.jsx        # React entry point
-    └── App.jsx         # Full dashboard application
-```
+The test suite covers the salary estimation model (parsing, adjustments, clamping, author overrides, and spot-check calibration against real companies), the match scoring model (factor weighting, grade thresholds, edge cases), the filter and sort logic (extracted as a pure function for testability), and the HTML escape and URL validation helpers that prevent XSS in the map view. A component smoke test verifies the card rendering pipeline, and Playwright end-to-end tests cover the critical user flows: loading, searching, adding and deleting companies, map view, settings propagation, and modal keyboard interaction.
+
+This is a test-engineering project; the testing is the point.
+
+## Tech stack
+
+React 18, Vite 5, Leaflet 1.9, CSS Modules with a custom dark theme, Vitest with React Testing Library for unit and component tests, Playwright for end-to-end tests, ESLint for static analysis.
+
+## What's next
+
+- TypeScript migration for the models and components
+- German language support (i18n)
+- Date tracking for application stages (applied on, interviewed on, etc.)
+- Distance-weighted match factor so commute time feeds into the score
 
 ## License
 

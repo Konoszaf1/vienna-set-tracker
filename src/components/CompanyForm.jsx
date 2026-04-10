@@ -4,6 +4,7 @@ import FieldGroup from "./FieldGroup";
 import styles from './CompanyForm.module.css';
 
 export default function CompanyForm({ company, onSave, onCancel }) {
+  /* eslint-disable react-hooks/purity -- Date.now() generates a unique ID once per mount for new companies */
   const [form, setForm] = useState(company || {
     id: Date.now().toString(), name: "", logo: "🏢", district: "", address: "",
     lat: 48.2082, lng: 16.3738, langReq: "de-basic",
@@ -11,6 +12,7 @@ export default function CompanyForm({ company, onSave, onCancel }) {
     techStack: [], languages: ["English"], notes: "", status: "interested",
     jobUrl: "", industry: "",
   });
+  /* eslint-enable react-hooks/purity */
   const [techInput, setTechInput] = useState("");
 
   const update = (k, v) => setForm(p => ({ ...p, [k]: v }));
