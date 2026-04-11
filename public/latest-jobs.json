@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-11T00:36:57.806Z",
-  "count": 25,
+  "lastUpdated": "2026-04-11T07:51:40.081Z",
+  "count": 27,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10015281",
@@ -27,6 +27,18 @@
       "source": "Test Automation Wien"
     },
     {
+      "url": "https://www.karriere.at/jobs/7686185",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Qnit Austria GmbH",
+      "source": "Test Automation Wien"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7778351",
+      "title": "Head of Quality Assurance & Testautomation (m/w/d)",
+      "company": "XXXLdigital – Part of XXXL Group",
+      "source": "Test Automation Wien"
+    },
+    {
       "url": "https://www.karriere.at/jobs/7757258",
       "title": "(Senior) IT Test Automation Engineer (m/w/d)",
       "company": "Schrack Technik GmbH",
@@ -48,18 +60,6 @@
       "url": "https://www.karriere.at/jobs/7766282",
       "title": "Test Automation Engineer (m/w/d)",
       "company": "Software Daten Service Gesellschaft m.b.H.",
-      "source": "Test Automation Wien"
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7686185",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Qnit Austria GmbH",
-      "source": "Test Automation Wien"
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7778351",
-      "title": "Head of Quality Assurance & Testautomation (m/w/d)",
-      "company": "XXXLdigital – Part of XXXL Group",
       "source": "Test Automation Wien"
     },
     {
@@ -111,6 +111,12 @@
       "source": "Software Tester Wien"
     },
     {
+      "url": "https://www.karriere.at/jobs/7744253",
+      "title": "Test Engineer Regular (m/w/d)",
+      "company": "BEV - Bundesamt für Eich- und Vermessungswesen",
+      "source": "Software Tester Wien"
+    },
+    {
       "url": "https://www.karriere.at/jobs/7774874",
       "title": "Trainee System Test Engineer (all genders)",
       "company": "FREQUENTIS AG",
@@ -121,6 +127,12 @@
       "title": "System Test Engineer (all genders)",
       "company": "MELECS EWS GmbH",
       "source": "Software Tester Wien"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7756805",
+      "title": "C# Softwareentwickler Testsysteme (m/w/d)",
+      "company": "Kapsch TrafficCom",
+      "source": "Testautomatisierung Wien"
     },
     {
       "url": "https://www.karriere.at/jobs/10013950",
@@ -172,11 +184,11 @@
     }
   ],
   "validation": {
-    "accepted": 25,
-    "rejected": 15,
+    "accepted": 27,
+    "rejected": 14,
     "reasons": {
-      "missing-test-keyword": 15
+      "missing-test-keyword": 14
     }
   },
-  "lastVerified": "2026-04-11T00:37:05.557Z"
+  "lastVerified": "2026-04-11T07:51:49.725Z"
 }
