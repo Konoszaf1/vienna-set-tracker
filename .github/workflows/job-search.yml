@@ -40,18 +40,23 @@ jobs:
       # --- curated company listings (src/data/companies.js) ---
       - uses: astral-sh/setup-uv@v6
 
-      - name: Verify curated listings with JobSpy
+      - name: Set up Python venv
         run: |
           uv venv .venv
-          uv pip install python-jobspy
-          .venv/bin/python scripts/verifyListings.py --apply
+          uv pip install python-jobspy beautifulsoup4 requests
+
+      - name: Update Kununu ratings
+        run: .venv/bin/python scripts/updateKununuRatings.py --apply
+
+      - name: Verify curated listings with JobSpy
+        run: .venv/bin/python scripts/verifyListings.py --apply
 
       # --- commit & deploy ---
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/jobs.json public/geocoding-cache.json src/data/companies.js
+          git add public/jobs.json public/geocoding-cache.json src/data/companies.js rating-report.json listing-report.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

@@ -23,6 +23,11 @@ describe("validateJob", () => {
     expect(r).toEqual({ valid: false, reason: "invalid-url" });
   });
 
+  it("kununu URL accepted", () => {
+    const r = validateJob(valid({ url: "https://www.kununu.com/job-postings/at/6d9269ec-c384-4699-8962-dc71e78fb801" }));
+    expect(r).toEqual({ valid: true, reason: null });
+  });
+
   it('title "QA" alone rejected (too short)', () => {
     const r = validateJob(valid({ title: "QA" }));
     expect(r).toEqual({ valid: false, reason: "short-title" });

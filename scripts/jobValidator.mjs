@@ -3,7 +3,7 @@
  * Takes a job object, returns { valid: boolean, reason: string | null }.
  */
 
-const URL_PATTERN = /^https:\/\/www\.karriere\.at\/jobs\/\d+/;
+const URL_PATTERN = /^https:\/\/(www\.karriere\.at\/jobs\/\d+|www\.kununu\.com\/)/;
 const MIN_TITLE_LENGTH = 10;
 const BLOCKLISTED_COMPANIES = new Set([
   "jetzt bewerben",

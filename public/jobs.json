@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-11T13:29:31.576Z",
-  "count": 26,
+  "lastUpdated": "2026-04-11T17:30:39.332Z",
+  "count": 38,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10015281",
@@ -63,6 +63,18 @@
       "curatedCompanyId": "30"
     },
     {
+      "url": "https://www.karriere.at/jobs/7778351",
+      "title": "Head of Quality Assurance & Testautomation (m/w/d)",
+      "company": "XXXLdigital – Part of XXXL Group",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
       "url": "https://www.karriere.at/jobs/7757258",
       "title": "(Senior) IT Test Automation Engineer (m/w/d)",
       "company": "Schrack Technik GmbH",
@@ -84,7 +96,7 @@
       "zip": null,
       "lat": null,
       "lng": null,
-      "curatedCompanyId": "19"
+      "curatedCompanyId": null
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -228,7 +240,7 @@
       "zip": null,
       "lat": null,
       "lng": null,
-      "curatedCompanyId": "13"
+      "curatedCompanyId": null
     },
     {
       "url": "https://www.karriere.at/jobs/7724918",
@@ -252,7 +264,7 @@
       "zip": null,
       "lat": null,
       "lng": null,
-      "curatedCompanyId": "17"
+      "curatedCompanyId": null
     },
     {
       "url": "https://www.karriere.at/jobs/10013950",
@@ -313,12 +325,159 @@
       "lat": null,
       "lng": null,
       "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/6d9269ec-c384-4699-8962-dc71e78fb801",
+      "title": "Test Automation Engineer (d/w/m)",
+      "company": "EBCONT",
+      "source": "kununu: Test Automation",
+      "city": "Vienna",
+      "address": "Vienna",
+      "zip": null,
+      "kununuScore": 4.5,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "curatedCompanyId": "31"
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/35bdaa7f-a5e4-498a-baa2-878ce6f75beb",
+      "title": "Test Automation Engineer (all genders)",
+      "company": "adesso Austria GmbH",
+      "source": "kununu: Test Automation",
+      "city": "Graz, Wien",
+      "address": "Graz, Wien",
+      "zip": null,
+      "kununuScore": 4.5,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": "35"
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/0bf2f3ee-c7fd-461d-ab10-afb365e7e62e",
+      "title": "Test Automation Engineer (w/m/d)",
+      "company": "Hirebuddy",
+      "source": "kununu: Test Automation",
+      "city": "Vienna",
+      "address": "Vienna",
+      "zip": null,
+      "kununuScore": 4.8,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/d9a82254-a142-4ea8-b44f-820e17124264",
+      "title": "Senior Test Automation Engineer (all genders)",
+      "company": "adesso Austria GmbH",
+      "source": "kununu: Test Automation",
+      "city": "Graz, Wien",
+      "address": "Graz, Wien",
+      "zip": null,
+      "kununuScore": 4.5,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": "35"
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/378fc7a9-dc13-4184-a61d-9bbcc4a71cc7",
+      "title": "(Senior) IT Test Automation Engineer (m/w/d)",
+      "company": "Schrack Technik GmbH",
+      "source": "kununu: Test Automation",
+      "city": "Vienna",
+      "address": "Vienna",
+      "zip": null,
+      "kununuScore": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "curatedCompanyId": "26"
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/cb2feec8-12fa-405d-a5ec-c42d1b413733",
+      "title": "QA Engineer (m/w/d)",
+      "company": "Ringana GmbH",
+      "source": "kununu: QA Engineer",
+      "city": "Vienna",
+      "address": "Vienna",
+      "zip": null,
+      "kununuScore": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/b86251a3-5da0-4996-886d-4d0280b78071",
+      "title": "Mitarbeiter*in QA Engineering IT (w/m/d)",
+      "company": "Österreichische Post AG",
+      "source": "kununu: QA Engineer",
+      "city": "Wien",
+      "address": "Wien",
+      "zip": null,
+      "kununuScore": 3.3,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/de/167156ac-3f35-4d08-8a25-1061aa9512b0",
+      "title": "Consultant | Software-Testautomatisierung (all genders)",
+      "company": "cronos Unternehmensberatung GmbH",
+      "source": "kununu: Testautomatisierung",
+      "city": "Vienna",
+      "address": "Vienna",
+      "zip": null,
+      "kununuScore": 4.3,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/c8c6feda-2c8e-4d2f-b296-d8a43931d431",
+      "title": "Quality Control Specialist",
+      "company": "Hilti Austria GmbH",
+      "source": "kununu: Quality Assurance",
+      "city": "Vienna",
+      "address": "Vienna",
+      "zip": null,
+      "kununuScore": 4,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/caaefb6d-56a7-44a6-b1f1-63e6d5655c87",
+      "title": "SQM-Supplier Quality Manager",
+      "company": "Hilti Austria GmbH",
+      "source": "kununu: Quality Assurance",
+      "city": "Vienna",
+      "address": "Vienna",
+      "zip": null,
+      "kununuScore": 4,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.kununu.com/job-postings/at/ee0d62bf-f061-43f4-a89a-a77c795f634d",
+      "title": "Senior Software Engineer in Test (f/m/x)",
+      "company": "Raiffeisen Bank International AG (RBI)",
+      "source": "kununu: Software Tester",
+      "city": "Vienna",
+      "address": "Vienna",
+      "zip": null,
+      "kununuScore": 4,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "curatedCompanyId": null
     }
   ],
   "searchLinks": [
     {
       "label": "karriere.at",
       "url": "https://www.karriere.at/jobs/test-automation/in-wien"
+    },
+    {
+      "label": "kununu",
+      "url": "https://www.kununu.com/at/jobs?q=test+automation&loc=Wien"
     },
     {
       "label": "LinkedIn",
@@ -334,11 +493,10 @@
     }
   ],
   "validation": {
-    "accepted": 27,
-    "rejected": 14,
+    "accepted": 38,
+    "rejected": 33,
     "reasons": {
-      "missing-test-keyword": 14
+      "missing-test-keyword": 33
     }
-  },
-  "lastVerified": "2026-04-11T13:29:40.547Z"
+  }
 }

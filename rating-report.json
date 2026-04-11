@@ -1,0 +1,90 @@
+[
+  {
+    "id": "26",
+    "name": "Schrack Technik",
+    "slug": "schrack-technik1",
+    "old_rating": 4.2,
+    "new_rating": 4.2,
+    "status": "SAME"
+  },
+  {
+    "id": "27",
+    "name": "ÖBB-Konzern",
+    "slug": "oebb-konzern",
+    "old_rating": 3.8,
+    "new_rating": 3.8,
+    "status": "SAME"
+  },
+  {
+    "id": "28",
+    "name": "ADMIRAL Technologies",
+    "slug": "admiral-sportwetten1",
+    "old_rating": 3.6,
+    "new_rating": 3.6,
+    "status": "SAME"
+  },
+  {
+    "id": "29",
+    "name": "Ketryx",
+    "slug": "ketryx1",
+    "old_rating": 4.9,
+    "new_rating": 4.9,
+    "status": "SAME"
+  },
+  {
+    "id": "30",
+    "name": "Qnit Austria",
+    "slug": "qnit-austria1",
+    "old_rating": null,
+    "new_rating": 4.8,
+    "status": "CHANGED"
+  },
+  {
+    "id": "31",
+    "name": "EBCONT",
+    "slug": "ebcont",
+    "old_rating": 4.5,
+    "new_rating": 4.5,
+    "status": "SAME"
+  },
+  {
+    "id": "32",
+    "name": "TourRadar",
+    "slug": "tourradar1",
+    "old_rating": 4.0,
+    "new_rating": 4.0,
+    "status": "SAME"
+  },
+  {
+    "id": "35",
+    "name": "adesso Austria",
+    "slug": "adesso-austria",
+    "old_rating": 4.0,
+    "new_rating": 4.5,
+    "status": "CHANGED"
+  },
+  {
+    "id": "36",
+    "name": "PKE Holding",
+    "slug": "pke-electronics",
+    "old_rating": 3.5,
+    "new_rating": 3.9,
+    "status": "CHANGED"
+  },
+  {
+    "id": "38",
+    "name": "AUSTRIACARD",
+    "slug": "austria-card1",
+    "old_rating": 3.3,
+    "new_rating": 3.4,
+    "status": "CHANGED"
+  },
+  {
+    "id": "39",
+    "name": "allaboutapps",
+    "slug": "aaa-all-about-apps",
+    "old_rating": 4.6,
+    "new_rating": 4.4,
+    "status": "CHANGED"
+  }
+]

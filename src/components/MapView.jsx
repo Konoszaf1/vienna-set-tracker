@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from "react";
-import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS, STATUS_OPTIONS } from "../constants";
+import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS } from "../constants";
 import { escapeHtml, isSafeUrl } from "../utils/escape";
 import styles from './MapView.module.css';
 
@@ -127,22 +127,17 @@ export default function MapView({ companies, profile, companyInsights }) {
       const matchResult = insight?.match;
       const color = salaryColor(estimate);
       const salaryLabel = estimate ? `€${estimate}k` : "";
-      const isScraped = !!c.isScraped;
-
       const eName = escapeHtml(c.name);
       const eId = escapeHtml(c.id);
-      const liveTag = isScraped ? `<span style="background:#06b6d430;color:#06b6d4;padding:1px 5px;border-radius:3px;font-size:9px;margin-right:4px">Live</span>` : "";
 
       const openRoles = c.openRoles || [];
-      const hasLiveRoles = openRoles.length > 0;
-      const primaryUrl = hasLiveRoles ? openRoles[0].url : c.jobUrl;
+      const primaryUrl = openRoles.length > 0 ? openRoles[0].url : c.jobUrl;
       const safePrimaryUrl = isSafeUrl(primaryUrl) ? escapeHtml(primaryUrl) : null;
-      const primaryLinkLabel = hasLiveRoles ? "View listing ↗" : "View careers ↗";
 
       const icon = L.divIcon({
         className: "",
-        html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer${!isScraped && !hasLiveRoles ? ";opacity:0.7" : ""}" data-company="${eId}">
-          <div style="background:${color};color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 12px ${color}60;border:2px solid ${color}40;transition:transform .2s">${liveTag}${escapeHtml(c.logo)} ${eName}${salaryLabel ? ` · ${salaryLabel}` : ""}</div>
+        html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer" data-company="${eId}">
+          <div style="background:${color};color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 12px ${color}60;border:2px solid ${color}40;transition:transform .2s">${escapeHtml(c.logo)} ${eName}${salaryLabel ? ` · ${salaryLabel}` : ""}</div>
           <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid ${color};margin-top:-1px"></div>
           <div style="width:8px;height:8px;border-radius:50%;background:${color};margin-top:2px;box-shadow:0 0 8px ${color}80"></div>
         </div>`,
@@ -150,7 +145,6 @@ export default function MapView({ companies, profile, companyInsights }) {
       });
 
       const commuteNote = km < 2 ? "🚶 walkable" : km < 5 ? "🚲 bikeable" : km < 12 ? "🚇 quick transit" : "🚆 longer commute";
-      const st = STATUS_OPTIONS.find(s => s.value === c.status) || STATUS_OPTIONS[0];
 
       const matchRow = matchResult
         ? `<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Match</div><div style="font-size:14px;font-weight:700;color:${matchResult.score >= 70 ? "#10b981" : matchResult.score >= 50 ? "#f59e0b" : "#ef4444"}">${matchResult.score}%</div></div>`
@@ -174,15 +168,12 @@ export default function MapView({ companies, profile, companyInsights }) {
           : `<div style="padding:4px 6px;margin:2px 0;background:#18181b;border-radius:4px;color:#a1a1aa;font-size:11px">${eTitle}${estLabel}</div>`;
       }).join("")}</div>` : "";
 
-      // Conditional popup sections based on scraped vs curated
-      const ratingsBlock = !isScraped ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+      const ratingsBlock = (c.kununuRating != null || c.glassdoorRating != null) ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
             <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating != null ? c.kununuRating+" ★" : "N/A"}</div></div>
             <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Glassdoor</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.glassdoorRating != null ? c.glassdoorRating+" ★" : "N/A"}</div></div>
           </div>` : "";
 
-      const statusBadge = isScraped
-        ? `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:#06b6d4;background:#06b6d420;border:1px solid #06b6d430">Live</span>`
-        : `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:${st.color};background:${st.bg};border:1px solid ${st.color}30">${st.label}</span>`;
+      const statusBadge = `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:#06b6d4;background:#06b6d420;border:1px solid #06b6d430">Live</span>`;
 
       const popup = `
         <div style="font-family:DM Sans,sans-serif;min-width:260px;padding:4px">
@@ -207,7 +198,7 @@ export default function MapView({ companies, profile, companyInsights }) {
           ${eLangs?`<div style="font-size:11px;color:#71717a;margin-top:2px">🗣 ${eLangs}</div>`:""}
           ${eNotes?`<div style="margin-top:8px;padding:6px 8px;background:#6366f110;border-left:2px solid #6366f1;border-radius:4px;font-size:11px;color:#a1a1aa;font-style:italic">${eNotes}</div>`:""}
           ${rolesHtml}
-          ${safePrimaryUrl?`<div style="margin-top:10px"><a href="${safePrimaryUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">${primaryLinkLabel}</a></div>`:""}
+          ${safePrimaryUrl?`<div style="margin-top:10px"><a href="${safePrimaryUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">View listing ↗</a></div>`:""}
         </div>`;
 
       const marker = L.marker([c.lat, c.lng], { icon })

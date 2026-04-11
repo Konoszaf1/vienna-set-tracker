@@ -1,21 +1,20 @@
 #!/usr/bin/env node
 /**
- * karriere.at job scraper for Vienna SDET/QA roles.
+ * Job scraper for Vienna SDET/QA roles.
  *
- * Purpose: Fetches public job listings from karriere.at search pages,
- * extracts per-job addresses from detail pages, geocodes them via
+ * Sources: karriere.at (HTML scraping) and kununu.com (Next.js __NEXT_DATA__).
+ * Extracts per-job addresses from karriere.at detail pages, geocodes via
  * Nominatim, deduplicates against the curated company dataset, and
  * writes the result to public/jobs.json.
  *
  * Compliance notes:
- *   - karriere.at is a public job board; these search result pages are
- *     freely accessible without login.
- *   - The script identifies itself via a custom User-Agent string so
- *     karriere.at admins can reach out if they have concerns.
- *   - Requests are rate-limited to one per second to avoid putting any
- *     meaningful load on the site.
- *   - If karriere.at requests removal, the maintainer should disable
- *     the .github/workflows/job-search.yml workflow immediately.
+ *   - Both karriere.at and kununu.com are public job boards; search pages
+ *     are freely accessible without login.
+ *   - The script identifies itself via a custom User-Agent string.
+ *   - Requests are rate-limited (1s karriere.at, 2s kununu) to avoid
+ *     putting meaningful load on either site.
+ *   - If either site requests removal, disable the relevant searches in
+ *     .github/workflows/job-search.yml immediately.
  */
 
 import { parse } from "node-html-parser";
@@ -27,7 +26,7 @@ const USER_AGENT =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 " +
   "vienna-set-tracker/1.0 (+https://github.com/Konoszaf1/vienna-set-tracker)";
 
-const SEARCHES = [
+const KARRIERE_SEARCHES = [
   { slug: "test-automation/in-wien", label: "Test Automation Wien" },
   { slug: "sdet/in-wien", label: "SDET Wien" },
   { slug: "qa-engineer/in-wien", label: "QA Engineer Wien" },
@@ -35,6 +34,17 @@ const SEARCHES = [
   { slug: "testautomatisierung/in-wien", label: "Testautomatisierung Wien" },
   { slug: "quality-assurance/in-wien", label: "Quality Assurance Wien" },
 ];
+
+const KUNUNU_SEARCHES = [
+  { q: "test automation", label: "kununu: Test Automation" },
+  { q: "QA engineer", label: "kununu: QA Engineer" },
+  { q: "SDET", label: "kununu: SDET" },
+  { q: "Testautomatisierung", label: "kununu: Testautomatisierung" },
+  { q: "quality assurance", label: "kununu: Quality Assurance" },
+  { q: "software tester", label: "kununu: Software Tester" },
+];
+
+const KUNUNU_PAGES_PER_SEARCH = 3; // 30 results/page, most Vienna hits are on early pages
 
 // Manual aliases for scraped names that don't match any curated company
 // via normalization. Add entries here when you notice a scraped job that
@@ -81,6 +91,76 @@ async function fetchSearch({ slug, label }) {
     console.error(`  Failed: ${slug}: ${e.message}`);
     return [];
   }
+}
+
+// ---------------------------------------------------------------------------
+// kununu.com job search (Next.js SSR — parse __NEXT_DATA__ JSON)
+// ---------------------------------------------------------------------------
+
+async function fetchKununuSearch({ q, label }) {
+  const jobs = [];
+
+  for (let page = 1; page <= KUNUNU_PAGES_PER_SEARCH; page++) {
+    const url = `https://www.kununu.com/at/jobs?q=${encodeURIComponent(q)}&loc=Wien&page=${page}`;
+    try {
+      const res = await fetch(url, {
+        headers: { "User-Agent": USER_AGENT },
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!res.ok) {
+        console.error(`  HTTP ${res.status} for kununu page ${page}`);
+        break;
+      }
+      const html = await res.text();
+
+      // Extract __NEXT_DATA__ JSON blob
+      const match = html.match(/<script\s+id="__NEXT_DATA__"[^>]*>(.*?)<\/script>/s);
+      if (!match) {
+        console.error(`  No __NEXT_DATA__ found on kununu page ${page}`);
+        break;
+      }
+
+      const data = JSON.parse(match[1]);
+      const searchJobs = data?.props?.pageProps?.searchJobs;
+      if (!searchJobs?.jobs) break;
+
+      const lastPage = searchJobs.pagination?.lastPage || 1;
+
+      for (const job of searchJobs.jobs) {
+        // Filter to Vienna: stateCode AT-9 or Wien in city/region
+        const isVienna =
+          job.stateCode === "AT-9" ||
+          /wien/i.test(job.city || "") ||
+          /wien/i.test(job.region || "");
+        if (!isVienna) continue;
+
+        const jobUrl = job.url
+          ? `https://www.kununu.com${job.url}`
+          : null;
+        if (!jobUrl) continue;
+
+        jobs.push({
+          url: jobUrl,
+          title: job.title || "",
+          company: job.profile?.companyName || "",
+          source: label,
+          city: job.city || "Wien",
+          address: job.city || "Wien",
+          zip: null,
+          kununuScore: job.profile?.score || null,
+        });
+      }
+
+      if (page >= lastPage) break;
+    } catch (e) {
+      console.error(`  Failed kununu page ${page}: ${e.message}`);
+      break;
+    }
+
+    await new Promise(r => setTimeout(r, 2000));
+  }
+
+  return jobs;
 }
 
 // ---------------------------------------------------------------------------
@@ -194,15 +274,15 @@ async function geocodeJobs(jobs, cachePath) {
 // ---------------------------------------------------------------------------
 
 async function main() {
-  console.log("Searching karriere.at for Vienna SDET/QA jobs...");
-
   const allJobs = new Map();
   const failedSlugs = [];
   const rejectionCounts = {};
   let accepted = 0;
   let rejected = 0;
 
-  for (const s of SEARCHES) {
+  // --- karriere.at ---
+  console.log("Searching karriere.at for Vienna SDET/QA jobs...");
+  for (const s of KARRIERE_SEARCHES) {
     const jobs = await fetchSearch(s);
     console.log(`  "${s.label}": ${jobs.length} results`);
     if (jobs.length === 0) {
@@ -219,8 +299,25 @@ async function main() {
         rejectionCounts[result.reason] = (rejectionCounts[result.reason] || 0) + 1;
       }
     }
-    // Rate-limit: 1 second between requests
     await new Promise(r => setTimeout(r, 1000));
+  }
+
+  // --- kununu ---
+  console.log("\nSearching kununu.com for Vienna SDET/QA jobs...");
+  for (const s of KUNUNU_SEARCHES) {
+    const jobs = await fetchKununuSearch(s);
+    console.log(`  "${s.label}": ${jobs.length} Vienna results`);
+    for (const j of jobs) {
+      if (allJobs.has(j.url)) continue;
+      const result = validateJob(j);
+      if (result.valid) {
+        allJobs.set(j.url, j);
+        accepted++;
+      } else {
+        rejected++;
+        rejectionCounts[result.reason] = (rejectionCounts[result.reason] || 0) + 1;
+      }
+    }
   }
 
   // Validation summary
@@ -231,21 +328,21 @@ async function main() {
 
   if (allJobs.size === 0) {
     console.error("\nERROR: All searches returned zero valid results.");
-    console.error("karriere.at may have changed its markup, or the site is unreachable.");
-    console.error("Check .m-jobsListItem selector against the live page.");
+    console.error("karriere.at or kununu may have changed their markup.");
     process.exit(1);
   }
 
   if (failedSlugs.length > 0) {
-    console.warn(`\nWARNING: ${failedSlugs.length} search(es) returned zero results: ${failedSlugs.join(", ")}`);
+    console.warn(`\nWARNING: ${failedSlugs.length} karriere.at search(es) returned zero results: ${failedSlugs.join(", ")}`);
   }
 
-  // --- Task 1: Fetch detail pages for address info ---
+  // --- Task 1: Fetch detail pages for address info (karriere.at only) ---
   const jobs = [...allJobs.values()];
-  console.log("\nFetching job detail pages for addresses...");
+  const karriereJobs = jobs.filter(j => j.url.includes("karriere.at"));
+  console.log(`\nFetching karriere.at detail pages for addresses (${karriereJobs.length} jobs)...`);
   let addressCount = 0;
-  for (let i = 0; i < jobs.length; i++) {
-    const job = jobs[i];
+  for (let i = 0; i < karriereJobs.length; i++) {
+    const job = karriereJobs[i];
     try {
       const res = await fetch(job.url, {
         headers: { "User-Agent": USER_AGENT },
@@ -275,11 +372,11 @@ async function main() {
       job.city = null;
       job.zip = null;
     }
-    if (i < jobs.length - 1) {
+    if (i < karriereJobs.length - 1) {
       await new Promise(r => setTimeout(r, 1000));
     }
   }
-  console.log(`  Extracted addresses for ${addressCount}/${jobs.length} jobs`);
+  console.log(`  Extracted addresses for ${addressCount}/${karriereJobs.length} karriere.at jobs`);
 
   // --- Task 2: Geocode addresses ---
   console.log("\nGeocoding job addresses...");
@@ -307,6 +404,7 @@ async function main() {
     jobs,
     searchLinks: [
       { label: "karriere.at", url: "https://www.karriere.at/jobs/test-automation/in-wien" },
+      { label: "kununu", url: "https://www.kununu.com/at/jobs?q=test+automation&loc=Wien" },
       { label: "LinkedIn", url: "https://www.linkedin.com/jobs/search/?keywords=SDET&location=Vienna" },
       { label: "StepStone", url: "https://www.stepstone.at/jobs/test-automation/in-wien" },
       { label: "indeed.at", url: "https://at.indeed.com/jobs?q=SDET&l=Wien" },
