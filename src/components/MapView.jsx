@@ -120,7 +120,33 @@ export default function MapView({ companies, profile, companyInsights }) {
     const salaryColor = (s) => !s ? "#6366f1" : s >= 70 ? "#10b981" : s >= 60 ? "#f59e0b" : s >= 55 ? "#fb923c" : "#ef4444";
 
     const mappable = companies.filter(c => c.lat != null && c.lng != null);
+
+    // Nudge markers that are too close so labels don't overlap.
+    // Build an offset map keyed by company id.
+    const offsets = {};
+    const PROXIMITY = 0.0015; // ~150 m – labels collide within this range
+    const NUDGE = 0.0012;
+    for (let i = 0; i < mappable.length; i++) {
+      if (!offsets[mappable[i].id]) offsets[mappable[i].id] = { dlat: 0, dlng: 0 };
+      for (let j = i + 1; j < mappable.length; j++) {
+        if (!offsets[mappable[j].id]) offsets[mappable[j].id] = { dlat: 0, dlng: 0 };
+        const dx = (mappable[j].lng + offsets[mappable[j].id].dlng) - (mappable[i].lng + offsets[mappable[i].id].dlng);
+        const dy = (mappable[j].lat + offsets[mappable[j].id].dlat) - (mappable[i].lat + offsets[mappable[i].id].dlat);
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < PROXIMITY) {
+          const angle = d > 0 ? Math.atan2(dy, dx) : Math.PI / 2;
+          const push = (PROXIMITY - d) / 2 + NUDGE;
+          offsets[mappable[j].id].dlat += Math.sin(angle) * push;
+          offsets[mappable[j].id].dlng += Math.cos(angle) * push;
+          offsets[mappable[i].id].dlat -= Math.sin(angle) * push;
+          offsets[mappable[i].id].dlng -= Math.cos(angle) * push;
+        }
+      }
+    }
+
     mappable.forEach(c => {
+      const oLat = c.lat + (offsets[c.id]?.dlat || 0);
+      const oLng = c.lng + (offsets[c.id]?.dlng || 0);
       const km = dist(home[0], home[1], c.lat, c.lng);
       const insight = companyInsights?.[c.id];
       const estimate = insight?.salary?.estimate;
@@ -203,15 +229,15 @@ export default function MapView({ companies, profile, companyInsights }) {
 
       // Stagger z-index by latitude so southern markers render in front;
       // on hover, boost to bring the active marker above all others.
-      const baseZ = Math.round((90 - c.lat) * 100);
-      const marker = L.marker([c.lat, c.lng], { icon, zIndexOffset: baseZ })
+      const baseZ = Math.round((90 - oLat) * 100);
+      const marker = L.marker([oLat, oLng], { icon, zIndexOffset: baseZ })
         .addTo(map)
         .bindPopup(popup, { maxWidth: 320, className: "dark-popup", closeButton: true });
 
       marker.on("mouseover", () => {
         marker.setZIndexOffset(10000);
         if (marker._homeLine) return;
-        marker._homeLine = L.polyline([home, [c.lat, c.lng]], { color, weight: 2, dashArray: "6 4", opacity: 0.6 }).addTo(map);
+        marker._homeLine = L.polyline([home, [oLat, oLng]], { color, weight: 2, dashArray: "6 4", opacity: 0.6 }).addTo(map);
       });
       marker.on("mouseout", () => {
         if (!marker.isPopupOpen()) marker.setZIndexOffset(baseZ);
