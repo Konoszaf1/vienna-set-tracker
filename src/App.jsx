@@ -23,7 +23,6 @@ export default function App() {
   const [sortBy, setSortBy] = useState("name");
   const [salaryMin, setSalaryMin] = useState(null);
   const [salaryMax, setSalaryMax] = useState(null);
-  const [hasOpenRoles, setHasOpenRoles] = useState(false);
   const [jobs, setJobs] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editCompany, setEditCompany] = useState(null);
@@ -189,8 +188,8 @@ export default function App() {
   }, []);
 
   const filtered = useMemo(() => {
-    return filterAndSort({ companies: mergedEntries, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax, hasOpenRoles });
-  }, [mergedEntries, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax, hasOpenRoles]);
+    return filterAndSort({ companies: mergedEntries, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax });
+  }, [mergedEntries, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax]);
 
   const statusCounts = useMemo(() => {
     return STATUS_OPTIONS.map(s => ({
@@ -290,16 +289,6 @@ export default function App() {
               aria-label="Maximum salary in thousands EUR"
             />
           </div>
-
-          <label className={styles.checkboxLabel}>
-            <input
-              type="checkbox"
-              checked={hasOpenRoles}
-              onChange={e => setHasOpenRoles(e.target.checked)}
-              className={styles.checkbox}
-            />
-            Only companies hiring
-          </label>
 
           <div className={styles.viewToggle}>
             <button onClick={() => setView("grid")} className={`${styles.viewButton} ${view === "grid" ? styles.viewActive : ''}`}>Cards</button>

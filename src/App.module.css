@@ -146,20 +146,6 @@
   width: 80px;
 }
 
-.checkboxLabel {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #a1a1aa;
-  font-size: 13px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.checkbox {
-  accent-color: #6366f1;
-}
-
 .viewToggle {
   margin-left: auto;
   display: flex;
