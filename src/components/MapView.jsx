@@ -201,18 +201,24 @@ export default function MapView({ companies, profile, companyInsights }) {
           ${safePrimaryUrl?`<div style="margin-top:10px"><a href="${safePrimaryUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">View listing ↗</a></div>`:""}
         </div>`;
 
-      const marker = L.marker([c.lat, c.lng], { icon })
+      // Stagger z-index by latitude so southern markers render in front;
+      // on hover, boost to bring the active marker above all others.
+      const baseZ = Math.round((90 - c.lat) * 100);
+      const marker = L.marker([c.lat, c.lng], { icon, zIndexOffset: baseZ })
         .addTo(map)
         .bindPopup(popup, { maxWidth: 320, className: "dark-popup", closeButton: true });
 
       marker.on("mouseover", () => {
+        marker.setZIndexOffset(10000);
         if (marker._homeLine) return;
         marker._homeLine = L.polyline([home, [c.lat, c.lng]], { color, weight: 2, dashArray: "6 4", opacity: 0.6 }).addTo(map);
       });
       marker.on("mouseout", () => {
+        if (!marker.isPopupOpen()) marker.setZIndexOffset(baseZ);
         if (marker._homeLine && !marker.isPopupOpen()) { map.removeLayer(marker._homeLine); marker._homeLine = null; }
       });
       marker.on("popupclose", () => {
+        marker.setZIndexOffset(baseZ);
         if (marker._homeLine) { map.removeLayer(marker._homeLine); marker._homeLine = null; }
       });
 
