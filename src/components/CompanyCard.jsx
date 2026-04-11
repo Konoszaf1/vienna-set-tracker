@@ -13,9 +13,12 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
   const salary = insights?.salary;
   const match = insights?.match;
   const isScraped = company.isScraped;
+  const hasLiveRoles = company.openRoles?.length > 0;
+  const primaryJobUrl = company.openRoles?.[0]?.url || company.jobUrl;
+  const primaryLabel = hasLiveRoles ? "View listing ↗" : "View careers ↗";
 
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card}${!isScraped && !hasLiveRoles ? ` ${styles.noLiveRoles}` : ''}`}>
       <div className={styles.cardHeader}>
         <div className={styles.companyInfo}>
           <span className={styles.logo}>{company.logo}</span>
@@ -193,9 +196,9 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
       )}
 
       <div className={styles.actions}>
-        {company.jobUrl && (
-          <a href={company.jobUrl} target="_blank" rel="noopener noreferrer" className={styles.viewJobLink}>
-            View Job ↗
+        {primaryJobUrl && (
+          <a href={primaryJobUrl} target="_blank" rel="noopener noreferrer" className={styles.viewJobLink}>
+            {primaryLabel}
           </a>
         )}
         {!isScraped && (

@@ -135,7 +135,7 @@ export default function MapView({ companies, profile, companyInsights }) {
 
       const icon = L.divIcon({
         className: "",
-        html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer" data-company="${eId}">
+        html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer${!isScraped && !hasLiveRoles ? ";opacity:0.7" : ""}" data-company="${eId}">
           <div style="background:${color};color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 12px ${color}60;border:2px solid ${color}40;transition:transform .2s">${liveTag}${escapeHtml(c.logo)} ${eName}${salaryLabel ? ` · ${salaryLabel}` : ""}</div>
           <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid ${color};margin-top:-1px"></div>
           <div style="width:8px;height:8px;border-radius:50%;background:${color};margin-top:2px;box-shadow:0 0 8px ${color}80"></div>
@@ -157,7 +157,10 @@ export default function MapView({ companies, profile, companyInsights }) {
       const eLangs = (c.languages || []).map(l => escapeHtml(l)).join(", ");
       const eTech = (c.techStack || []).slice(0, 6).map(t => `<span style="background:#10b98118;color:#10b981;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600">${escapeHtml(t)}</span>`).join("");
       const eCulture = (c.cultureTags || []).map(t => `<span style="background:#8b5cf618;color:#8b5cf6;padding:2px 6px;border-radius:4px;font-size:10px">${escapeHtml(t)}</span>`).join("");
-      const safeJobUrl = isSafeUrl(c.jobUrl) ? escapeHtml(c.jobUrl) : null;
+      const hasLiveRoles = openRoles.length > 0;
+      const primaryUrl = hasLiveRoles ? openRoles[0].url : c.jobUrl;
+      const safePrimaryUrl = isSafeUrl(primaryUrl) ? escapeHtml(primaryUrl) : null;
+      const primaryLinkLabel = hasLiveRoles ? "View listing ↗" : "View careers ↗";
 
       // Open roles section (for both curated+matched and scraped entries)
       const openRoles = c.openRoles || [];
@@ -204,7 +207,7 @@ export default function MapView({ companies, profile, companyInsights }) {
           ${eLangs?`<div style="font-size:11px;color:#71717a;margin-top:2px">🗣 ${eLangs}</div>`:""}
           ${eNotes?`<div style="margin-top:8px;padding:6px 8px;background:#6366f110;border-left:2px solid #6366f1;border-radius:4px;font-size:11px;color:#a1a1aa;font-style:italic">${eNotes}</div>`:""}
           ${rolesHtml}
-          ${safeJobUrl?`<div style="margin-top:10px"><a href="${safeJobUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">View Job ↗</a></div>`:""}
+          ${safePrimaryUrl?`<div style="margin-top:10px"><a href="${safePrimaryUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">${primaryLinkLabel}</a></div>`:""}
         </div>`;
 
       const marker = L.marker([c.lat, c.lng], { icon })
