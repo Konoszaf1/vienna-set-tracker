@@ -13,10 +13,10 @@ test('homepage loads with at least 10 company cards', async ({ page }) => {
 
 test('search filters to matching company', async ({ page }) => {
   const search = page.getByPlaceholder('Search companies, tech, industry...');
-  await search.fill('Dynatrace');
+  await search.fill('Schrack');
   const cards = page.locator('[class*="cardGrid"] > div');
   await expect(cards).toHaveCount(1);
-  await expect(cards.first()).toContainText('Dynatrace');
+  await expect(cards.first()).toContainText('Schrack Technik');
 });
 
 test('add and delete a company', async ({ page }) => {
@@ -40,16 +40,18 @@ test('map view toggle shows map container', async ({ page }) => {
 });
 
 test('changing german level in settings changes salary estimates', async ({ page }) => {
-  const firstSalary = page.locator('[class*="modelValue"]').first();
-  await expect(firstSalary).toBeVisible();
-  const before = await firstSalary.textContent();
+  // Filter to a company with de-fluent langReq so the salary is sensitive to German level
+  await page.getByPlaceholder('Search companies, tech, industry...').fill('Schrack');
+  const salary = page.locator('[class*="modelValue"]').first();
+  await expect(salary).toBeVisible();
+  const before = await salary.textContent();
 
   await page.getByRole('button', { name: /Settings/ }).click();
   const germanSelect = page.locator('select').filter({ has: page.locator('option[value="fluent"]') });
   await germanSelect.selectOption('fluent');
   await page.getByRole('button', { name: 'Save' }).click();
 
-  const after = await firstSalary.textContent();
+  const after = await salary.textContent();
   expect(before).not.toBe(after);
 });
 

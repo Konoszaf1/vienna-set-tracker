@@ -53,9 +53,13 @@ export default function App() {
         const parsed = JSON.parse(stored);
         // Strip residual myExpected from old localStorage data (migration)
         const updated = parsed.map(({ myExpected: _strip, ...rest }) => rest);
-        const storedIds = new Set(updated.map(c => c.id));
+        // Remove stale default entries no longer in DEFAULT_COMPANIES.
+        // User-added entries (timestamp IDs) are kept.
+        const defaultIds = new Set(DEFAULT_COMPANIES.map(c => c.id));
+        const kept = updated.filter(c => defaultIds.has(c.id) || c.id.length > 3);
+        const storedIds = new Set(kept.map(c => c.id));
         const missing = DEFAULT_COMPANIES.filter(c => !storedIds.has(c.id));
-        const merged = [...updated, ...missing];
+        const merged = [...kept, ...missing];
         setCompanies(merged); // eslint-disable-line react-hooks/set-state-in-effect -- mount-time load from localStorage
         localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
       } else {
