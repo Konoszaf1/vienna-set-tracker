@@ -31,13 +31,10 @@ jobs:
       - run: npm ci
 
       # --- scraped jobs (public/jobs.json) ---
-      - name: Search for new scraped jobs
+      - name: Search karriere.at + kununu
         run: node scripts/search-jobs.mjs
 
-      - name: Prune dead scraped jobs
-        run: node scripts/verify-jobs.mjs
-
-      # --- curated company listings (src/data/companies.js) ---
+      # --- Python tooling (used by discover, ratings, and verify) ---
       - uses: astral-sh/setup-uv@v6
 
       - name: Set up Python venv
@@ -45,6 +42,13 @@ jobs:
           uv venv .venv
           uv pip install python-jobspy beautifulsoup4 requests
 
+      - name: Discover jobs via JobSpy (LinkedIn, Indeed, Google)
+        run: .venv/bin/python scripts/discoverJobs.py --apply
+
+      - name: Prune dead scraped jobs
+        run: node scripts/verify-jobs.mjs
+
+      # --- curated company listings (src/data/companies.js) ---
       - name: Update Kununu ratings
         run: .venv/bin/python scripts/updateKununuRatings.py --apply
 

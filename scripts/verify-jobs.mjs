@@ -17,6 +17,13 @@ const CONCURRENCY = 5;
 const TIMEOUT_MS = 10000;
 
 async function checkJob(job) {
+  // JobSpy discoveries are refreshed daily by discoverJobs.py — stale
+  // entries are replaced automatically, so skip liveness checks here.
+  // (LinkedIn returns 999 to bots, Indeed redirects to login, etc.)
+  if ((job.source || "").startsWith("jobspy-")) {
+    return { status: "alive" };
+  }
+
   try {
     const res = await fetch(job.url, {
       headers: { "User-Agent": USER_AGENT },
@@ -34,14 +41,16 @@ async function checkJob(job) {
     // "isInactive":true or "active":false on jobDetail means the
     // listing is expired. These are authoritative flags, not prose
     // copy, so they're reliable signals.
-    const inactiveMatch = /"jobDetail":\s*\{[^}]*"isInactive":\s*true/i.test(html);
-    const activeFalseMatch = /"jobDetail":\s*\{[^}]*"active":\s*false/i.test(html);
-    if (inactiveMatch || activeFalseMatch) {
-      return { status: "dead", reason: "karriere.at flagged inactive" };
-    }
+    if (/karriere\.at/.test(job.url)) {
+      const inactiveMatch = /"jobDetail":\s*\{[^}]*"isInactive":\s*true/i.test(html);
+      const activeFalseMatch = /"jobDetail":\s*\{[^}]*"active":\s*false/i.test(html);
+      if (inactiveMatch || activeFalseMatch) {
+        return { status: "dead", reason: "karriere.at flagged inactive" };
+      }
 
-    if (html.length < 20000 && !/"jobDetail"/.test(html)) {
-      return { status: "dead", reason: "no jobDetail found" };
+      if (html.length < 20000 && !/"jobDetail"/.test(html)) {
+        return { status: "dead", reason: "no jobDetail found" };
+      }
     }
 
     return { status: "alive" };
