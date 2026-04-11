@@ -16,13 +16,6 @@ const USER_AGENT =
 const CONCURRENCY = 5;
 const TIMEOUT_MS = 10000;
 
-const SOFT_404_PATTERNS = [
-  /leider nicht mehr verf/i,
-  /no longer available/i,
-  /stelle wurde entfernt/i,
-  /dieses jobangebot ist leider nicht mehr aktiv/i,
-];
-
 async function checkJob(job) {
   try {
     const res = await fetch(job.url, {
@@ -36,10 +29,19 @@ async function checkJob(job) {
     }
 
     const html = await res.text();
-    for (const pattern of SOFT_404_PATTERNS) {
-      if (pattern.test(html)) {
-        return { status: "dead", reason: "soft-404" };
-      }
+
+    // karriere.at ships listing state in a Next.js hydration blob.
+    // "isInactive":true or "active":false on jobDetail means the
+    // listing is expired. These are authoritative flags, not prose
+    // copy, so they're reliable signals.
+    const inactiveMatch = /"jobDetail":\s*\{[^}]*"isInactive":\s*true/i.test(html);
+    const activeFalseMatch = /"jobDetail":\s*\{[^}]*"active":\s*false/i.test(html);
+    if (inactiveMatch || activeFalseMatch) {
+      return { status: "dead", reason: "karriere.at flagged inactive" };
+    }
+
+    if (html.length < 20000 && !/"jobDetail"/.test(html)) {
+      return { status: "dead", reason: "no jobDetail found" };
     }
 
     return { status: "alive" };
