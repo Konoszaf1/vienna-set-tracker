@@ -133,6 +133,12 @@ export default function MapView({ companies, profile, companyInsights }) {
       const eId = escapeHtml(c.id);
       const liveTag = isScraped ? `<span style="background:#06b6d430;color:#06b6d4;padding:1px 5px;border-radius:3px;font-size:9px;margin-right:4px">Live</span>` : "";
 
+      const openRoles = c.openRoles || [];
+      const hasLiveRoles = openRoles.length > 0;
+      const primaryUrl = hasLiveRoles ? openRoles[0].url : c.jobUrl;
+      const safePrimaryUrl = isSafeUrl(primaryUrl) ? escapeHtml(primaryUrl) : null;
+      const primaryLinkLabel = hasLiveRoles ? "View listing ↗" : "View careers ↗";
+
       const icon = L.divIcon({
         className: "",
         html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer${!isScraped && !hasLiveRoles ? ";opacity:0.7" : ""}" data-company="${eId}">
@@ -157,13 +163,7 @@ export default function MapView({ companies, profile, companyInsights }) {
       const eLangs = (c.languages || []).map(l => escapeHtml(l)).join(", ");
       const eTech = (c.techStack || []).slice(0, 6).map(t => `<span style="background:#10b98118;color:#10b981;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600">${escapeHtml(t)}</span>`).join("");
       const eCulture = (c.cultureTags || []).map(t => `<span style="background:#8b5cf618;color:#8b5cf6;padding:2px 6px;border-radius:4px;font-size:10px">${escapeHtml(t)}</span>`).join("");
-      const hasLiveRoles = openRoles.length > 0;
-      const primaryUrl = hasLiveRoles ? openRoles[0].url : c.jobUrl;
-      const safePrimaryUrl = isSafeUrl(primaryUrl) ? escapeHtml(primaryUrl) : null;
-      const primaryLinkLabel = hasLiveRoles ? "View listing ↗" : "View careers ↗";
-
       // Open roles section (for both curated+matched and scraped entries)
-      const openRoles = c.openRoles || [];
       const rolesHtml = openRoles.length > 0 ? `<div style="margin-top:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Open roles (${openRoles.length})</div>${openRoles.map((role, ri) => {
         const eTitle = escapeHtml(role.title);
         const roleUrl = isSafeUrl(role.url) ? escapeHtml(role.url) : null;
