@@ -354,25 +354,6 @@
   border: 1px solid #6366f130;
 }
 
-.editButton {
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1px solid #27272a;
-  background: transparent;
-  color: #a1a1aa;
-  cursor: pointer;
-  font-size: 12px;
-}
-
-.deleteButton {
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1px solid #27272a;
-  background: transparent;
-  color: #ef4444;
-  cursor: pointer;
-  font-size: 12px;
-}
 
 .rolesSection {
   display: flex;

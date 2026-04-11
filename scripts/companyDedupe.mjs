@@ -1,6 +1,6 @@
 /**
  * Company name normalization for deduplicating scraped job listings
- * against the curated company dataset.
+ * across sources.
  */
 
 const CORPORATE_SUFFIXES = /\b(gmbh|ag|kg|gmbh\s*&\s*co\s*kg|austria|international|ltd|e\.?u\.?|inc|corp)\b/gi;

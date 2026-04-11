@@ -19,8 +19,6 @@
 
 import { parse } from "node-html-parser";
 import { validateJob } from "./jobValidator.mjs";
-import { normalizeCompanyName } from "./companyDedupe.mjs";
-import { DEFAULT_COMPANIES } from "../src/data/companies.js";
 
 const USER_AGENT =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 " +
@@ -46,12 +44,6 @@ const KUNUNU_SEARCHES = [
 
 const KUNUNU_PAGES_PER_SEARCH = 3; // 30 results/page, most Vienna hits are on early pages
 
-// Manual aliases for scraped names that don't match any curated company
-// via normalization. Add entries here when you notice a scraped job that
-// obviously belongs to a curated company but isn't matching.
-// Format: "scraped normalized name": "curated company id"
-const MANUAL_ALIASES = {
-};
 
 // ---------------------------------------------------------------------------
 // Search-page scraping
@@ -382,22 +374,7 @@ async function main() {
   console.log("\nGeocoding job addresses...");
   await geocodeJobs(jobs, "public/geocoding-cache.json");
 
-  // --- Task 3: Dedupe against curated companies ---
-  const curatedMap = {};
-  for (const c of DEFAULT_COMPANIES) {
-    curatedMap[normalizeCompanyName(c.name)] = c.id;
-  }
-
-  let matchedCount = 0;
-  for (const job of jobs) {
-    const normalized = normalizeCompanyName(job.company);
-    const match = curatedMap[normalized] || MANUAL_ALIASES[normalized] || null;
-    job.curatedCompanyId = match;
-    if (match) matchedCount++;
-  }
-  console.log(`\nDedup: ${matchedCount} jobs matched to curated companies, ${jobs.length - matchedCount} unmatched`);
-
-  // --- Task 4: Write output to public/jobs.json ---
+  // --- Task 3: Write output to public/jobs.json ---
   const result = {
     lastUpdated: new Date().toISOString(),
     count: jobs.length,

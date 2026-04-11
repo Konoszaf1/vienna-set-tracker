@@ -17,7 +17,6 @@ const company = {
   techStack: ["React", "TypeScript"],
   languages: ["English"],
   notes: "",
-  status: "interested",
   jobUrl: "https://test.com",
   industry: "IT Consulting",
   langReq: "en",
@@ -55,8 +54,6 @@ describe("CompanyCard", () => {
     render(
       <CompanyCard
         company={company}
-        onEdit={() => {}}
-        onDelete={() => {}}
         insights={insights}
       />
     );

@@ -3,14 +3,13 @@ import StarRating from "./StarRating";
 import Badge from "./Badge";
 import styles from './CompanyCard.module.css';
 
-const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insights }) {
+const CompanyCard = memo(function CompanyCard({ company, insights }) {
   const [expanded, setExpanded] = useState(false);
   const avgRating = [company.kununuRating, company.glassdoorRating].filter(r => r !== null && r !== undefined);
   const avg = avgRating.length ? (avgRating.reduce((a, b) => a + b, 0) / avgRating.length) : null;
 
   const salary = insights?.salary;
   const match = insights?.match;
-  const isScraped = company.isScraped;
   const primaryJobUrl = company.openRoles?.[0]?.url || company.jobUrl;
 
   return (
@@ -30,7 +29,7 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
         <span>📍</span> {company.district}
       </div>
 
-      {!isScraped && (
+      {avgRating.length > 0 && (
         <div className={styles.ratingsRow}>
           <div>
             <div className={styles.ratingLabel}>Kununu</div>
@@ -152,7 +151,7 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
         </div>
       )}
 
-      {!isScraped && company.cultureTags.length > 0 && (
+      {company.cultureTags.length > 0 && (
         <div className={styles.tagRow}>
           {company.cultureTags.map((t, i) => (
             <Badge key={i} color="#8b5cf6" bg="#8b5cf615">{t}</Badge>
@@ -168,7 +167,7 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
         }
       </div>
 
-      {!isScraped && company.notes && (
+      {company.notes && (
         <div className={styles.notesBox}>
           <p className={styles.notesText}>{company.notes}</p>
         </div>
@@ -193,12 +192,6 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
           <a href={primaryJobUrl} target="_blank" rel="noopener noreferrer" className={styles.viewJobLink}>
             View listing ↗
           </a>
-        )}
-        {!isScraped && (
-          <>
-            <button onClick={() => onEdit(company)} className={styles.editButton}>Edit</button>
-            <button onClick={() => onDelete(company.id)} className={styles.deleteButton} aria-label="Delete company">✕</button>
-          </>
         )}
       </div>
     </div>

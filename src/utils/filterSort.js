@@ -1,10 +1,9 @@
-export function filterAndSort({ companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax }) {
+export function filterAndSort({ companies, companyInsights, search, filterLang, filterCulture, sortBy, salaryMin, salaryMax }) {
   return companies
     .filter(c => {
       if (search && !c.name.toLowerCase().includes(search.toLowerCase()) &&
-          !c.industry.toLowerCase().includes(search.toLowerCase()) &&
+          !(c.industry || "").toLowerCase().includes(search.toLowerCase()) &&
           !c.techStack.some(t => t.toLowerCase().includes(search.toLowerCase()))) return false;
-      if (filterStatus !== "all" && c.status !== filterStatus) return false;
       if (filterLang === "de-fluent" && c.langReq !== "de-fluent") return false;
       if (filterLang === "accessible" && c.langReq === "de-fluent") return false;
       if (filterCulture !== "all" && !c.cultureTags.includes(filterCulture)) return false;

@@ -57,7 +57,7 @@
   gap: 8px;
 }
 
-.resetButton {
+.settingsButton {
   padding: 10px 16px;
   border-radius: 8px;
   border: 1px solid #27272a;
@@ -66,48 +66,6 @@
   cursor: pointer;
   font-size: 13px;
   font-family: 'DM Sans', sans-serif;
-}
-
-.addButton {
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: #fff;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 700;
-  font-family: 'DM Sans', sans-serif;
-}
-
-.statusBar {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.statusItem {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  background: var(--status-bg);
-  border: 1px solid var(--status-border);
-}
-
-.statusCount {
-  color: var(--status-color);
-  font-weight: 700;
-  font-size: 20px;
-  font-family: 'DM Mono', monospace;
-}
-
-.statusLabel {
-  color: var(--status-color);
-  font-size: 12px;
-  font-weight: 600;
 }
 
 .controls {
@@ -132,7 +90,6 @@
 }
 
 .searchInput { max-width: 280px; }
-.statusSelect { max-width: 150px; }
 .langSelect { max-width: 220px; }
 .cultureSelect { max-width: 160px; }
 .sortSelect { max-width: 150px; }

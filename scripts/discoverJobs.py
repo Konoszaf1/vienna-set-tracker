@@ -25,7 +25,6 @@ from jobspy import scrape_jobs
 ROOT = Path(__file__).resolve().parent.parent
 JOBS_FILE = ROOT / "public" / "jobs.json"
 GEOCACHE_FILE = ROOT / "public" / "geocoding-cache.json"
-COMPANIES_FILE = ROOT / "src" / "data" / "companies.js"
 
 USER_AGENT = (
     "vienna-set-tracker/1.0 "
@@ -101,20 +100,6 @@ def titles_overlap(a: str, b: str) -> bool:
     return len(wa & wb) / min(len(wa), len(wb)) > 0.5
 
 
-def parse_companies_js():
-    """Read curated company list from the JS module."""
-    text = COMPANIES_FILE.read_text(encoding="utf-8")
-    m = re.search(
-        r"export const DEFAULT_COMPANIES\s*=\s*(\[.*\]);", text, re.DOTALL
-    )
-    if not m:
-        return []
-    raw = m.group(1)
-    raw = re.sub(r",\s*([}\]])", r"\1", raw)
-    raw = re.sub(r"(?<=[{,\n])\s*(\w+)\s*:", r' "\1":', raw)
-    return json.loads(raw)
-
-
 def geocode(address: str, cache: dict):
     """Geocode via Nominatim with cache.  Returns (lat, lng) or (None, None)."""
     key = address.lower().strip()
@@ -172,11 +157,6 @@ def main():
         (normalize_company(j.get("company", "")), j.get("title", ""))
         for j in kept_jobs
     ]
-
-    # --- Curated company map -----------------------------------------------
-    curated_map: dict[str, str] = {}
-    for c in parse_companies_js():
-        curated_map[normalize_company(c["name"])] = str(c["id"])
 
     # --- Geocoding cache ---------------------------------------------------
     geocache: dict = {}
@@ -249,9 +229,6 @@ def main():
             seen_urls.add(url)
             dedup_pairs.append((norm, title))
 
-            # Curated-company match
-            curated_id = curated_map.get(norm)
-
             # Normalise address
             addr = location or "Wien"
             addr = re.sub(r",?\s*Austria$", "", addr, flags=re.IGNORECASE)
@@ -267,7 +244,6 @@ def main():
                 "zip": None,
                 "lat": None,
                 "lng": None,
-                "curatedCompanyId": curated_id,
             })
             added += 1
 
@@ -302,8 +278,7 @@ def main():
     if discovered:
         print()
         for j in discovered:
-            tag = f" (curated #{j['curatedCompanyId']})" if j["curatedCompanyId"] else ""
-            print(f"  [{j['source']:15s}] {j['company']}: {j['title']}{tag}")
+            print(f"  [{j['source']:15s}] {j['company']}: {j['title']}")
 
     # --- Write -------------------------------------------------------------
     if apply:

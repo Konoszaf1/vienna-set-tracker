@@ -4,17 +4,17 @@ import { filterAndSort } from './filterSort';
 const companies = [
   {
     id: "a", name: "Alpha Corp", industry: "FinTech", langReq: "en",
-    kununuRating: 4.0, glassdoorRating: 4.2, status: "interested",
+    kununuRating: 4.0, glassdoorRating: 4.2,
     cultureTags: ["startup", "hybrid"], techStack: ["React", "TypeScript"],
   },
   {
     id: "b", name: "Beta GmbH", industry: "Gaming", langReq: "de-fluent",
-    kununuRating: 3.0, glassdoorRating: 3.2, status: "applied",
+    kununuRating: 3.0, glassdoorRating: 3.2,
     cultureTags: ["corporate", "on-site"], techStack: ["Java", "Selenium"],
   },
   {
     id: "c", name: "Gamma Systems", industry: "IT Consulting", langReq: "de-basic",
-    kununuRating: 3.8, glassdoorRating: null, status: "interested",
+    kununuRating: 3.8, glassdoorRating: null,
     cultureTags: ["hybrid", "agile"], techStack: ["Python", "Playwright"],
   },
 ];
@@ -29,7 +29,6 @@ const defaults = {
   companies,
   companyInsights: insights,
   search: "",
-  filterStatus: "all",
   filterLang: "all",
   filterCulture: "all",
   sortBy: "name",
@@ -51,13 +50,6 @@ describe("filterAndSort", () => {
   it("search matches tech stack", () => {
     const result = filterAndSort({ ...defaults, search: "playwright" });
     expect(result.map(c => c.id)).toEqual(["c"]);
-  });
-
-  // ---- Status filter ----
-
-  it("status filter rejects non-matching statuses", () => {
-    const result = filterAndSort({ ...defaults, filterStatus: "applied" });
-    expect(result.map(c => c.id)).toEqual(["b"]);
   });
 
   // ---- Language filter ----
