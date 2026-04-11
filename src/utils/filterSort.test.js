@@ -129,4 +129,21 @@ describe("filterAndSort", () => {
     const result = filterAndSort({ ...defaults, salaryMin: null, salaryMax: null });
     expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
   });
+
+  // ---- Open roles filter ----
+
+  it("hasOpenRoles=true excludes companies without openRoles", () => {
+    const withRoles = [
+      { ...companies[0], openRoles: [{ title: "SDET", url: "https://example.com" }] },
+      companies[1],
+      { ...companies[2], openRoles: [] },
+    ];
+    const result = filterAndSort({ ...defaults, companies: withRoles, hasOpenRoles: true });
+    expect(result.map(c => c.id)).toEqual(["a"]);
+  });
+
+  it("hasOpenRoles=false passes all companies through", () => {
+    const result = filterAndSort({ ...defaults, hasOpenRoles: false });
+    expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
+  });
 });

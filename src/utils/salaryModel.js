@@ -435,5 +435,46 @@ export function estimateSalary(company, profile, cv) {
   };
 }
 
+// ---------------------------------------------------------------------------
+// Job-level salary estimation (seniority modifier on top of company estimate)
+// ---------------------------------------------------------------------------
+
+const SENIOR_PATTERN = /\b(senior|sr\.?|lead|staff|principal|head\s+of)\b/i;
+const JUNIOR_PATTERN = /\b(junior|jr\.?|trainee|intern|praktikum)\b/i;
+
+/**
+ * estimateJobSalary(company, job, profile, cv)
+ *
+ * Wraps estimateSalary with a seniority modifier derived from the job title.
+ * Returns the same shape as estimateSalary, with an additional Seniority
+ * adjustment when applicable.
+ */
+export function estimateJobSalary(company, job, profile, cv) {
+  const base = estimateSalary(company, profile, cv);
+  const title = job.title || "";
+
+  let seniorityDelta = 0;
+  let seniorityReason = "";
+
+  if (SENIOR_PATTERN.test(title)) {
+    seniorityDelta = 8;
+    seniorityReason = "Senior-level title — seniority premium";
+  } else if (JUNIOR_PATTERN.test(title)) {
+    seniorityDelta = -15;
+    seniorityReason = "Junior-level title — junior seniority adjustment";
+  }
+
+  if (seniorityDelta === 0) return base;
+
+  const adjusted = Math.max(FLOOR, Math.min(CEILING, base.estimate + seniorityDelta));
+  const entry = { name: "Seniority", delta: seniorityDelta, reason: seniorityReason };
+  return {
+    ...base,
+    estimate: adjusted,
+    adjustments: [...base.adjustments, entry],
+    allAdjustments: [...base.allAdjustments, entry],
+  };
+}
+
 // Export for use elsewhere
 export { BASELINE, FLOOR, CEILING, parseAdvertisedSalary };

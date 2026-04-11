@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { estimateSalary, parseAdvertisedSalary, BASELINE, CEILING } from './salaryModel';
+import { estimateSalary, estimateJobSalary, parseAdvertisedSalary, BASELINE, CEILING } from './salaryModel';
 
 // ---------------------------------------------------------------------------
 // Reusable fixtures
@@ -175,5 +175,31 @@ describe("estimateSalary", () => {
     const result = estimateSalary(novomatic, baseProfile, baseCv);
     expect(result.estimate).toBeGreaterThanOrEqual(45);
     expect(result.estimate).toBeLessThanOrEqual(65);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// estimateJobSalary — seniority modifier
+// ---------------------------------------------------------------------------
+
+describe("estimateJobSalary", () => {
+  it("senior title adds seniority premium on top of base estimate", () => {
+    const base = estimateSalary(minimalCompany, baseProfile, baseCv);
+    const result = estimateJobSalary(minimalCompany, { title: "Senior SDET Engineer" }, baseProfile, baseCv);
+    expect(result.estimate).toBe(Math.min(CEILING, base.estimate + 8));
+    expect(result.allAdjustments.some(a => a.name === "Seniority" && a.delta === 8)).toBe(true);
+  });
+
+  it("junior title applies negative adjustment", () => {
+    const base = estimateSalary(minimalCompany, baseProfile, baseCv);
+    const result = estimateJobSalary(minimalCompany, { title: "Junior QA Tester" }, baseProfile, baseCv);
+    expect(result.estimate).toBe(Math.max(48, base.estimate - 15));
+    expect(result.allAdjustments.some(a => a.name === "Seniority" && a.delta === -15)).toBe(true);
+  });
+
+  it("plain title matches base estimateSalary output", () => {
+    const base = estimateSalary(minimalCompany, baseProfile, baseCv);
+    const result = estimateJobSalary(minimalCompany, { title: "SDET Engineer" }, baseProfile, baseCv);
+    expect(result.estimate).toBe(base.estimate);
   });
 });

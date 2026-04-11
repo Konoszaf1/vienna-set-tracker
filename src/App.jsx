@@ -4,12 +4,11 @@ import { filterAndSort } from "./utils/filterSort";
 import { DEFAULT_COMPANIES } from "./data/companies";
 import defaultProfileData from "./data/defaultProfile.json";
 import defaultCvData from "./data/defaultCv.json";
-import { estimateSalary } from "./utils/salaryModel";
+import { estimateSalary, estimateJobSalary } from "./utils/salaryModel";
 import { matchScore } from "./utils/matchModel";
 import CompanyCard from "./components/CompanyCard";
 import CompanyForm from "./components/CompanyForm";
 import MapView from "./components/MapView";
-import LatestJobs from "./components/LatestJobs";
 import Modal from "./components/Modal";
 import SettingsModal from "./components/SettingsModal";
 import styles from './App.module.css';
@@ -24,6 +23,8 @@ export default function App() {
   const [sortBy, setSortBy] = useState("name");
   const [salaryMin, setSalaryMin] = useState(null);
   const [salaryMax, setSalaryMax] = useState(null);
+  const [hasOpenRoles, setHasOpenRoles] = useState(false);
+  const [jobs, setJobs] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editCompany, setEditCompany] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -68,17 +69,80 @@ export default function App() {
     setLoading(false);
   }, []);
 
-  // Compute salary estimates and match scores for all companies.
-  // Memoized — only recomputed when companies, profile, or cv change.
+  // Fetch scraped jobs data
+  useEffect(() => {
+    const h = Math.floor(Date.now() / 3600000);
+    fetch(import.meta.env.BASE_URL + `jobs.json?h=${h}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if (d?.jobs) setJobs(d.jobs);
+      })
+      .catch(() => {});
+  }, []);
+
+  // Merge scraped jobs with curated companies
+  const mergedEntries = useMemo(() => {
+    // Attach openRoles to curated companies
+    const curatedWithRoles = companies.map(c => {
+      const matched = jobs.filter(j => j.curatedCompanyId === c.id);
+      return matched.length > 0 ? { ...c, openRoles: matched } : c;
+    });
+
+    // Group unmatched jobs by company name → synthesize shim entries
+    const unmatched = jobs.filter(j => !j.curatedCompanyId);
+    const groups = {};
+    for (const j of unmatched) {
+      const key = j.company.toLowerCase().trim();
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(j);
+    }
+
+    const shims = Object.entries(groups).map(([key, roles]) => {
+      const first = roles[0];
+      return {
+        id: `scraped-${key.replace(/\s+/g, "-")}`,
+        name: first.company,
+        logo: "\u{1F3E2}",
+        district: first.city || "Wien",
+        address: first.address || "",
+        lat: first.lat,
+        lng: first.lng,
+        kununuRating: null,
+        glassdoorRating: null,
+        cultureTags: [],
+        techStack: [],
+        languages: ["English"],
+        notes: "",
+        status: "interested",
+        jobUrl: first.url,
+        industry: "",
+        langReq: "de-basic",
+        isScraped: true,
+        openRoles: roles,
+      };
+    });
+
+    return [...curatedWithRoles, ...shims];
+  }, [companies, jobs]);
+
+  // Compute salary estimates and match scores for all entries.
   const companyInsights = useMemo(() => {
     const map = {};
-    for (const c of companies) {
+    for (const c of mergedEntries) {
       const salary = estimateSalary(c, profile, cv);
       const match = matchScore(c, cv, profile, salary.estimate);
-      map[c.id] = { salary, match };
+      const roles = c.openRoles?.map(role => estimateJobSalary(c, role, profile, cv)) || null;
+
+      if (c.isScraped && roles && roles.length > 0) {
+        // Use the highest-estimate role as the representative salary
+        const best = roles.reduce((a, b) => a.estimate > b.estimate ? a : b);
+        map[c.id] = { salary: best, match: matchScore(c, cv, profile, best.estimate), roles };
+      } else {
+        map[c.id] = { salary, match, roles };
+      }
     }
     return map;
-  }, [companies, profile, cv]);
+  }, [mergedEntries, profile, cv]);
 
   const persist = useCallback((data) => {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { console.error("Storage error:", e); }
@@ -121,8 +185,8 @@ export default function App() {
   }, []);
 
   const filtered = useMemo(() => {
-    return filterAndSort({ companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax });
-  }, [companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax]);
+    return filterAndSort({ companies: mergedEntries, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax, hasOpenRoles });
+  }, [mergedEntries, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax, hasOpenRoles]);
 
   const statusCounts = useMemo(() => {
     return STATUS_OPTIONS.map(s => ({
@@ -147,7 +211,7 @@ export default function App() {
             <div>
               <h1 className={styles.heading}>Vienna SET/SDET Tracker</h1>
               <p className={styles.subheading}>
-                {companies.length} companies tracked · Software Engineer in Test roles
+                {mergedEntries.length} companies tracked · Software Engineer in Test roles
               </p>
             </div>
             <div className={styles.headerActions}>
@@ -223,6 +287,16 @@ export default function App() {
             />
           </div>
 
+          <label className={styles.checkboxLabel}>
+            <input
+              type="checkbox"
+              checked={hasOpenRoles}
+              onChange={e => setHasOpenRoles(e.target.checked)}
+              className={styles.checkbox}
+            />
+            Only companies hiring
+          </label>
+
           <div className={styles.viewToggle}>
             <button onClick={() => setView("grid")} className={`${styles.viewButton} ${view === "grid" ? styles.viewActive : ''}`}>Cards</button>
             <button onClick={() => setView("map")} className={`${styles.viewButton} ${view === "map" ? styles.viewActive : ''}`}>Map</button>
@@ -245,8 +319,6 @@ export default function App() {
           <MapView companies={filtered} profile={profile} companyInsights={companyInsights} />
         )}
       </div>
-
-      <LatestJobs />
 
       <Modal open={modalOpen} onClose={() => { setModalOpen(false); setEditCompany(null); }} title={editCompany ? `Edit ${editCompany.name}` : "Add New Company"}>
         <CompanyForm company={editCompany} onSave={handleSave} onCancel={() => { setModalOpen(false); setEditCompany(null); }} />

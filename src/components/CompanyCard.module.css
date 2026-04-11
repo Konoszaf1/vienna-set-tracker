@@ -373,3 +373,35 @@
   cursor: pointer;
   font-size: 12px;
 }
+
+.rolesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.roleLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #09090b;
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 12px;
+  border: 1px solid #1e1e22;
+  transition: border-color 0.2s;
+}
+
+.roleLink:hover {
+  border-color: #6366f1;
+  color: #fafafa;
+}
+
+.roleEstimate {
+  font-weight: 600;
+  font-family: 'DM Mono', monospace;
+  color: #6366f1;
+  font-size: 11px;
+}

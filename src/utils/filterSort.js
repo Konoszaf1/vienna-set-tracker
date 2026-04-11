@@ -1,4 +1,4 @@
-export function filterAndSort({ companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax }) {
+export function filterAndSort({ companies, companyInsights, search, filterStatus, filterLang, filterCulture, sortBy, salaryMin, salaryMax, hasOpenRoles }) {
   return companies
     .filter(c => {
       if (search && !c.name.toLowerCase().includes(search.toLowerCase()) &&
@@ -11,6 +11,7 @@ export function filterAndSort({ companies, companyInsights, search, filterStatus
       const estimate = companyInsights[c.id]?.salary?.estimate;
       if (salaryMin != null && (estimate == null || estimate < salaryMin)) return false;
       if (salaryMax != null && (estimate == null || estimate > salaryMax)) return false;
+      if (hasOpenRoles && (!c.openRoles || c.openRoles.length === 0)) return false;
       return true;
     })
     .sort((a, b) => {

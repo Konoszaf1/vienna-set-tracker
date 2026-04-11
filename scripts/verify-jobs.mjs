@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Liveness checker for public/latest-jobs.json.
+ * Liveness checker for the scraped job feed (public/jobs.json).
  *
  * Reads the job feed, GET-requests each URL, removes listings that
  * return HTTP errors or karriere.at soft-404 pages, and writes the
@@ -51,7 +51,7 @@ async function checkJob(job) {
 }
 
 async function main() {
-  const path = "public/latest-jobs.json";
+  const path = "public/jobs.json";
 
   if (!existsSync(path)) {
     console.log("No latest-jobs.json found, nothing to verify.");

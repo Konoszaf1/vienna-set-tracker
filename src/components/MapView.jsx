@@ -119,21 +119,24 @@ export default function MapView({ companies, profile, companyInsights }) {
 
     const salaryColor = (s) => !s ? "#6366f1" : s >= 70 ? "#10b981" : s >= 60 ? "#f59e0b" : s >= 55 ? "#fb923c" : "#ef4444";
 
-    companies.forEach(c => {
+    const mappable = companies.filter(c => c.lat != null && c.lng != null);
+    mappable.forEach(c => {
       const km = dist(home[0], home[1], c.lat, c.lng);
       const insight = companyInsights?.[c.id];
       const estimate = insight?.salary?.estimate;
       const matchResult = insight?.match;
       const color = salaryColor(estimate);
       const salaryLabel = estimate ? `€${estimate}k` : "";
+      const isScraped = !!c.isScraped;
 
       const eName = escapeHtml(c.name);
       const eId = escapeHtml(c.id);
+      const liveTag = isScraped ? `<span style="background:#06b6d430;color:#06b6d4;padding:1px 5px;border-radius:3px;font-size:9px;margin-right:4px">Live</span>` : "";
 
       const icon = L.divIcon({
         className: "",
         html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer" data-company="${eId}">
-          <div style="background:${color};color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 12px ${color}60;border:2px solid ${color}40;transition:transform .2s">${escapeHtml(c.logo)} ${eName}${salaryLabel ? ` · ${salaryLabel}` : ""}</div>
+          <div style="background:${color};color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 12px ${color}60;border:2px solid ${color}40;transition:transform .2s">${liveTag}${escapeHtml(c.logo)} ${eName}${salaryLabel ? ` · ${salaryLabel}` : ""}</div>
           <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid ${color};margin-top:-1px"></div>
           <div style="width:8px;height:8px;border-radius:50%;background:${color};margin-top:2px;box-shadow:0 0 8px ${color}80"></div>
         </div>`,
@@ -147,14 +150,36 @@ export default function MapView({ companies, profile, companyInsights }) {
         ? `<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Match</div><div style="font-size:14px;font-weight:700;color:${matchResult.score >= 70 ? "#10b981" : matchResult.score >= 50 ? "#f59e0b" : "#ef4444"}">${matchResult.score}%</div></div>`
         : "";
 
-      const eIndustry = escapeHtml(c.industry);
-      const eAddress = escapeHtml(c.address);
-      const eNotes = escapeHtml(c.notes);
+      const eIndustry = escapeHtml(c.industry || "");
+      const eAddress = escapeHtml(c.address || "");
+      const eNotes = escapeHtml(c.notes || "");
       const eLogo = escapeHtml(c.logo);
-      const eLangs = c.languages.map(l => escapeHtml(l)).join(", ");
-      const eTech = c.techStack.slice(0, 6).map(t => `<span style="background:#10b98118;color:#10b981;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600">${escapeHtml(t)}</span>`).join("");
-      const eCulture = c.cultureTags.map(t => `<span style="background:#8b5cf618;color:#8b5cf6;padding:2px 6px;border-radius:4px;font-size:10px">${escapeHtml(t)}</span>`).join("");
+      const eLangs = (c.languages || []).map(l => escapeHtml(l)).join(", ");
+      const eTech = (c.techStack || []).slice(0, 6).map(t => `<span style="background:#10b98118;color:#10b981;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600">${escapeHtml(t)}</span>`).join("");
+      const eCulture = (c.cultureTags || []).map(t => `<span style="background:#8b5cf618;color:#8b5cf6;padding:2px 6px;border-radius:4px;font-size:10px">${escapeHtml(t)}</span>`).join("");
       const safeJobUrl = isSafeUrl(c.jobUrl) ? escapeHtml(c.jobUrl) : null;
+
+      // Open roles section (for both curated+matched and scraped entries)
+      const openRoles = c.openRoles || [];
+      const rolesHtml = openRoles.length > 0 ? `<div style="margin-top:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Open roles (${openRoles.length})</div>${openRoles.map((role, ri) => {
+        const eTitle = escapeHtml(role.title);
+        const roleUrl = isSafeUrl(role.url) ? escapeHtml(role.url) : null;
+        const roleEst = insight?.roles?.[ri]?.estimate;
+        const estLabel = roleEst ? ` · €${roleEst}k` : "";
+        return roleUrl
+          ? `<a href="${roleUrl}" target="_blank" rel="noopener noreferrer" style="display:block;padding:4px 6px;margin:2px 0;background:#18181b;border-radius:4px;color:#a1a1aa;text-decoration:none;font-size:11px;border:1px solid #27272a">${eTitle}<span style="color:#6366f1;font-weight:600">${estLabel}</span></a>`
+          : `<div style="padding:4px 6px;margin:2px 0;background:#18181b;border-radius:4px;color:#a1a1aa;font-size:11px">${eTitle}${estLabel}</div>`;
+      }).join("")}</div>` : "";
+
+      // Conditional popup sections based on scraped vs curated
+      const ratingsBlock = !isScraped ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+            <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating != null ? c.kununuRating+" ★" : "N/A"}</div></div>
+            <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Glassdoor</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.glassdoorRating != null ? c.glassdoorRating+" ★" : "N/A"}</div></div>
+          </div>` : "";
+
+      const statusBadge = isScraped
+        ? `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:#06b6d4;background:#06b6d420;border:1px solid #06b6d430">Live</span>`
+        : `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:${st.color};background:${st.bg};border:1px solid ${st.color}30">${st.label}</span>`;
 
       const popup = `
         <div style="font-family:DM Sans,sans-serif;min-width:260px;padding:4px">
@@ -164,7 +189,7 @@ export default function MapView({ companies, profile, companyInsights }) {
               <div style="font-size:15px;font-weight:700;color:#fafafa">${eName}</div>
               <div style="font-size:11px;color:#a1a1aa">${eIndustry}</div>
             </div>
-            <span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:${st.color};background:${st.bg};border:1px solid ${st.color}30">${st.label}</span>
+            ${statusBadge}
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px">
             ${estimate?`<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Salary</div><div style="font-size:16px;font-weight:700;color:${color}">€${estimate}k</div></div>`:""}
@@ -172,15 +197,13 @@ export default function MapView({ companies, profile, companyInsights }) {
             <div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Commute</div><div style="font-size:11px;font-weight:600;color:#a1a1aa">${commuteNote}</div></div>
           </div>
           ${matchRow ? `<div style="display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:10px">${matchRow}</div>` : ""}
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
-            <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating != null ? c.kununuRating+" ★" : "N/A"}</div></div>
-            <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Glassdoor</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.glassdoorRating != null ? c.glassdoorRating+" ★" : "N/A"}</div></div>
-          </div>
-          <div style="margin-bottom:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Tech</div><div style="display:flex;flex-wrap:wrap;gap:3px">${eTech}</div></div>
-          <div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px">${eCulture}</div>
-          <div style="font-size:11px;color:#a1a1aa">📍 ${eAddress}</div>
-          <div style="font-size:11px;color:#71717a;margin-top:2px">🗣 ${eLangs}</div>
+          ${ratingsBlock}
+          ${eTech?`<div style="margin-bottom:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Tech</div><div style="display:flex;flex-wrap:wrap;gap:3px">${eTech}</div></div>`:""}
+          ${eCulture?`<div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px">${eCulture}</div>`:""}
+          ${eAddress?`<div style="font-size:11px;color:#a1a1aa">📍 ${eAddress}</div>`:""}
+          ${eLangs?`<div style="font-size:11px;color:#71717a;margin-top:2px">🗣 ${eLangs}</div>`:""}
           ${eNotes?`<div style="margin-top:8px;padding:6px 8px;background:#6366f110;border-left:2px solid #6366f1;border-radius:4px;font-size:11px;color:#a1a1aa;font-style:italic">${eNotes}</div>`:""}
+          ${rolesHtml}
           ${safeJobUrl?`<div style="margin-top:10px"><a href="${safeJobUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">View Job ↗</a></div>`:""}
         </div>`;
 

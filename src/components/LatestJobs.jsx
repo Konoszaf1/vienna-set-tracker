@@ -6,8 +6,11 @@ export default function LatestJobs() {
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + "latest-jobs.json")
-      .then(r => r.ok ? r.json() : null)
+    fetch(import.meta.env.BASE_URL + "jobs.json")
+      .then(r => {
+        if (!r.ok) return fetch(import.meta.env.BASE_URL + "latest-jobs.json").then(r2 => r2.ok ? r2.json() : null);
+        return r.json();
+      })
       .then(d => {
         if (d?.lastUpdated) {
           d.ageInDays = (Date.now() - new Date(d.lastUpdated)) / 86400000;

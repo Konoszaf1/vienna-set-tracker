@@ -12,6 +12,7 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
 
   const salary = insights?.salary;
   const match = insights?.match;
+  const isScraped = company.isScraped;
 
   return (
     <div className={styles.card}>
@@ -20,34 +21,39 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
           <span className={styles.logo}>{company.logo}</span>
           <div>
             <h3 className={styles.name}>{company.name}</h3>
-            <span className={styles.industry}>{company.industry}</span>
+            {company.industry && <span className={styles.industry}>{company.industry}</span>}
           </div>
         </div>
-        <Badge color={status.color} bg={status.bg}>{status.label}</Badge>
+        {isScraped
+          ? <Badge color="#06b6d4" bg="#06b6d420">Live listing</Badge>
+          : <Badge color={status.color} bg={status.bg}>{status.label}</Badge>
+        }
       </div>
 
       <div className={styles.district}>
         <span>📍</span> {company.district}
       </div>
 
-      <div className={styles.ratingsRow}>
-        <div>
-          <div className={styles.ratingLabel}>Kununu</div>
-          <StarRating rating={company.kununuRating} size={12} />
-        </div>
-        <div>
-          <div className={styles.ratingLabel}>Glassdoor</div>
-          <StarRating rating={company.glassdoorRating} size={12} />
-        </div>
-        {avg !== null && (
+      {!isScraped && (
+        <div className={styles.ratingsRow}>
           <div>
-            <div className={styles.ratingLabel}>Average</div>
-            <span className={styles.avgRating} data-tier={avg >= 4 ? "high" : avg >= 3.5 ? "mid" : "low"}>
-              {avg.toFixed(1)}
-            </span>
+            <div className={styles.ratingLabel}>Kununu</div>
+            <StarRating rating={company.kununuRating} size={12} />
           </div>
-        )}
-      </div>
+          <div>
+            <div className={styles.ratingLabel}>Glassdoor</div>
+            <StarRating rating={company.glassdoorRating} size={12} />
+          </div>
+          {avg !== null && (
+            <div>
+              <div className={styles.ratingLabel}>Average</div>
+              <span className={styles.avgRating} data-tier={avg >= 4 ? "high" : avg >= 3.5 ? "mid" : "low"}>
+                {avg.toFixed(1)}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
 
       {salary ? (
         <div className={styles.modelBox}>
@@ -138,21 +144,25 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
         </div>
       )}
 
-      <div>
-        <div className={styles.sectionLabel}>Tech Stack</div>
-        <div className={styles.tagRow}>
-          {company.techStack.slice(0, 5).map((t, i) => (
-            <Badge key={i} color="#10b981" bg="#10b98115">{t}</Badge>
-          ))}
-          {company.techStack.length > 5 && <Badge color="#71717a" bg="#27272a">+{company.techStack.length - 5}</Badge>}
+      {company.techStack.length > 0 && (
+        <div>
+          <div className={styles.sectionLabel}>Tech Stack</div>
+          <div className={styles.tagRow}>
+            {company.techStack.slice(0, 5).map((t, i) => (
+              <Badge key={i} color="#10b981" bg="#10b98115">{t}</Badge>
+            ))}
+            {company.techStack.length > 5 && <Badge color="#71717a" bg="#27272a">+{company.techStack.length - 5}</Badge>}
+          </div>
         </div>
-      </div>
+      )}
 
-      <div className={styles.tagRow}>
-        {company.cultureTags.map((t, i) => (
-          <Badge key={i} color="#8b5cf6" bg="#8b5cf615">{t}</Badge>
-        ))}
-      </div>
+      {!isScraped && company.cultureTags.length > 0 && (
+        <div className={styles.tagRow}>
+          {company.cultureTags.map((t, i) => (
+            <Badge key={i} color="#8b5cf6" bg="#8b5cf615">{t}</Badge>
+          ))}
+        </div>
+      )}
 
       <div className={styles.langReqRow}>
         <span className={styles.langIcon}>🗣</span>
@@ -162,9 +172,23 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
         }
       </div>
 
-      {company.notes && (
+      {!isScraped && company.notes && (
         <div className={styles.notesBox}>
           <p className={styles.notesText}>{company.notes}</p>
+        </div>
+      )}
+
+      {company.openRoles?.length > 0 && (
+        <div className={styles.rolesSection}>
+          <div className={styles.sectionLabel}>Open roles ({company.openRoles.length})</div>
+          {company.openRoles.map((role, i) => (
+            <a key={i} href={role.url} target="_blank" rel="noopener noreferrer" className={styles.roleLink}>
+              {role.title}
+              {insights?.roles?.[i] && (
+                <span className={styles.roleEstimate}>€{insights.roles[i].estimate}k</span>
+              )}
+            </a>
+          ))}
         </div>
       )}
 
@@ -174,8 +198,12 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
             View Job ↗
           </a>
         )}
-        <button onClick={() => onEdit(company)} className={styles.editButton}>Edit</button>
-        <button onClick={() => onDelete(company.id)} className={styles.deleteButton} aria-label="Delete company">✕</button>
+        {!isScraped && (
+          <>
+            <button onClick={() => onEdit(company)} className={styles.editButton}>Edit</button>
+            <button onClick={() => onDelete(company.id)} className={styles.deleteButton} aria-label="Delete company">✕</button>
+          </>
+        )}
       </div>
     </div>
   );
