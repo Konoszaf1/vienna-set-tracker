@@ -1,24 +1,20 @@
 import { memo, useState } from "react";
-import { STATUS_OPTIONS } from "../constants";
 import StarRating from "./StarRating";
 import Badge from "./Badge";
 import styles from './CompanyCard.module.css';
 
 const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insights }) {
   const [expanded, setExpanded] = useState(false);
-  const status = STATUS_OPTIONS.find(s => s.value === company.status) || STATUS_OPTIONS[0];
   const avgRating = [company.kununuRating, company.glassdoorRating].filter(r => r !== null && r !== undefined);
   const avg = avgRating.length ? (avgRating.reduce((a, b) => a + b, 0) / avgRating.length) : null;
 
   const salary = insights?.salary;
   const match = insights?.match;
   const isScraped = company.isScraped;
-  const hasLiveRoles = company.openRoles?.length > 0;
   const primaryJobUrl = company.openRoles?.[0]?.url || company.jobUrl;
-  const primaryLabel = hasLiveRoles ? "View listing ↗" : "View careers ↗";
 
   return (
-    <div className={`${styles.card}${!isScraped && !hasLiveRoles ? ` ${styles.noLiveRoles}` : ''}`}>
+    <div className={styles.card}>
       <div className={styles.cardHeader}>
         <div className={styles.companyInfo}>
           <span className={styles.logo}>{company.logo}</span>
@@ -27,10 +23,7 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
             {company.industry && <span className={styles.industry}>{company.industry}</span>}
           </div>
         </div>
-        {isScraped
-          ? <Badge color="#06b6d4" bg="#06b6d420">Live listing</Badge>
-          : <Badge color={status.color} bg={status.bg}>{status.label}</Badge>
-        }
+        <Badge color="#06b6d4" bg="#06b6d420">Live listing</Badge>
       </div>
 
       <div className={styles.district}>
@@ -198,7 +191,7 @@ const CompanyCard = memo(function CompanyCard({ company, onEdit, onDelete, insig
       <div className={styles.actions}>
         {primaryJobUrl && (
           <a href={primaryJobUrl} target="_blank" rel="noopener noreferrer" className={styles.viewJobLink}>
-            {primaryLabel}
+            View listing ↗
           </a>
         )}
         {!isScraped && (
