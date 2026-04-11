@@ -17,9 +17,9 @@ const CONCURRENCY = 5;
 const TIMEOUT_MS = 10000;
 
 const SOFT_404_PATTERNS = [
-  /nicht mehr verf[uü]gbar/i,
+  /leider nicht mehr verf/i,
+  /no longer available/i,
   /stelle wurde entfernt/i,
-  /position is no longer available/i,
   /dieses jobangebot ist leider nicht mehr aktiv/i,
 ];
 
@@ -36,11 +36,9 @@ async function checkJob(job) {
     }
 
     const html = await res.text();
-    if (html.length < 50000) {
-      for (const pattern of SOFT_404_PATTERNS) {
-        if (pattern.test(html)) {
-          return { status: "dead", reason: "soft-404" };
-        }
+    for (const pattern of SOFT_404_PATTERNS) {
+      if (pattern.test(html)) {
+        return { status: "dead", reason: "soft-404" };
       }
     }
 

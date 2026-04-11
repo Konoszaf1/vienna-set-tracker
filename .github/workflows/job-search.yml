@@ -21,6 +21,9 @@ jobs:
       - name: Search for jobs
         run: node scripts/search-jobs.mjs
 
+      - name: Verify liveness of scraped jobs
+        run: node scripts/verify-jobs.mjs
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
