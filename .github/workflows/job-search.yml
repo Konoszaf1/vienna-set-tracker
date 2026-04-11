@@ -1,8 +1,8 @@
-name: Daily SDET Job Search (Vienna)
+name: Daily Job Search & Listing Verification
 
 on:
   schedule:
-    - cron: '0 7 * * *' # Every day at 07:00 UTC (09:00 Vienna/CEST)
+    - cron: '0 7 * * *'
   workflow_dispatch:
 
 permissions:
@@ -10,8 +10,12 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: daily-jobs
+  cancel-in-progress: false
+
 jobs:
-  search-and-update:
+  update:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -26,17 +30,28 @@ jobs:
 
       - run: npm ci
 
-      - name: Search for jobs
+      # --- scraped jobs (public/jobs.json) ---
+      - name: Search for new scraped jobs
         run: node scripts/search-jobs.mjs
 
-      - name: Verify liveness of scraped jobs
+      - name: Prune dead scraped jobs
         run: node scripts/verify-jobs.mjs
 
-      - name: Commit and push if changed
+      # --- curated company listings (src/data/companies.js) ---
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Verify curated listings with JobSpy
+        run: |
+          uv venv .venv
+          uv pip install python-jobspy
+          .venv/bin/python scripts/verifyListings.py --apply
+
+      # --- commit & deploy ---
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/jobs.json public/geocoding-cache.json
+          git add public/jobs.json public/geocoding-cache.json src/data/companies.js
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
@@ -47,8 +62,7 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
