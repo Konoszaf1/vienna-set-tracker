@@ -1,0 +1,344 @@
+{
+  "lastUpdated": "2026-04-11T13:29:31.576Z",
+  "count": 26,
+  "jobs": [
+    {
+      "url": "https://www.karriere.at/jobs/10015281",
+      "title": "Junior Projektmanager – Testautomatisierung",
+      "company": "Automators GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7781381",
+      "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
+      "company": "ÖBB-Konzern",
+      "source": "Test Automation Wien",
+      "address": "Leopoldstadt, 1020 Wien",
+      "city": "Wien",
+      "zip": "1020",
+      "lat": 48.2006384,
+      "lng": 16.4268953,
+      "curatedCompanyId": "27"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7760981",
+      "title": "Testmanager Testautomatisierung (m/w/x)",
+      "company": "BEKO Solutions GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7779197",
+      "title": "Test Engineer (m/w/d) - Fokus BPM / Testautomatisierung",
+      "company": "Michael Page International Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7686185",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Qnit Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": "30"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7757258",
+      "title": "(Senior) IT Test Automation Engineer (m/w/d)",
+      "company": "Schrack Technik GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": "26"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7632528",
+      "title": "Test Automation Engineer (f/m/d)",
+      "company": "Österreichische Post AG",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": "19"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7749476",
+      "title": "Test Automation Engineer C# (m/f/x)",
+      "company": "ADMIRAL Technologies",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": "28"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7766282",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Software Daten Service Gesellschaft m.b.H.",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7595456",
+      "title": "Software Test Engineer (all genders)",
+      "company": "MELECS EWS GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7775258",
+      "title": "Senior Test Engineer (m/w/d)",
+      "company": "IVM Technical Consultants",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7776170",
+      "title": "Testmanager (m/w/d)",
+      "company": "SOFTCOM CONSULTING GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10011931",
+      "title": "Testingenieur:in (m/w/d)",
+      "company": "EVVA Sicherheitstechnologie GmbH",
+      "source": "Test Automation Wien",
+      "address": "Meidling, 1120 Wien",
+      "city": "Wien",
+      "zip": "1120",
+      "lat": 48.1719649,
+      "lng": 16.3286908,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7772102",
+      "title": "SAP S4 HANA Test Coordinator (all genders)",
+      "company": "RHI Magnesita GmbH",
+      "source": "Test Automation Wien",
+      "address": null,
+      "city": null,
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10015248",
+      "title": "QA Engineer / Software Tester (all genders)",
+      "company": "AUSTRIACARD",
+      "source": "QA Engineer Wien",
+      "address": "Liesing, 1230 Wien",
+      "city": "Wien",
+      "zip": "1230",
+      "lat": 48.1411061,
+      "lng": 16.2939161,
+      "curatedCompanyId": "38"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10016390",
+      "title": "Software Tester Field Service Management (m/w/d)",
+      "company": "Kontron AG",
+      "source": "Software Tester Wien",
+      "address": "Meidling, 1120 Wien",
+      "city": "Wien",
+      "zip": "1120",
+      "lat": 48.1719649,
+      "lng": 16.3286908,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7766636",
+      "title": "Software Test-Engineer (m/w/d) für e-card / ELGA",
+      "company": "SV-Chipkarten Betriebs- und Errichtungsges.m.b.H.",
+      "source": "Software Tester Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7744253",
+      "title": "Test Engineer Regular (m/w/d)",
+      "company": "BEV - Bundesamt für Eich- und Vermessungswesen",
+      "source": "Software Tester Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7774874",
+      "title": "Trainee System Test Engineer (all genders)",
+      "company": "FREQUENTIS AG",
+      "source": "Software Tester Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": "13"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7724918",
+      "title": "System Test Engineer (all genders)",
+      "company": "MELECS EWS GmbH",
+      "source": "Software Tester Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7756805",
+      "title": "C# Softwareentwickler Testsysteme (m/w/d)",
+      "company": "Kapsch TrafficCom",
+      "source": "Testautomatisierung Wien",
+      "address": null,
+      "city": null,
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": "17"
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10013950",
+      "title": "Quality Assurance Manager (m/w/d)",
+      "company": "LOYTEC electronics GmbH",
+      "source": "Quality Assurance Wien",
+      "address": "Hernals, 1170 Wien",
+      "city": "Wien",
+      "zip": "1170",
+      "lat": 48.2352741,
+      "lng": 16.284095,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10014188",
+      "title": "Praktikum im Bereich Quality Assurance (d/m/w)",
+      "company": "Merck Gesellschaft mbH",
+      "source": "Quality Assurance Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7673390",
+      "title": "Quality Assurance Officer (m/w/d) - Operations",
+      "company": "Kwizda Pharma GmbH",
+      "source": "Quality Assurance Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7764146",
+      "title": "Gruppenleitung Quality Management Payroll (w/m/d)",
+      "company": "WienIT GmbH",
+      "source": "Quality Assurance Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7769921",
+      "title": "Head of Quality & Environment (m/w/d)",
+      "company": "ISG Personalmanagement GmbH",
+      "source": "Quality Assurance Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "curatedCompanyId": null
+    }
+  ],
+  "searchLinks": [
+    {
+      "label": "karriere.at",
+      "url": "https://www.karriere.at/jobs/test-automation/in-wien"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=SDET&location=Vienna"
+    },
+    {
+      "label": "StepStone",
+      "url": "https://www.stepstone.at/jobs/test-automation/in-wien"
+    },
+    {
+      "label": "indeed.at",
+      "url": "https://at.indeed.com/jobs?q=SDET&l=Wien"
+    }
+  ],
+  "validation": {
+    "accepted": 27,
+    "rejected": 14,
+    "reasons": {
+      "missing-test-keyword": 14
+    }
+  },
+  "lastVerified": "2026-04-11T13:29:40.547Z"
+}
