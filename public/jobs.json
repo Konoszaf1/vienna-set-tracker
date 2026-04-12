@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-11T22:57:43.641588+00:00",
-  "count": 52,
+  "lastUpdated": "2026-04-12T08:08:28.868434+00:00",
+  "count": 54,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10015281",
@@ -11,8 +11,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -23,8 +22,7 @@
       "city": "Wien",
       "zip": "1020",
       "lat": 48.2006384,
-      "lng": 16.4268953,
-      "curatedCompanyId": "27"
+      "lng": 16.4268953
     },
     {
       "url": "https://www.karriere.at/jobs/7760981",
@@ -35,8 +33,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7779197",
@@ -47,8 +44,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7686185",
@@ -59,8 +55,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": "30"
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7778351",
@@ -71,8 +66,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7757258",
@@ -83,8 +77,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": "26"
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7632528",
@@ -95,8 +88,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -107,8 +99,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": "28"
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7766282",
@@ -119,8 +110,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7595456",
@@ -131,8 +121,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7775258",
@@ -143,8 +132,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7776170",
@@ -155,8 +143,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/10011931",
@@ -167,8 +154,7 @@
       "city": "Wien",
       "zip": "1120",
       "lat": 48.1719649,
-      "lng": 16.3286908,
-      "curatedCompanyId": null
+      "lng": 16.3286908
     },
     {
       "url": "https://www.karriere.at/jobs/7772102",
@@ -179,8 +165,7 @@
       "city": null,
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/10015248",
@@ -191,8 +176,7 @@
       "city": "Wien",
       "zip": "1230",
       "lat": 48.1411061,
-      "lng": 16.2939161,
-      "curatedCompanyId": "38"
+      "lng": 16.2939161
     },
     {
       "url": "https://www.karriere.at/jobs/10016390",
@@ -203,8 +187,7 @@
       "city": "Wien",
       "zip": "1120",
       "lat": 48.1719649,
-      "lng": 16.3286908,
-      "curatedCompanyId": null
+      "lng": 16.3286908
     },
     {
       "url": "https://www.karriere.at/jobs/7766636",
@@ -215,8 +198,18 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7764851",
+      "title": "System Test Engineer (all genders)",
+      "company": "FREQUENTIS AG",
+      "source": "Software Tester Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7744253",
@@ -227,8 +220,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7774874",
@@ -239,8 +231,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7724918",
@@ -251,8 +242,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7756805",
@@ -263,8 +253,7 @@
       "city": null,
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/10013950",
@@ -275,8 +264,18 @@
       "city": "Wien",
       "zip": "1170",
       "lat": 48.2352741,
-      "lng": 16.284095,
-      "curatedCompanyId": null
+      "lng": 16.284095
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10014188",
+      "title": "Praktikum im Bereich Quality Assurance (d/m/w)",
+      "company": "Merck Gesellschaft mbH",
+      "source": "Quality Assurance Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7673390",
@@ -287,8 +286,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7764146",
@@ -299,20 +297,18 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
-      "url": "https://www.karriere.at/jobs/7769921",
-      "title": "Head of Quality & Environment (m/w/d)",
-      "company": "ISG Personalmanagement GmbH",
+      "url": "https://www.karriere.at/jobs/7764500",
+      "title": "Leitung Safety, Health, Environment, Quality (m/w/d)",
+      "company": "Rhomberg Gruppe",
       "source": "Quality Assurance Wien",
       "address": "Wien",
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=60a4e80276772c49",
@@ -323,8 +319,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1822872,
-      "lng": 16.3923295,
-      "curatedCompanyId": null
+      "lng": 16.3923295
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399047134",
@@ -335,8 +330,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4291933969",
@@ -347,8 +341,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": "36"
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4387103203",
@@ -359,8 +352,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": "36"
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399283352",
@@ -371,8 +363,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4308973953",
@@ -383,32 +374,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": "29"
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4370503347",
-      "title": "Test Automation Engineer (all genders) [Wien]",
-      "company": "adesso Austria GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null,
-      "curatedCompanyId": "35"
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4353952752",
-      "title": "QA Engineer (m/w/d)",
-      "company": "RINGANA",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4386765146",
@@ -419,8 +385,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4397840018",
@@ -431,8 +396,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4384883437",
@@ -443,8 +407,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399875580",
@@ -455,8 +418,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4390134808",
@@ -467,8 +429,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4389195188",
@@ -479,8 +440,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4389567167",
@@ -491,8 +451,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
@@ -503,8 +462,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": "36"
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4387869379",
@@ -515,8 +473,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4390748119",
@@ -527,8 +484,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": "39"
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4379900168",
@@ -539,8 +495,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4385435786",
@@ -551,8 +506,7 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=7da261b528d2e3d6",
@@ -563,8 +517,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1822872,
-      "lng": 16.3923295,
-      "curatedCompanyId": null
+      "lng": 16.3923295
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=1e99c8e0c5e2e38f",
@@ -575,8 +528,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1822872,
-      "lng": 16.3923295,
-      "curatedCompanyId": null
+      "lng": 16.3923295
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=082b532f2793d183",
@@ -587,8 +539,18 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1822872,
-      "lng": 16.3923295,
-      "curatedCompanyId": null
+      "lng": 16.3923295
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4386927581",
+      "title": "Head of Software Testing",
+      "company": "Ketryx",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4394541676",
@@ -599,8 +561,18 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null,
-      "curatedCompanyId": null
+      "lng": null
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=8bb263a897e80b3a",
+      "title": "Head of Quality Assurance & Testautomation (m/w/d)",
+      "company": "XXXLutz",
+      "source": "jobspy-indeed",
+      "address": "Wien, W, AT",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1822872,
+      "lng": 16.3923295
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4387711121",
@@ -611,8 +583,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4398825566",
@@ -623,8 +594,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "curatedCompanyId": null
+      "lng": 16.4221587
     }
   ],
   "searchLinks": [
@@ -650,11 +620,11 @@
     }
   ],
   "validation": {
-    "accepted": 27,
-    "rejected": 12,
+    "accepted": 39,
+    "rejected": 40,
     "reasons": {
-      "missing-test-keyword": 12
+      "missing-test-keyword": 40
     }
   },
-  "lastVerified": "2026-04-11T22:57:58.257Z"
+  "lastVerified": "2026-04-12T08:08:47.214Z"
 }
