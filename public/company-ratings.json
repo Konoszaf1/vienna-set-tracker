@@ -323,5 +323,33 @@
   "dynatrace": {},
   "bitpanda": {},
   "sportradar": {},
-  "raiffeisen": {}
+  "raiffeisen": {},
+  "ebcont": {
+    "kununu": {
+      "score": 4.5,
+      "reviews": 0
+    },
+    "fetchedAt": "2026-04-13T15:07:52.168Z"
+  },
+  "hirebuddy": {
+    "kununu": {
+      "score": 4.8,
+      "reviews": 0
+    },
+    "fetchedAt": "2026-04-13T15:07:54.557Z"
+  },
+  "raiffeisen bank rbi": {
+    "kununu": {
+      "score": 4,
+      "reviews": 0
+    },
+    "fetchedAt": "2026-04-13T15:07:56.864Z"
+  },
+  "cronos unternehmensberatung": {
+    "kununu": {
+      "score": 4.3,
+      "reviews": 0
+    },
+    "fetchedAt": "2026-04-13T15:07:59.532Z"
+  }
 }

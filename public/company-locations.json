@@ -218,5 +218,30 @@
     "lat": null,
     "lng": null,
     "address": null
+  },
+  "ebcont": {
+    "lat": null,
+    "lng": null,
+    "address": null
+  },
+  "hirebuddy": {
+    "lat": null,
+    "lng": null,
+    "address": null
+  },
+  "raiffeisen bank international ag (rbi)": {
+    "lat": 48.2581603,
+    "lng": 16.398154,
+    "address": "Schloßhofer Straße, 1210, KG Floridsdorf"
+  },
+  "ringana gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null
+  },
+  "cronos unternehmensberatung gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null
   }
 }
