@@ -8,8 +8,7 @@
       "score": 3.8,
       "reviews": 0
     },
-    "fetchedAt": "2026-04-13T14:28:29.777Z",
-    "glassdoor": 3.8
+    "fetchedAt": "2026-04-13T14:28:29.777Z"
   },
   "beko solutions": {
     "kununu": {
@@ -321,16 +320,8 @@
     },
     "fetchedAt": "2026-04-13T14:30:14.094Z"
   },
-  "dynatrace": {
-    "glassdoor": 4.1
-  },
-  "bitpanda": {
-    "glassdoor": 3.5
-  },
-  "sportradar": {
-    "glassdoor": 3.9
-  },
-  "raiffeisen": {
-    "glassdoor": 3.6
-  }
+  "dynatrace": {},
+  "bitpanda": {},
+  "sportradar": {},
+  "raiffeisen": {}
 }
