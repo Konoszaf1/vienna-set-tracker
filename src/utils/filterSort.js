@@ -1,7 +1,12 @@
 export function filterAndSort({ companies, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax }) {
   return companies
     .filter(c => {
-      if (search && !c.name.toLowerCase().includes(search.toLowerCase())) return false;
+      if (search) {
+        const q = search.toLowerCase();
+        const nameMatch = c.name.toLowerCase().includes(q);
+        const techMatch = (c.techStack || []).some(t => t.toLowerCase().includes(q));
+        if (!nameMatch && !techMatch) return false;
+      }
       if (filterLang === "de-fluent" && c.langReq !== "de-fluent") return false;
       if (filterLang === "accessible" && c.langReq === "de-fluent") return false;
       const estimate = salaryMap[c.id]?.best;

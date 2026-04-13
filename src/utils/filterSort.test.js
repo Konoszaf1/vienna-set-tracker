@@ -31,6 +31,16 @@ describe("filterAndSort", () => {
     expect(result.map(c => c.id)).toEqual(["a"]);
   });
 
+  it("search matches tech stack", () => {
+    const withTech = [
+      { ...companies[0], techStack: ["React", "TypeScript"] },
+      { ...companies[1], techStack: ["Java", "Selenium"] },
+      { ...companies[2], techStack: ["Python", "Playwright"] },
+    ];
+    const result = filterAndSort({ ...defaults, companies: withTech, search: "playwright" });
+    expect(result.map(c => c.id)).toEqual(["c"]);
+  });
+
   it("search with no match returns empty", () => {
     const result = filterAndSort({ ...defaults, search: "zzz" });
     expect(result).toEqual([]);

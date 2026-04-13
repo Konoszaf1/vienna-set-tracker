@@ -3,6 +3,7 @@ import { PROFILE_STORAGE_KEY } from "./constants";
 import { filterAndSort } from "./utils/filterSort";
 import defaultProfileData from "./data/defaultProfile.json";
 import { estimateSalary } from "./utils/salaryEstimate";
+import { normalizeCompanyName } from "./utils/normalizeCompany";
 import CompanyCard from "./components/CompanyCard";
 import MapView from "./components/MapView";
 import SettingsModal from "./components/SettingsModal";
@@ -68,31 +69,42 @@ export default function App() {
     try { localStorage.setItem("sdet-first-seen", JSON.stringify(firstSeenMap)); } catch {}
   }, [jobs, firstSeenMap]);
 
-  // Group jobs by company name
+  // Group jobs by normalized company name (collapses ÖBB / ÖBB-Konzern etc.)
   const entries = useMemo(() => {
     const groups = {};
     for (const j of jobs) {
-      const key = j.company.toLowerCase().trim();
+      const key = normalizeCompanyName(j.company);
       if (!groups[key]) groups[key] = [];
       groups[key].push(j);
     }
 
     return Object.entries(groups).map(([key, roles]) => {
+      // Display the longest original company name (usually the most informative)
+      const displayName = roles.reduce((a, b) => b.company.length > a.length ? b.company : a, roles[0].company);
       const first = roles[0];
       const roleDates = roles.map(r => firstSeenMap[r.url]).filter(Boolean);
       const firstSeen = roleDates.length > 0
         ? roleDates.reduce((a, b) => a < b ? a : b)
         : null;
       const techStack = [...new Set(roles.flatMap(r => r.techStack || []))];
-      const roleLangs = roles.map(r => r.langReq).filter(Boolean);
-      let langReq = "de-basic";
-      if (roleLangs.includes("en")) langReq = "en";
-      else if (roleLangs.includes("de-basic")) langReq = "de-basic";
-      else if (roleLangs.includes("de-fluent")) langReq = "de-fluent";
+
+      // Pick the most common langReq across roles.
+      // Ties break toward more restrictive: de-fluent > de-basic > en.
+      const langCounts = {};
+      for (const r of roles) {
+        const l = r.langReq || "de-basic";
+        langCounts[l] = (langCounts[l] || 0) + 1;
+      }
+      const langOrder = ["de-fluent", "de-basic", "en"];
+      const langReq = langOrder.reduce((best, l) => {
+        if ((langCounts[l] || 0) > (langCounts[best] || 0)) return l;
+        if ((langCounts[l] || 0) === (langCounts[best] || 0) && langOrder.indexOf(l) < langOrder.indexOf(best)) return l;
+        return best;
+      }, "de-basic");
 
       return {
         id: `co-${key.replace(/\s+/g, "-")}`,
-        name: first.company,
+        name: displayName,
         logo: "\u{1F3E2}",
         district: first.city || "Wien",
         address: first.address || "",

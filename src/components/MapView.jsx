@@ -231,7 +231,6 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
       const km = dist(home[0], home[1], c.lat, c.lng);
       const sal = salaryMap?.[c.id];
       const estimate = sal?.best;
-      const matchResult = null;
       const color = salaryColor(estimate);
       const salaryLabel = estimate ? `€${estimate}k` : "";
       const eName = escapeHtml(c.name);
@@ -259,17 +258,9 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
 
       const commuteNote = km < 2 ? "🚶 walkable" : km < 5 ? "🚲 bikeable" : km < 12 ? "🚇 quick transit" : "🚆 longer commute";
 
-      const matchRow = matchResult
-        ? `<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Match</div><div style="font-size:14px;font-weight:700;color:${matchResult.score >= 70 ? "#10b981" : matchResult.score >= 50 ? "#f59e0b" : "#ef4444"}">${matchResult.score}%</div></div>`
-        : "";
-
-      const eIndustry = escapeHtml(c.industry || "");
       const eAddress = escapeHtml(c.address || "");
-      const eNotes = escapeHtml(c.notes || "");
       const eLogo = escapeHtml(c.logo);
-      const eLangs = (c.languages || []).map(l => escapeHtml(l)).join(", ");
       const eTech = (c.techStack || []).slice(0, 6).map(t => `<span style="background:#10b98118;color:#10b981;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600">${escapeHtml(t)}</span>`).join("");
-      const eCulture = (c.cultureTags || []).map(t => `<span style="background:#8b5cf618;color:#8b5cf6;padding:2px 6px;border-radius:4px;font-size:10px">${escapeHtml(t)}</span>`).join("");
       // Open roles section (for both curated+matched and scraped entries)
       const rolesHtml = openRoles.length > 0 ? `<div style="margin-top:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Open roles (${openRoles.length})</div>${openRoles.map((role, ri) => {
         const eTitle = escapeHtml(role.title);
@@ -295,7 +286,6 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
             <span style="font-size:28px">${eLogo}</span>
             <div>
               <div style="font-size:15px;font-weight:700;color:#fafafa">${eName}</div>
-              <div style="font-size:11px;color:#a1a1aa">${eIndustry}</div>
             </div>
             ${statusBadge}
           </div>
@@ -304,13 +294,9 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
             <div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Distance</div><div style="font-size:14px;font-weight:700;color:#a1a1aa">${km.toFixed(1)} km</div></div>
             <div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Commute</div><div style="font-size:11px;font-weight:600;color:#a1a1aa">${commuteNote}</div></div>
           </div>
-          ${matchRow ? `<div style="display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:10px">${matchRow}</div>` : ""}
           ${ratingsBlock}
           ${eTech?`<div style="margin-bottom:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Tech</div><div style="display:flex;flex-wrap:wrap;gap:3px">${eTech}</div></div>`:""}
-          ${eCulture?`<div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px">${eCulture}</div>`:""}
           ${eAddress?`<div style="font-size:11px;color:#a1a1aa">📍 ${eAddress}</div>`:""}
-          ${eLangs?`<div style="font-size:11px;color:#71717a;margin-top:2px">🗣 ${eLangs}</div>`:""}
-          ${eNotes?`<div style="margin-top:8px;padding:6px 8px;background:#6366f110;border-left:2px solid #6366f1;border-radius:4px;font-size:11px;color:#a1a1aa;font-style:italic">${eNotes}</div>`:""}
           ${rolesHtml}
           ${safePrimaryUrl?`<div style="margin-top:10px"><a href="${safePrimaryUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">View listing ↗</a></div>`:""}
         </div>`;
