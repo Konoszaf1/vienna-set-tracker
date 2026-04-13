@@ -29,7 +29,7 @@ export default function App() {
     try {
       const storedProfile = localStorage.getItem(PROFILE_STORAGE_KEY);
       if (storedProfile) {
-        setProfile(JSON.parse(storedProfile)); // eslint-disable-line react-hooks/set-state-in-effect -- mount-time load
+        setProfile(JSON.parse(storedProfile));
       }
     } catch {}
   }, []);

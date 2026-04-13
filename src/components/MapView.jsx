@@ -339,7 +339,7 @@ export default function MapView({ companies, profile, companyInsights, onHomeMov
 
     map.addLayer(clusterGroup);
     clusterGroupRef.current = clusterGroup;
-  }, [ready, companies, home, homeAddress, companyInsights]);
+  }, [ready, companies, home, homeAddress, companyInsights, onHomeMove, profile]);
 
   useEffect(() => () => { if (mapInstanceRef.current) { mapInstanceRef.current.remove(); mapInstanceRef.current = null; } }, []);
 
