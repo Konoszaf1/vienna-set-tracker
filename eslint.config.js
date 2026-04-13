@@ -56,6 +56,7 @@ export default [
       globals: {
         console: 'readonly',
         localStorage: 'readonly',
+        document: 'readonly',
       },
     },
   },

@@ -66,6 +66,22 @@ The same filter logic is ported to `scripts/discoverJobs.py` for JobSpy discover
 
 Glassdoor ratings can't be scraped from CI (Cloudflare). Instead, `public/company-ratings-manual.json` is a user-maintained overlay file — add entries like `{ "Company Name": { "glassdoor": 3.8 } }` and they'll merge into the ratings cache on the next pipeline run.
 
+## Testing
+
+The project has a comprehensive test suite spanning unit, integration, and end-to-end layers. See [TESTING.md](TESTING.md) for full details.
+
+```bash
+npm test              # unit + integration (vitest, ~6s)
+npm run test:coverage # unit + coverage report
+npm run e2e           # Playwright across 5 browser targets
+```
+
+**Unit tests** (182 tests, 14 files) cover utilities, components, script-layer logic, and a JSON schema contract test. All tests use deterministic fixtures via MSW — no live network calls.
+
+**E2E tests** (26 specs x 5 browsers = 130 tests) run against a production build with fixture data, covering filters, settings persistence, network error recovery, external link safety, accessibility (axe-core), and keyboard navigation.
+
+**Coverage thresholds** are enforced in CI: >=80% for `src/utils/`, >=80% statements / >=60% branches for `src/components/` (MapView excluded — covered by e2e + extracted helpers).
+
 ## Tech stack
 
 React 18, Vite 5, Leaflet 1.9 with MarkerCluster, CSS Modules, Vitest + React Testing Library, Playwright, ESLint.
