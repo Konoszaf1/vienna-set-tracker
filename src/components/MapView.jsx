@@ -6,6 +6,7 @@ import styles from './MapView.module.css';
 export default function MapView({ companies, profile, companyInsights, onHomeMove }) {
   const containerRef = useRef(null);
   const mapInstanceRef = useRef(null);
+  const homeMarkerRef = useRef(null);
   const markersRef = useRef([]);
   const clusterGroupRef = useRef(null);
   const extraLayersRef = useRef([]);
@@ -90,6 +91,7 @@ export default function MapView({ companies, profile, companyInsights, onHomeMov
     prevHomeRef.current = home;
 
     // Clear previous layers
+    if (homeMarkerRef.current) { map.removeLayer(homeMarkerRef.current); homeMarkerRef.current = null; }
     markersRef.current.forEach(m => {
       if (m._homeLine) { map.removeLayer(m._homeLine); m._homeLine = null; }
     });
@@ -137,6 +139,7 @@ export default function MapView({ companies, profile, companyInsights, onHomeMov
     const homeMarker = L.marker(home, { icon: homeIcon, zIndexOffset: 1000, draggable: true })
       .addTo(map)
       .bindPopup(`<div style="font-family:DM Sans,sans-serif;padding:4px"><div style="font-size:15px;font-weight:700;color:#fafafa">🏠 Home Base</div><div style="font-size:12px;color:#a1a1aa;margin-top:4px">${escapeHtml(homeAddress)}</div><div style="font-size:10px;color:#52525b;margin-top:4px">Drag pin to move home</div></div>`, { className: "dark-popup", closeButton: true });
+    homeMarkerRef.current = homeMarker;
 
     homeMarker.on("dragend", async () => {
       const pos = homeMarker.getLatLng();
