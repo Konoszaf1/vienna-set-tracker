@@ -141,16 +141,36 @@ export default function MapView({ companies, profile, companyInsights }) {
 
     const mappable = companies.filter(c => c.lat != null && c.lng != null);
 
+    // Compute vertical stacking index for markers at the same location.
+    // Markers within ~20 m of each other get stacked so labels don't overlap.
+    const SAME_SPOT = 0.0002; // ~22 m — same building
+    const STACK_HEIGHT = 28;  // px per label slot
+    const stackIndex = {};
+    const grouped = [];
+    for (const c of mappable) {
+      let placed = false;
+      for (const g of grouped) {
+        if (Math.abs(g.lat - c.lat) < SAME_SPOT && Math.abs(g.lng - c.lng) < SAME_SPOT) {
+          stackIndex[c.id] = g.members.length;
+          g.members.push(c);
+          placed = true;
+          break;
+        }
+      }
+      if (!placed) {
+        stackIndex[c.id] = 0;
+        grouped.push({ lat: c.lat, lng: c.lng, members: [c] });
+      }
+    }
+
     // Create cluster group with custom dark-themed icons.
     // disableClusteringAtZoom 15: at street level markers sit at true positions.
-    // spiderfyOnMaxZoom handles the few companies still at identical generic coords.
     const clusterGroup = L.markerClusterGroup({
       maxClusterRadius: 50,
       disableClusteringAtZoom: 15,
-      spiderfyOnMaxZoom: true,
+      spiderfyOnMaxZoom: false,
       showCoverageOnHover: false,
       zoomToBoundsOnClick: true,
-      spiderfyDistanceMultiplier: 1.5,
       iconCreateFunction: (cluster) => {
         const count = cluster.getChildCount();
         const children = cluster.getAllChildMarkers();
@@ -192,14 +212,20 @@ export default function MapView({ companies, profile, companyInsights }) {
       const primaryUrl = openRoles.length > 0 ? openRoles[0].url : c.jobUrl;
       const safePrimaryUrl = isSafeUrl(primaryUrl) ? escapeHtml(primaryUrl) : null;
 
+      const si = stackIndex[c.id] || 0;
+      const stemH = si * STACK_HEIGHT;
+      const stemHtml = stemH > 0
+        ? `<div style="width:2px;height:${stemH}px;background:${color}50"></div>`
+        : "";
       const icon = L.divIcon({
         className: "",
         html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer" data-company="${eId}">
           <div style="background:${color};color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 12px ${color}60;border:2px solid ${color}40;transition:transform .2s">${escapeHtml(c.logo)} ${eName}${salaryLabel ? ` · ${salaryLabel}` : ""}</div>
           <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid ${color};margin-top:-1px"></div>
+          ${stemHtml}
           <div style="width:8px;height:8px;border-radius:50%;background:${color};margin-top:2px;box-shadow:0 0 8px ${color}80"></div>
         </div>`,
-        iconSize: [0, 0], iconAnchor: [0, 45],
+        iconSize: [0, 0], iconAnchor: [0, 45 + stemH],
       });
 
       const commuteNote = km < 2 ? "🚶 walkable" : km < 5 ? "🚲 bikeable" : km < 12 ? "🚇 quick transit" : "🚆 longer commute";
