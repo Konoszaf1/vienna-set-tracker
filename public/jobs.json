@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-12T08:08:28.868434+00:00",
-  "count": 54,
+  "lastUpdated": "2026-04-13T09:04:43.439796+00:00",
+  "count": 56,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10015281",
@@ -300,9 +300,9 @@
       "lng": null
     },
     {
-      "url": "https://www.karriere.at/jobs/7764500",
-      "title": "Leitung Safety, Health, Environment, Quality (m/w/d)",
-      "company": "Rhomberg Gruppe",
+      "url": "https://www.karriere.at/jobs/7778630",
+      "title": "Customer Care Agent – Quality Excellence (m/w/d)",
+      "company": "Coca-Cola HBC Austria GmbH",
       "source": "Quality Assurance Wien",
       "address": "Wien",
       "city": "Wien",
@@ -369,6 +369,28 @@
       "url": "https://www.linkedin.com/jobs/view/4308973953",
       "title": "Software Quality Engineer",
       "company": "Ketryx",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4370503347",
+      "title": "Test Automation Engineer (all genders) [Wien]",
+      "company": "adesso Austria GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4353952752",
+      "title": "QA Engineer (m/w/d)",
+      "company": "RINGANA",
       "source": "jobspy-linkedin",
       "address": "Vienna, Vienna",
       "city": "Wien",
@@ -620,11 +642,11 @@
     }
   ],
   "validation": {
-    "accepted": 39,
-    "rejected": 40,
+    "accepted": 28,
+    "rejected": 13,
     "reasons": {
-      "missing-test-keyword": 40
+      "missing-test-keyword": 13
     }
   },
-  "lastVerified": "2026-04-12T08:08:47.214Z"
+  "lastVerified": "2026-04-13T09:04:58.701Z"
 }
