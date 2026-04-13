@@ -111,7 +111,6 @@ export default function App() {
         lat: first.lat,
         lng: first.lng,
         kununuRating: roles.find(r => r.kununuScore)?.kununuScore || null,
-        glassdoorRating: roles.find(r => r.glassdoorScore)?.glassdoorScore || null,
         techStack,
         jobUrl: first.url,
         langReq,

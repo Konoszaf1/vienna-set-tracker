@@ -82,11 +82,11 @@ describe("filterAndSort", () => {
     expect(result.map(c => c.id)).toEqual(["b", "c", "a"]);
   });
 
-  it("sorts by rating descending (average of kununu/glassdoor)", () => {
+  it("sorts by rating descending (kununu only)", () => {
     const withRatings = [
-      { ...companies[0], kununuRating: 4.0, glassdoorRating: 4.2 },  // avg 4.1
-      { ...companies[1], kununuRating: 3.0, glassdoorRating: null },  // 3.0
-      { ...companies[2], kununuRating: null, glassdoorRating: null },  // -1
+      { ...companies[0], kununuRating: 4.2 },
+      { ...companies[1], kununuRating: 3.0 },
+      { ...companies[2], kununuRating: null },
     ];
     const result = filterAndSort({ ...defaults, companies: withRatings, sortBy: "rating" });
     expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
@@ -94,12 +94,11 @@ describe("filterAndSort", () => {
 
   it("sort by rating puts unrated companies last", () => {
     const mixed = [
-      { ...companies[0], kununuRating: null, glassdoorRating: null },
-      { ...companies[1], kununuRating: 3.5, glassdoorRating: null },
-      { ...companies[2], kununuRating: null, glassdoorRating: 4.0 },
+      { ...companies[0], kununuRating: null },
+      { ...companies[1], kununuRating: 3.5 },
+      { ...companies[2], kununuRating: 4.0 },
     ];
     const result = filterAndSort({ ...defaults, companies: mixed, sortBy: "rating" });
-    // c=4.0, b=3.5, a=-1 (unrated last)
     expect(result.map(c => c.id)).toEqual(["c", "b", "a"]);
   });
 

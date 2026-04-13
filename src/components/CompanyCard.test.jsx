@@ -51,23 +51,14 @@ describe("CompanyCard", () => {
     expect(screen.queryByText(/€.*k/)).not.toBeInTheDocument();
   });
 
-  it("renders both Kununu and Glassdoor when present", () => {
-    const both = { ...company, glassdoorRating: 3.8 };
-    render(<CompanyCard company={both} salary={salary} />);
-    expect(screen.getByText("Kununu")).toBeInTheDocument();
-    expect(screen.getByText("Glassdoor")).toBeInTheDocument();
-  });
-
-  it("renders only Kununu when Glassdoor is null", () => {
+  it("renders Kununu rating when present", () => {
     render(<CompanyCard company={company} salary={salary} />);
     expect(screen.getByText("Kununu")).toBeInTheDocument();
-    expect(screen.queryByText("Glassdoor")).not.toBeInTheDocument();
   });
 
-  it("hides ratings row when both are null", () => {
-    const noRatings = { ...company, kununuRating: null, glassdoorRating: null };
+  it("hides ratings row when kununuRating is null", () => {
+    const noRatings = { ...company, kununuRating: null };
     render(<CompanyCard company={noRatings} salary={salary} />);
     expect(screen.queryByText("Kununu")).not.toBeInTheDocument();
-    expect(screen.queryByText("Glassdoor")).not.toBeInTheDocument();
   });
 });

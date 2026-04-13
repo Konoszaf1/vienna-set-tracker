@@ -27,13 +27,8 @@ export function filterAndSort({ companies, salaryMap, search, filterLang, sortBy
         return sb - sa;
       }
       if (sortBy === "rating") {
-        const avg = (c) => {
-          const k = c.kununuRating, g = c.glassdoorRating;
-          if (k == null && g == null) return -1;
-          if (k != null && g != null) return (k + g) / 2;
-          return k ?? g;
-        };
-        return avg(b) - avg(a);
+        const r = (c) => c.kununuRating ?? -1;
+        return r(b) - r(a);
       }
       return 0;
     });

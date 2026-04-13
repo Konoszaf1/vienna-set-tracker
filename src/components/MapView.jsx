@@ -261,7 +261,7 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
       const eAddress = escapeHtml(c.address || "");
       const eLogo = escapeHtml(c.logo);
       const eTech = (c.techStack || []).slice(0, 6).map(t => `<span style="background:#10b98118;color:#10b981;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:600">${escapeHtml(t)}</span>`).join("");
-      // Open roles section (for both curated+matched and scraped entries)
+      // Open roles section
       const rolesHtml = openRoles.length > 0 ? `<div style="margin-top:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Open roles (${openRoles.length})</div>${openRoles.map((role, ri) => {
         const eTitle = escapeHtml(role.title);
         const roleUrl = isSafeUrl(role.url) ? escapeHtml(role.url) : null;
@@ -272,11 +272,7 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
           : `<div style="padding:4px 6px;margin:2px 0;background:#18181b;border-radius:4px;color:#a1a1aa;font-size:11px">${eTitle}${estLabel}</div>`;
       }).join("")}</div>` : "";
 
-      const ratingBoxes = [];
-      if (c.kununuRating != null) ratingBoxes.push(`<div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating} ★</div></div>`);
-      if (c.glassdoorRating != null) ratingBoxes.push(`<div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Glassdoor</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.glassdoorRating} ★</div></div>`);
-      const cols = ratingBoxes.length === 1 ? "1fr" : "1fr 1fr";
-      const ratingsBlock = ratingBoxes.length > 0 ? `<div style="display:grid;grid-template-columns:${cols};gap:6px;margin-bottom:10px">${ratingBoxes.join("")}</div>` : "";
+      const ratingsBlock = c.kununuRating != null ? `<div style="margin-bottom:10px"><div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating} ★</div></div></div>` : "";
 
       const statusBadge = `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:#06b6d4;background:#06b6d420;border:1px solid #06b6d430">Live</span>`;
 
