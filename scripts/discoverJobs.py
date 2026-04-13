@@ -52,14 +52,64 @@ RESULTS_PER_SITE = 25              # per search term per site
 HOURS_OLD = 720                     # 30 days
 
 # ---------------------------------------------------------------------------
-# Validation
+# Validation — mirrors scripts/jobValidator.mjs three-stage filter
 # ---------------------------------------------------------------------------
 
-# Title must contain at least one of these
-TEST_KEYWORDS = re.compile(
-    r"test|qa|quality|sdet|tester|automation|automatisierung|prüfung",
+REJECT_MANAGEMENT = True
+
+# Stage 1: Domain exclusion — non-software "quality" roles
+DOMAIN_EXCLUSIONS = [
+    (re.compile(r"\bpharma", re.I), "domain-pharma"),
+    (re.compile(r"\barzneimittel", re.I), "domain-pharma"),
+    (re.compile(r"\bmedikament", re.I), "domain-pharma"),
+    (re.compile(r"\bklinisch", re.I), "domain-pharma"),
+    (re.compile(r"\bclinical", re.I), "domain-pharma"),
+    (re.compile(r"\belectrical\s+qa", re.I), "domain-electrical"),
+    (re.compile(r"\bqa\s*/\s*qc", re.I), "domain-electrical"),
+    (re.compile(r"quality.*officer.*operations", re.I), "domain-operations"),
+    (re.compile(r"\bcustomer\s+care", re.I), "domain-customer-service"),
+    (re.compile(r"\bcall\s*cent(?:er|re)", re.I), "domain-customer-service"),
+    (re.compile(r"\bquality\s+excellence", re.I), "domain-customer-service"),
+    (re.compile(r"\bpayroll", re.I), "domain-payroll"),
+    (re.compile(r"\bfood\s+safety", re.I), "domain-food"),
+    (re.compile(r"\bgmp\b", re.I), "domain-pharma"),
+    (re.compile(r"\biso\s*9001", re.I), "domain-manufacturing"),
+    (re.compile(r"\bmanufacturing\s+quality", re.I), "domain-manufacturing"),
+    (re.compile(r"\blieferant", re.I), "domain-supply-chain"),
+]
+
+# Stage 2: Role-type whitelist — must match at least one
+ROLE_WHITELIST = re.compile(
+    r"sdet|software\s+engineer.*test|engineer\s+in\s+test"
+    r"|test\s+(?:automation\s+)?engineer|automation\s+engineer"
+    r"|qa\s+engineer|quality\s+(?:assurance\s+)?engineer"
+    r"|test\s*automatisier|testautomatisierung(?:sing|seng)"
+    r"|software\s+test|testingenieur|test\s+architect|testarchitekt",
     re.IGNORECASE,
 )
+
+# Stage 3: Management filter
+MANAGEMENT_PATTERN = re.compile(
+    r"\b(?:head\s+of|leiter(?:in)?|leitung|gruppenleit"
+    r"|koordinator(?:in)?|coordinator|director)\b"
+    r"|manager(?:\*?:?in)?\b",
+    re.IGNORECASE,
+)
+HANDS_ON_SIGNAL = re.compile(
+    r"engineer|entwickler|developer|architect|architekt", re.IGNORECASE
+)
+
+
+def validate_title(title: str) -> tuple[bool, str | None]:
+    """Apply the three-stage title filter. Returns (valid, reason)."""
+    for pattern, reason in DOMAIN_EXCLUSIONS:
+        if pattern.search(title):
+            return False, reason
+    if not ROLE_WHITELIST.search(title):
+        return False, "no-positive-match"
+    if REJECT_MANAGEMENT and MANAGEMENT_PATTERN.search(title) and not HANDS_ON_SIGNAL.search(title):
+        return False, "management-role"
+    return True, None
 
 # Corporate suffixes stripped during company-name normalisation
 CORP_SUFFIXES = re.compile(
@@ -214,8 +264,9 @@ def main():
             if not re.search(r"vienna|wien", location, re.IGNORECASE):
                 continue
 
-            # Must be a test/QA role
-            if not TEST_KEYWORDS.search(title):
+            # Three-stage title filter (mirrors jobValidator.mjs)
+            ok, reason = validate_title(title)
+            if not ok:
                 continue
 
             # Cross-source dedup: same company + similar title already tracked
