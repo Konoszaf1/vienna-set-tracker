@@ -51,6 +51,9 @@ jobs:
       - name: Resolve company office locations
         run: node scripts/geocodeCompanies.mjs --apply
 
+      - name: Final title filter
+        run: node scripts/finalFilter.mjs
+
       - name: Prune dead scraped jobs
         run: node scripts/verify-jobs.mjs
 
