@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-13T09:04:43.439796+00:00",
-  "count": 37,
+  "lastUpdated": "2026-04-13T18:58:25.865312+00:00",
+  "count": 35,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -10,6 +10,20 @@
       "address": "Leopoldstadt, 1020 Wien",
       "city": "Wien",
       "zip": "1020",
+      "techStack": [
+        "Playwright",
+        "Selenium",
+        "Appium",
+        "JUnit",
+        "Java",
+        "JavaScript",
+        "SQL",
+        "CI/CD",
+        "Jira",
+        "Confluence",
+        "Agile"
+      ],
+      "langReq": "de-basic",
       "lat": 48.2006384,
       "lng": 16.4268953,
       "kununuScore": 3.8
@@ -22,6 +36,14 @@
       "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "REST Assured",
+        "Postman",
+        "Xray",
+        "Jira",
+        "Confluence"
+      ],
+      "langReq": "de-fluent",
       "lat": 48.2251975,
       "lng": 16.3559533,
       "kununuScore": 4.3
@@ -34,6 +56,30 @@
       "address": "Wien",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Robot Framework",
+        "REST Assured",
+        "Postman",
+        "ISTQB",
+        "Xray",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "C#",
+        "PHP",
+        "React",
+        "Angular",
+        "CI/CD",
+        "Jenkins",
+        "GitLab CI/CD",
+        "GitHub Actions",
+        "Jira",
+        "Git"
+      ],
+      "langReq": "de-basic",
       "lat": null,
       "lng": null,
       "kununuScore": 4.8
@@ -46,6 +92,16 @@
       "address": "Seybelgasse, 13, 1230, KG Liesing",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "Java",
+        "Python",
+        "JavaScript",
+        "C#",
+        "PHP",
+        "CI/CD",
+        "SOAP"
+      ],
+      "langReq": "de-fluent",
       "lat": 48.1409112,
       "lng": 16.2944131,
       "kununuScore": 4.2
@@ -58,6 +114,17 @@
       "address": "Wagramer Straße, 162, 1220, KG Kagran",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "Playwright",
+        "Manual Testing",
+        "TypeScript",
+        "C#",
+        "PHP",
+        "CI/CD",
+        "Azure DevOps",
+        "Agile"
+      ],
+      "langReq": "en",
       "lat": 48.2510399,
       "lng": 16.4447756,
       "kununuScore": 3.3
@@ -70,6 +137,20 @@
       "address": "Siebenbrunnengasse, 1050, Margareten",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "Playwright",
+        "BDD",
+        "TypeScript",
+        "C#",
+        ".NET",
+        "SQL",
+        "CI/CD",
+        "Jira",
+        "Git",
+        "REST APIs",
+        "Agile"
+      ],
+      "langReq": "en",
       "lat": 48.1858518,
       "lng": 16.3539754,
       "kununuScore": 3.6
@@ -82,6 +163,12 @@
       "address": "Rennweg 97-99, 1030 Wien",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "Java",
+        "C#",
+        "PHP"
+      ],
+      "langReq": "de-basic",
       "lat": 48.1867515,
       "lng": 16.4032705,
       "kununuScore": 3.2
@@ -94,6 +181,11 @@
       "address": "Handelskai, 388, 1020, KG Leopoldstadt",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "CI/CD",
+        "Git"
+      ],
+      "langReq": "de-fluent",
       "lat": 48.203565,
       "lng": 16.4352268,
       "kununuScore": 3.2
@@ -106,6 +198,13 @@
       "address": "Wien",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "Selenium",
+        "Ranorex",
+        "C#",
+        "SQL"
+      ],
+      "langReq": "de-fluent",
       "lat": null,
       "lng": null,
       "kununuScore": 4.4
@@ -118,6 +217,8 @@
       "address": "Meidling, 1120 Wien",
       "city": "Wien",
       "zip": "1120",
+      "techStack": [],
+      "langReq": "de-fluent",
       "lat": 48.1719649,
       "lng": 16.3286908,
       "kununuScore": 3.4
@@ -130,6 +231,20 @@
       "address": "Liesing, 1230 Wien",
       "city": "Wien",
       "zip": "1230",
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Postman",
+        "ISTQB",
+        "Java",
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "SQL",
+        "Agile",
+        "Scrum"
+      ],
+      "langReq": "en",
       "lat": 48.1411061,
       "lng": 16.2939161,
       "kununuScore": 3.4
@@ -142,6 +257,16 @@
       "address": "Meidling, 1120 Wien",
       "city": "Wien",
       "zip": "1120",
+      "techStack": [
+        "Selenium",
+        "Appium",
+        "Tosca",
+        "JavaScript",
+        "Agile",
+        "Scrum",
+        "Swagger"
+      ],
+      "langReq": "de-fluent",
       "lat": 48.1719649,
       "lng": 16.3286908,
       "kununuScore": 3.2
@@ -154,6 +279,12 @@
       "address": "Wien",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "Tosca",
+        "JUnit",
+        "ISTQB"
+      ],
+      "langReq": "de-basic",
       "lat": null,
       "lng": null,
       "kununuScore": 3.9
@@ -166,6 +297,11 @@
       "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "ISTQB",
+        "Jira"
+      ],
+      "langReq": "de-fluent",
       "lat": 48.1639426,
       "lng": 16.3342088,
       "kununuScore": 4.4
@@ -178,6 +314,16 @@
       "address": "Franz-Hochedlinger-Gasse, 1020, KG Leopoldstadt",
       "city": "Wien",
       "zip": null,
+      "techStack": [
+        "Java",
+        "Python",
+        "C#",
+        "Docker",
+        "CI/CD",
+        "Git",
+        "Agile"
+      ],
+      "langReq": "de-fluent",
       "lat": 48.2188239,
       "lng": 16.3730485,
       "kununuScore": 3.4
@@ -190,6 +336,8 @@
       "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
+      "techStack": [],
+      "langReq": "de-fluent",
       "lat": 48.1639426,
       "lng": 16.3342088,
       "kununuScore": 4.4
@@ -202,6 +350,8 @@
       "address": "Handelskai, 388, 1020, KG Leopoldstadt",
       "city": "Wien",
       "zip": null,
+      "techStack": [],
+      "langReq": "de-fluent",
       "lat": 48.203565,
       "lng": 16.4352268,
       "kununuScore": 3.2
@@ -276,30 +426,6 @@
       "lat": 48.1857192,
       "lng": 16.4221587,
       "kununuScore": 4.9
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4370503347",
-      "title": "Test Automation Engineer (all genders) [Wien]",
-      "company": "adesso Austria GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4.5
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4353952752",
-      "title": "QA Engineer (m/w/d)",
-      "company": "RINGANA",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4386765146",
@@ -467,11 +593,13 @@
     }
   ],
   "validation": {
-    "accepted": 28,
-    "rejected": 13,
+    "accepted": 26,
+    "rejected": 56,
     "reasons": {
-      "missing-test-keyword": 13
+      "not-sdet-role": 49,
+      "management-role": 4,
+      "non-software-domain": 3
     }
   },
-  "lastVerified": "2026-04-13T09:04:58.701Z"
+  "lastVerified": "2026-04-13T18:58:45.260Z"
 }

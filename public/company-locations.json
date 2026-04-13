@@ -243,5 +243,10 @@
     "lat": null,
     "lng": null,
     "address": null
+  },
+  "hilti austria gmbh": {
+    "lat": 48.1548061,
+    "lng": 16.32065,
+    "address": "Altmannsdorfer Straße, 165, 1230, KG Inzersdorf"
   }
 }
