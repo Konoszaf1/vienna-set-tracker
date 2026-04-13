@@ -22,7 +22,9 @@
       "city": "Wien",
       "zip": "1020",
       "lat": 48.2006384,
-      "lng": 16.4268953
+      "lng": 16.4268953,
+      "kununuScore": 3.8,
+      "glassdoorScore": 3.8
     },
     {
       "url": "https://www.karriere.at/jobs/7760981",
@@ -33,7 +35,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 3.8
     },
     {
       "url": "https://www.karriere.at/jobs/7779197",
@@ -44,7 +47,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2251975,
-      "lng": 16.3559533
+      "lng": 16.3559533,
+      "kununuScore": 4.3
     },
     {
       "url": "https://www.karriere.at/jobs/7686185",
@@ -55,7 +59,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 4.8
     },
     {
       "url": "https://www.karriere.at/jobs/7778351",
@@ -66,7 +71,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 3.7
     },
     {
       "url": "https://www.karriere.at/jobs/7757258",
@@ -77,7 +83,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1409112,
-      "lng": 16.2944131
+      "lng": 16.2944131,
+      "kununuScore": 4.2
     },
     {
       "url": "https://www.karriere.at/jobs/7632528",
@@ -88,7 +95,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2510399,
-      "lng": 16.4447756
+      "lng": 16.4447756,
+      "kununuScore": 3.3
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -99,7 +107,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1858518,
-      "lng": 16.3539754
+      "lng": 16.3539754,
+      "kununuScore": 3.6
     },
     {
       "url": "https://www.karriere.at/jobs/7766282",
@@ -110,7 +119,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1867515,
-      "lng": 16.4032705
+      "lng": 16.4032705,
+      "kununuScore": 3.2
     },
     {
       "url": "https://www.karriere.at/jobs/7595456",
@@ -121,7 +131,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.203565,
-      "lng": 16.4352268
+      "lng": 16.4352268,
+      "kununuScore": 3.2
     },
     {
       "url": "https://www.karriere.at/jobs/7775258",
@@ -132,7 +143,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 4.4
     },
     {
       "url": "https://www.karriere.at/jobs/7776170",
@@ -143,7 +155,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 4
     },
     {
       "url": "https://www.karriere.at/jobs/10011931",
@@ -154,7 +167,8 @@
       "city": "Wien",
       "zip": "1120",
       "lat": 48.1719649,
-      "lng": 16.3286908
+      "lng": 16.3286908,
+      "kununuScore": 3.4
     },
     {
       "url": "https://www.karriere.at/jobs/7772102",
@@ -165,7 +179,8 @@
       "city": null,
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 3.5
     },
     {
       "url": "https://www.karriere.at/jobs/10015248",
@@ -176,7 +191,8 @@
       "city": "Wien",
       "zip": "1230",
       "lat": 48.1411061,
-      "lng": 16.2939161
+      "lng": 16.2939161,
+      "kununuScore": 3.4
     },
     {
       "url": "https://www.karriere.at/jobs/10016390",
@@ -187,7 +203,8 @@
       "city": "Wien",
       "zip": "1120",
       "lat": 48.1719649,
-      "lng": 16.3286908
+      "lng": 16.3286908,
+      "kununuScore": 3.2
     },
     {
       "url": "https://www.karriere.at/jobs/7766636",
@@ -198,7 +215,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 3.9
     },
     {
       "url": "https://www.karriere.at/jobs/7764851",
@@ -209,7 +227,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1639426,
-      "lng": 16.3342088
+      "lng": 16.3342088,
+      "kununuScore": 4.4
     },
     {
       "url": "https://www.karriere.at/jobs/7744253",
@@ -220,7 +239,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2188239,
-      "lng": 16.3730485
+      "lng": 16.3730485,
+      "kununuScore": 3.4
     },
     {
       "url": "https://www.karriere.at/jobs/7774874",
@@ -231,7 +251,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1639426,
-      "lng": 16.3342088
+      "lng": 16.3342088,
+      "kununuScore": 4.4
     },
     {
       "url": "https://www.karriere.at/jobs/7724918",
@@ -242,7 +263,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.203565,
-      "lng": 16.4352268
+      "lng": 16.4352268,
+      "kununuScore": 3.2
     },
     {
       "url": "https://www.karriere.at/jobs/7756805",
@@ -253,7 +275,8 @@
       "city": null,
       "zip": null,
       "lat": 48.1710232,
-      "lng": 16.3322535
+      "lng": 16.3322535,
+      "kununuScore": 3.6
     },
     {
       "url": "https://www.karriere.at/jobs/10013950",
@@ -264,7 +287,8 @@
       "city": "Wien",
       "zip": "1170",
       "lat": 48.2352741,
-      "lng": 16.284095
+      "lng": 16.284095,
+      "kununuScore": 3.1
     },
     {
       "url": "https://www.karriere.at/jobs/10014188",
@@ -275,7 +299,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2060952,
-      "lng": 16.2160236
+      "lng": 16.2160236,
+      "kununuScore": 3.7
     },
     {
       "url": "https://www.karriere.at/jobs/7673390",
@@ -286,7 +311,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2188682,
-      "lng": 16.3162615
+      "lng": 16.3162615,
+      "kununuScore": 3
     },
     {
       "url": "https://www.karriere.at/jobs/7764146",
@@ -297,7 +323,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 3.6
     },
     {
       "url": "https://www.karriere.at/jobs/7778630",
@@ -308,7 +335,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2053005,
-      "lng": 16.4313881
+      "lng": 16.4313881,
+      "kununuScore": 3.7
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=60a4e80276772c49",
@@ -319,7 +347,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1822872,
-      "lng": 16.3923295
+      "lng": 16.3923295,
+      "kununuScore": 3.4
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399047134",
@@ -341,7 +370,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1591557,
-      "lng": 16.3401205
+      "lng": 16.3401205,
+      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4387103203",
@@ -352,7 +382,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1591557,
-      "lng": 16.3401205
+      "lng": 16.3401205,
+      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399283352",
@@ -363,7 +394,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 3.5
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4308973953",
@@ -374,7 +406,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 4.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4370503347",
@@ -385,7 +418,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 4.5
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4353952752",
@@ -396,7 +430,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4386765146",
@@ -407,7 +442,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4397840018",
@@ -429,7 +465,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 4
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399875580",
@@ -440,7 +477,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1943005,
-      "lng": 16.3513299
+      "lng": 16.3513299,
+      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4390134808",
@@ -451,7 +489,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 2.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4389195188",
@@ -462,7 +501,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 4.1
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4389567167",
@@ -484,7 +524,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1591557,
-      "lng": 16.3401205
+      "lng": 16.3401205,
+      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4387869379",
@@ -495,7 +536,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2380565,
-      "lng": 16.366175
+      "lng": 16.366175,
+      "kununuScore": 4.1
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4390748119",
@@ -517,7 +559,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 4.1
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4385435786",
@@ -528,7 +571,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 4
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=7da261b528d2e3d6",
@@ -539,7 +583,9 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2063799,
-      "lng": 16.3849266
+      "lng": 16.3849266,
+      "kununuScore": 3.8,
+      "glassdoorScore": 3.8
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=1e99c8e0c5e2e38f",
@@ -550,7 +596,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1639426,
-      "lng": 16.3342088
+      "lng": 16.3342088,
+      "kununuScore": 3.7
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=082b532f2793d183",
@@ -561,7 +608,9 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2063799,
-      "lng": 16.3849266
+      "lng": 16.3849266,
+      "kununuScore": 3.8,
+      "glassdoorScore": 3.8
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4386927581",
@@ -572,7 +621,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 4.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4394541676",
@@ -583,7 +633,8 @@
       "city": "Wien",
       "zip": null,
       "lat": null,
-      "lng": null
+      "lng": null,
+      "kununuScore": 4.5
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=8bb263a897e80b3a",
@@ -594,7 +645,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2660883,
-      "lng": 16.400925
+      "lng": 16.400925,
+      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4387711121",
@@ -605,7 +657,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 3.6
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4398825566",
@@ -616,7 +669,8 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587
+      "lng": 16.4221587,
+      "kununuScore": 3.4
     }
   ],
   "searchLinks": [
