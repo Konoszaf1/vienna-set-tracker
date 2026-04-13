@@ -21,6 +21,15 @@ export function filterAndSort({ companies, salaryMap, search, filterLang, sortBy
         const sb = salaryMap[b.id]?.best ?? -1;
         return sb - sa;
       }
+      if (sortBy === "rating") {
+        const avg = (c) => {
+          const k = c.kununuRating, g = c.glassdoorRating;
+          if (k == null && g == null) return -1;
+          if (k != null && g != null) return (k + g) / 2;
+          return k ?? g;
+        };
+        return avg(b) - avg(a);
+      }
       return 0;
     });
 }

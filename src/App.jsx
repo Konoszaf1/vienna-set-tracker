@@ -99,6 +99,7 @@ export default function App() {
         lat: first.lat,
         lng: first.lng,
         kununuRating: roles.find(r => r.kununuScore)?.kununuScore || null,
+        glassdoorRating: roles.find(r => r.glassdoorScore)?.glassdoorScore || null,
         techStack,
         jobUrl: first.url,
         langReq,
@@ -186,6 +187,7 @@ export default function App() {
             <option value="name">Sort: Name</option>
             <option value="newest">Sort: Newest</option>
             <option value="salary">Sort: Salary</option>
+            <option value="rating">Sort: Rating</option>
           </select>
 
           <div className={styles.salaryRange}>

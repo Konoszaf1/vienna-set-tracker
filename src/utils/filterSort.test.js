@@ -72,6 +72,27 @@ describe("filterAndSort", () => {
     expect(result.map(c => c.id)).toEqual(["b", "c", "a"]);
   });
 
+  it("sorts by rating descending (average of kununu/glassdoor)", () => {
+    const withRatings = [
+      { ...companies[0], kununuRating: 4.0, glassdoorRating: 4.2 },  // avg 4.1
+      { ...companies[1], kununuRating: 3.0, glassdoorRating: null },  // 3.0
+      { ...companies[2], kununuRating: null, glassdoorRating: null },  // -1
+    ];
+    const result = filterAndSort({ ...defaults, companies: withRatings, sortBy: "rating" });
+    expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
+  });
+
+  it("sort by rating puts unrated companies last", () => {
+    const mixed = [
+      { ...companies[0], kununuRating: null, glassdoorRating: null },
+      { ...companies[1], kununuRating: 3.5, glassdoorRating: null },
+      { ...companies[2], kununuRating: null, glassdoorRating: 4.0 },
+    ];
+    const result = filterAndSort({ ...defaults, companies: mixed, sortBy: "rating" });
+    // c=4.0, b=3.5, a=-1 (unrated last)
+    expect(result.map(c => c.id)).toEqual(["c", "b", "a"]);
+  });
+
   it("sort by salary puts companies without salary data last", () => {
     const partial = { a: salaryMap.a };
     const result = filterAndSort({ ...defaults, salaryMap: partial, sortBy: "salary" });

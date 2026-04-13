@@ -35,12 +35,20 @@ const CompanyCard = memo(function CompanyCard({ company, salary }) {
         )}
       </div>
 
-      {company.kununuRating != null && (
+      {(company.kununuRating != null || company.glassdoorRating != null) && (
         <div className={styles.ratingsRow}>
-          <div>
-            <div className={styles.ratingLabel}>Kununu</div>
-            <StarRating rating={company.kununuRating} size={12} />
-          </div>
+          {company.kununuRating != null && (
+            <div>
+              <div className={styles.ratingLabel}>Kununu</div>
+              <StarRating rating={company.kununuRating} size={12} />
+            </div>
+          )}
+          {company.glassdoorRating != null && (
+            <div>
+              <div className={styles.ratingLabel}>Glassdoor</div>
+              <StarRating rating={company.glassdoorRating} size={12} />
+            </div>
+          )}
         </div>
       )}
 

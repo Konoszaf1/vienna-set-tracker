@@ -281,10 +281,11 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
           : `<div style="padding:4px 6px;margin:2px 0;background:#18181b;border-radius:4px;color:#a1a1aa;font-size:11px">${eTitle}${estLabel}</div>`;
       }).join("")}</div>` : "";
 
-      const ratingsBlock = (c.kununuRating != null || c.glassdoorRating != null) ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
-            <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating != null ? c.kununuRating+" ★" : "N/A"}</div></div>
-            <div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Glassdoor</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.glassdoorRating != null ? c.glassdoorRating+" ★" : "N/A"}</div></div>
-          </div>` : "";
+      const ratingBoxes = [];
+      if (c.kununuRating != null) ratingBoxes.push(`<div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating} ★</div></div>`);
+      if (c.glassdoorRating != null) ratingBoxes.push(`<div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Glassdoor</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.glassdoorRating} ★</div></div>`);
+      const cols = ratingBoxes.length === 1 ? "1fr" : "1fr 1fr";
+      const ratingsBlock = ratingBoxes.length > 0 ? `<div style="display:grid;grid-template-columns:${cols};gap:6px;margin-bottom:10px">${ratingBoxes.join("")}</div>` : "";
 
       const statusBadge = `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:#06b6d4;background:#06b6d420;border:1px solid #06b6d430">Live</span>`;
 
