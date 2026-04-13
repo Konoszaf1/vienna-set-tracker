@@ -7,8 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  unit:
-    name: Lint + Unit Tests
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,20 +21,6 @@ jobs:
       - run: npm run lint
       - run: npm run test:coverage
       - run: npm run build
-
-  e2e-desktop:
-    name: E2E — Desktop Browsers
-    needs: unit
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
 
       - name: Cache Playwright browsers
         id: pw-cache
@@ -52,51 +37,12 @@ jobs:
         if: steps.pw-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium firefox webkit
 
-      - name: Run desktop e2e
-        run: npx playwright test --project=desktop-chromium --project=desktop-firefox --project=desktop-webkit
+      - name: E2E tests (all browsers)
+        run: npx playwright test
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report-desktop
-          path: playwright-report/
-          retention-days: ${{ job.status == 'success' && 7 || 30 }}
-
-  e2e-mobile:
-    name: E2E — Mobile Browsers
-    needs: unit
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
-
-      - name: Cache Playwright browsers
-        id: pw-cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: pw-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Playwright browsers
-        if: steps.pw-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium webkit
-
-      - name: Install Playwright deps (cached)
-        if: steps.pw-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium webkit
-
-      - name: Run mobile e2e
-        run: npx playwright test --project=mobile-chromium --project=mobile-webkit
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report-mobile
+          name: playwright-report
           path: playwright-report/
           retention-days: ${{ job.status == 'success' && 7 || 30 }}
