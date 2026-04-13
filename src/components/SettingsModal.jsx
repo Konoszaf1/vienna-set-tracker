@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import FieldGroup from "./FieldGroup";
-import { geocodeForward } from "../utils/nominatim";
 import styles from './SettingsModal.module.css';
 
 const ROLE_LEVELS = ["junior", "mid", "mid-senior", "senior", "staff"];
@@ -28,9 +27,18 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
     if (!addr || addr.trim().length < 3) return;
     setLookupStatus("loading");
     try {
-      const result = await geocodeForward(addr);
-      if (result) {
-        setForm(p => ({ ...p, home: { ...p.home, lat: result.lat, lng: result.lng } }));
+      const q = encodeURIComponent(`${addr}, Vienna, Austria`);
+      // Nominatim rate limits apply — see https://operations.osmfoundation.org/policies/nominatim/
+      const url = `https://nominatim.openstreetmap.org/search?q=${q}&format=json&limit=1&addressdetails=1`;
+      const res = await fetch(url, {
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      if (data.length > 0) {
+        const lat = Math.round(parseFloat(data[0].lat) * 10000) / 10000;
+        const lng = Math.round(parseFloat(data[0].lon) * 10000) / 10000;
+        setForm(p => ({ ...p, home: { ...p.home, lat, lng } }));
         setLookupStatus("ok");
       } else {
         setLookupStatus("error");

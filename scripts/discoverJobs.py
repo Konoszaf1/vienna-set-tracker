@@ -53,25 +53,13 @@ HOURS_OLD = 720                     # 30 days
 
 # ---------------------------------------------------------------------------
 # Validation
-# Keep in sync with scripts/jobValidator.mjs (canonical source of truth).
-# Pipeline-level checks (Vienna location, cross-source dedup) live here;
-# per-job field validation mirrors jobValidator.
 # ---------------------------------------------------------------------------
-
-MIN_TITLE_LENGTH = 10
 
 # Title must contain at least one of these
 TEST_KEYWORDS = re.compile(
     r"test|qa|quality|sdet|tester|automation|automatisierung|prüfung",
     re.IGNORECASE,
 )
-
-BLOCKLISTED_COMPANIES = {
-    "jetzt bewerben",
-    "alle jobs",
-    "karriere.at",
-    "mehr erfahren",
-}
 
 # Corporate suffixes stripped during company-name normalisation
 CORP_SUFFIXES = re.compile(
@@ -216,20 +204,18 @@ def main():
             location = str(row.get("location", ""))
             site = str(row.get("site", ""))
 
-            # Per-job validation (mirrors jobValidator.mjs)
+            # Basic validation
             if not url or not title or not company:
                 continue
-            if len(title.strip()) < MIN_TITLE_LENGTH:
-                continue
-            if company.strip().lower() in BLOCKLISTED_COMPANIES:
-                continue
-            if not TEST_KEYWORDS.search(title):
-                continue
-
-            # Pipeline-level checks
             if url in seen_urls or url in existing_urls:
                 continue
+
+            # Must be in Vienna
             if not re.search(r"vienna|wien", location, re.IGNORECASE):
+                continue
+
+            # Must be a test/QA role
+            if not TEST_KEYWORDS.search(title):
                 continue
 
             # Cross-source dedup: same company + similar title already tracked

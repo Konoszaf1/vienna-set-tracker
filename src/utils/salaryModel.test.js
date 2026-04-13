@@ -83,13 +83,13 @@ describe("estimateSalary", () => {
     const result = estimateSalary(minimalCompany, baseProfile, baseCv);
     expect(result).toHaveProperty("estimate");
     expect(result).toHaveProperty("baseline", BASELINE);
+    expect(result).toHaveProperty("adjustments");
     expect(result).toHaveProperty("allAdjustments");
-    expect(result).toHaveProperty("dataPoints");
+    expect(result).toHaveProperty("total");
     expect(result).toHaveProperty("clamped");
     expect(result).toHaveProperty("authorOverride");
     expect(result).toHaveProperty("isOverridden");
     expect(typeof result.estimate).toBe("number");
-    expect(typeof result.dataPoints).toBe("number");
     expect(Array.isArray(result.allAdjustments)).toBe(true);
   });
 

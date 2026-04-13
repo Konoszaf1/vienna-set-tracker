@@ -1,11 +1,3 @@
-// @ts-check
-/** @typedef {import('../domain/schema.js').FilterSortOptions} FilterSortOptions */
-/** @typedef {import('../domain/schema.js').EnrichedCompany} EnrichedCompany */
-
-/**
- * @param {FilterSortOptions} options
- * @returns {EnrichedCompany[]}
- */
 export function filterAndSort({ companies, companyInsights, search, filterLang, filterCulture, sortBy, salaryMin, salaryMax }) {
   return companies
     .filter(c => {

@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS } from "../constants";
 import { escapeHtml, isSafeUrl } from "../utils/escape";
-import { geocodeReverse } from "../utils/nominatim";
 import styles from './MapView.module.css';
 
 export default function MapView({ companies, profile, companyInsights, onHomeMove }) {
@@ -146,10 +145,21 @@ export default function MapView({ companies, profile, companyInsights, onHomeMov
       const pos = homeMarker.getLatLng();
       const lat = Math.round(pos.lat * 10000) / 10000;
       const lng = Math.round(pos.lng * 10000) / 10000;
+      // Reverse-geocode to get address
       let address = `${lat}, ${lng}`;
       try {
-        const resolved = await geocodeReverse(lat, lng);
-        if (resolved) address = resolved;
+        // Nominatim rate limits apply — see https://operations.osmfoundation.org/policies/nominatim/
+        const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&zoom=18&addressdetails=1`;
+        const res = await fetch(url, {
+          signal: AbortSignal.timeout(8000),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const a = data.address || {};
+          const parts = [a.road, a.house_number, a.postcode, a.suburb || a.city_district].filter(Boolean);
+          if (parts.length > 0) address = parts.join(", ");
+          else if (data.display_name) address = data.display_name.split(",").slice(0, 3).join(",").trim();
+        }
       } catch { /* keep coordinate string */ }
       if (onHomeMove) {
         onHomeMove({ ...profile, home: { ...profile.home, lat, lng, address } });
