@@ -90,6 +90,15 @@ export default function App() {
       const firstSeen = roleDates.length > 0
         ? roleDates.reduce((a, b) => a < b ? a : b)
         : null;
+      // Derive techStack from union across all roles
+      const techStack = [...new Set(roles.flatMap(r => r.techStack || []))];
+      // Derive langReq: use the most accessible across all roles
+      const roleLangs = roles.map(r => r.langReq).filter(Boolean);
+      let langReq = "de-basic";
+      if (roleLangs.includes("en")) langReq = "en";
+      else if (roleLangs.includes("de-basic")) langReq = "de-basic";
+      else if (roleLangs.includes("de-fluent")) langReq = "de-fluent";
+
       return {
         id: `co-${key.replace(/\s+/g, "-")}`,
         name: first.company,
@@ -101,12 +110,12 @@ export default function App() {
         kununuRating: roles.find(r => r.kununuScore)?.kununuScore || null,
         glassdoorRating: null,
         cultureTags: [],
-        techStack: [],
+        techStack,
         languages: ["English"],
         notes: "",
         jobUrl: first.url,
         industry: "",
-        langReq: "de-basic",
+        langReq,
         openRoles: roles,
         firstSeen,
       };

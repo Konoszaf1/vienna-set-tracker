@@ -351,39 +351,50 @@ function advertisedSalaryAdjustment(company, profile) {
 export function estimateSalary(company, profile, cv) {
   const adjustments = [];
 
-  // 1. Industry adjustment
-  const industryDelta = INDUSTRY_ADJUSTMENTS[company.industry];
-  if (industryDelta !== undefined && industryDelta !== 0) {
-    adjustments.push({
-      name: "Industry",
-      delta: industryDelta,
-      reason: `${company.industry} — ${industryDelta > 0 ? "above" : "below"}-average paying sector`,
-    });
-  } else if (industryDelta === 0) {
-    adjustments.push({ name: "Industry", delta: 0, reason: `${company.industry} — average-paying sector` });
-  } else {
-    adjustments.push({ name: "Industry", delta: 0, reason: `${company.industry} — unknown sector (neutral)` });
+  // 1. Industry adjustment — skip when industry is unknown/empty
+  if (company.industry) {
+    const industryDelta = INDUSTRY_ADJUSTMENTS[company.industry];
+    if (industryDelta !== undefined && industryDelta !== 0) {
+      adjustments.push({
+        name: "Industry",
+        delta: industryDelta,
+        reason: `${company.industry} — ${industryDelta > 0 ? "above" : "below"}-average paying sector`,
+      });
+    } else if (industryDelta === 0) {
+      adjustments.push({ name: "Industry", delta: 0, reason: `${company.industry} — average-paying sector` });
+    } else {
+      adjustments.push({ name: "Industry", delta: 0, reason: `${company.industry} — unknown sector (neutral)` });
+    }
   }
 
   // 2. Language requirement
   const lang = langAdjustment(company.langReq, profile);
   adjustments.push({ name: "Language", ...lang });
 
-  // 3. Employer reputation
-  const rep = reputationAdjustment(company);
-  adjustments.push({ name: "Reputation", ...rep });
+  // 3. Employer reputation — skip when no ratings exist
+  const ratings = [company.kununuRating, company.glassdoorRating].filter(r => r != null);
+  if (ratings.length > 0) {
+    const rep = reputationAdjustment(company);
+    adjustments.push({ name: "Reputation", ...rep });
+  }
 
-  // 4. Brand / company size
-  const brand = brandPremium(company);
-  adjustments.push({ name: "Brand/Size", ...brand });
+  // 4. Brand / company size — skip when cultureTags is empty
+  if (company.cultureTags && company.cultureTags.length > 0) {
+    const brand = brandPremium(company);
+    adjustments.push({ name: "Brand/Size", ...brand });
+  }
 
-  // 5. Tech modernity
-  const techMod = techModernityAdjustment(company);
-  adjustments.push({ name: "Tech Modernity", ...techMod });
+  // 5. Tech modernity — skip when techStack is empty
+  if (company.techStack && company.techStack.length > 0) {
+    const techMod = techModernityAdjustment(company);
+    adjustments.push({ name: "Tech Modernity", ...techMod });
+  }
 
-  // 6. Tech alignment with CV
-  const techAlign = techAlignmentAdjustment(company, cv);
-  adjustments.push({ name: "Tech Alignment", ...techAlign });
+  // 6. Tech alignment with CV — skip when techStack is empty
+  if (company.techStack && company.techStack.length > 0) {
+    const techAlign = techAlignmentAdjustment(company, cv);
+    adjustments.push({ name: "Tech Alignment", ...techAlign });
+  }
 
   // 7. Advertised salary (can dominate if strong signal)
   const advert = advertisedSalaryAdjustment(company, profile);

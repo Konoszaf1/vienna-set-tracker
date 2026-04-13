@@ -140,6 +140,8 @@ async function fetchKununuSearch({ q, label }) {
           address: job.city || "Wien",
           zip: null,
           kununuScore: job.profile?.score || null,
+          techStack: [],
+          langReq: "de-basic",
         });
       }
 
@@ -153,6 +155,133 @@ async function fetchKununuSearch({ q, label }) {
   }
 
   return jobs;
+}
+
+// ---------------------------------------------------------------------------
+// Tech stack extraction from job description text
+// ---------------------------------------------------------------------------
+
+const TECH_TERMS = [
+  // Test automation frameworks
+  { name: "Playwright", re: /\bPlaywright\b/i },
+  { name: "Cypress", re: /\bCypress\b/i },
+  { name: "Selenium", re: /\bSelenium\b/i },
+  { name: "Appium", re: /\bAppium\b/i },
+  { name: "Robot Framework", re: /\bRobot\s+Framework\b/i },
+  { name: "Tosca", re: /\bTosca\b/i },
+  { name: "Ranorex", re: /\bRanorex\b/i },
+  { name: "Puppeteer", re: /\bPuppeteer\b/i },
+  { name: "TestCafe", re: /\bTestCafe\b/i },
+  // Test tools / practices
+  { name: "REST Assured", re: /\bREST\s*Assured\b/i },
+  { name: "Postman", re: /\bPostman\b/i },
+  { name: "JUnit", re: /\bJUnit\b/i },
+  { name: "TestNG", re: /\bTestNG\b/i },
+  { name: "Jest", re: /\bJest\b/i },
+  { name: "Cucumber", re: /\bCucumber\b/i },
+  { name: "BDD", re: /\bBDD\b/ },
+  { name: "ISTQB", re: /\bISTQB\b/ },
+  { name: "Manual Testing", re: /\bmanual\s+test/i },
+  { name: "SoapUI", re: /\bSoapUI\b/i },
+  { name: "JMeter", re: /\bJMeter\b/i },
+  { name: "Gatling", re: /\bGatling\b/i },
+  { name: "k6", re: /\bk6\b/ },
+  { name: "LoadRunner", re: /\bLoadRunner\b/i },
+  { name: "TestRail", re: /\bTestRail\b/i },
+  { name: "Xray", re: /\bXray\b/i },
+  // Languages
+  { name: "Java", re: /\bJava\b(?!\s*Script)/i },
+  { name: "Python", re: /\bPython\b/i },
+  { name: "TypeScript", re: /\bTypeScript\b/i },
+  { name: "JavaScript", re: /\bJavaScript\b/i },
+  { name: "C#", re: /\bC#/ },
+  { name: ".NET", re: /\.NET\b/i },
+  { name: "Kotlin", re: /\bKotlin\b/i },
+  { name: "Go", re: /\bGolang\b/i },
+  { name: "Scala", re: /\bScala\b/i },
+  { name: "Ruby", re: /\bRuby\b/i },
+  { name: "PHP", re: /\bPHP\b/ },
+  { name: "SQL", re: /\bSQL\b/ },
+  // Frameworks / platforms
+  { name: "React", re: /\bReact\b/i },
+  { name: "Angular", re: /\bAngular\b/i },
+  { name: "Vue.js", re: /\bVue\.?js\b/i },
+  { name: "Node.js", re: /\bNode\.?js\b/i },
+  { name: "Spring", re: /\bSpring\s*Boot\b|\bSpring\s+Framework\b/i },
+  { name: "Next.js", re: /\bNext\.?js\b/i },
+  // DevOps / CI
+  { name: "Docker", re: /\bDocker\b/i },
+  { name: "Kubernetes", re: /\bKubernetes\b/i },
+  { name: "CI/CD", re: /\bCI\/?CD\b/ },
+  { name: "Jenkins", re: /\bJenkins\b/i },
+  { name: "Azure DevOps", re: /\bAzure\s+DevOps\b/i },
+  { name: "GitLab CI/CD", re: /\bGitLab\s+CI\b/i },
+  { name: "GitHub Actions", re: /\bGitHub\s+Actions\b/i },
+  { name: "Terraform", re: /\bTerraform\b/i },
+  { name: "AWS", re: /\bAWS\b/ },
+  // Tools
+  { name: "Jira", re: /\bJira\b/i },
+  { name: "Confluence", re: /\bConfluence\b/i },
+  { name: "Git", re: /\bGit\b(?!\s*(?:Hub|Lab))/i },
+  { name: "REST APIs", re: /\bREST\s+API/i },
+  { name: "GraphQL", re: /\bGraphQL\b/i },
+  { name: "SOAP", re: /\bSOAP\b/ },
+  { name: "Kafka", re: /\bKafka\b/i },
+  { name: "MongoDB", re: /\bMongoDB\b/i },
+  { name: "PostgreSQL", re: /\bPostgres(?:QL)?\b/i },
+  { name: "Agile", re: /\bAgile\b/i },
+  { name: "Scrum", re: /\bScrum\b/i },
+  { name: "Swagger", re: /\bSwagger\b|\bOpenAPI\b/i },
+  { name: "Grafana", re: /\bGrafana\b/i },
+  // Legacy
+  { name: "TFS", re: /\bTFS\b/ },
+  { name: "AUTOSAR", re: /\bAUTOSAR\b/ },
+  { name: "Embedded Testing", re: /\bembedded\s+test/i },
+];
+
+function stripHtmlToText(html) {
+  let text = html.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, " ");
+  text = text.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, " ");
+  text = text.replace(/<[^>]+>/g, " ");
+  text = text.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, " ");
+  return text.replace(/\s+/g, " ").trim();
+}
+
+function extractTechStack(html) {
+  const text = stripHtmlToText(html);
+  const found = new Set();
+  for (const { name, re } of TECH_TERMS) {
+    if (re.test(text)) found.add(name);
+  }
+  return [...found];
+}
+
+// ---------------------------------------------------------------------------
+// Language requirement extraction from job description text
+// ---------------------------------------------------------------------------
+
+function extractLangReq(html) {
+  const text = stripHtmlToText(html);
+
+  // Strong fluent-German signals
+  if (/verhandlungssicher.*deutsch|deutsch.*verhandlungssicher/i.test(text)) return "de-fluent";
+  if (/flie[sß]end.*deutsch|deutsch.*flie[sß]end/i.test(text)) return "de-fluent";
+  if (/sehr\s+gut[e ].*deutsch|deutsch.*sehr\s+gut/i.test(text)) return "de-fluent";
+  if (/deutsch.*\b(?:c1|c2)\b|\b(?:c1|c2)\b.*deutsch/i.test(text)) return "de-fluent";
+  if (/muttersprach.*deutsch|deutsch.*muttersprach/i.test(text)) return "de-fluent";
+  if (/perfekt.*deutsch|deutsch.*perfekt/i.test(text)) return "de-fluent";
+
+  // English-primary workplace signals
+  const hasEnglishWork = /(?:working|company)\s+language.*english|english.*(?:working|company)\s+language/i.test(text);
+  const germanOptional = /deutsch.*(?:von\s+vorteil|wünschenswert|nice\s+to\s+have|a\s+plus)/i.test(text);
+  const noGermanReq = !/\bdeutsch/i.test(text);
+
+  if (hasEnglishWork) return "en";
+  if (germanOptional) return "en";
+  if (noGermanReq && /\benglish\b/i.test(text)) return "en";
+
+  return "de-basic";
 }
 
 // ---------------------------------------------------------------------------
@@ -353,16 +482,22 @@ async function main() {
           job.city = null;
           job.zip = null;
         }
+        job.techStack = extractTechStack(html);
+        job.langReq = extractLangReq(html);
       } else {
         job.address = null;
         job.city = null;
         job.zip = null;
+        job.techStack = [];
+        job.langReq = "de-basic";
       }
     } catch (e) {
       console.warn(`  Could not fetch detail for ${job.title}: ${e.message}`);
       job.address = null;
       job.city = null;
       job.zip = null;
+      job.techStack = [];
+      job.langReq = "de-basic";
     }
     if (i < karriereJobs.length - 1) {
       await new Promise(r => setTimeout(r, 1000));
