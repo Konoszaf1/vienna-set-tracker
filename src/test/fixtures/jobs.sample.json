@@ -1,0 +1,128 @@
+{
+  "count": 10,
+  "lastUpdated": "2026-04-13T07:00:00Z",
+  "jobs": [
+    {
+      "title": "Senior SDET Engineer (m/w/d)",
+      "company": "Dynatrace Austria GmbH",
+      "url": "https://www.karriere.at/jobs/1000001",
+      "city": "Wien",
+      "address": "Liebenowgasse 2-6, 1100 Wien",
+      "lat": 48.1851,
+      "lng": 16.3326,
+      "langReq": "en",
+      "techStack": ["Java", "Selenium", "TypeScript"],
+      "kununuScore": 4.2,
+      "source": "karriere.at"
+    },
+    {
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Wiener Stadtwerke GmbH",
+      "url": "https://www.karriere.at/jobs/1000002",
+      "city": "Wien",
+      "address": "Thomas-Klestil-Platz 14, 1030 Wien",
+      "lat": 48.1867,
+      "lng": 16.4133,
+      "langReq": "de-fluent",
+      "techStack": ["C#", ".NET", "Selenium"],
+      "source": "karriere.at"
+    },
+    {
+      "title": "QA Engineer (m/w/d)",
+      "company": "RINGANA",
+      "url": "https://www.karriere.at/jobs/1000003",
+      "city": "Wien",
+      "address": "Opernring 1, 1010 Wien",
+      "lat": 48.2033,
+      "lng": 16.3686,
+      "langReq": "de-basic",
+      "techStack": ["Python", "Playwright"],
+      "kununuScore": 3.5,
+      "source": "karriere.at"
+    },
+    {
+      "title": "Software Test Engineer (all genders)",
+      "company": "<img src=x onerror=alert(1)>",
+      "url": "https://www.karriere.at/jobs/1000004",
+      "city": "Wien",
+      "address": "Karlsplatz 1, 1040 Wien",
+      "lat": 48.2008,
+      "lng": 16.3713,
+      "langReq": "en",
+      "techStack": ["React"],
+      "source": "karriere.at"
+    },
+    {
+      "title": "System Test Engineer (all genders)",
+      "company": "ÖBB-Konzern",
+      "url": "https://www.karriere.at/jobs/1000005",
+      "city": "Wien",
+      "address": "Am Hauptbahnhof 2, 1100 Wien",
+      "lat": 48.1853,
+      "lng": 16.3784,
+      "langReq": "de-basic",
+      "techStack": ["Java", "JUnit"],
+      "kununuScore": 3.8,
+      "source": "karriere.at"
+    },
+    {
+      "title": "Test Automation Engineer (m/w/x)",
+      "company": "ÖBB",
+      "url": "https://www.karriere.at/jobs/1000006",
+      "city": "Wien",
+      "address": "Am Hauptbahnhof 2, 1100 Wien",
+      "lat": 48.1853,
+      "lng": 16.3784,
+      "langReq": "en",
+      "techStack": ["Java", "Cucumber"],
+      "source": "karriere.at"
+    },
+    {
+      "title": "Quality Assurance Engineer",
+      "company": "Stealth Startup",
+      "url": "https://www.karriere.at/jobs/1000007",
+      "city": "Wien",
+      "langReq": "en",
+      "techStack": [],
+      "source": "karriere.at"
+    },
+    {
+      "title": "Senior Test Automation Engineer (m/w/d)",
+      "company": "PKE Holding AG",
+      "url": "https://www.karriere.at/jobs/1000008",
+      "city": "Wien",
+      "address": "Mariahilfer Str. 123, 1060 Wien",
+      "lat": 48.1948,
+      "lng": 16.3419,
+      "langReq": "de-fluent",
+      "techStack": ["Python", "Robot Framework", "Docker"],
+      "kununuScore": 4.0,
+      "source": "karriere.at"
+    },
+    {
+      "title": "Junior QA Engineer (m/w/d)",
+      "company": "CoolPeople",
+      "url": "https://www.karriere.at/jobs/1000009",
+      "city": "Wien",
+      "address": "Wollzeile 12, 1010 Wien",
+      "lat": 48.2088,
+      "lng": 16.3768,
+      "langReq": "en",
+      "techStack": ["JavaScript", "Cypress"],
+      "kununuScore": 3.2,
+      "source": "karriere.at"
+    },
+    {
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "RINGANA",
+      "url": "https://www.karriere.at/jobs/1000010",
+      "city": "Wien",
+      "address": "Opernring 1, 1010 Wien",
+      "lat": 48.2033,
+      "lng": 16.3686,
+      "langReq": "en",
+      "techStack": ["JavaScript", "Playwright"],
+      "source": "karriere.at"
+    }
+  ]
+}

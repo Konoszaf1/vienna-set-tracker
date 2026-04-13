@@ -155,10 +155,10 @@ export default function App() {
 
   if (fetchError) {
     return (
-      <div className={styles.loadingScreen}>
+      <div className={styles.loadingScreen} data-testid="error-screen">
         <div className={styles.loadingText}>Failed to load job data</div>
         <p style={{ color: '#a1a1aa', marginTop: 8 }}>{fetchError}</p>
-        <button onClick={handleRetry} className={styles.settingsButton} style={{ marginTop: 16 }}>Retry</button>
+        <button onClick={handleRetry} className={styles.settingsButton} style={{ marginTop: 16 }} data-testid="retry-btn">Retry</button>
       </div>
     );
   }
@@ -175,7 +175,7 @@ export default function App() {
               </p>
             </div>
             <div className={styles.headerActions}>
-              <button onClick={() => setSettingsOpen(true)} className={styles.settingsButton}>Settings</button>
+              <button onClick={() => setSettingsOpen(true)} className={styles.settingsButton} data-testid="settings-btn">Settings</button>
             </div>
           </div>
         </div>
@@ -186,15 +186,16 @@ export default function App() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             className={`${styles.input} ${styles.searchInput}`}
+            data-testid="search-input"
           />
 
-          <select value={filterLang} onChange={e => setFilterLang(e.target.value)} className={`${styles.input} ${styles.langSelect}`}>
+          <select value={filterLang} onChange={e => setFilterLang(e.target.value)} className={`${styles.input} ${styles.langSelect}`} data-testid="lang-select">
             <option value="all">All Language Reqs</option>
             <option value="accessible">No Fluent German Needed</option>
             <option value="de-fluent">Fluent German Required</option>
           </select>
 
-          <select value={sortBy} onChange={e => setSortBy(e.target.value)} className={`${styles.input} ${styles.sortSelect}`}>
+          <select value={sortBy} onChange={e => setSortBy(e.target.value)} className={`${styles.input} ${styles.sortSelect}`} data-testid="sort-select">
             <option value="name">Sort: Name</option>
             <option value="newest">Sort: Newest</option>
             <option value="salary">Sort: Salary</option>
@@ -212,6 +213,7 @@ export default function App() {
               step="1"
               className={`${styles.input} ${styles.salaryInput}`}
               aria-label="Minimum salary in thousands EUR"
+              data-testid="salary-min"
             />
             <input
               type="number"
@@ -223,22 +225,23 @@ export default function App() {
               step="1"
               className={`${styles.input} ${styles.salaryInput}`}
               aria-label="Maximum salary in thousands EUR"
+              data-testid="salary-max"
             />
           </div>
 
           <div className={styles.viewToggle}>
-            <button onClick={() => setView("grid")} className={`${styles.viewButton} ${view === "grid" ? styles.viewActive : ''}`}>Cards</button>
-            <button onClick={() => setView("map")} className={`${styles.viewButton} ${view === "map" ? styles.viewActive : ''}`}>Map</button>
+            <button onClick={() => setView("grid")} className={`${styles.viewButton} ${view === "grid" ? styles.viewActive : ''}`} data-testid="view-toggle-grid">Cards</button>
+            <button onClick={() => setView("map")} className={`${styles.viewButton} ${view === "map" ? styles.viewActive : ''}`} data-testid="view-toggle-map">Map</button>
           </div>
         </div>
 
         {view === "grid" ? (
-          <div className={styles.cardGrid}>
+          <div className={styles.cardGrid} data-testid="card-grid">
             {filtered.map(c => (
               <CompanyCard key={c.id} company={c} salary={salaryMap[c.id]} />
             ))}
             {filtered.length === 0 && (
-              <div className={styles.emptyState}>
+              <div className={styles.emptyState} data-testid="empty-state">
                 <p className={styles.emptyTitle}>No companies match your filters</p>
                 <p className={styles.emptySubtitle}>Try adjusting your search or filters</p>
               </div>

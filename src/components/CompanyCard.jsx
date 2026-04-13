@@ -7,7 +7,7 @@ const CompanyCard = memo(function CompanyCard({ company, salary }) {
   const primaryJobUrl = company.openRoles?.[0]?.url || company.jobUrl;
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} data-testid="company-card">
       <div className={styles.cardHeader}>
         <div className={styles.companyInfo}>
           <span className={styles.logo}>{company.logo}</span>

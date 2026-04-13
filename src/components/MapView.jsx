@@ -337,7 +337,7 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
   ];
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="map-container">
       <div className={styles.header}>
         <h3 className={styles.title}>📍 Vienna Office Map</h3>
         <div className={styles.legend}>
