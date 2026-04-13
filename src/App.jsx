@@ -232,7 +232,7 @@ export default function App() {
             )}
           </div>
         ) : (
-          <MapView companies={filtered} profile={profile} companyInsights={companyInsights} />
+          <MapView companies={filtered} profile={profile} companyInsights={companyInsights} onHomeMove={handleSaveProfile} />
         )}
       </div>
 

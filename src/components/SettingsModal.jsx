@@ -8,6 +8,7 @@ const GERMAN_LEVELS = ["none", "basic", "conversational", "fluent"];
 
 export default function SettingsModal({ open, onClose, profile, defaultProfile, onSave }) {
   const [form, setForm] = useState(() => ({ ...profile }));
+  const [lookupStatus, setLookupStatus] = useState(null); // null | "loading" | "ok" | "error"
 
   const update = (k, v) => setForm(p => ({ ...p, [k]: v }));
   const updateHome = (k, v) => setForm(p => ({ ...p, home: { ...p.home, [k]: v } }));
@@ -19,6 +20,32 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
 
   const handleLoadSample = () => {
     setForm({ ...defaultProfile });
+  };
+
+  const handleLookupAddress = async () => {
+    const addr = form.home?.address;
+    if (!addr || addr.trim().length < 3) return;
+    setLookupStatus("loading");
+    try {
+      const q = encodeURIComponent(`${addr}, Vienna, Austria`);
+      const url = `https://nominatim.openstreetmap.org/search?q=${q}&format=json&limit=1&addressdetails=1`;
+      const res = await fetch(url, {
+        headers: { "User-Agent": "vienna-set-tracker/1.0" },
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      if (data.length > 0) {
+        const lat = Math.round(parseFloat(data[0].lat) * 10000) / 10000;
+        const lng = Math.round(parseFloat(data[0].lon) * 10000) / 10000;
+        setForm(p => ({ ...p, home: { ...p.home, lat, lng } }));
+        setLookupStatus("ok");
+      } else {
+        setLookupStatus("error");
+      }
+    } catch {
+      setLookupStatus("error");
+    }
   };
 
   return (
@@ -80,12 +107,28 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
       </div>
       <div className={styles.sectionHeader}>Home Location</div>
       <FieldGroup label="Address">
-        <input
-          className={styles.input}
-          value={form.home?.address || ""}
-          onChange={e => updateHome("address", e.target.value)}
-          placeholder="e.g. Stephansplatz, 1010 Wien"
-        />
+        <div className={styles.addressRow}>
+          <input
+            className={styles.input}
+            value={form.home?.address || ""}
+            onChange={e => { updateHome("address", e.target.value); setLookupStatus(null); }}
+            onKeyDown={e => { if (e.key === "Enter") { e.preventDefault(); handleLookupAddress(); } }}
+            placeholder="e.g. Rennweg 97, 1030 Wien"
+          />
+          <button
+            onClick={handleLookupAddress}
+            disabled={lookupStatus === "loading"}
+            className={styles.lookupButton}
+          >
+            {lookupStatus === "loading" ? "..." : "Lookup"}
+          </button>
+        </div>
+        {lookupStatus === "ok" && (
+          <div className={styles.lookupSuccess}>Coordinates updated</div>
+        )}
+        {lookupStatus === "error" && (
+          <div className={styles.lookupError}>Address not found -- try a more specific address</div>
+        )}
       </FieldGroup>
       <div className={styles.grid2}>
         <FieldGroup label="Latitude">
@@ -106,6 +149,9 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
             onChange={e => updateHome("lng", parseFloat(e.target.value) || 0)}
           />
         </FieldGroup>
+      </div>
+      <div className={styles.coordHint}>
+        You can also drag the home pin on the map to set your location.
       </div>
       <div className={styles.actions}>
         <button onClick={handleLoadSample} className={styles.sampleButton}>Load sample profile</button>

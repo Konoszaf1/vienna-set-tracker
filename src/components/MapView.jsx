@@ -3,7 +3,7 @@ import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS } from "../constants";
 import { escapeHtml, isSafeUrl } from "../utils/escape";
 import styles from './MapView.module.css';
 
-export default function MapView({ companies, profile, companyInsights }) {
+export default function MapView({ companies, profile, companyInsights, onHomeMove }) {
   const containerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef([]);
@@ -126,16 +126,42 @@ export default function MapView({ companies, profile, companyInsights }) {
 
     const homeIcon = L.divIcon({
       className: "",
-      html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer">
+      html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:grab">
         <div style="background:#ef4444;color:#fff;font-size:13px;font-weight:700;padding:5px 12px;border-radius:10px;white-space:nowrap;font-family:DM Sans,sans-serif;box-shadow:0 2px 16px rgba(239,68,68,.5);border:2px solid #fca5a5">🏠 Home</div>
         <div style="width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid #ef4444;margin-top:-1px"></div>
         <div style="width:10px;height:10px;border-radius:50%;background:#ef4444;margin-top:2px;box-shadow:0 0 12px rgba(239,68,68,.8)"></div>
+        <div style="font-size:9px;color:#fca5a5;margin-top:3px;font-family:DM Sans,sans-serif;font-weight:600;white-space:nowrap">drag to move</div>
       </div>`,
       iconSize: [0, 0], iconAnchor: [0, 45],
     });
-    L.marker(home, { icon: homeIcon, zIndexOffset: 1000 })
+    const homeMarker = L.marker(home, { icon: homeIcon, zIndexOffset: 1000, draggable: true })
       .addTo(map)
-      .bindPopup(`<div style="font-family:DM Sans,sans-serif;padding:4px"><div style="font-size:15px;font-weight:700;color:#fafafa">🏠 Home Base</div><div style="font-size:12px;color:#a1a1aa;margin-top:4px">${escapeHtml(homeAddress)}</div></div>`, { className: "dark-popup", closeButton: true });
+      .bindPopup(`<div style="font-family:DM Sans,sans-serif;padding:4px"><div style="font-size:15px;font-weight:700;color:#fafafa">🏠 Home Base</div><div style="font-size:12px;color:#a1a1aa;margin-top:4px">${escapeHtml(homeAddress)}</div><div style="font-size:10px;color:#52525b;margin-top:4px">Drag pin to move home</div></div>`, { className: "dark-popup", closeButton: true });
+
+    homeMarker.on("dragend", async () => {
+      const pos = homeMarker.getLatLng();
+      const lat = Math.round(pos.lat * 10000) / 10000;
+      const lng = Math.round(pos.lng * 10000) / 10000;
+      // Reverse-geocode to get address
+      let address = `${lat}, ${lng}`;
+      try {
+        const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&zoom=18&addressdetails=1`;
+        const res = await fetch(url, {
+          headers: { "User-Agent": "vienna-set-tracker/1.0" },
+          signal: AbortSignal.timeout(8000),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const a = data.address || {};
+          const parts = [a.road, a.house_number, a.postcode, a.suburb || a.city_district].filter(Boolean);
+          if (parts.length > 0) address = parts.join(", ");
+          else if (data.display_name) address = data.display_name.split(",").slice(0, 3).join(",").trim();
+        }
+      } catch { /* keep coordinate string */ }
+      if (onHomeMove) {
+        onHomeMove({ ...profile, home: { ...profile.home, lat, lng, address } });
+      }
+    });
 
     const salaryColor = (s) => !s ? "#6366f1" : s >= 70 ? "#10b981" : s >= 60 ? "#f59e0b" : s >= 55 ? "#fb923c" : "#ef4444";
 

@@ -23,6 +23,60 @@
   box-sizing: border-box;
 }
 
+.addressRow {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.addressRow .input {
+  flex: 1;
+  min-width: 0;
+}
+
+.lookupButton {
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #6366f140;
+  background: #6366f118;
+  color: #6366f1;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lookupButton:hover {
+  background: #6366f130;
+}
+
+.lookupButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.lookupSuccess {
+  color: #10b981;
+  font-size: 11px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.lookupError {
+  color: #ef4444;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.coordHint {
+  color: #52525b;
+  font-size: 11px;
+  margin-top: 2px;
+  font-style: italic;
+}
+
 .sectionHeader {
   color: #71717a;
   font-size: 10px;
