@@ -1,26 +1,21 @@
 # Vienna SET/SDET Tracker
 
-A salary-modeling job-application tracker for Vienna SDET roles — built as a testbed for my own job search.
+A scraped-feed dashboard for Vienna SDET/QA job opportunities with client-side salary estimation, match scoring, and an interactive map.
 
 [![CI](https://github.com/Konoszaf1/vienna-set-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Konoszaf1/vienna-set-tracker/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://konoszaf1.github.io/vienna-set-tracker/)
 
-<!-- TODO: add screenshot at docs/screenshot.png -->
+## What it does
 
-## The problem
+The tracker scrapes Vienna QA/SDET job listings daily from karriere.at, kununu.com, and JobSpy (LinkedIn, Indeed, Google Jobs), then runs them through two client-side analytical models:
 
-I was applying for Software Engineer in Test roles in Vienna and needed a way to compare companies across dimensions that matter for the decision: salary expectations, tech-stack fit, German language requirements, employer reputation, and commute distance. Existing job trackers treat all of this as free-text notes. I wanted something that actually models it.
+- **Salary estimation** starts from a Vienna SDET baseline and applies additive adjustments for industry sector, language requirement friction, employer reputation (Kununu ratings), tech stack modernity, CV alignment, and any advertised salary data. The breakdown shows every adjustment that fired and why.
+- **Match scoring** produces a 0-100 weighted score across tech stack overlap, language accessibility, culture fit, employer reputation, and salary alignment with the candidate's target.
 
-This tracker takes structured company data — ratings from Kununu and Glassdoor, tech stacks, language requirements, culture tags — and runs it through a configurable salary estimation model and a weighted match-scoring model. Instead of guessing what a role might pay, I can see a computed estimate with a breakdown of how it got there, and compare it against my own salary targets.
+Data refreshes daily via GitHub Actions. The scraper extracts tech stacks and language requirements from karriere.at detail pages using keyword matching, geocodes office addresses through Nominatim, and deduplicates across sources.
 
-The app ships with 40 Vienna companies pre-loaded. A stranger can fork it, edit the profile and CV seed data to match their own background, and get personalized estimates immediately.
-
-## The salary model
-
-Salary estimates are computed by a pure function that takes a company record, a candidate profile, and a CV, then returns a number with a human-readable breakdown. The model starts from a Vienna SDET baseline and applies additive adjustments for industry sector, language friction (a non-German speaker faces real negotiating headwinds on German-required roles), employer reputation, brand/company size, tech stack modernity, CV alignment, and any advertised salary data parsed from the company notes. When a company advertises a range, that signal dominates and the other factors become secondary corrections. The full logic lives in [`src/utils/salaryModel.js`](src/utils/salaryModel.js) and is tested extensively.
-
-## Running locally
+## Quick start
 
 ```bash
 git clone https://github.com/Konoszaf1/vienna-set-tracker.git
@@ -29,34 +24,47 @@ npm install
 npm run dev
 ```
 
-Run the test suite with `npm test` for unit tests and `npm run e2e` for Playwright end-to-end tests.
+Run tests with `npm test` (unit) and `npm run e2e` (Playwright end-to-end against a production build).
 
-## Architecture notes
+## Project structure
 
-The salary and match models are pure functions with no side effects, no React dependencies, and no DOM access. They take data in and return data out, which makes them trivial to unit-test and reason about. The profile (preferences, salary targets, location) is separated from the CV (skills, experience) so that the models have clean signatures and the two concerns don't blur together.
-
-All state lives in localStorage with no backend. The app loads seed data from JSON files on first visit and merges it with any saved state on subsequent visits. This means you can fork the repo, swap out the seed files, and have a personalized tracker without touching any component code.
-
-The Leaflet map uses a custom dark theme with CARTO tiles. Company markers are color-coded by salary estimate and show commute distance rings from the user's home location. Popups render rich company details with the same data the card view uses.
+```
+scripts/
+  search-jobs.mjs       # karriere.at + kununu scraper (tech/lang extraction, geocoding)
+  discoverJobs.py       # JobSpy pipeline for LinkedIn, Indeed, Google Jobs
+  verify-jobs.mjs       # weekly liveness checker — prunes expired listings
+  jobValidator.mjs      # strict job validation (title, URL, keywords)
+e2e/
+  smoke.spec.js         # Playwright smoke tests (load, search, map, settings)
+src/
+  App.jsx               # main app shell — fetch, group, filter, route
+  constants.js          # profile storage key, culture options, defaults
+  utils/
+    salaryModel.js      # additive salary estimation model
+    matchModel.js       # weighted match scoring model
+    filterSort.js       # search, filter, sort pipeline
+    escape.js           # HTML escape + URL validation for map popups
+  components/
+    CompanyCard.jsx     # card with salary/match breakdown
+    MapView.jsx         # Leaflet map with clustered markers, commute rings
+    SettingsModal.jsx   # profile settings with Nominatim address lookup
+    StarRating.jsx      # star rating display
+    Badge.jsx           # tag badges
+    Modal.jsx           # reusable modal
+  data/
+    defaultProfile.json # seed profile (salary targets, German level, home)
+    defaultCv.json      # seed CV (primary/secondary skills)
+public/
+  jobs.json             # scraped job feed (updated daily by CI)
+```
 
 ## Testing
 
-The test suite covers the salary estimation model (parsing, adjustments, clamping, author overrides, and spot-check calibration against real companies), the match scoring model (factor weighting, grade thresholds, edge cases), the filter and sort logic (extracted as a pure function for testability), and the HTML escape and URL validation helpers that prevent XSS in the map view. A component smoke test verifies the card rendering pipeline, and Playwright end-to-end tests cover the critical user flows: loading, searching, adding and deleting companies, map view, settings propagation, and modal keyboard interaction.
-
-This is a test-engineering project; the testing is the point.
-
-Scraped jobs pass a strict validator at extraction time that rejects listings without numeric karriere.at IDs, short titles, or missing test-related keywords. A weekly workflow then issues a liveness check against every stored URL and prunes listings that 404 or soft-404 to expired templates.
+Unit tests cover the salary model (parsing, adjustments, clamping, overrides, spot-checks), match model (factor weighting, grade thresholds), filter/sort logic, and XSS escape helpers. A component smoke test verifies card rendering. Playwright E2E tests run against a production build covering loading, search, map view, salary filtering, and settings modal.
 
 ## Tech stack
 
-React 18, Vite 5, Leaflet 1.9, CSS Modules with a custom dark theme, Vitest with React Testing Library for unit and component tests, Playwright for end-to-end tests, ESLint for static analysis.
-
-## What's next
-
-- TypeScript migration for the models and components
-- German language support (i18n)
-- Date tracking for application stages (applied on, interviewed on, etc.)
-- Distance-weighted match factor so commute time feeds into the score
+React 18, Vite 5, Leaflet 1.9 with MarkerCluster, CSS Modules, Vitest + React Testing Library, Playwright, ESLint.
 
 ## License
 
