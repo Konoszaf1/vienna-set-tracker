@@ -2,36 +2,25 @@ import { describe, it, expect } from 'vitest';
 import { filterAndSort } from './filterSort';
 
 const companies = [
-  {
-    id: "a", name: "Alpha Corp", industry: "FinTech", langReq: "en",
-    kununuRating: 4.0, glassdoorRating: 4.2,
-    cultureTags: ["startup", "hybrid"], techStack: ["React", "TypeScript"],
-  },
-  {
-    id: "b", name: "Beta GmbH", industry: "Gaming", langReq: "de-fluent",
-    kununuRating: 3.0, glassdoorRating: 3.2,
-    cultureTags: ["corporate", "on-site"], techStack: ["Java", "Selenium"],
-  },
-  {
-    id: "c", name: "Gamma Systems", industry: "IT Consulting", langReq: "de-basic",
-    kununuRating: 3.8, glassdoorRating: null,
-    cultureTags: ["hybrid", "agile"], techStack: ["Python", "Playwright"],
-  },
+  { id: "a", name: "Alpha Corp", langReq: "en" },
+  { id: "b", name: "Beta GmbH", langReq: "de-fluent" },
+  { id: "c", name: "Gamma Systems", langReq: "de-basic", firstSeen: "2026-04-10T00:00:00Z" },
 ];
 
-const insights = {
-  a: { salary: { estimate: 75 }, match: { score: 88 } },
-  b: { salary: { estimate: 55 }, match: { score: 42 } },
-  c: { salary: { estimate: 65 }, match: { score: 71 } },
+const salaryMap = {
+  a: { best: 71 },
+  b: { best: 63 },
+  c: { best: 48 },
 };
 
 const defaults = {
   companies,
-  companyInsights: insights,
+  salaryMap,
   search: "",
   filterLang: "all",
-  filterCulture: "all",
   sortBy: "name",
+  salaryMin: null,
+  salaryMax: null,
 };
 
 describe("filterAndSort", () => {
@@ -42,14 +31,9 @@ describe("filterAndSort", () => {
     expect(result.map(c => c.id)).toEqual(["a"]);
   });
 
-  it("search matches industry", () => {
-    const result = filterAndSort({ ...defaults, search: "gaming" });
-    expect(result.map(c => c.id)).toEqual(["b"]);
-  });
-
-  it("search matches tech stack", () => {
-    const result = filterAndSort({ ...defaults, search: "playwright" });
-    expect(result.map(c => c.id)).toEqual(["c"]);
+  it("search with no match returns empty", () => {
+    const result = filterAndSort({ ...defaults, search: "zzz" });
+    expect(result).toEqual([]);
   });
 
   // ---- Language filter ----
@@ -66,60 +50,53 @@ describe("filterAndSort", () => {
     expect(result.length).toBe(1);
   });
 
-  // ---- Culture filter ----
-
-  it("culture filter requires the tag to be present", () => {
-    const result = filterAndSort({ ...defaults, filterCulture: "startup" });
-    expect(result.map(c => c.id)).toEqual(["a"]);
-  });
-
   // ---- Sort ----
+
+  it("sorts by name alphabetically", () => {
+    const result = filterAndSort({ ...defaults, sortBy: "name" });
+    expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
+  });
 
   it("sorts by salary descending", () => {
     const result = filterAndSort({ ...defaults, sortBy: "salary" });
-    expect(result.map(c => c.id)).toEqual(["a", "c", "b"]);
+    expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
   });
 
-  it("sorts by match descending", () => {
-    const result = filterAndSort({ ...defaults, sortBy: "match" });
-    expect(result.map(c => c.id)).toEqual(["a", "c", "b"]);
+  it("sorts by newest first", () => {
+    const withDates = [
+      { ...companies[0], firstSeen: "2026-04-08T00:00:00Z" },
+      { ...companies[1], firstSeen: "2026-04-12T00:00:00Z" },
+      { ...companies[2] },
+    ];
+    const result = filterAndSort({ ...defaults, companies: withDates, sortBy: "newest" });
+    expect(result.map(c => c.id)).toEqual(["b", "c", "a"]);
   });
 
-  it("sorts by rating descending (average of kununu/glassdoor)", () => {
-    const result = filterAndSort({ ...defaults, sortBy: "rating" });
-    // Alpha: avg 4.1, Gamma: 3.8 (only kununu), Beta: avg 3.1
-    expect(result.map(c => c.id)).toEqual(["a", "c", "b"]);
-  });
-
-  it("sort by salary puts companies without insights last", () => {
-    const noInsights = { a: insights.a, c: insights.c };
-    const result = filterAndSort({ ...defaults, companyInsights: noInsights, sortBy: "salary" });
-    expect(result[result.length - 1].id).toBe("b");
+  it("sort by salary puts companies without salary data last", () => {
+    const partial = { a: salaryMap.a };
+    const result = filterAndSort({ ...defaults, salaryMap: partial, sortBy: "salary" });
+    expect(result[0].id).toBe("a");
   });
 
   // ---- Salary range filter ----
 
   it("salaryMin excludes companies below the minimum", () => {
     const result = filterAndSort({ ...defaults, salaryMin: 60 });
-    // a=75, c=65 pass; b=55 excluded
-    expect(result.map(c => c.id)).toEqual(["a", "c"]);
+    expect(result.map(c => c.id)).toEqual(["a", "b"]);
   });
 
   it("salaryMax excludes companies above the maximum", () => {
     const result = filterAndSort({ ...defaults, salaryMax: 65 });
-    // b=55, c=65 pass; a=75 excluded
     expect(result.map(c => c.id)).toEqual(["b", "c"]);
   });
 
   it("salaryMin + salaryMax keeps only companies in the inclusive range", () => {
-    const result = filterAndSort({ ...defaults, salaryMin: 60, salaryMax: 70 });
-    // only c=65 is in [60, 70]
-    expect(result.map(c => c.id)).toEqual(["c"]);
+    const result = filterAndSort({ ...defaults, salaryMin: 50, salaryMax: 65 });
+    expect(result.map(c => c.id)).toEqual(["b"]);
   });
 
   it("both null applies no salary filter", () => {
     const result = filterAndSort({ ...defaults, salaryMin: null, salaryMax: null });
     expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
   });
-
 });

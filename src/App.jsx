@@ -1,10 +1,8 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { PROFILE_STORAGE_KEY, CULTURE_OPTIONS } from "./constants";
+import { PROFILE_STORAGE_KEY } from "./constants";
 import { filterAndSort } from "./utils/filterSort";
 import defaultProfileData from "./data/defaultProfile.json";
-import defaultCvData from "./data/defaultCv.json";
-import { estimateJobSalary } from "./utils/salaryModel";
-import { matchScore } from "./utils/matchModel";
+import { estimateSalary } from "./utils/salaryEstimate";
 import CompanyCard from "./components/CompanyCard";
 import MapView from "./components/MapView";
 import SettingsModal from "./components/SettingsModal";
@@ -14,7 +12,6 @@ export default function App() {
   const [view, setView] = useState("grid");
   const [search, setSearch] = useState("");
   const [filterLang, setFilterLang] = useState("all");
-  const [filterCulture, setFilterCulture] = useState("all");
   const [sortBy, setSortBy] = useState("name");
   const [salaryMin, setSalaryMin] = useState(null);
   const [salaryMax, setSalaryMax] = useState(null);
@@ -29,7 +26,6 @@ export default function App() {
       return s ? JSON.parse(s) : defaultProfileData;
     } catch { return defaultProfileData; }
   });
-  const [cv] = useState(defaultCvData);
 
   function doFetch() {
     const h = Math.floor(Date.now() / 3600000);
@@ -54,7 +50,6 @@ export default function App() {
   useEffect(() => { doFetch(); }, []);
 
   // Track when each job URL was first seen (persisted in localStorage).
-  // Pure derivation: reads localStorage, computes the map. Does not write.
   const firstSeenMap = useMemo(() => {
     if (jobs.length === 0) return {};
     const STORAGE_KEY = "sdet-first-seen";
@@ -68,13 +63,12 @@ export default function App() {
     return map;
   }, [jobs]);
 
-  // Side effect: persist firstSeen map to localStorage (prunes stale entries)
   useEffect(() => {
     if (jobs.length === 0) return;
     try { localStorage.setItem("sdet-first-seen", JSON.stringify(firstSeenMap)); } catch {}
   }, [jobs, firstSeenMap]);
 
-  // Group jobs by company name into company entries
+  // Group jobs by company name
   const entries = useMemo(() => {
     const groups = {};
     for (const j of jobs) {
@@ -85,14 +79,11 @@ export default function App() {
 
     return Object.entries(groups).map(([key, roles]) => {
       const first = roles[0];
-      // Compute earliest firstSeen across all roles for this company
       const roleDates = roles.map(r => firstSeenMap[r.url]).filter(Boolean);
       const firstSeen = roleDates.length > 0
         ? roleDates.reduce((a, b) => a < b ? a : b)
         : null;
-      // Derive techStack from union across all roles
       const techStack = [...new Set(roles.flatMap(r => r.techStack || []))];
-      // Derive langReq: use the most accessible across all roles
       const roleLangs = roles.map(r => r.langReq).filter(Boolean);
       let langReq = "de-basic";
       if (roleLangs.includes("en")) langReq = "en";
@@ -108,13 +99,8 @@ export default function App() {
         lat: first.lat,
         lng: first.lng,
         kununuRating: roles.find(r => r.kununuScore)?.kununuScore || null,
-        glassdoorRating: null,
-        cultureTags: [],
         techStack,
-        languages: ["English"],
-        notes: "",
         jobUrl: first.url,
-        industry: "",
         langReq,
         openRoles: roles,
         firstSeen,
@@ -122,19 +108,21 @@ export default function App() {
     });
   }, [jobs, firstSeenMap]);
 
-  const companyInsights = useMemo(() => {
+  // Simple seniority-based salary estimate per company (best across roles)
+  const salaryMap = useMemo(() => {
     const map = {};
     for (const c of entries) {
-      const roles = c.openRoles?.map(role => estimateJobSalary(c, role, profile, cv)) || null;
-      if (roles && roles.length > 0) {
-        const best = roles.reduce((a, b) => a.estimate > b.estimate ? a : b);
-        map[c.id] = { salary: best, match: matchScore(c, cv, profile, best.estimate), roles };
-      } else {
-        map[c.id] = { salary: null, match: null, roles: null };
-      }
+      const estimates = (c.openRoles || []).map(r => ({
+        title: r.title,
+        estimate: estimateSalary(r.title),
+      }));
+      const best = estimates.length > 0
+        ? estimates.reduce((a, b) => a.estimate > b.estimate ? a : b).estimate
+        : null;
+      map[c.id] = { best, roles: estimates };
     }
     return map;
-  }, [entries, profile, cv]);
+  }, [entries]);
 
   const handleSaveProfile = useCallback((newProfile) => {
     setProfile(newProfile);
@@ -142,8 +130,8 @@ export default function App() {
   }, []);
 
   const filtered = useMemo(() => {
-    return filterAndSort({ companies: entries, companyInsights, search, filterLang, filterCulture, sortBy, salaryMin, salaryMax });
-  }, [entries, companyInsights, search, filterLang, filterCulture, sortBy, salaryMin, salaryMax]);
+    return filterAndSort({ companies: entries, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax });
+  }, [entries, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax]);
 
   if (loading) {
     return (
@@ -182,7 +170,7 @@ export default function App() {
 
         <div className={styles.controls}>
           <input
-            placeholder="Search companies, tech, industry..."
+            placeholder="Search companies..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className={`${styles.input} ${styles.searchInput}`}
@@ -194,17 +182,10 @@ export default function App() {
             <option value="de-fluent">Fluent German Required</option>
           </select>
 
-          <select value={filterCulture} onChange={e => setFilterCulture(e.target.value)} className={`${styles.input} ${styles.cultureSelect}`}>
-            <option value="all">All Cultures</option>
-            {CULTURE_OPTIONS.map(c => <option key={c} value={c}>{c}</option>)}
-          </select>
-
           <select value={sortBy} onChange={e => setSortBy(e.target.value)} className={`${styles.input} ${styles.sortSelect}`}>
             <option value="name">Sort: Name</option>
             <option value="newest">Sort: Newest</option>
             <option value="salary">Sort: Salary</option>
-            <option value="match">Sort: Match</option>
-            <option value="rating">Sort: Rating</option>
           </select>
 
           <div className={styles.salaryRange}>
@@ -241,7 +222,7 @@ export default function App() {
         {view === "grid" ? (
           <div className={styles.cardGrid}>
             {filtered.map(c => (
-              <CompanyCard key={c.id} company={c} insights={companyInsights[c.id]} />
+              <CompanyCard key={c.id} company={c} salary={salaryMap[c.id]} />
             ))}
             {filtered.length === 0 && (
               <div className={styles.emptyState}>
@@ -251,7 +232,7 @@ export default function App() {
             )}
           </div>
         ) : (
-          <MapView companies={filtered} profile={profile} companyInsights={companyInsights} onHomeMove={handleSaveProfile} />
+          <MapView companies={filtered} profile={profile} salaryMap={salaryMap} onHomeMove={handleSaveProfile} />
         )}
       </div>
 

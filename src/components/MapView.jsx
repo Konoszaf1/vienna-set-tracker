@@ -3,7 +3,7 @@ import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS } from "../constants";
 import { escapeHtml, isSafeUrl } from "../utils/escape";
 import styles from './MapView.module.css';
 
-export default function MapView({ companies, profile, companyInsights, onHomeMove }) {
+export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
   const containerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const homeMarkerRef = useRef(null);
@@ -229,9 +229,9 @@ export default function MapView({ companies, profile, companyInsights, onHomeMov
 
     mappable.forEach(c => {
       const km = dist(home[0], home[1], c.lat, c.lng);
-      const insight = companyInsights?.[c.id];
-      const estimate = insight?.salary?.estimate;
-      const matchResult = insight?.match;
+      const sal = salaryMap?.[c.id];
+      const estimate = sal?.best;
+      const matchResult = null;
       const color = salaryColor(estimate);
       const salaryLabel = estimate ? `€${estimate}k` : "";
       const eName = escapeHtml(c.name);
@@ -274,7 +274,7 @@ export default function MapView({ companies, profile, companyInsights, onHomeMov
       const rolesHtml = openRoles.length > 0 ? `<div style="margin-top:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Open roles (${openRoles.length})</div>${openRoles.map((role, ri) => {
         const eTitle = escapeHtml(role.title);
         const roleUrl = isSafeUrl(role.url) ? escapeHtml(role.url) : null;
-        const roleEst = insight?.roles?.[ri]?.estimate;
+        const roleEst = sal?.roles?.[ri]?.estimate;
         const estLabel = roleEst ? ` · €${roleEst}k` : "";
         return roleUrl
           ? `<a href="${roleUrl}" target="_blank" rel="noopener noreferrer" style="display:block;padding:4px 6px;margin:2px 0;background:#18181b;border-radius:4px;color:#a1a1aa;text-decoration:none;font-size:11px;border:1px solid #27272a">${eTitle}<span style="color:#6366f1;font-weight:600">${estLabel}</span></a>`
@@ -342,7 +342,7 @@ export default function MapView({ companies, profile, companyInsights, onHomeMov
 
     map.addLayer(clusterGroup);
     clusterGroupRef.current = clusterGroup;
-  }, [ready, companies, home, homeAddress, companyInsights, onHomeMove, profile]);
+  }, [ready, companies, home, homeAddress, salaryMap, onHomeMove, profile]);
 
   useEffect(() => () => { if (mapInstanceRef.current) { mapInstanceRef.current.remove(); mapInstanceRef.current = null; } }, []);
 

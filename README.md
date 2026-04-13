@@ -1,6 +1,6 @@
 # Vienna SET/SDET Tracker
 
-A scraped-feed dashboard for Vienna SDET/QA job opportunities with client-side salary estimation, match scoring, and an interactive map.
+A daily-scraped job board for Vienna SDET/QA positions, served as a static single-page app with an interactive map.
 
 [![CI](https://github.com/Konoszaf1/vienna-set-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Konoszaf1/vienna-set-tracker/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -8,12 +8,7 @@ A scraped-feed dashboard for Vienna SDET/QA job opportunities with client-side s
 
 ## What it does
 
-The tracker scrapes Vienna QA/SDET job listings daily from karriere.at, kununu.com, and JobSpy (LinkedIn, Indeed, Google Jobs), then runs them through two client-side analytical models:
-
-- **Salary estimation** starts from a Vienna SDET baseline and applies additive adjustments for industry sector, language requirement friction, employer reputation (Kununu ratings), tech stack modernity, CV alignment, and any advertised salary data. The breakdown shows every adjustment that fired and why.
-- **Match scoring** produces a 0-100 weighted score across tech stack overlap, language accessibility, culture fit, employer reputation, and salary alignment with the candidate's target.
-
-Data refreshes daily via GitHub Actions. The scraper extracts tech stacks and language requirements from karriere.at detail pages using keyword matching, geocodes office addresses through Nominatim, and deduplicates across sources.
+A GitHub Actions pipeline scrapes Vienna QA/SDET listings daily from karriere.at, kununu, and JobSpy (LinkedIn, Indeed, Google Jobs), geocodes office addresses, and writes `jobs.json`. The frontend groups jobs by company, shows them as filterable cards or clustered map pins, and adds a rough salary estimate based on the job title seniority level.
 
 ## Quick start
 
@@ -24,43 +19,36 @@ npm install
 npm run dev
 ```
 
-Run tests with `npm test` (unit) and `npm run e2e` (Playwright end-to-end against a production build).
+Run tests with `npm test` (unit) and `npm run e2e` (Playwright against a production build).
 
 ## Project structure
 
 ```
 scripts/
-  search-jobs.mjs       # karriere.at + kununu scraper (tech/lang extraction, geocoding)
-  discoverJobs.py       # JobSpy pipeline for LinkedIn, Indeed, Google Jobs
+  search-jobs.mjs       # karriere.at + kununu scraper
+  discoverJobs.py       # JobSpy pipeline (LinkedIn, Indeed, Google Jobs)
+  geocodeCompanies.mjs  # Nominatim geocoding for office addresses
   verify-jobs.mjs       # weekly liveness checker — prunes expired listings
-  jobValidator.mjs      # strict job validation (title, URL, keywords)
-e2e/
-  smoke.spec.js         # Playwright smoke tests (load, search, map, settings)
+  jobValidator.mjs      # URL + title validation
 src/
-  App.jsx               # main app shell — fetch, group, filter, route
-  constants.js          # profile storage key, culture options, defaults
+  App.jsx               # fetch, group by company, filter/sort, view toggle
+  constants.js          # profile storage key
   utils/
-    salaryModel.js      # additive salary estimation model
-    matchModel.js       # weighted match scoring model
-    filterSort.js       # search, filter, sort pipeline
+    salaryEstimate.js   # seniority-only salary estimate (Senior/Mid/Junior)
+    filterSort.js       # search, language filter, salary range, sort
     escape.js           # HTML escape + URL validation for map popups
   components/
-    CompanyCard.jsx     # card with salary/match breakdown
+    CompanyCard.jsx     # company card with salary, tech stack, open roles
     MapView.jsx         # Leaflet map with clustered markers, commute rings
-    SettingsModal.jsx   # profile settings with Nominatim address lookup
+    SettingsModal.jsx   # home address + profile settings
     StarRating.jsx      # star rating display
     Badge.jsx           # tag badges
     Modal.jsx           # reusable modal
   data/
-    defaultProfile.json # seed profile (salary targets, German level, home)
-    defaultCv.json      # seed CV (primary/secondary skills)
+    defaultProfile.json # seed profile (home address, commute prefs)
 public/
   jobs.json             # scraped job feed (updated daily by CI)
 ```
-
-## Testing
-
-Unit tests cover the salary model (parsing, adjustments, clamping, overrides, spot-checks), match model (factor weighting, grade thresholds), filter/sort logic, and XSS escape helpers. A component smoke test verifies card rendering. Playwright E2E tests run against a production build covering loading, search, map view, salary filtering, and settings modal.
 
 ## Tech stack
 
