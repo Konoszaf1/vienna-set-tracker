@@ -1,9 +1,11 @@
 /**
- * Pure validation function for karriere.at job listings.
+ * Pure validation function for scraped job listings.
+ * Source-agnostic — accepts karriere.at, kununu, and JobSpy URLs
+ * (LinkedIn, Indeed, Glassdoor, Google).
  * Takes a job object, returns { valid: boolean, reason: string | null }.
  */
 
-const URL_PATTERN = /^https:\/\/(www\.karriere\.at\/jobs\/\d+|www\.kununu\.com\/)/;
+const URL_PATTERN = /^https:\/\/(www\.karriere\.at\/jobs\/\d+|www\.kununu\.com\/|www\.linkedin\.com\/|.*\.linkedin\.com\/|.*\.indeed\.com\/|.*\.glassdoor\.\w+\/|jobs\.google\.com\/)/;
 const MIN_TITLE_LENGTH = 10;
 const BLOCKLISTED_COMPANIES = new Set([
   "jetzt bewerben",

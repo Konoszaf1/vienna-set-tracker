@@ -1,3 +1,10 @@
+// @ts-check
+/** @typedef {import('../domain/schema.js').EnrichedCompany} EnrichedCompany */
+/** @typedef {import('../domain/schema.js').ScrapedJob} ScrapedJob */
+/** @typedef {import('../domain/schema.js').Profile} Profile */
+/** @typedef {import('../domain/schema.js').CV} CV */
+/** @typedef {import('../domain/schema.js').SalaryEstimate} SalaryEstimate */
+
 /**
  * salaryModel.js — Pure salary estimation model for Vienna SDET roles.
  *
@@ -137,7 +144,7 @@ function langAdjustment(langReq, profile) {
   if (langReq === "de-fluent") {
     return { delta: -3, reason: "Fluent German required — weaker negotiating position without it" };
   }
-  return { delta: 0, reason: "Unknown language requirement" };
+  return null;
 }
 
 // ---------------------------------------------------------------------------
@@ -274,7 +281,7 @@ function parseAdvertisedSalary(notes) {
 
 function advertisedSalaryAdjustment(company, profile) {
   const parsed = parseAdvertisedSalary(company.notes);
-  if (!parsed) return { delta: 0, reason: "No advertised salary data in notes", parsed: null };
+  if (!parsed) return null;
 
   const roleLevel = profile.roleLevel || "mid";
   const isSenior = roleLevel.includes("senior") || roleLevel === "senior";
@@ -335,18 +342,10 @@ function advertisedSalaryAdjustment(company, profile) {
 // ---------------------------------------------------------------------------
 
 /**
- * estimateSalary(company, profile, cv)
- *
- * Returns a structured breakdown:
- * {
- *   estimate: number,         // final salary estimate in EUR thousands
- *   baseline: number,         // starting baseline
- *   adjustments: Array<{name, delta, reason}>,
- *   total: number,            // sum of baseline + adjustments (before clamp)
- *   clamped: boolean,         // whether the result was clamped
- *   authorOverride: {value, reason} | null,
- *   isOverridden: boolean,
- * }
+ * @param {EnrichedCompany} company
+ * @param {Profile} profile
+ * @param {CV} cv
+ * @returns {SalaryEstimate}
  */
 export function estimateSalary(company, profile, cv) {
   const adjustments = [];
@@ -367,9 +366,11 @@ export function estimateSalary(company, profile, cv) {
     }
   }
 
-  // 2. Language requirement
+  // 2. Language requirement — skip when langReq is absent
   const lang = langAdjustment(company.langReq, profile);
-  adjustments.push({ name: "Language", ...lang });
+  if (lang) {
+    adjustments.push({ name: "Language", ...lang });
+  }
 
   // 3. Employer reputation — skip when no ratings exist
   const ratings = [company.kununuRating, company.glassdoorRating].filter(r => r != null);
@@ -396,13 +397,13 @@ export function estimateSalary(company, profile, cv) {
     adjustments.push({ name: "Tech Alignment", ...techAlign });
   }
 
-  // 7. Advertised salary (can dominate if strong signal)
+  // 7. Advertised salary (can dominate if strong signal) — skip when no notes
   const advert = advertisedSalaryAdjustment(company, profile);
 
   // If advertised salary is a strong signal, use it as the primary driver
   // and reduce other adjustments to secondary corrections
   let effectiveAdjustments;
-  if (advert.isStrong) {
+  if (advert?.isStrong) {
     // Strong advertised salary: use it as primary, keep lang/rep/brand as minor modifiers at 20%
     effectiveAdjustments = adjustments.map(a => ({
       ...a,
@@ -416,7 +417,7 @@ export function estimateSalary(company, profile, cv) {
     });
   } else {
     effectiveAdjustments = [...adjustments];
-    if (advert.delta !== 0) {
+    if (advert && advert.delta !== 0) {
       effectiveAdjustments.push({
         name: "Advertised Salary",
         delta: advert.delta,
@@ -424,6 +425,9 @@ export function estimateSalary(company, profile, cv) {
       });
     }
   }
+
+  // Count how many adjustments had real data to work with
+  const dataPoints = effectiveAdjustments.length;
 
   // Sum up
   const totalDelta = effectiveAdjustments.reduce((sum, a) => sum + a.delta, 0);
@@ -437,9 +441,8 @@ export function estimateSalary(company, profile, cv) {
   return {
     estimate: override ? override.value : estimate,
     baseline: BASELINE,
-    adjustments: effectiveAdjustments.filter(a => a.delta !== 0),
     allAdjustments: effectiveAdjustments,
-    total: rawEstimate,
+    dataPoints,
     clamped,
     authorOverride: override,
     isOverridden: !!override,
@@ -454,11 +457,11 @@ const SENIOR_PATTERN = /\b(senior|sr\.?|lead|staff|principal|head\s+of)\b/i;
 const JUNIOR_PATTERN = /\b(junior|jr\.?|trainee|intern|praktikum)\b/i;
 
 /**
- * estimateJobSalary(company, job, profile, cv)
- *
- * Wraps estimateSalary with a seniority modifier derived from the job title.
- * Returns the same shape as estimateSalary, with an additional Seniority
- * adjustment when applicable.
+ * @param {EnrichedCompany} company
+ * @param {ScrapedJob} job
+ * @param {Profile} profile
+ * @param {CV} cv
+ * @returns {SalaryEstimate}
  */
 export function estimateJobSalary(company, job, profile, cv) {
   const base = estimateSalary(company, profile, cv);
@@ -482,8 +485,8 @@ export function estimateJobSalary(company, job, profile, cv) {
   return {
     ...base,
     estimate: adjusted,
-    adjustments: [...base.adjustments, entry],
     allAdjustments: [...base.allAdjustments, entry],
+    dataPoints: base.dataPoints + 1,
   };
 }
 

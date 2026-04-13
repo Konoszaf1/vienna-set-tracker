@@ -1,3 +1,9 @@
+// @ts-check
+/** @typedef {import('../domain/schema.js').EnrichedCompany} EnrichedCompany */
+/** @typedef {import('../domain/schema.js').Profile} Profile */
+/** @typedef {import('../domain/schema.js').CV} CV */
+/** @typedef {import('../domain/schema.js').MatchResult} MatchResult */
+
 /**
  * matchModel.js — Pure company-candidate match scoring for Vienna SDET roles.
  *
@@ -34,7 +40,7 @@ const WEIGHTS = {
  */
 function scoreTechOverlap(company, cv) {
   if (!cv || !cv.primarySkills) {
-    return { score: 50, reason: "No CV data — assuming average overlap", details: null };
+    return { score: 50, reason: "No CV data — assuming average overlap", details: null, hasData: false };
   }
 
   const primary = new Set((cv.primarySkills || []).map(s => s.toLowerCase()));
@@ -42,7 +48,7 @@ function scoreTechOverlap(company, cv) {
   const companyTech = company.techStack.map(s => s.toLowerCase());
 
   if (companyTech.length === 0) {
-    return { score: 50, reason: "No tech stack listed", details: null };
+    return { score: 50, reason: "No tech stack listed", details: null, hasData: false };
   }
 
   let primaryHits = 0;
@@ -73,6 +79,7 @@ function scoreTechOverlap(company, cv) {
     score,
     reason: `${matched.length}/${companyTech.length} tech match (${primaryHits} primary, ${secondaryHits} secondary)`,
     details: { matched, unmatched, primaryHits, secondaryHits },
+    hasData: true,
   };
 }
 
@@ -85,19 +92,19 @@ function scoreLanguageAccess(company, profile) {
   const germanFluent = profile.germanLevel === "fluent";
 
   if (company.langReq === "en") {
-    return { score: 100, reason: "English-only — fully accessible" };
+    return { score: 100, reason: "English-only — fully accessible", hasData: true };
   }
   if (company.langReq === "de-basic") {
-    if (germanFluent) return { score: 100, reason: "Basic German needed — fluent speaker" };
-    if (speaksGerman) return { score: 85, reason: "Basic German needed — some German skills" };
-    return { score: 55, reason: "Basic German needed — no German skills, but manageable" };
+    if (germanFluent) return { score: 100, reason: "Basic German needed — fluent speaker", hasData: true };
+    if (speaksGerman) return { score: 85, reason: "Basic German needed — some German skills", hasData: true };
+    return { score: 55, reason: "Basic German needed — no German skills, but manageable", hasData: true };
   }
   if (company.langReq === "de-fluent") {
-    if (germanFluent) return { score: 100, reason: "Fluent German required — speaker" };
-    if (speaksGerman) return { score: 40, reason: "Fluent German required — only basic German" };
-    return { score: 15, reason: "Fluent German required — no German skills, significant barrier" };
+    if (germanFluent) return { score: 100, reason: "Fluent German required — speaker", hasData: true };
+    if (speaksGerman) return { score: 40, reason: "Fluent German required — only basic German", hasData: true };
+    return { score: 15, reason: "Fluent German required — no German skills, significant barrier", hasData: true };
   }
-  return { score: 50, reason: "Unknown language requirement" };
+  return { score: 50, reason: "Unknown language requirement", hasData: false };
 }
 
 /**
@@ -109,7 +116,7 @@ function scoreCultureFit(company, profile) {
   const tags = company.cultureTags || [];
 
   if (preferred.size === 0 || tags.length === 0) {
-    return { score: 50, reason: "No preference data — neutral" };
+    return { score: 50, reason: "No preference data — neutral", hasData: false };
   }
 
   let matches = 0;
@@ -126,9 +133,9 @@ function scoreCultureFit(company, profile) {
   const score = Math.round(30 + ratio * 70);
 
   if (matchedTags.length > 0) {
-    return { score, reason: `Matches: ${matchedTags.join(", ")}`, details: matchedTags };
+    return { score, reason: `Matches: ${matchedTags.join(", ")}`, details: matchedTags, hasData: true };
   }
-  return { score: 30, reason: "No culture tag overlap with preferences" };
+  return { score: 30, reason: "No culture tag overlap with preferences", hasData: true };
 }
 
 /**
@@ -137,7 +144,7 @@ function scoreCultureFit(company, profile) {
 function scoreReputation(company) {
   const ratings = [company.kununuRating, company.glassdoorRating].filter(r => r != null);
   if (ratings.length === 0) {
-    return { score: 50, reason: "No ratings available" };
+    return { score: 50, reason: "No ratings available", hasData: false };
   }
 
   const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
@@ -147,6 +154,7 @@ function scoreReputation(company) {
   return {
     score,
     reason: `${avg.toFixed(1)} average rating (${ratings.length} source${ratings.length > 1 ? "s" : ""})`,
+    hasData: true,
   };
 }
 
@@ -159,18 +167,18 @@ function scoreSalaryFit(estimatedSalary, profile) {
   const floor = profile.salaryFloor || 55;
 
   if (estimatedSalary >= target) {
-    return { score: 100, reason: `${estimatedSalary}k meets or exceeds ${target}k target` };
+    return { score: 100, reason: `${estimatedSalary}k meets or exceeds ${target}k target`, hasData: true };
   }
   if (estimatedSalary >= floor) {
     // Linear scale from floor to target
     const ratio = (estimatedSalary - floor) / (target - floor);
     const score = Math.round(50 + ratio * 50);
-    return { score, reason: `${estimatedSalary}k between floor (${floor}k) and target (${target}k)` };
+    return { score, reason: `${estimatedSalary}k between floor (${floor}k) and target (${target}k)`, hasData: true };
   }
   // Below floor
   const shortfall = floor - estimatedSalary;
   const score = Math.max(0, Math.round(50 - shortfall * 5));
-  return { score, reason: `${estimatedSalary}k below floor of ${floor}k` };
+  return { score, reason: `${estimatedSalary}k below floor of ${floor}k`, hasData: true };
 }
 
 // ---------------------------------------------------------------------------
@@ -178,16 +186,11 @@ function scoreSalaryFit(estimatedSalary, profile) {
 // ---------------------------------------------------------------------------
 
 /**
- * matchScore(company, cv, profile, estimatedSalary)
- *
- * Returns a structured breakdown:
- * {
- *   score: number,            // 0-100 overall match score
- *   grade: string,            // "Excellent" | "Good" | "Fair" | "Weak"
- *   factors: Array<{name, score, weight, weighted, reason}>,
- *   topStrengths: string[],   // top 2 positive factors
- *   topConcerns: string[],    // top 2 negative factors
- * }
+ * @param {EnrichedCompany} company
+ * @param {CV} cv
+ * @param {Profile} profile
+ * @param {number} estimatedSalary
+ * @returns {MatchResult}
  */
 export function matchScore(company, cv, profile, estimatedSalary) {
   profile = profile || {};
@@ -204,6 +207,7 @@ export function matchScore(company, cv, profile, estimatedSalary) {
     weighted: Math.round(tech.score * WEIGHTS.techOverlap / 100),
     reason: tech.reason,
     details: tech.details,
+    hasData: tech.hasData,
   });
 
   // 2. Language accessibility
@@ -214,6 +218,7 @@ export function matchScore(company, cv, profile, estimatedSalary) {
     weight: WEIGHTS.languageAccess,
     weighted: Math.round(lang.score * WEIGHTS.languageAccess / 100),
     reason: lang.reason,
+    hasData: lang.hasData,
   });
 
   // 3. Culture fit
@@ -224,6 +229,7 @@ export function matchScore(company, cv, profile, estimatedSalary) {
     weight: WEIGHTS.cultureFit,
     weighted: Math.round(culture.score * WEIGHTS.cultureFit / 100),
     reason: culture.reason,
+    hasData: culture.hasData,
   });
 
   // 4. Reputation
@@ -234,6 +240,7 @@ export function matchScore(company, cv, profile, estimatedSalary) {
     weight: WEIGHTS.reputation,
     weighted: Math.round(rep.score * WEIGHTS.reputation / 100),
     reason: rep.reason,
+    hasData: rep.hasData,
   });
 
   // 5. Salary fit
@@ -244,6 +251,7 @@ export function matchScore(company, cv, profile, estimatedSalary) {
     weight: WEIGHTS.salaryFit,
     weighted: Math.round(sal.score * WEIGHTS.salaryFit / 100),
     reason: sal.reason,
+    hasData: sal.hasData,
   });
 
   // Overall weighted score

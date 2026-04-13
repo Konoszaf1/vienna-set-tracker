@@ -1,10 +1,11 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { PROFILE_STORAGE_KEY, CULTURE_OPTIONS } from "./constants";
 import { filterAndSort } from "./utils/filterSort";
 import defaultProfileData from "./data/defaultProfile.json";
 import defaultCvData from "./data/defaultCv.json";
-import { estimateJobSalary } from "./utils/salaryModel";
-import { matchScore } from "./utils/matchModel";
+import useJobFeed from "./hooks/useJobFeed";
+import useFirstSeen from "./hooks/useFirstSeen";
+import useCompanies from "./hooks/useCompanies";
 import CompanyCard from "./components/CompanyCard";
 import MapView from "./components/MapView";
 import SettingsModal from "./components/SettingsModal";
@@ -18,10 +19,7 @@ export default function App() {
   const [sortBy, setSortBy] = useState("name");
   const [salaryMin, setSalaryMin] = useState(null);
   const [salaryMax, setSalaryMax] = useState(null);
-  const [jobs, setJobs] = useState([]);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [fetchError, setFetchError] = useState(null);
 
   const [profile, setProfile] = useState(() => {
     try {
@@ -31,110 +29,9 @@ export default function App() {
   });
   const [cv] = useState(defaultCvData);
 
-  function doFetch() {
-    const h = Math.floor(Date.now() / 3600000);
-    return fetch(import.meta.env.BASE_URL + `jobs.json?h=${h}`)
-      .then(r => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      })
-      .then(d => {
-        if (d?.jobs) setJobs(d.jobs);
-      })
-      .catch(e => setFetchError(e.message || "Failed to load jobs"))
-      .finally(() => setLoading(false));
-  }
-
-  function handleRetry() {
-    setLoading(true);
-    setFetchError(null);
-    doFetch();
-  }
-
-  useEffect(() => { doFetch(); }, []);
-
-  // Track when each job URL was first seen (persisted in localStorage).
-  // Pure derivation: reads localStorage, computes the map. Does not write.
-  const firstSeenMap = useMemo(() => {
-    if (jobs.length === 0) return {};
-    const STORAGE_KEY = "sdet-first-seen";
-    let stored = {};
-    try { stored = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch {}
-    const now = new Date().toISOString();
-    const map = {};
-    for (const j of jobs) {
-      map[j.url] = stored[j.url] || now;
-    }
-    return map;
-  }, [jobs]);
-
-  // Side effect: persist firstSeen map to localStorage (prunes stale entries)
-  useEffect(() => {
-    if (jobs.length === 0) return;
-    try { localStorage.setItem("sdet-first-seen", JSON.stringify(firstSeenMap)); } catch {}
-  }, [jobs, firstSeenMap]);
-
-  // Group jobs by company name into company entries
-  const entries = useMemo(() => {
-    const groups = {};
-    for (const j of jobs) {
-      const key = j.company.toLowerCase().trim();
-      if (!groups[key]) groups[key] = [];
-      groups[key].push(j);
-    }
-
-    return Object.entries(groups).map(([key, roles]) => {
-      const first = roles[0];
-      // Compute earliest firstSeen across all roles for this company
-      const roleDates = roles.map(r => firstSeenMap[r.url]).filter(Boolean);
-      const firstSeen = roleDates.length > 0
-        ? roleDates.reduce((a, b) => a < b ? a : b)
-        : null;
-      // Derive techStack from union across all roles
-      const techStack = [...new Set(roles.flatMap(r => r.techStack || []))];
-      // Derive langReq: use the most accessible across all roles
-      const roleLangs = roles.map(r => r.langReq).filter(Boolean);
-      let langReq = "de-basic";
-      if (roleLangs.includes("en")) langReq = "en";
-      else if (roleLangs.includes("de-basic")) langReq = "de-basic";
-      else if (roleLangs.includes("de-fluent")) langReq = "de-fluent";
-
-      return {
-        id: `co-${key.replace(/\s+/g, "-")}`,
-        name: first.company,
-        logo: "\u{1F3E2}",
-        district: first.city || "Wien",
-        address: first.address || "",
-        lat: first.lat,
-        lng: first.lng,
-        kununuRating: roles.find(r => r.kununuScore)?.kununuScore || null,
-        glassdoorRating: null,
-        cultureTags: [],
-        techStack,
-        languages: ["English"],
-        notes: "",
-        jobUrl: first.url,
-        industry: "",
-        langReq,
-        openRoles: roles,
-        firstSeen,
-      };
-    });
-  }, [jobs, firstSeenMap]);
-
-  const companyInsights = useMemo(() => {
-    const map = {};
-    for (const c of entries) {
-      const roles = c.openRoles?.map(role => estimateJobSalary(c, role, profile, cv)) || null;
-      if (roles && roles.length > 0) {
-        const best = roles.reduce((a, b) => a.estimate > b.estimate ? a : b);
-        map[c.id] = { salary: best, match: matchScore(c, cv, profile, best.estimate), roles };
-      } else {
-        map[c.id] = { salary: null, match: null, roles: null };
-      }
-    }
-    return map;
-  }, [entries, profile, cv]);
+  const { jobs, loading, fetchError, retry: handleRetry } = useJobFeed();
+  const firstSeenMap = useFirstSeen(jobs);
+  const { entries, companyInsights } = useCompanies(jobs, firstSeenMap, profile, cv);
 
   const handleSaveProfile = useCallback((newProfile) => {
     setProfile(newProfile);

@@ -79,6 +79,9 @@ const CompanyCard = memo(function CompanyCard({ company, insights }) {
               {salary.isOverridden && (
                 <span className={styles.overrideBadge}>override</span>
               )}
+              {!salary.isOverridden && salary.dataPoints === 0 && (
+                <span className={styles.overrideBadge}>limited data</span>
+              )}
               {match && (
                 <span className={styles.matchBadge} data-grade={match.grade.toLowerCase()}>
                   {match.score}% match
@@ -118,7 +121,7 @@ const CompanyCard = memo(function CompanyCard({ company, insights }) {
                 <div className={styles.breakdownSection}>
                   <div className={styles.breakdownTitle}>Match Factors</div>
                   {match.factors.map((f, i) => (
-                    <div key={i} className={styles.breakdownRow} title={f.reason}>
+                    <div key={i} className={styles.breakdownRow} title={f.reason} style={f.hasData === false ? { opacity: 0.45 } : undefined}>
                       <span className={styles.breakdownName}>{f.name}</span>
                       <span className={styles.matchBar}>
                         <span
@@ -127,7 +130,7 @@ const CompanyCard = memo(function CompanyCard({ company, insights }) {
                           data-level={f.score >= 70 ? "high" : f.score >= 40 ? "mid" : "low"}
                         />
                       </span>
-                      <span className={styles.matchPercent}>{f.score}</span>
+                      <span className={styles.matchPercent}>{f.hasData === false ? "–" : f.score}</span>
                     </div>
                   ))}
                   {match.topStrengths.length > 0 && (

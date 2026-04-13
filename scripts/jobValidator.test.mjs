@@ -18,8 +18,18 @@ describe("validateJob", () => {
     expect(r).toEqual({ valid: false, reason: "invalid-url" });
   });
 
-  it("URL from different domain rejected", () => {
-    const r = validateJob(valid({ url: "https://www.linkedin.com/jobs/12345" }));
+  it("LinkedIn URL accepted", () => {
+    const r = validateJob(valid({ url: "https://www.linkedin.com/jobs/view/12345" }));
+    expect(r).toEqual({ valid: true, reason: null });
+  });
+
+  it("Indeed URL accepted", () => {
+    const r = validateJob(valid({ url: "https://at.indeed.com/viewjob?jk=abc123" }));
+    expect(r).toEqual({ valid: true, reason: null });
+  });
+
+  it("unknown domain rejected", () => {
+    const r = validateJob(valid({ url: "https://www.example.com/jobs/12345" }));
     expect(r).toEqual({ valid: false, reason: "invalid-url" });
   });
 
