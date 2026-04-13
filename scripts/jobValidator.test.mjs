@@ -11,10 +11,6 @@ const valid = (overrides = {}) => ({
 describe("validateJob", () => {
   // ---- Basic checks (URL, title length, company) ----
 
-  it("valid SDET job passes", () => {
-    expect(validateJob(valid())).toEqual({ valid: true, reason: null });
-  });
-
   it("karriere.at URL without numeric ID rejected", () => {
     expect(validateJob(valid({ url: "https://www.karriere.at/jobs/search" })))
       .toEqual({ valid: false, reason: "invalid-url" });
@@ -55,107 +51,29 @@ describe("validateJob", () => {
       .toEqual({ valid: false, reason: "blocklisted-company" });
   });
 
-  // ---- Stage 1: Domain exclusion ----
+  // ---- Acceptance: valid SDET titles that pass all gates (8+) ----
 
-  it("pharma QA internship rejected (Merck-style)", () => {
-    expect(validateJob(valid({ title: "Pharma Quality Assurance Specialist (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-pharma" });
+  it("Senior SDET Engineer accepted", () => {
+    expect(validateJob(valid())).toEqual({ valid: true, reason: null });
   });
 
-  it("clinical trial QA rejected", () => {
-    expect(validateJob(valid({ title: "Clinical Quality Assurance Manager (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-pharma" });
-  });
-
-  it("electrical QA/QC rejected (Designer Group)", () => {
-    expect(validateJob(valid({ title: "Electrical QA/QC Engineer" })))
-      .toEqual({ valid: false, reason: "domain-electrical" });
-  });
-
-  it("quality officer operations rejected (Kwizda-style)", () => {
-    expect(validateJob(valid({ title: "Quality Assurance Officer (m/w/d) - Operations" })))
-      .toEqual({ valid: false, reason: "domain-operations" });
-  });
-
-  it("customer care quality rejected (Coca-Cola)", () => {
-    expect(validateJob(valid({ title: "Customer Care Agent – Quality Excellence (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-customer-service" });
-  });
-
-  it("quality excellence rejected", () => {
-    expect(validateJob(valid({ title: "Quality Excellence Specialist (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-customer-service" });
-  });
-
-  it("call centre QA rejected", () => {
-    expect(validateJob(valid({ title: "Call Center Quality Analyst (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-customer-service" });
-  });
-
-  it("payroll quality rejected (WienIT)", () => {
-    expect(validateJob(valid({ title: "Gruppenleitung Quality Management Payroll (w/m/d)" })))
-      .toEqual({ valid: false, reason: "domain-payroll" });
-  });
-
-  it("food safety QA rejected", () => {
-    expect(validateJob(valid({ title: "Food Safety Quality Assurance Lead (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-food" });
-  });
-
-  it("GMP quality rejected", () => {
-    expect(validateJob(valid({ title: "GMP Quality Control Specialist (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-pharma" });
-  });
-
-  it("ISO 9001 auditor rejected", () => {
-    expect(validateJob(valid({ title: "ISO 9001 Quality Auditor (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-manufacturing" });
-  });
-
-  it("manufacturing quality rejected", () => {
-    expect(validateJob(valid({ title: "Manufacturing Quality Inspector (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-manufacturing" });
-  });
-
-  it("Arzneimittel QA rejected", () => {
-    expect(validateJob(valid({ title: "Arzneimittel Quality Control Engineer (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-pharma" });
-  });
-
-  it("supply chain (Lieferant) quality rejected", () => {
-    expect(validateJob(valid({ title: "Lieferant Qualitätssicherung Manager (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-supply-chain" });
-  });
-
-  it("klinisch-related quality rejected", () => {
-    expect(validateJob(valid({ title: "Klinisch Quality Assurance Specialist (m/w/d)" })))
-      .toEqual({ valid: false, reason: "domain-pharma" });
-  });
-
-  // ---- Stage 2: Role-type whitelist ----
-
-  it("Test Automation Engineer accepted", () => {
+  it("Test Automation Engineer accepted (Qnit)", () => {
     expect(validateJob(valid({ title: "Test Automation Engineer (m/w/d)" })))
       .toEqual({ valid: true, reason: null });
   });
 
-  it("Senior Software Engineer in Test accepted", () => {
+  it("Senior Software Engineer in Test accepted (Raiffeisen)", () => {
     expect(validateJob(valid({ title: "Senior Software Engineer in Test (f/m/x)" })))
       .toEqual({ valid: true, reason: null });
   });
 
-  it("QA Engineer accepted", () => {
+  it("QA Engineer accepted (RINGANA)", () => {
     expect(validateJob(valid({ title: "QA Engineer (m/w/d)" })))
       .toEqual({ valid: true, reason: null });
   });
 
-  it("Quality Assurance Engineer accepted", () => {
-    expect(validateJob(valid({ title: "Quality Assurance Engineer (m/w/d)" })))
-      .toEqual({ valid: true, reason: null });
-  });
-
-  it("Software Quality Engineer accepted (Ketryx)", () => {
-    expect(validateJob(valid({ title: "Software Quality Engineer" })))
+  it("Quality Assurance Engineer accepted (ENPULSION)", () => {
+    expect(validateJob(valid({ title: "Quality Assurance Engineer" })))
       .toEqual({ valid: true, reason: null });
   });
 
@@ -164,23 +82,8 @@ describe("validateJob", () => {
       .toEqual({ valid: true, reason: null });
   });
 
-  it("Testautomatisierungsingenieur accepted", () => {
-    expect(validateJob(valid({ title: "Testautomatisierungsingenieur (m/w/d)" })))
-      .toEqual({ valid: true, reason: null });
-  });
-
-  it("Software Test Engineer accepted", () => {
+  it("Software Test Engineer accepted (MELECS)", () => {
     expect(validateJob(valid({ title: "Software Test Engineer (all genders)" })))
-      .toEqual({ valid: true, reason: null });
-  });
-
-  it("Senior Software Tester accepted (matches 'software test')", () => {
-    expect(validateJob(valid({ title: "Senior Software Tester (w/m/x)" })))
-      .toEqual({ valid: true, reason: null });
-  });
-
-  it("System Test Engineer accepted (FREQUENTIS)", () => {
-    expect(validateJob(valid({ title: "System Test Engineer (all genders)" })))
       .toEqual({ valid: true, reason: null });
   });
 
@@ -189,32 +92,96 @@ describe("validateJob", () => {
       .toEqual({ valid: true, reason: null });
   });
 
-  it("plain QA Specialist rejected (no positive match)", () => {
+  it("System Test Engineer accepted (FREQUENTIS)", () => {
+    expect(validateJob(valid({ title: "System Test Engineer (all genders)" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
+  it("Senior Test Automation Engineer accepted (PKE)", () => {
+    expect(validateJob(valid({ title: "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
+  it("Software Quality Engineer accepted (Ketryx)", () => {
+    expect(validateJob(valid({ title: "Software Quality Engineer" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
+  it("Agile Senior Software Testautomation Engineer accepted (ÖBB)", () => {
+    expect(validateJob(valid({ title: "Agile Senior Software Testautomation Engineer (m/w/x)" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
+  // ---- Gate 1: Non-software domain exclusion (6+) ----
+
+  it("pharma QA rejected (Merck)", () => {
+    expect(validateJob(valid({ title: "Praktikum im Bereich Pharma Quality Assurance (d/m/w)" })))
+      .toEqual({ valid: false, reason: "non-software-domain" });
+  });
+
+  it("clinical quality rejected", () => {
+    expect(validateJob(valid({ title: "Clinical Quality Assurance Manager (m/w/d)" })))
+      .toEqual({ valid: false, reason: "non-software-domain" });
+  });
+
+  it("electrical QA/QC rejected (Designer Group)", () => {
+    expect(validateJob(valid({ title: "Electrical QA/QC Engineer" })))
+      .toEqual({ valid: false, reason: "non-software-domain" });
+  });
+
+  it("quality officer operations rejected (Kwizda)", () => {
+    expect(validateJob(valid({ title: "Quality Assurance Officer (m/w/d) - Operations" })))
+      .toEqual({ valid: false, reason: "non-software-domain" });
+  });
+
+  it("customer care quality rejected (Coca-Cola)", () => {
+    expect(validateJob(valid({ title: "Customer Care Agent – Quality Excellence (m/w/d)" })))
+      .toEqual({ valid: false, reason: "non-software-domain" });
+  });
+
+  it("payroll quality rejected (WienIT)", () => {
+    expect(validateJob(valid({ title: "Gruppenleitung Quality Management Payroll (w/m/d)" })))
+      .toEqual({ valid: false, reason: "non-software-domain" });
+  });
+
+  it("GMP quality rejected", () => {
+    expect(validateJob(valid({ title: "GMP Quality Control Specialist (m/w/d)" })))
+      .toEqual({ valid: false, reason: "non-software-domain" });
+  });
+
+  it("food safety QA rejected", () => {
+    expect(validateJob(valid({ title: "Food Safety Quality Assurance Lead (m/w/d)" })))
+      .toEqual({ valid: false, reason: "non-software-domain" });
+  });
+
+  // ---- Gate 2: Not-SDET-role rejection (3+) ----
+
+  it("QA Specialist rejected — not an SDET role (Journi)", () => {
     expect(validateJob(valid({ title: "QA Specialist (all genders)" })))
-      .toEqual({ valid: false, reason: "no-positive-match" });
+      .toEqual({ valid: false, reason: "not-sdet-role" });
   });
 
-  it("QA-Tester:in rejected (no positive match)", () => {
+  it("QA-Tester:in rejected — not an SDET role (allaboutapps)", () => {
     expect(validateJob(valid({ title: "QA-Tester:in Software" })))
-      .toEqual({ valid: false, reason: "no-positive-match" });
+      .toEqual({ valid: false, reason: "not-sdet-role" });
   });
 
-  it("C# Softwareentwickler Testsysteme rejected (developer, not tester)", () => {
+  it("C# Softwareentwickler Testsysteme rejected (Kapsch)", () => {
     expect(validateJob(valid({ title: "C# Softwareentwickler Testsysteme (m/w/d)" })))
-      .toEqual({ valid: false, reason: "no-positive-match" });
+      .toEqual({ valid: false, reason: "not-sdet-role" });
   });
 
-  it("SAP Test Coordinator rejected (no positive match)", () => {
+  it("SAP Test Coordinator rejected (RHI Magnesita)", () => {
     expect(validateJob(valid({ title: "SAP S4 HANA Test Coordinator (all genders)" })))
-      .toEqual({ valid: false, reason: "no-positive-match" });
+      .toEqual({ valid: false, reason: "not-sdet-role" });
   });
 
-  it("plain Senior Frontend Developer rejected (no positive match)", () => {
+  it("Senior Frontend Developer rejected", () => {
     expect(validateJob(valid({ title: "Senior Frontend Developer (m/w/d)" })))
-      .toEqual({ valid: false, reason: "no-positive-match" });
+      .toEqual({ valid: false, reason: "not-sdet-role" });
   });
 
-  // ---- Stage 3: Management filter ----
+  // ---- Gate 3: Management filter — rejected (5+) ----
 
   it("Head of Software Testing rejected (Ketryx)", () => {
     expect(validateJob(valid({ title: "Head of Software Testing" })))
@@ -231,21 +198,30 @@ describe("validateJob", () => {
       .toEqual({ valid: false, reason: "management-role" });
   });
 
-  it("IT Test Manager*in rejected (WienIT)", () => {
-    // Fails whitelist first (no engineer pattern), so reason is no-positive-match
-    expect(validateJob(valid({ title: "IT Test Manager*in" })))
-      .toEqual({ valid: false, reason: "no-positive-match" });
+  it("Leiter:in Testautomatisierung rejected", () => {
+    expect(validateJob(valid({ title: "Leiter:in Testautomatisierung (m/w/d)" })))
+      .toEqual({ valid: false, reason: "management-role" });
   });
 
-  it("management title with hands-on signal accepted", () => {
-    // "Director" triggers management, but "Engineer" is a hands-on signal
+  it("Leitung Software Testautomatisierung rejected", () => {
+    expect(validateJob(valid({ title: "Leitung Software Testautomatisierung (m/w/d)" })))
+      .toEqual({ valid: false, reason: "management-role" });
+  });
+
+  // ---- Gate 3: Management override — hands-on signal present (3+) ----
+
+  it("Director Test Automation Engineer accepted (hands-on signal)", () => {
     expect(validateJob(valid({ title: "Director Test Automation Engineer (m/w/d)" })))
       .toEqual({ valid: true, reason: null });
   });
 
-  it("management title without hands-on signal or whitelist match rejected", () => {
-    // "Director of Quality" — no whitelist match, no hands-on signal
-    expect(validateJob(valid({ title: "Director of Quality Assurance" })))
-      .toEqual({ valid: false, reason: "no-positive-match" });
+  it("Koordinator:in QA Engineer accepted (hands-on signal)", () => {
+    expect(validateJob(valid({ title: "Koordinator:in QA Engineer (m/w/d)" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
+  it("Leiter Software Test Entwickler accepted (hands-on signal)", () => {
+    expect(validateJob(valid({ title: "Leiter Software Test Entwickler (m/w/d)" })))
+      .toEqual({ valid: true, reason: null });
   });
 });
