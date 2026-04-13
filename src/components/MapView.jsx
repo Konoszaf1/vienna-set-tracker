@@ -7,6 +7,7 @@ export default function MapView({ companies, profile, companyInsights }) {
   const containerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef([]);
+  const clusterGroupRef = useRef(null);
   const extraLayersRef = useRef([]);
   const prevHomeRef = useRef(null);
   const [ready, setReady] = useState(false);
@@ -25,12 +26,42 @@ export default function MapView({ companies, profile, companyInsights }) {
   }, [profile]);
 
   useEffect(() => {
-    if (window.L) { setReady(true); return; }
-    import("leaflet").then(mod => {
-      window.L = mod.default || mod;
+    if (window.L && window.L.markerClusterGroup) { setReady(true); return; }
+
+    const loadLeaflet = window.L
+      ? Promise.resolve(window.L)
+      : import("leaflet").then(mod => { window.L = mod.default || mod; return window.L; });
+
+    loadLeaflet.then(() =>
+      import("leaflet.markercluster/dist/leaflet.markercluster.js")
+    ).then(() => {
       setReady(true);
     });
   }, []);
+
+  // Inject cluster + dark-theme styles once
+  useEffect(() => {
+    if (!ready) return;
+    if (document.getElementById("lf-dark")) return;
+    const s = document.createElement("style"); s.id = "lf-dark";
+    s.textContent = `
+      .dark-popup .leaflet-popup-content-wrapper{background:#09090b!important;color:#fafafa!important;border-radius:12px!important;border:1px solid #27272a!important;box-shadow:0 8px 32px rgba(0,0,0,.6)!important;padding:0!important}
+      .dark-popup .leaflet-popup-content{margin:12px!important;line-height:1.4!important}
+      .dark-popup .leaflet-popup-tip{background:#09090b!important;border:1px solid #27272a!important;border-top:none!important;border-left:none!important}
+      .dark-popup .leaflet-popup-close-button{color:#71717a!important;font-size:18px!important;padding:6px 8px!important}
+      .dark-popup .leaflet-popup-close-button:hover{color:#fafafa!important}
+      .leaflet-control-zoom a{background:#18181b!important;color:#a1a1aa!important;border-color:#27272a!important}
+      .leaflet-control-zoom a:hover{background:#27272a!important;color:#fafafa!important}
+      .leaflet-control-attribution{background:rgba(9,9,11,.8)!important;color:#52525b!important}
+      .leaflet-control-attribution a{color:#6366f1!important}
+      /* MarkerCluster animations */
+      .leaflet-cluster-anim .leaflet-marker-icon,.leaflet-cluster-anim .leaflet-marker-shadow{transition:transform .3s ease-out,opacity .3s ease-in}
+      .leaflet-cluster-spider-leg{transition:stroke-dashoffset .3s ease-out,stroke-opacity .3s ease-in}
+      /* Dark spider legs */
+      .leaflet-cluster-spider-leg .leaflet-cluster-spider-leg-line{stroke:#6366f1;stroke-opacity:.5}
+    `;
+    document.head.appendChild(s);
+  }, [ready]);
 
   useEffect(() => {
     if (!ready || !containerRef.current || !window.L) return;
@@ -46,21 +77,6 @@ export default function MapView({ companies, profile, companyInsights }) {
         subdomains: "abcd", maxZoom: 19,
       }).addTo(mapInstanceRef.current);
 
-      if (!document.getElementById("lf-dark")) {
-        const s = document.createElement("style"); s.id = "lf-dark";
-        s.textContent = `
-          .dark-popup .leaflet-popup-content-wrapper{background:#09090b!important;color:#fafafa!important;border-radius:12px!important;border:1px solid #27272a!important;box-shadow:0 8px 32px rgba(0,0,0,.6)!important;padding:0!important}
-          .dark-popup .leaflet-popup-content{margin:12px!important;line-height:1.4!important}
-          .dark-popup .leaflet-popup-tip{background:#09090b!important;border:1px solid #27272a!important;border-top:none!important;border-left:none!important}
-          .dark-popup .leaflet-popup-close-button{color:#71717a!important;font-size:18px!important;padding:6px 8px!important}
-          .dark-popup .leaflet-popup-close-button:hover{color:#fafafa!important}
-          .leaflet-control-zoom a{background:#18181b!important;color:#a1a1aa!important;border-color:#27272a!important}
-          .leaflet-control-zoom a:hover{background:#27272a!important;color:#fafafa!important}
-          .leaflet-control-attribution{background:rgba(9,9,11,.8)!important;color:#52525b!important}
-          .leaflet-control-attribution a{color:#6366f1!important}`;
-        document.head.appendChild(s);
-      }
-
       prevHomeRef.current = home;
     }
 
@@ -73,8 +89,12 @@ export default function MapView({ companies, profile, companyInsights }) {
     }
     prevHomeRef.current = home;
 
-    markersRef.current.forEach(m => map.removeLayer(m));
+    // Clear previous layers
+    markersRef.current.forEach(m => {
+      if (m._homeLine) { map.removeLayer(m._homeLine); m._homeLine = null; }
+    });
     markersRef.current = [];
+    if (clusterGroupRef.current) { map.removeLayer(clusterGroupRef.current); clusterGroupRef.current = null; }
     extraLayersRef.current.forEach(l => map.removeLayer(l));
     extraLayersRef.current = [];
 
@@ -121,32 +141,41 @@ export default function MapView({ companies, profile, companyInsights }) {
 
     const mappable = companies.filter(c => c.lat != null && c.lng != null);
 
-    // Nudge markers that are too close so labels don't overlap.
-    // Build an offset map keyed by company id.
-    const offsets = {};
-    const PROXIMITY = 0.0015; // ~150 m – labels collide within this range
-    const NUDGE = 0.0012;
-    for (let i = 0; i < mappable.length; i++) {
-      if (!offsets[mappable[i].id]) offsets[mappable[i].id] = { dlat: 0, dlng: 0 };
-      for (let j = i + 1; j < mappable.length; j++) {
-        if (!offsets[mappable[j].id]) offsets[mappable[j].id] = { dlat: 0, dlng: 0 };
-        const dx = (mappable[j].lng + offsets[mappable[j].id].dlng) - (mappable[i].lng + offsets[mappable[i].id].dlng);
-        const dy = (mappable[j].lat + offsets[mappable[j].id].dlat) - (mappable[i].lat + offsets[mappable[i].id].dlat);
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < PROXIMITY) {
-          const angle = d > 0 ? Math.atan2(dy, dx) : Math.PI / 2;
-          const push = (PROXIMITY - d) / 2 + NUDGE;
-          offsets[mappable[j].id].dlat += Math.sin(angle) * push;
-          offsets[mappable[j].id].dlng += Math.cos(angle) * push;
-          offsets[mappable[i].id].dlat -= Math.sin(angle) * push;
-          offsets[mappable[i].id].dlng -= Math.cos(angle) * push;
-        }
-      }
-    }
+    // Create cluster group with custom dark-themed icons
+    const clusterGroup = L.markerClusterGroup({
+      maxClusterRadius: 45,
+      spiderfyOnMaxZoom: true,
+      showCoverageOnHover: false,
+      zoomToBoundsOnClick: true,
+      spiderfyDistanceMultiplier: 2.0,
+      iconCreateFunction: (cluster) => {
+        const count = cluster.getChildCount();
+        const children = cluster.getAllChildMarkers();
+        // Average salary color for the cluster
+        const estimates = children.map(m => m._companyEstimate).filter(Boolean);
+        const avgEstimate = estimates.length > 0 ? estimates.reduce((a, b) => a + b, 0) / estimates.length : null;
+        const color = salaryColor(avgEstimate);
+        const size = count < 5 ? 40 : count < 15 ? 48 : 56;
+
+        return L.divIcon({
+          className: "",
+          html: `<div style="
+            width:${size}px;height:${size}px;
+            display:flex;align-items:center;justify-content:center;
+            background:${color};color:#fff;
+            font-size:${count < 5 ? 13 : 14}px;font-weight:700;font-family:DM Sans,sans-serif;
+            border-radius:50%;
+            border:3px solid ${color}60;
+            box-shadow:0 3px 16px ${color}80,0 0 0 6px ${color}20;
+            cursor:pointer;transition:transform .2s;
+          ">${count}</div>`,
+          iconSize: [size, size],
+          iconAnchor: [size / 2, size / 2],
+        });
+      },
+    });
 
     mappable.forEach(c => {
-      const oLat = c.lat + (offsets[c.id]?.dlat || 0);
-      const oLng = c.lng + (offsets[c.id]?.dlng || 0);
       const km = dist(home[0], home[1], c.lat, c.lng);
       const insight = companyInsights?.[c.id];
       const estimate = insight?.salary?.estimate;
@@ -227,17 +256,18 @@ export default function MapView({ companies, profile, companyInsights }) {
           ${safePrimaryUrl?`<div style="margin-top:10px"><a href="${safePrimaryUrl}" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:8px;background:#6366f120;color:#6366f1;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #6366f130">View listing ↗</a></div>`:""}
         </div>`;
 
-      // Stagger z-index by latitude so southern markers render in front;
-      // on hover, boost to bring the active marker above all others.
-      const baseZ = Math.round((90 - oLat) * 100);
-      const marker = L.marker([oLat, oLng], { icon, zIndexOffset: baseZ })
-        .addTo(map)
+      // Markers at true positions — clustering handles overlap
+      const baseZ = Math.round((90 - c.lat) * 100);
+      const marker = L.marker([c.lat, c.lng], { icon, zIndexOffset: baseZ })
         .bindPopup(popup, { maxWidth: 320, className: "dark-popup", closeButton: true });
+
+      // Stash estimate on marker so cluster icon can read it
+      marker._companyEstimate = estimate;
 
       marker.on("mouseover", () => {
         marker.setZIndexOffset(10000);
         if (marker._homeLine) return;
-        marker._homeLine = L.polyline([home, [oLat, oLng]], { color, weight: 2, dashArray: "6 4", opacity: 0.6 }).addTo(map);
+        marker._homeLine = L.polyline([home, [c.lat, c.lng]], { color, weight: 2, dashArray: "6 4", opacity: 0.6 }).addTo(map);
       });
       marker.on("mouseout", () => {
         if (!marker.isPopupOpen()) marker.setZIndexOffset(baseZ);
@@ -248,8 +278,12 @@ export default function MapView({ companies, profile, companyInsights }) {
         if (marker._homeLine) { map.removeLayer(marker._homeLine); marker._homeLine = null; }
       });
 
+      clusterGroup.addLayer(marker);
       markersRef.current.push(marker);
     });
+
+    map.addLayer(clusterGroup);
+    clusterGroupRef.current = clusterGroup;
   }, [ready, companies, home, homeAddress, companyInsights]);
 
   useEffect(() => () => { if (mapInstanceRef.current) { mapInstanceRef.current.remove(); mapInstanceRef.current = null; } }, []);

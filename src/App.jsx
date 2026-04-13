@@ -45,6 +45,35 @@ export default function App() {
       .finally(() => setLoading(false));
   }, []);
 
+  // Track when each job URL was first seen (persisted in localStorage).
+  // Prunes entries for URLs no longer in the feed so it doesn't grow unbounded.
+  const firstSeenMap = useMemo(() => {
+    const STORAGE_KEY = "sdet-first-seen";
+    let stored = {};
+    try { stored = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch {}
+    const now = new Date().toISOString();
+    const activeUrls = new Set(jobs.map(j => j.url));
+    let changed = false;
+    // Add new entries
+    for (const j of jobs) {
+      if (!stored[j.url]) {
+        stored[j.url] = now;
+        changed = true;
+      }
+    }
+    // Prune stale entries (jobs removed from the feed)
+    for (const url of Object.keys(stored)) {
+      if (!activeUrls.has(url)) {
+        delete stored[url];
+        changed = true;
+      }
+    }
+    if (changed) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(stored)); } catch {}
+    }
+    return stored;
+  }, [jobs]);
+
   // Group jobs by company name into company entries
   const entries = useMemo(() => {
     const groups = {};
@@ -56,6 +85,11 @@ export default function App() {
 
     return Object.entries(groups).map(([key, roles]) => {
       const first = roles[0];
+      // Compute earliest firstSeen across all roles for this company
+      const roleDates = roles.map(r => firstSeenMap[r.url]).filter(Boolean);
+      const firstSeen = roleDates.length > 0
+        ? roleDates.reduce((a, b) => a < b ? a : b)
+        : null;
       return {
         id: `co-${key.replace(/\s+/g, "-")}`,
         name: first.company,
@@ -74,9 +108,10 @@ export default function App() {
         industry: "",
         langReq: "de-basic",
         openRoles: roles,
+        firstSeen,
       };
     });
-  }, [jobs]);
+  }, [jobs, firstSeenMap]);
 
   const companyInsights = useMemo(() => {
     const map = {};
@@ -147,6 +182,7 @@ export default function App() {
 
           <select value={sortBy} onChange={e => setSortBy(e.target.value)} className={`${styles.input} ${styles.sortSelect}`}>
             <option value="name">Sort: Name</option>
+            <option value="newest">Sort: Newest</option>
             <option value="salary">Sort: Salary</option>
             <option value="match">Sort: Match</option>
             <option value="rating">Sort: Rating</option>

@@ -25,8 +25,21 @@ const CompanyCard = memo(function CompanyCard({ company, insights }) {
         <Badge color="#06b6d4" bg="#06b6d420">Live listing</Badge>
       </div>
 
-      <div className={styles.district}>
-        <span>📍</span> {company.district}
+      <div className={styles.metaRow}>
+        <div className={styles.district}>
+          <span>📍</span> {company.district}
+        </div>
+        {company.firstSeen && (
+          <div className={styles.firstSeen}>
+            {(() => {
+              const d = new Date(company.firstSeen);
+              const now = new Date();
+              const diffDays = Math.floor((now - d) / 86400000);
+              const label = diffDays === 0 ? "Today" : diffDays === 1 ? "1 day ago" : `${diffDays}d ago`;
+              return `Added ${label}`;
+            })()}
+          </div>
+        )}
       </div>
 
       {avgRating.length > 0 && (

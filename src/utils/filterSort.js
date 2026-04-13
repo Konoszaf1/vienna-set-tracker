@@ -14,6 +14,11 @@ export function filterAndSort({ companies, companyInsights, search, filterLang, 
     })
     .sort((a, b) => {
       if (sortBy === "name") return a.name.localeCompare(b.name);
+      if (sortBy === "newest") {
+        const da = a.firstSeen || "";
+        const db = b.firstSeen || "";
+        return db.localeCompare(da); // newest first
+      }
       if (sortBy === "salary") {
         const sa = companyInsights[a.id]?.salary?.estimate ?? -1;
         const sb = companyInsights[b.id]?.salary?.estimate ?? -1;
