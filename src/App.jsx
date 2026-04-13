@@ -189,13 +189,13 @@ export default function App() {
             data-testid="search-input"
           />
 
-          <select value={filterLang} onChange={e => setFilterLang(e.target.value)} className={`${styles.input} ${styles.langSelect}`} data-testid="lang-select">
+          <select value={filterLang} onChange={e => setFilterLang(e.target.value)} className={`${styles.input} ${styles.langSelect}`} data-testid="lang-select" aria-label="Language requirement filter">
             <option value="all">All Language Reqs</option>
             <option value="accessible">No Fluent German Needed</option>
             <option value="de-fluent">Fluent German Required</option>
           </select>
 
-          <select value={sortBy} onChange={e => setSortBy(e.target.value)} className={`${styles.input} ${styles.sortSelect}`} data-testid="sort-select">
+          <select value={sortBy} onChange={e => setSortBy(e.target.value)} className={`${styles.input} ${styles.sortSelect}`} data-testid="sort-select" aria-label="Sort order">
             <option value="name">Sort: Name</option>
             <option value="newest">Sort: Newest</option>
             <option value="salary">Sort: Salary</option>

@@ -65,6 +65,7 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
             className={styles.input}
             value={form.roleLevel || "mid"}
             onChange={e => update("roleLevel", e.target.value)}
+            aria-label="Role level"
           >
             {ROLE_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
           </select>
@@ -75,6 +76,7 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
           className={styles.input}
           value={form.germanLevel || "none"}
           onChange={e => update("germanLevel", e.target.value)}
+          aria-label="German level"
         >
           {GERMAN_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
         </select>
