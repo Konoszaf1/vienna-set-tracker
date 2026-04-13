@@ -141,13 +141,16 @@ export default function MapView({ companies, profile, companyInsights }) {
 
     const mappable = companies.filter(c => c.lat != null && c.lng != null);
 
-    // Create cluster group with custom dark-themed icons
+    // Create cluster group with custom dark-themed icons.
+    // disableClusteringAtZoom: at zoom 14+ markers sit at true positions;
+    // clusters only form when zoomed out enough that labels would overlap.
     const clusterGroup = L.markerClusterGroup({
-      maxClusterRadius: 45,
-      spiderfyOnMaxZoom: true,
+      maxClusterRadius: 60,
+      disableClusteringAtZoom: 14,
+      spiderfyOnMaxZoom: false,
       showCoverageOnHover: false,
       zoomToBoundsOnClick: true,
-      spiderfyDistanceMultiplier: 2.0,
+      animate: true,
       iconCreateFunction: (cluster) => {
         const count = cluster.getChildCount();
         const children = cluster.getAllChildMarkers();
