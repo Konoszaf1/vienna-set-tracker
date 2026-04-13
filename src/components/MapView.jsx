@@ -148,9 +148,9 @@ export default function MapView({ companies, profile, companyInsights, onHomeMov
       // Reverse-geocode to get address
       let address = `${lat}, ${lng}`;
       try {
+        // Nominatim rate limits apply — see https://operations.osmfoundation.org/policies/nominatim/
         const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&zoom=18&addressdetails=1`;
         const res = await fetch(url, {
-          headers: { "User-Agent": "vienna-set-tracker/1.0" },
           signal: AbortSignal.timeout(8000),
         });
         if (res.ok) {

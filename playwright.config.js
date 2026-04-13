@@ -8,10 +8,10 @@ export default defineConfig({
     headless: true,
   },
   webServer: {
-    command: 'npm run dev -- --host',
+    command: 'npm run build && npm run preview -- --host --port 5173',
     url: 'http://localhost:5173/vienna-set-tracker/',
     reuseExistingServer: !process.env.CI,
-    timeout: 15000,
+    timeout: 30000,
   },
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },

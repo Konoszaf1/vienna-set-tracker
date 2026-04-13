@@ -28,9 +28,9 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
     setLookupStatus("loading");
     try {
       const q = encodeURIComponent(`${addr}, Vienna, Austria`);
+      // Nominatim rate limits apply — see https://operations.osmfoundation.org/policies/nominatim/
       const url = `https://nominatim.openstreetmap.org/search?q=${q}&format=json&limit=1&addressdetails=1`;
       const res = await fetch(url, {
-        headers: { "User-Agent": "vienna-set-tracker/1.0" },
         signal: AbortSignal.timeout(8000),
       });
       if (!res.ok) throw new Error("HTTP " + res.status);

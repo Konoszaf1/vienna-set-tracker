@@ -63,7 +63,7 @@ async function main() {
   const path = "public/jobs.json";
 
   if (!existsSync(path)) {
-    console.log("No latest-jobs.json found, nothing to verify.");
+    console.log("No public/jobs.json found, nothing to verify.");
     process.exit(0);
   }
 

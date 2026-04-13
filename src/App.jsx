@@ -21,58 +21,58 @@ export default function App() {
   const [jobs, setJobs] = useState([]);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(null);
 
-  const [profile, setProfile] = useState(defaultProfileData);
+  const [profile, setProfile] = useState(() => {
+    try {
+      const s = localStorage.getItem(PROFILE_STORAGE_KEY);
+      return s ? JSON.parse(s) : defaultProfileData;
+    } catch { return defaultProfileData; }
+  });
   const [cv] = useState(defaultCvData);
 
-  useEffect(() => {
-    try {
-      const storedProfile = localStorage.getItem(PROFILE_STORAGE_KEY);
-      if (storedProfile) {
-        setProfile(JSON.parse(storedProfile));
-      }
-    } catch {}
-  }, []);
-
-  useEffect(() => {
+  function doFetch() {
     const h = Math.floor(Date.now() / 3600000);
-    fetch(import.meta.env.BASE_URL + `jobs.json?h=${h}`)
-      .then(r => r.ok ? r.json() : null)
+    return fetch(import.meta.env.BASE_URL + `jobs.json?h=${h}`)
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then(d => {
         if (d?.jobs) setJobs(d.jobs);
       })
-      .catch(() => {})
+      .catch(e => setFetchError(e.message || "Failed to load jobs"))
       .finally(() => setLoading(false));
-  }, []);
+  }
+
+  function handleRetry() {
+    setLoading(true);
+    setFetchError(null);
+    doFetch();
+  }
+
+  useEffect(() => { doFetch(); }, []);
 
   // Track when each job URL was first seen (persisted in localStorage).
-  // Prunes entries for URLs no longer in the feed so it doesn't grow unbounded.
+  // Pure derivation: reads localStorage, computes the map. Does not write.
   const firstSeenMap = useMemo(() => {
+    if (jobs.length === 0) return {};
     const STORAGE_KEY = "sdet-first-seen";
     let stored = {};
     try { stored = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch {}
     const now = new Date().toISOString();
-    const activeUrls = new Set(jobs.map(j => j.url));
-    let changed = false;
-    // Add new entries
+    const map = {};
     for (const j of jobs) {
-      if (!stored[j.url]) {
-        stored[j.url] = now;
-        changed = true;
-      }
+      map[j.url] = stored[j.url] || now;
     }
-    // Prune stale entries (jobs removed from the feed)
-    for (const url of Object.keys(stored)) {
-      if (!activeUrls.has(url)) {
-        delete stored[url];
-        changed = true;
-      }
-    }
-    if (changed) {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(stored)); } catch {}
-    }
-    return stored;
+    return map;
   }, [jobs]);
+
+  // Side effect: persist firstSeen map to localStorage (prunes stale entries)
+  useEffect(() => {
+    if (jobs.length === 0) return;
+    try { localStorage.setItem("sdet-first-seen", JSON.stringify(firstSeenMap)); } catch {}
+  }, [jobs, firstSeenMap]);
 
   // Group jobs by company name into company entries
   const entries = useMemo(() => {
@@ -149,6 +149,16 @@ export default function App() {
     return (
       <div className={styles.loadingScreen}>
         <div className={styles.loadingText}>Loading dashboard...</div>
+      </div>
+    );
+  }
+
+  if (fetchError) {
+    return (
+      <div className={styles.loadingScreen}>
+        <div className={styles.loadingText}>Failed to load job data</div>
+        <p style={{ color: '#a1a1aa', marginTop: 8 }}>{fetchError}</p>
+        <button onClick={handleRetry} className={styles.settingsButton} style={{ marginTop: 16 }}>Retry</button>
       </div>
     );
   }
