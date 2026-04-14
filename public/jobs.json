@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-13T18:58:25.865312+00:00",
+  "lastUpdated": "2026-04-14T08:30:29.638288+00:00",
   "count": 35,
   "jobs": [
     {
@@ -49,6 +49,23 @@
       "kununuScore": 4.3
     },
     {
+      "url": "https://www.karriere.at/jobs/7766282",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Software Daten Service Gesellschaft m.b.H.",
+      "source": "Test Automation Wien",
+      "address": "Rennweg 97-99, 1030 Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Java",
+        "C#"
+      ],
+      "langReq": "de-basic",
+      "lat": 48.1867515,
+      "lng": 16.4032705,
+      "kununuScore": 3.2
+    },
+    {
       "url": "https://www.karriere.at/jobs/7686185",
       "title": "Test Automation Engineer (m/w/d)",
       "company": "Qnit Austria GmbH",
@@ -69,7 +86,6 @@
         "TypeScript",
         "JavaScript",
         "C#",
-        "PHP",
         "React",
         "Angular",
         "CI/CD",
@@ -97,7 +113,6 @@
         "Python",
         "JavaScript",
         "C#",
-        "PHP",
         "CI/CD",
         "SOAP"
       ],
@@ -119,7 +134,6 @@
         "Manual Testing",
         "TypeScript",
         "C#",
-        "PHP",
         "CI/CD",
         "Azure DevOps",
         "Agile"
@@ -154,24 +168,6 @@
       "lat": 48.1858518,
       "lng": 16.3539754,
       "kununuScore": 3.6
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7766282",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Software Daten Service Gesellschaft m.b.H.",
-      "source": "Test Automation Wien",
-      "address": "Rennweg 97-99, 1030 Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "C#",
-        "PHP"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.1867515,
-      "lng": 16.4032705,
-      "kununuScore": 3.2
     },
     {
       "url": "https://www.karriere.at/jobs/7595456",
@@ -236,7 +232,6 @@
         "Cypress",
         "Postman",
         "ISTQB",
-        "Java",
         "Python",
         "TypeScript",
         "JavaScript",
@@ -305,28 +300,6 @@
       "lat": 48.1639426,
       "lng": 16.3342088,
       "kununuScore": 4.4
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7744253",
-      "title": "Test Engineer Regular (m/w/d)",
-      "company": "BEV - Bundesamt für Eich- und Vermessungswesen",
-      "source": "Software Tester Wien",
-      "address": "Franz-Hochedlinger-Gasse, 1020, KG Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "Python",
-        "C#",
-        "Docker",
-        "CI/CD",
-        "Git",
-        "Agile"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.2188239,
-      "lng": 16.3730485,
-      "kununuScore": 3.4
     },
     {
       "url": "https://www.karriere.at/jobs/7774874",
@@ -428,6 +401,30 @@
       "kununuScore": 4.9
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4370503347",
+      "title": "Test Automation Engineer (all genders) [Wien]",
+      "company": "adesso Austria GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "kununuScore": 4.5
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4353952752",
+      "title": "QA Engineer (m/w/d)",
+      "company": "RINGANA",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "kununuScore": 3.9
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4386765146",
       "title": "Test Automation Engineer (m/w/d)",
       "company": "Deutsche Telekom",
@@ -510,18 +507,6 @@
       "kununuScore": 4.1
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4385435786",
-      "title": "Senior Software Tester (w/m/x)",
-      "company": "Pineapple Recruiting GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4
-    },
-    {
       "url": "https://at.indeed.com/viewjob?jk=7da261b528d2e3d6",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
       "company": "ÖBB",
@@ -593,13 +578,13 @@
     }
   ],
   "validation": {
-    "accepted": 26,
-    "rejected": 56,
+    "accepted": 16,
+    "rejected": 29,
     "reasons": {
-      "not-sdet-role": 49,
+      "not-sdet-role": 22,
       "management-role": 4,
       "non-software-domain": 3
     }
   },
-  "lastVerified": "2026-04-13T18:58:45.260Z"
+  "lastVerified": "2026-04-14T08:30:39.053Z"
 }
