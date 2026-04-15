@@ -1,7 +1,42 @@
 {
-  "lastUpdated": "2026-04-14T08:30:29.638288+00:00",
-  "count": 35,
+  "lastUpdated": "2026-04-15T08:30:57.008591+00:00",
+  "count": 37,
   "jobs": [
+    {
+      "url": "https://www.karriere.at/jobs/7686185",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Qnit Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Robot Framework",
+        "REST Assured",
+        "Postman",
+        "ISTQB",
+        "Xray",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "C#",
+        "React",
+        "Angular",
+        "CI/CD",
+        "Jenkins",
+        "GitLab CI/CD",
+        "GitHub Actions",
+        "Jira",
+        "Git"
+      ],
+      "langReq": "de-basic",
+      "lat": null,
+      "lng": null,
+      "kununuScore": 4.8
+    },
     {
       "url": "https://www.karriere.at/jobs/7781381",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
@@ -49,6 +84,28 @@
       "kununuScore": 4.3
     },
     {
+      "url": "https://www.karriere.at/jobs/7632528",
+      "title": "Test Automation Engineer (f/m/d)",
+      "company": "Österreichische Post AG",
+      "source": "Test Automation Wien",
+      "address": "Wagramer Straße, 162, 1220, KG Kagran",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Manual Testing",
+        "TypeScript",
+        "C#",
+        "CI/CD",
+        "Azure DevOps",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": 48.2510399,
+      "lng": 16.4447756,
+      "kununuScore": 3.3
+    },
+    {
       "url": "https://www.karriere.at/jobs/7766282",
       "title": "Test Automation Engineer (m/w/d)",
       "company": "Software Daten Service Gesellschaft m.b.H.",
@@ -64,41 +121,6 @@
       "lat": 48.1867515,
       "lng": 16.4032705,
       "kununuScore": 3.2
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7686185",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Qnit Austria GmbH",
-      "source": "Test Automation Wien",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Cypress",
-        "Selenium",
-        "Robot Framework",
-        "REST Assured",
-        "Postman",
-        "ISTQB",
-        "Xray",
-        "Java",
-        "TypeScript",
-        "JavaScript",
-        "C#",
-        "React",
-        "Angular",
-        "CI/CD",
-        "Jenkins",
-        "GitLab CI/CD",
-        "GitHub Actions",
-        "Jira",
-        "Git"
-      ],
-      "langReq": "de-basic",
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4.8
     },
     {
       "url": "https://www.karriere.at/jobs/7757258",
@@ -120,28 +142,6 @@
       "lat": 48.1409112,
       "lng": 16.2944131,
       "kununuScore": 4.2
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7632528",
-      "title": "Test Automation Engineer (f/m/d)",
-      "company": "Österreichische Post AG",
-      "source": "Test Automation Wien",
-      "address": "Wagramer Straße, 162, 1220, KG Kagran",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Manual Testing",
-        "TypeScript",
-        "C#",
-        "CI/CD",
-        "Azure DevOps",
-        "Agile"
-      ],
-      "langReq": "en",
-      "lat": 48.2510399,
-      "lng": 16.4447756,
-      "kununuScore": 3.3
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -285,6 +285,27 @@
       "kununuScore": 3.9
     },
     {
+      "url": "https://www.karriere.at/jobs/7784576",
+      "title": "Test Engineer Regular (Administrator Senior) w/m/d für das DevOps Team in der Gruppe Eichwesen (RIVIT 5)",
+      "company": "BEV - Bundesamt für Eich- und Vermessungswesen",
+      "source": "Software Tester Wien",
+      "address": "Franz-Hochedlinger-Gasse, 1020, KG Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Java",
+        "Python",
+        "C#",
+        "Docker",
+        "CI/CD",
+        "Git"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2188239,
+      "lng": 16.3730485,
+      "kununuScore": 3.4
+    },
+    {
       "url": "https://www.karriere.at/jobs/7764851",
       "title": "System Test Engineer (all genders)",
       "company": "FREQUENTIS AG",
@@ -328,6 +349,17 @@
       "lat": 48.203565,
       "lng": 16.4352268,
       "kununuScore": 3.2
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=f660764e325eb9fe",
+      "title": "Test Engineer — Electromagnetic Tomography",
+      "company": "EMTensor GmbH",
+      "source": "jobspy-indeed",
+      "address": "Wien, W, AT",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1822872,
+      "lng": 16.3923295
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=60a4e80276772c49",
@@ -578,13 +610,13 @@
     }
   ],
   "validation": {
-    "accepted": 16,
-    "rejected": 29,
+    "accepted": 17,
+    "rejected": 28,
     "reasons": {
-      "not-sdet-role": 22,
       "management-role": 4,
+      "not-sdet-role": 21,
       "non-software-domain": 3
     }
   },
-  "lastVerified": "2026-04-14T08:30:39.053Z"
+  "lastVerified": "2026-04-15T08:31:15.247Z"
 }
