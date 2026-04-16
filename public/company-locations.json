@@ -253,5 +253,15 @@
     "lat": null,
     "lng": null,
     "address": null
+  },
+  "trayport": {
+    "lat": 48.1686875,
+    "lng": 16.3336346,
+    "address": "Technologiestraße, 10, 1120, KG Altmannsdorf"
+  },
+  "devjobs": {
+    "lat": null,
+    "lng": null,
+    "address": null
   }
 }
