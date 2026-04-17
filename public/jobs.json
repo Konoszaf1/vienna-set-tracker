@@ -1,7 +1,29 @@
 {
-  "lastUpdated": "2026-04-16T08:30:20.445750+00:00",
+  "lastUpdated": "2026-04-17T08:29:37.632571+00:00",
   "count": 34,
   "jobs": [
+    {
+      "url": "https://www.karriere.at/jobs/7632528",
+      "title": "Test Automation Engineer (f/m/d)",
+      "company": "Österreichische Post AG",
+      "source": "Test Automation Wien",
+      "address": "Wagramer Straße, 162, 1220, KG Kagran",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Manual Testing",
+        "TypeScript",
+        "C#",
+        "CI/CD",
+        "Azure DevOps",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": 48.2510399,
+      "lng": 16.4447756,
+      "kununuScore": 3.3
+    },
     {
       "url": "https://www.karriere.at/jobs/7781381",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
@@ -157,13 +179,26 @@
       "zip": null,
       "techStack": [
         "CI/CD",
-        "Git",
-        "Agile"
+        "Git"
       ],
       "langReq": "de-fluent",
       "lat": 48.203565,
       "lng": 16.4352268,
       "kununuScore": 3.2
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10011931",
+      "title": "Testingenieur:in (m/w/d)",
+      "company": "EVVA Sicherheitstechnologie GmbH",
+      "source": "Test Automation Wien",
+      "address": "Meidling, 1120 Wien",
+      "city": "Wien",
+      "zip": "1120",
+      "techStack": [],
+      "langReq": "de-fluent",
+      "lat": 48.1719649,
+      "lng": 16.3286908,
+      "kununuScore": 3.4
     },
     {
       "url": "https://www.karriere.at/jobs/7775258",
@@ -183,20 +218,6 @@
       "lat": null,
       "lng": null,
       "kununuScore": 4.4
-    },
-    {
-      "url": "https://www.karriere.at/jobs/10011931",
-      "title": "Testingenieur:in (m/w/d)",
-      "company": "EVVA Sicherheitstechnologie GmbH",
-      "source": "Test Automation Wien",
-      "address": "Meidling, 1120 Wien",
-      "city": "Wien",
-      "zip": "1120",
-      "techStack": [],
-      "langReq": "de-fluent",
-      "lat": 48.1719649,
-      "lng": 16.3286908,
-      "kununuScore": 3.4
     },
     {
       "url": "https://www.karriere.at/jobs/10015248",
@@ -224,6 +245,49 @@
       "kununuScore": 3.4
     },
     {
+      "url": "https://www.karriere.at/jobs/10016992",
+      "title": "Software Test Engineer (f/m/d)",
+      "company": "Scientific Games International GmbH",
+      "source": "Software Tester Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "ISTQB",
+        "SQL",
+        "Docker",
+        "Jenkins",
+        "Jira",
+        "Agile",
+        "Scrum"
+      ],
+      "langReq": "en",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10016390",
+      "title": "Software Tester Field Service Management (m/w/d)",
+      "company": "Kontron AG",
+      "source": "Software Tester Wien",
+      "address": "Meidling, 1120 Wien",
+      "city": "Wien",
+      "zip": "1120",
+      "techStack": [
+        "Selenium",
+        "Appium",
+        "Tosca",
+        "JavaScript",
+        "Agile",
+        "Scrum",
+        "Swagger"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.1719649,
+      "lng": 16.3286908,
+      "kununuScore": 3.2
+    },
+    {
       "url": "https://www.karriere.at/jobs/7766636",
       "title": "Software Test-Engineer (m/w/d) für e-card / ELGA",
       "company": "SV-Chipkarten Betriebs- und Errichtungsges.m.b.H.",
@@ -235,7 +299,7 @@
         "Tosca",
         "JUnit",
         "ISTQB",
-        "Agile"
+        "CI/CD"
       ],
       "langReq": "de-basic",
       "lat": null,
@@ -264,14 +328,17 @@
       "kununuScore": 3.4
     },
     {
-      "url": "https://www.karriere.at/jobs/7774874",
-      "title": "Trainee System Test Engineer (all genders)",
+      "url": "https://www.karriere.at/jobs/7764851",
+      "title": "System Test Engineer (all genders)",
       "company": "FREQUENTIS AG",
       "source": "Software Tester Wien",
       "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
-      "techStack": [],
+      "techStack": [
+        "ISTQB",
+        "Jira"
+      ],
       "langReq": "de-fluent",
       "lat": 48.1639426,
       "lng": 16.3342088,
@@ -287,17 +354,6 @@
       "zip": null,
       "lat": 48.1686875,
       "lng": 16.3336346
-    },
-    {
-      "url": "https://at.indeed.com/viewjob?jk=f660764e325eb9fe",
-      "title": "Test Engineer — Electromagnetic Tomography",
-      "company": "EMTensor GmbH",
-      "source": "jobspy-indeed",
-      "address": "Wien, W, AT",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1822872,
-      "lng": 16.3923295
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=60a4e80276772c49",
@@ -347,18 +403,6 @@
       "kununuScore": 3.9
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4399283352",
-      "title": "QA Engineer (42304)",
-      "company": "CoolPeople",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 3.5
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4308973953",
       "title": "Software Quality Engineer",
       "company": "Ketryx",
@@ -393,18 +437,6 @@
       "lat": null,
       "lng": null,
       "kununuScore": 2.9
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4386765146",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Deutsche Telekom",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 3.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4397840018",
@@ -453,6 +485,17 @@
       "lng": null
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4381548320",
+      "title": "Quality Engineer",
+      "company": "Mercury",
+      "source": "jobspy-linkedin",
+      "address": "Rustenallee, 1130, KG Schönbrunn",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1820832,
+      "lng": 16.3098046
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4387869379",
       "title": "Senior Software Engineer in Test (f/m/x)",
       "company": "Raiffeisen Group IT GmbH",
@@ -463,17 +506,6 @@
       "lat": 48.2380565,
       "lng": 16.366175,
       "kununuScore": 4.1
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4401859274",
-      "title": "Medical Software Quality Engineer @ CADS GmbH",
-      "company": "DEVjobs",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=7da261b528d2e3d6",
@@ -548,12 +580,12 @@
   ],
   "validation": {
     "accepted": 16,
-    "rejected": 30,
+    "rejected": 32,
     "reasons": {
-      "not-sdet-role": 23,
+      "not-sdet-role": 26,
       "management-role": 4,
-      "non-software-domain": 3
+      "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-04-16T08:30:42.067Z"
+  "lastVerified": "2026-04-17T08:29:59.467Z"
 }
