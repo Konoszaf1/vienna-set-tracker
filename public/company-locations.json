@@ -273,5 +273,15 @@
     "lat": 48.1820832,
     "lng": 16.3098046,
     "address": "Rustenallee, 1130, KG Schönbrunn"
+  },
+  "wüstenrot gruppe": {
+    "lat": 48.1761566,
+    "lng": 16.3733846,
+    "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten"
+  },
+  "frequentis": {
+    "lat": 48.1639426,
+    "lng": 16.3342088,
+    "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt"
   }
 }
