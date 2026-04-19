@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-18T08:02:41.351773+00:00",
-  "count": 34,
+  "lastUpdated": "2026-04-19T08:09:10.826619+00:00",
+  "count": 35,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -144,6 +144,32 @@
       "kununuScore": 4.2
     },
     {
+      "url": "https://www.karriere.at/jobs/7749476",
+      "title": "Test Automation Engineer C# (m/f/x)",
+      "company": "ADMIRAL Technologies",
+      "source": "Test Automation Wien",
+      "address": "Siebenbrunnengasse, 1050, Margareten",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "BDD",
+        "TypeScript",
+        "C#",
+        ".NET",
+        "SQL",
+        "CI/CD",
+        "Jira",
+        "Git",
+        "REST APIs",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": 48.1858518,
+      "lng": 16.3539754,
+      "kununuScore": 3.6
+    },
+    {
       "url": "https://www.karriere.at/jobs/7595456",
       "title": "Software Test Engineer (all genders)",
       "company": "MELECS EWS GmbH",
@@ -159,6 +185,25 @@
       "lat": 48.203565,
       "lng": 16.4352268,
       "kununuScore": 3.2
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7775258",
+      "title": "Senior Test Engineer (m/w/d)",
+      "company": "IVM Technical Consultants",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Selenium",
+        "Ranorex",
+        "C#",
+        "SQL"
+      ],
+      "langReq": "de-fluent",
+      "lat": null,
+      "lng": null,
+      "kununuScore": 4.4
     },
     {
       "url": "https://www.karriere.at/jobs/10011931",
@@ -261,6 +306,20 @@
       "kununuScore": 3.2
     },
     {
+      "url": "https://www.karriere.at/jobs/7774874",
+      "title": "Trainee System Test Engineer (all genders)",
+      "company": "FREQUENTIS AG",
+      "source": "Software Tester Wien",
+      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [],
+      "langReq": "de-fluent",
+      "lat": 48.1639426,
+      "lng": 16.3342088,
+      "kununuScore": 4.4
+    },
+    {
       "url": "https://www.karriere.at/jobs/7724918",
       "title": "System Test Engineer (all genders)",
       "company": "MELECS EWS GmbH",
@@ -305,6 +364,17 @@
       "zip": null,
       "lat": 48.1686875,
       "lng": 16.3336346
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=f660764e325eb9fe",
+      "title": "Test Engineer — Electromagnetic Tomography",
+      "company": "EMTensor GmbH",
+      "source": "jobspy-indeed",
+      "address": "Wien, W, AT",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1822872,
+      "lng": 16.3923295
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=60a4e80276772c49",
@@ -413,6 +483,17 @@
       "kununuScore": 4
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4389567167",
+      "title": "Senior Quality Assurance Engineer",
+      "company": "Bybit EU",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
       "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
       "company": "PKE Holding AG",
@@ -425,52 +506,7 @@
       "kununuScore": 3.9
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4389567167",
-      "title": "Senior Quality Assurance Engineer",
-      "company": "Bybit EU",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4326335915",
-      "title": "Senior Software Quality Engineer (m/w/d)",
-      "company": "Wüstenrot Gruppe",
-      "source": "jobspy-linkedin",
-      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1761566,
-      "lng": 16.3733846
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4381548320",
-      "title": "Quality Engineer",
-      "company": "Mercury",
-      "source": "jobspy-linkedin",
-      "address": "Rustenallee, 1130, KG Schönbrunn",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1820832,
-      "lng": 16.3098046
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4392598760",
-      "title": "Trainee System Test Engineer (all genders) - DE",
-      "company": "Frequentis",
-      "source": "jobspy-linkedin",
-      "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1639426,
-      "lng": 16.3342088,
-      "kununuScore": 4.4
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4387869379",
+      "url": "https://www.linkedin.com/jobs/view/4403062170",
       "title": "Senior Software Engineer in Test (f/m/x)",
       "company": "Raiffeisen Group IT GmbH",
       "source": "jobspy-linkedin",
@@ -553,13 +589,13 @@
     }
   ],
   "validation": {
-    "accepted": 15,
-    "rejected": 31,
+    "accepted": 17,
+    "rejected": 30,
     "reasons": {
+      "not-sdet-role": 23,
       "management-role": 4,
-      "not-sdet-role": 24,
       "non-software-domain": 3
     }
   },
-  "lastVerified": "2026-04-18T08:02:59.716Z"
+  "lastVerified": "2026-04-19T08:09:19.706Z"
 }
