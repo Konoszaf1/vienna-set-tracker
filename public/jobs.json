@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-19T08:09:10.826619+00:00",
+  "lastUpdated": "2026-04-20T09:10:58.461947+00:00",
   "count": 35,
   "jobs": [
     {
@@ -47,6 +47,27 @@
       "lat": 48.2251975,
       "lng": 16.3559533,
       "kununuScore": 4.3
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7757258",
+      "title": "(Senior) IT Test Automation Engineer (m/w/d)",
+      "company": "Schrack Technik GmbH",
+      "source": "Test Automation Wien",
+      "address": "Seybelgasse, 13, 1230, KG Liesing",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Java",
+        "Python",
+        "JavaScript",
+        "C#",
+        "CI/CD",
+        "SOAP"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.1409112,
+      "lng": 16.2944131,
+      "kununuScore": 4.2
     },
     {
       "url": "https://www.karriere.at/jobs/7686185",
@@ -121,27 +142,6 @@
       "lat": 48.1867515,
       "lng": 16.4032705,
       "kununuScore": 3.2
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7757258",
-      "title": "(Senior) IT Test Automation Engineer (m/w/d)",
-      "company": "Schrack Technik GmbH",
-      "source": "Test Automation Wien",
-      "address": "Seybelgasse, 13, 1230, KG Liesing",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "Python",
-        "JavaScript",
-        "C#",
-        "CI/CD",
-        "SOAP"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.1409112,
-      "lng": 16.2944131,
-      "kununuScore": 4.2
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -313,7 +313,9 @@
       "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
-      "techStack": [],
+      "techStack": [
+        "JavaScript"
+      ],
       "langReq": "de-fluent",
       "lat": 48.1639426,
       "lng": 16.3342088,
@@ -327,7 +329,9 @@
       "address": "Handelskai, 388, 1020, KG Leopoldstadt",
       "city": "Wien",
       "zip": null,
-      "techStack": [],
+      "techStack": [
+        "JavaScript"
+      ],
       "langReq": "de-fluent",
       "lat": 48.203565,
       "lng": 16.4352268,
@@ -375,18 +379,6 @@
       "zip": null,
       "lat": 48.1822872,
       "lng": 16.3923295
-    },
-    {
-      "url": "https://at.indeed.com/viewjob?jk=60a4e80276772c49",
-      "title": "(Senior) Test Engineer (m/w/d)",
-      "company": "Capgemini",
-      "source": "jobspy-indeed",
-      "address": "Wien, W, AT",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1822872,
-      "lng": 16.3923295,
-      "kununuScore": 3.4
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399047134",
@@ -460,6 +452,18 @@
       "kununuScore": 2.9
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4399283352",
+      "title": "QA Engineer (42304)",
+      "company": "CoolPeople",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "kununuScore": 3.5
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4397840018",
       "title": "Software Test Engineer & Documentation Writer (w/m/d)",
       "company": "Delegate Group",
@@ -483,17 +487,6 @@
       "kununuScore": 4
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4389567167",
-      "title": "Senior Quality Assurance Engineer",
-      "company": "Bybit EU",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
       "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
       "company": "PKE Holding AG",
@@ -504,6 +497,17 @@
       "lat": 48.1591557,
       "lng": 16.3401205,
       "kununuScore": 3.9
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4389567167",
+      "title": "Senior Quality Assurance Engineer",
+      "company": "Bybit EU",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4403062170",
@@ -590,12 +594,12 @@
   ],
   "validation": {
     "accepted": 17,
-    "rejected": 30,
+    "rejected": 28,
     "reasons": {
-      "not-sdet-role": 23,
       "management-role": 4,
-      "non-software-domain": 3
+      "not-sdet-role": 22,
+      "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-04-19T08:09:19.706Z"
+  "lastVerified": "2026-04-20T09:11:08.656Z"
 }
