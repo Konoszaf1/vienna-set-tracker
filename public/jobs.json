@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-20T09:10:58.461947+00:00",
-  "count": 35,
+  "lastUpdated": "2026-04-21T08:56:04.152258+00:00",
+  "count": 32,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -61,6 +61,7 @@
         "Python",
         "JavaScript",
         "C#",
+        "PHP",
         "CI/CD",
         "SOAP"
       ],
@@ -90,6 +91,7 @@
         "TypeScript",
         "JavaScript",
         "C#",
+        "PHP",
         "React",
         "Angular",
         "CI/CD",
@@ -103,45 +105,6 @@
       "lat": null,
       "lng": null,
       "kununuScore": 4.8
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7632528",
-      "title": "Test Automation Engineer (f/m/d)",
-      "company": "Österreichische Post AG",
-      "source": "Test Automation Wien",
-      "address": "Wagramer Straße, 162, 1220, KG Kagran",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Manual Testing",
-        "TypeScript",
-        "C#",
-        "CI/CD",
-        "Azure DevOps",
-        "Agile"
-      ],
-      "langReq": "en",
-      "lat": 48.2510399,
-      "lng": 16.4447756,
-      "kununuScore": 3.3
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7766282",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Software Daten Service Gesellschaft m.b.H.",
-      "source": "Test Automation Wien",
-      "address": "Rennweg 97-99, 1030 Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "C#"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.1867515,
-      "lng": 16.4032705,
-      "kununuScore": 3.2
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -168,6 +131,24 @@
       "lat": 48.1858518,
       "lng": 16.3539754,
       "kununuScore": 3.6
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7766282",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Software Daten Service Gesellschaft m.b.H.",
+      "source": "Test Automation Wien",
+      "address": "Rennweg 97-99, 1030 Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Java",
+        "C#",
+        "PHP"
+      ],
+      "langReq": "de-basic",
+      "lat": 48.1867515,
+      "lng": 16.4032705,
+      "kununuScore": 3.2
     },
     {
       "url": "https://www.karriere.at/jobs/7595456",
@@ -313,9 +294,7 @@
       "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
-      "techStack": [
-        "JavaScript"
-      ],
+      "techStack": [],
       "langReq": "de-fluent",
       "lat": 48.1639426,
       "lng": 16.3342088,
@@ -329,34 +308,11 @@
       "address": "Handelskai, 388, 1020, KG Leopoldstadt",
       "city": "Wien",
       "zip": null,
-      "techStack": [
-        "JavaScript"
-      ],
+      "techStack": [],
       "langReq": "de-fluent",
       "lat": 48.203565,
       "lng": 16.4352268,
       "kununuScore": 3.2
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7784576",
-      "title": "Test Engineer Regular (Administrator Senior) w/m/d für das DevOps Team in der Gruppe Eichwesen (RIVIT 5)",
-      "company": "BEV - Bundesamt für Eich- und Vermessungswesen",
-      "source": "Software Tester Wien",
-      "address": "Franz-Hochedlinger-Gasse, 1020, KG Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "Python",
-        "C#",
-        "Docker",
-        "CI/CD",
-        "Git"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.2188239,
-      "lng": 16.3730485,
-      "kununuScore": 3.4
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=2f38ac741fc7605b",
@@ -379,6 +335,18 @@
       "zip": null,
       "lat": 48.1822872,
       "lng": 16.3923295
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4399283352",
+      "title": "QA Engineer (42304)",
+      "company": "CoolPeople",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "kununuScore": 3.5
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399047134",
@@ -450,18 +418,6 @@
       "lat": null,
       "lng": null,
       "kununuScore": 2.9
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4399283352",
-      "title": "QA Engineer (42304)",
-      "company": "CoolPeople",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 3.5
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4397840018",
@@ -546,18 +502,6 @@
       "kununuScore": 3.7
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4394541676",
-      "title": "AI Automation Engineer",
-      "company": "nyra health",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4.5
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4398825566",
       "title": "Testarchitekt (f/m/x)",
       "company": "IBM",
@@ -593,13 +537,13 @@
     }
   ],
   "validation": {
-    "accepted": 17,
-    "rejected": 28,
+    "accepted": 15,
+    "rejected": 31,
     "reasons": {
+      "not-sdet-role": 25,
       "management-role": 4,
-      "not-sdet-role": 22,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-04-20T09:11:08.656Z"
+  "lastVerified": "2026-04-21T08:56:13.578Z"
 }
