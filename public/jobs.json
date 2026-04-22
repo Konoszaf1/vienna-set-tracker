@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-21T08:56:04.152258+00:00",
-  "count": 32,
+  "lastUpdated": "2026-04-22T08:52:42.597228+00:00",
+  "count": 31,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -61,7 +61,6 @@
         "Python",
         "JavaScript",
         "C#",
-        "PHP",
         "CI/CD",
         "SOAP"
       ],
@@ -91,7 +90,6 @@
         "TypeScript",
         "JavaScript",
         "C#",
-        "PHP",
         "React",
         "Angular",
         "CI/CD",
@@ -142,8 +140,7 @@
       "zip": null,
       "techStack": [
         "Java",
-        "C#",
-        "PHP"
+        "C#"
       ],
       "langReq": "de-basic",
       "lat": 48.1867515,
@@ -199,24 +196,6 @@
       "lat": 48.1719649,
       "lng": 16.3286908,
       "kununuScore": 3.4
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7766636",
-      "title": "Software Test-Engineer (m/w/d) für e-card / ELGA",
-      "company": "SV-Chipkarten Betriebs- und Errichtungsges.m.b.H.",
-      "source": "Test Automation Wien",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Tosca",
-        "JUnit",
-        "ISTQB"
-      ],
-      "langReq": "de-basic",
-      "lat": null,
-      "lng": null,
-      "kununuScore": 3.9
     },
     {
       "url": "https://www.karriere.at/jobs/10015248",
@@ -315,15 +294,25 @@
       "kununuScore": 3.2
     },
     {
-      "url": "https://at.indeed.com/viewjob?jk=2f38ac741fc7605b",
-      "title": "Quality Engineer",
-      "company": "Trayport",
-      "source": "jobspy-indeed",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "url": "https://www.karriere.at/jobs/7784576",
+      "title": "Test Engineer Regular (Administrator Senior) w/m/d für das DevOps Team in der Gruppe Eichwesen (RIVIT 5)",
+      "company": "BEV - Bundesamt für Eich- und Vermessungswesen",
+      "source": "Software Tester Wien",
+      "address": "Franz-Hochedlinger-Gasse, 1020, KG Leopoldstadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
+      "techStack": [
+        "Java",
+        "Python",
+        "C#",
+        "Docker",
+        "CI/CD",
+        "Git"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2188239,
+      "lng": 16.3730485,
+      "kununuScore": 3.4
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=f660764e325eb9fe",
@@ -396,18 +385,6 @@
       "kununuScore": 4.9
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4370503347",
-      "title": "Test Automation Engineer (all genders) [Wien]",
-      "company": "adesso Austria GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4.5
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4390134808",
       "title": "Quality Assurance Engineer",
       "company": "ENPULSION",
@@ -464,6 +441,17 @@
       "zip": null,
       "lat": null,
       "lng": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4399977766",
+      "title": "Quality Engineer",
+      "company": "Trayport",
+      "source": "jobspy-linkedin",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1686875,
+      "lng": 16.3336346
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4403062170",
@@ -537,13 +525,14 @@
     }
   ],
   "validation": {
-    "accepted": 15,
-    "rejected": 31,
+    "accepted": 23,
+    "rejected": 68,
     "reasons": {
-      "not-sdet-role": 25,
+      "not-sdet-role": 61,
       "management-role": 4,
-      "non-software-domain": 2
+      "non-software-domain": 2,
+      "short-title": 1
     }
   },
-  "lastVerified": "2026-04-21T08:56:13.578Z"
+  "lastVerified": "2026-04-22T08:53:00.398Z"
 }

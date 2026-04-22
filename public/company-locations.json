@@ -283,5 +283,10 @@
     "lat": 48.1639426,
     "lng": 16.3342088,
     "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt"
+  },
+  "raiffeisenbank wienerwald egen": {
+    "lat": 48.208074,
+    "lng": 16.2178431,
+    "address": "Albert-Schweitzer-Gasse, 4;6, 1140, Katastralgemeinde Weidlingau"
   }
 }
