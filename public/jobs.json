@@ -1,7 +1,42 @@
 {
-  "lastUpdated": "2026-04-22T08:52:42.597228+00:00",
-  "count": 31,
+  "lastUpdated": "2026-04-23T08:57:49.705497+00:00",
+  "count": 32,
   "jobs": [
+    {
+      "url": "https://www.karriere.at/jobs/7686185",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Qnit Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Robot Framework",
+        "REST Assured",
+        "Postman",
+        "ISTQB",
+        "Xray",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "C#",
+        "React",
+        "Angular",
+        "CI/CD",
+        "Jenkins",
+        "GitLab CI/CD",
+        "GitHub Actions",
+        "Jira",
+        "Git"
+      ],
+      "langReq": "de-basic",
+      "lat": null,
+      "lng": null,
+      "kununuScore": 4.8
+    },
     {
       "url": "https://www.karriere.at/jobs/7781381",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
@@ -68,41 +103,6 @@
       "lat": 48.1409112,
       "lng": 16.2944131,
       "kununuScore": 4.2
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7686185",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Qnit Austria GmbH",
-      "source": "Test Automation Wien",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Cypress",
-        "Selenium",
-        "Robot Framework",
-        "REST Assured",
-        "Postman",
-        "ISTQB",
-        "Xray",
-        "Java",
-        "TypeScript",
-        "JavaScript",
-        "C#",
-        "React",
-        "Angular",
-        "CI/CD",
-        "Jenkins",
-        "GitLab CI/CD",
-        "GitHub Actions",
-        "Jira",
-        "Git"
-      ],
-      "langReq": "de-basic",
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4.8
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -294,25 +294,15 @@
       "kununuScore": 3.2
     },
     {
-      "url": "https://www.karriere.at/jobs/7784576",
-      "title": "Test Engineer Regular (Administrator Senior) w/m/d für das DevOps Team in der Gruppe Eichwesen (RIVIT 5)",
-      "company": "BEV - Bundesamt für Eich- und Vermessungswesen",
-      "source": "Software Tester Wien",
-      "address": "Franz-Hochedlinger-Gasse, 1020, KG Leopoldstadt",
+      "url": "https://at.indeed.com/viewjob?jk=2f38ac741fc7605b",
+      "title": "Quality Engineer",
+      "company": "Trayport",
+      "source": "jobspy-indeed",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
       "city": "Wien",
       "zip": null,
-      "techStack": [
-        "Java",
-        "Python",
-        "C#",
-        "Docker",
-        "CI/CD",
-        "Git"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.2188239,
-      "lng": 16.3730485,
-      "kununuScore": 3.4
+      "lat": 48.1686875,
+      "lng": 16.3336346
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=f660764e325eb9fe",
@@ -324,6 +314,18 @@
       "zip": null,
       "lat": 48.1822872,
       "lng": 16.3923295
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=4ff25f479e81fe88",
+      "title": "Software Quality Engineer",
+      "company": "Ketryx",
+      "source": "jobspy-indeed",
+      "address": "Wien, W, AT",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1822872,
+      "lng": 16.3923295,
+      "kununuScore": 4.9
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399283352",
@@ -373,16 +375,15 @@
       "kununuScore": 3.9
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4308973953",
-      "title": "Software Quality Engineer",
-      "company": "Ketryx",
+      "url": "https://www.linkedin.com/jobs/view/4398273672",
+      "title": "QA Engineer (m/w/d)",
+      "company": "Yorizon Cloud",
       "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
+      "address": "Wien",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 4.9
+      "lat": null,
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4390134808",
@@ -443,15 +444,15 @@
       "lng": null
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4399977766",
-      "title": "Quality Engineer",
-      "company": "Trayport",
+      "url": "https://www.linkedin.com/jobs/view/4326335915",
+      "title": "Senior Software Quality Engineer (m/w/d)",
+      "company": "Wüstenrot Gruppe",
       "source": "jobspy-linkedin",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
+      "lat": 48.1761566,
+      "lng": 16.3733846
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4403062170",
@@ -525,14 +526,14 @@
     }
   ],
   "validation": {
-    "accepted": 23,
-    "rejected": 68,
+    "accepted": 22,
+    "rejected": 79,
     "reasons": {
-      "not-sdet-role": 61,
       "management-role": 4,
+      "not-sdet-role": 71,
       "non-software-domain": 2,
-      "short-title": 1
+      "short-title": 2
     }
   },
-  "lastVerified": "2026-04-22T08:53:00.398Z"
+  "lastVerified": "2026-04-23T08:58:07.994Z"
 }

@@ -288,5 +288,10 @@
     "lat": 48.208074,
     "lng": 16.2178431,
     "address": "Albert-Schweitzer-Gasse, 4;6, 1140, Katastralgemeinde Weidlingau"
+  },
+  "yorizon cloud": {
+    "lat": null,
+    "lng": null,
+    "address": null
   }
 }
