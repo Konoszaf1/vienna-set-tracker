@@ -393,5 +393,19 @@
   "yorizon cloud": {
     "kununu": null,
     "fetchedAt": "2026-04-23T08:57:50.943Z"
+  },
+  "flightkeys": {
+    "kununu": {
+      "score": 4.7,
+      "reviews": 0
+    },
+    "fetchedAt": "2026-04-25T08:08:57.865Z"
+  },
+  "jarosch haas": {
+    "kununu": {
+      "score": 3.4,
+      "reviews": 0
+    },
+    "fetchedAt": "2026-04-25T08:09:00.230Z"
   }
 }

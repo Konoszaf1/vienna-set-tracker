@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-24T09:03:24.415502+00:00",
+  "lastUpdated": "2026-04-25T08:08:56.650826+00:00",
   "count": 31,
   "jobs": [
     {
@@ -47,6 +47,32 @@
       "lat": 48.2251975,
       "lng": 16.3559533,
       "kununuScore": 4.3
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7749476",
+      "title": "Test Automation Engineer C# (m/f/x)",
+      "company": "ADMIRAL Technologies",
+      "source": "Test Automation Wien",
+      "address": "Siebenbrunnengasse, 1050, Margareten",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "BDD",
+        "TypeScript",
+        "C#",
+        ".NET",
+        "SQL",
+        "CI/CD",
+        "Jira",
+        "Git",
+        "REST APIs",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": 48.1858518,
+      "lng": 16.3539754,
+      "kununuScore": 3.6
     },
     {
       "url": "https://www.karriere.at/jobs/7766282",
@@ -122,32 +148,6 @@
       "kununuScore": 4.8
     },
     {
-      "url": "https://www.karriere.at/jobs/7749476",
-      "title": "Test Automation Engineer C# (m/f/x)",
-      "company": "ADMIRAL Technologies",
-      "source": "Test Automation Wien",
-      "address": "Siebenbrunnengasse, 1050, Margareten",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "BDD",
-        "TypeScript",
-        "C#",
-        ".NET",
-        "SQL",
-        "CI/CD",
-        "Jira",
-        "Git",
-        "REST APIs",
-        "Agile"
-      ],
-      "langReq": "en",
-      "lat": 48.1858518,
-      "lng": 16.3539754,
-      "kununuScore": 3.6
-    },
-    {
       "url": "https://www.karriere.at/jobs/7595456",
       "title": "Software Test Engineer (all genders)",
       "company": "MELECS EWS GmbH",
@@ -157,8 +157,7 @@
       "zip": null,
       "techStack": [
         "CI/CD",
-        "Git",
-        "Agile"
+        "Git"
       ],
       "langReq": "de-fluent",
       "lat": 48.203565,
@@ -183,20 +182,6 @@
       "lat": null,
       "lng": null,
       "kununuScore": 4.4
-    },
-    {
-      "url": "https://www.karriere.at/jobs/10011931",
-      "title": "Testingenieur:in (m/w/d)",
-      "company": "EVVA Sicherheitstechnologie GmbH",
-      "source": "Test Automation Wien",
-      "address": "Meidling, 1120 Wien",
-      "city": "Wien",
-      "zip": "1120",
-      "techStack": [],
-      "langReq": "de-fluent",
-      "lat": 48.1719649,
-      "lng": 16.3286908,
-      "kununuScore": 3.4
     },
     {
       "url": "https://www.karriere.at/jobs/10015248",
@@ -267,6 +252,27 @@
       "kununuScore": 3.2
     },
     {
+      "url": "https://www.karriere.at/jobs/7784576",
+      "title": "Test Engineer Regular (Administrator Senior) w/m/d für das DevOps Team in der Gruppe Eichwesen (RIVIT 5)",
+      "company": "BEV - Bundesamt für Eich- und Vermessungswesen",
+      "source": "Software Tester Wien",
+      "address": "Franz-Hochedlinger-Gasse, 1020, KG Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Java",
+        "Python",
+        "C#",
+        "Docker",
+        "CI/CD",
+        "Git"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2188239,
+      "lng": 16.3730485,
+      "kununuScore": 3.4
+    },
+    {
       "url": "https://www.karriere.at/jobs/7774874",
       "title": "Trainee System Test Engineer (all genders)",
       "company": "FREQUENTIS AG",
@@ -279,20 +285,6 @@
       "lat": 48.1639426,
       "lng": 16.3342088,
       "kununuScore": 4.4
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7724918",
-      "title": "System Test Engineer (all genders)",
-      "company": "MELECS EWS GmbH",
-      "source": "Software Tester Wien",
-      "address": "Handelskai, 388, 1020, KG Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [],
-      "langReq": "de-fluent",
-      "lat": 48.203565,
-      "lng": 16.4352268,
-      "kununuScore": 3.2
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=2f38ac741fc7605b",
@@ -329,16 +321,15 @@
       "kununuScore": 4.9
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4399283352",
-      "title": "QA Engineer (42304)",
-      "company": "CoolPeople",
+      "url": "https://www.linkedin.com/jobs/view/4403708530",
+      "title": "Senior Consultant Test Automation Engineer (m/w/d)",
+      "company": "QESTIT DACH",
       "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
+      "address": "Wien",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 3.5
+      "lat": null,
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4291933969",
@@ -376,39 +367,16 @@
       "lng": null
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4370503347",
-      "title": "Test Automation Engineer (all genders) [Wien]",
-      "company": "adesso Austria GmbH",
+      "url": "https://www.linkedin.com/jobs/view/4403743462",
+      "title": "SENIOR TEST AUTOMATION ENGINEER  (F/M/O)",
+      "company": "Flightkeys GmbH",
       "source": "jobspy-linkedin",
       "address": "Wien",
       "city": "Wien",
       "zip": null,
       "lat": null,
       "lng": null,
-      "kununuScore": 4.5
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4390134808",
-      "title": "Quality Assurance Engineer",
-      "company": "ENPULSION",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null,
-      "kununuScore": 2.9
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4403708530",
-      "title": "Senior Consultant Test Automation Engineer (m/w/d)",
-      "company": "QESTIT DACH",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null
+      "kununuScore": 4.7
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4397840018",
@@ -446,6 +414,17 @@
       "kununuScore": 3.9
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4381548320",
+      "title": "Quality Engineer",
+      "company": "Mercury",
+      "source": "jobspy-linkedin",
+      "address": "Rustenallee, 1130, KG Schönbrunn",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1820832,
+      "lng": 16.3098046
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4326335915",
       "title": "Senior Software Quality Engineer (m/w/d)",
       "company": "Wüstenrot Gruppe",
@@ -455,6 +434,18 @@
       "zip": null,
       "lat": 48.1761566,
       "lng": 16.3733846
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=312acd402af925a1",
+      "title": "Servicetechniker / Software tester",
+      "company": "Jarosch & Haas GmbH",
+      "source": "jobspy-indeed",
+      "address": "Wien, W, AT",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1822872,
+      "lng": 16.3923295,
+      "kununuScore": 3.4
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4403062170",
@@ -479,6 +470,18 @@
       "lat": 48.2063799,
       "lng": 16.3849266,
       "kununuScore": 3.8
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=1e99c8e0c5e2e38f",
+      "title": "Trainee System Test Engineer (all genders)",
+      "company": "FREQUENTIS COMSOFT GmbH",
+      "source": "jobspy-indeed",
+      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1639426,
+      "lng": 16.3342088,
+      "kununuScore": 3.7
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4398825566",
@@ -516,13 +519,14 @@
     }
   ],
   "validation": {
-    "accepted": 14,
-    "rejected": 36,
+    "accepted": 21,
+    "rejected": 82,
     "reasons": {
-      "not-sdet-role": 30,
+      "not-sdet-role": 74,
       "management-role": 4,
-      "non-software-domain": 2
+      "non-software-domain": 2,
+      "short-title": 2
     }
   },
-  "lastVerified": "2026-04-24T09:03:33.425Z"
+  "lastVerified": "2026-04-25T08:09:23.245Z"
 }
