@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-25T08:08:56.650826+00:00",
-  "count": 31,
+  "lastUpdated": "2026-04-26T08:19:30.563089+00:00",
+  "count": 30,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -47,6 +47,41 @@
       "lat": 48.2251975,
       "lng": 16.3559533,
       "kununuScore": 4.3
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7686185",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Qnit Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Robot Framework",
+        "REST Assured",
+        "Postman",
+        "ISTQB",
+        "Xray",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "C#",
+        "React",
+        "Angular",
+        "CI/CD",
+        "Jenkins",
+        "GitLab CI/CD",
+        "GitHub Actions",
+        "Jira",
+        "Git"
+      ],
+      "langReq": "de-basic",
+      "lat": null,
+      "lng": null,
+      "kununuScore": 4.8
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -113,41 +148,6 @@
       "kununuScore": 4.2
     },
     {
-      "url": "https://www.karriere.at/jobs/7686185",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Qnit Austria GmbH",
-      "source": "Test Automation Wien",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Cypress",
-        "Selenium",
-        "Robot Framework",
-        "REST Assured",
-        "Postman",
-        "ISTQB",
-        "Xray",
-        "Java",
-        "TypeScript",
-        "JavaScript",
-        "C#",
-        "React",
-        "Angular",
-        "CI/CD",
-        "Jenkins",
-        "GitLab CI/CD",
-        "GitHub Actions",
-        "Jira",
-        "Git"
-      ],
-      "langReq": "de-basic",
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4.8
-    },
-    {
       "url": "https://www.karriere.at/jobs/7595456",
       "title": "Software Test Engineer (all genders)",
       "company": "MELECS EWS GmbH",
@@ -157,7 +157,8 @@
       "zip": null,
       "techStack": [
         "CI/CD",
-        "Git"
+        "Git",
+        "Agile"
       ],
       "langReq": "de-fluent",
       "lat": 48.203565,
@@ -321,6 +322,18 @@
       "kununuScore": 4.9
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4403743462",
+      "title": "SENIOR TEST AUTOMATION ENGINEER  (F/M/O)",
+      "company": "Flightkeys GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "kununuScore": 4.7
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4403708530",
       "title": "Senior Consultant Test Automation Engineer (m/w/d)",
       "company": "QESTIT DACH",
@@ -367,16 +380,16 @@
       "lng": null
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4403743462",
-      "title": "SENIOR TEST AUTOMATION ENGINEER  (F/M/O)",
-      "company": "Flightkeys GmbH",
+      "url": "https://www.linkedin.com/jobs/view/4384883437",
+      "title": "Software Test Engineer (m/w/d)",
+      "company": "T-Systems Austria",
       "source": "jobspy-linkedin",
-      "address": "Wien",
+      "address": "Vienna, Vienna",
       "city": "Wien",
       "zip": null,
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4.7
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "kununuScore": 4
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4397840018",
@@ -388,18 +401,6 @@
       "zip": null,
       "lat": 48.1857192,
       "lng": 16.4221587
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4384883437",
-      "title": "Software Test Engineer (m/w/d)",
-      "company": "T-Systems Austria",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 4
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
@@ -414,17 +415,6 @@
       "kununuScore": 3.9
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4381548320",
-      "title": "Quality Engineer",
-      "company": "Mercury",
-      "source": "jobspy-linkedin",
-      "address": "Rustenallee, 1130, KG Schönbrunn",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1820832,
-      "lng": 16.3098046
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4326335915",
       "title": "Senior Software Quality Engineer (m/w/d)",
       "company": "Wüstenrot Gruppe",
@@ -434,6 +424,17 @@
       "zip": null,
       "lat": 48.1761566,
       "lng": 16.3733846
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4381548320",
+      "title": "Quality Engineer",
+      "company": "Mercury",
+      "source": "jobspy-linkedin",
+      "address": "Rustenallee, 1130, KG Schönbrunn",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1820832,
+      "lng": 16.3098046
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=312acd402af925a1",
@@ -472,18 +473,6 @@
       "kununuScore": 3.8
     },
     {
-      "url": "https://at.indeed.com/viewjob?jk=1e99c8e0c5e2e38f",
-      "title": "Trainee System Test Engineer (all genders)",
-      "company": "FREQUENTIS COMSOFT GmbH",
-      "source": "jobspy-indeed",
-      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1639426,
-      "lng": 16.3342088,
-      "kununuScore": 3.7
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4398825566",
       "title": "Testarchitekt (f/m/x)",
       "company": "IBM",
@@ -520,13 +509,13 @@
   ],
   "validation": {
     "accepted": 21,
-    "rejected": 82,
+    "rejected": 90,
     "reasons": {
-      "not-sdet-role": 74,
       "management-role": 4,
+      "not-sdet-role": 82,
       "non-software-domain": 2,
       "short-title": 2
     }
   },
-  "lastVerified": "2026-04-25T08:09:23.245Z"
+  "lastVerified": "2026-04-26T08:19:41.784Z"
 }
