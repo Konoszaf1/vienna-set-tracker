@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-04-26T08:19:30.563089+00:00",
-  "count": 30,
+  "lastUpdated": "2026-04-27T09:23:54.225247+00:00",
+  "count": 29,
   "jobs": [
+    {
+      "url": "https://www.karriere.at/jobs/7779197",
+      "title": "Test Engineer (m/w/d) - Fokus BPM / Testautomatisierung",
+      "company": "Michael Page International Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "REST Assured",
+        "Postman",
+        "Xray",
+        "Jira",
+        "Confluence"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2251975,
+      "lng": 16.3559533,
+      "kununuScore": 4.3
+    },
     {
       "url": "https://www.karriere.at/jobs/7781381",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
@@ -27,26 +47,6 @@
       "lat": 48.2006384,
       "lng": 16.4268953,
       "kununuScore": 3.8
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7779197",
-      "title": "Test Engineer (m/w/d) - Fokus BPM / Testautomatisierung",
-      "company": "Michael Page International Austria GmbH",
-      "source": "Test Automation Wien",
-      "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "REST Assured",
-        "Postman",
-        "Xray",
-        "Jira",
-        "Confluence"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.2251975,
-      "lng": 16.3559533,
-      "kununuScore": 4.3
     },
     {
       "url": "https://www.karriere.at/jobs/7686185",
@@ -274,20 +274,6 @@
       "kununuScore": 3.4
     },
     {
-      "url": "https://www.karriere.at/jobs/7774874",
-      "title": "Trainee System Test Engineer (all genders)",
-      "company": "FREQUENTIS AG",
-      "source": "Software Tester Wien",
-      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [],
-      "langReq": "de-fluent",
-      "lat": 48.1639426,
-      "lng": 16.3342088,
-      "kununuScore": 4.4
-    },
-    {
       "url": "https://at.indeed.com/viewjob?jk=2f38ac741fc7605b",
       "title": "Quality Engineer",
       "company": "Trayport",
@@ -392,17 +378,6 @@
       "kununuScore": 4
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4397840018",
-      "title": "Software Test Engineer & Documentation Writer (w/m/d)",
-      "company": "Delegate Group",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
       "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
       "company": "PKE Holding AG",
@@ -435,6 +410,18 @@
       "zip": null,
       "lat": 48.1820832,
       "lng": 16.3098046
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4392598760",
+      "title": "Trainee System Test Engineer (all genders) - DE",
+      "company": "Frequentis",
+      "source": "jobspy-linkedin",
+      "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1639426,
+      "lng": 16.3342088,
+      "kununuScore": 4.4
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=312acd402af925a1",
@@ -508,14 +495,14 @@
     }
   ],
   "validation": {
-    "accepted": 21,
-    "rejected": 90,
+    "accepted": 20,
+    "rejected": 92,
     "reasons": {
+      "not-sdet-role": 85,
       "management-role": 4,
-      "not-sdet-role": 82,
       "non-software-domain": 2,
-      "short-title": 2
+      "short-title": 1
     }
   },
-  "lastVerified": "2026-04-26T08:19:41.784Z"
+  "lastVerified": "2026-04-27T09:24:05.204Z"
 }
