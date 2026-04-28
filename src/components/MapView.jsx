@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS } from "../constants";
 import { escapeHtml } from "../utils/escape";
-import { haversine, salaryColor, buildPopupHtml } from "../utils/mapHelpers";
+import { haversine, salaryColor, buildPopupHtml, computeStackingIndex, stemHeight, clusterSize, clusterAvgSalary } from "../utils/mapHelpers";
 import styles from './MapView.module.css';
 
 export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
@@ -12,7 +12,13 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
   const clusterGroupRef = useRef(null);
   const extraLayersRef = useRef([]);
   const prevHomeRef = useRef(null);
+  const prevCompanyKeyRef = useRef(null);
   const [ready, setReady] = useState(false);
+
+  const unmappedCount = useMemo(
+    () => companies.filter(c => c.lat == null || c.lng == null).length,
+    [companies]
+  );
 
   // Derive home location from profile, falling back to neutral default
   const home = useMemo(() => {
@@ -164,27 +170,7 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
 
     const mappable = companies.filter(c => c.lat != null && c.lng != null);
 
-    // Compute vertical stacking index for markers at the same location.
-    // Markers within ~20 m of each other get stacked so labels don't overlap.
-    const SAME_SPOT = 0.0002; // ~22 m — same building
-    const STACK_HEIGHT = 28;  // px per label slot
-    const stackIndex = {};
-    const grouped = [];
-    for (const c of mappable) {
-      let placed = false;
-      for (const g of grouped) {
-        if (Math.abs(g.lat - c.lat) < SAME_SPOT && Math.abs(g.lng - c.lng) < SAME_SPOT) {
-          stackIndex[c.id] = g.members.length;
-          g.members.push(c);
-          placed = true;
-          break;
-        }
-      }
-      if (!placed) {
-        stackIndex[c.id] = 0;
-        grouped.push({ lat: c.lat, lng: c.lng, members: [c] });
-      }
-    }
+    const stackIndex = computeStackingIndex(mappable);
 
     // Create cluster group with custom dark-themed icons.
     // disableClusteringAtZoom 15: at street level markers sit at true positions.
@@ -197,11 +183,9 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
       iconCreateFunction: (cluster) => {
         const count = cluster.getChildCount();
         const children = cluster.getAllChildMarkers();
-        // Average salary color for the cluster
-        const estimates = children.map(m => m._companyEstimate).filter(Boolean);
-        const avgEstimate = estimates.length > 0 ? estimates.reduce((a, b) => a + b, 0) / estimates.length : null;
+        const avgEstimate = clusterAvgSalary(children.map(m => m._companyEstimate));
         const color = salaryColor(avgEstimate);
-        const size = count < 5 ? 40 : count < 15 ? 48 : 56;
+        const size = clusterSize(count);
 
         return L.divIcon({
           className: "",
@@ -232,7 +216,7 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
 
 
       const si = stackIndex[c.id] || 0;
-      const stemH = si * STACK_HEIGHT;
+      const stemH = stemHeight(si);
       const stemHtml = stemH > 0
         ? `<div style="width:2px;height:${stemH}px;background:${color}50"></div>`
         : "";
@@ -277,6 +261,21 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
 
     map.addLayer(clusterGroup);
     clusterGroupRef.current = clusterGroup;
+
+    // Refit viewport whenever the *set* of mapped companies changes,
+    // so filtering or new entries pull markers into view. Skip when the
+    // change was only a profile/home tweak — that would yank the user
+    // around mid-interaction.
+    const companyKey = mappable.map(c => c.id).sort().join("|");
+    if (companyKey && companyKey !== prevCompanyKeyRef.current) {
+      const points = mappable.map(c => [c.lat, c.lng]);
+      points.push(home);
+      const bounds = L.latLngBounds(points);
+      if (bounds.isValid()) {
+        map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
+      }
+      prevCompanyKeyRef.current = companyKey;
+    }
   }, [ready, companies, home, homeAddress, salaryMap, onHomeMove, profile]);
 
   useEffect(() => () => { if (mapInstanceRef.current) { mapInstanceRef.current.remove(); mapInstanceRef.current = null; } }, []);
@@ -299,6 +298,11 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
               <span className={styles.legendLabel}>{s.label}</span>
             </div>
           ))}
+          {unmappedCount > 0 && (
+            <span className={styles.unmapped} title="These companies don't have a resolved office address">
+              {unmappedCount} unmapped
+            </span>
+          )}
         </div>
       </div>
       <div className={styles.mapWrapper}>

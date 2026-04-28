@@ -46,6 +46,17 @@
   font-weight: 600;
 }
 
+.unmapped {
+  color: #f59e0b;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  background: #f59e0b15;
+  border: 1px solid #f59e0b40;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
 .mapWrapper {
   padding: 12px;
 }

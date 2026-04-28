@@ -4,6 +4,7 @@ import { filterAndSort } from "./utils/filterSort";
 import defaultProfileData from "./data/defaultProfile.json";
 import { estimateSalary } from "./utils/salaryEstimate";
 import { normalizeCompanyName } from "./utils/normalizeCompany";
+import { resolveCompanyLocation } from "./utils/companyLocation";
 import CompanyCard from "./components/CompanyCard";
 import MapView from "./components/MapView";
 import SettingsModal from "./components/SettingsModal";
@@ -17,6 +18,8 @@ export default function App() {
   const [salaryMin, setSalaryMin] = useState(null);
   const [salaryMax, setSalaryMax] = useState(null);
   const [jobs, setJobs] = useState([]);
+  const [locationsCache, setLocationsCache] = useState({});
+  const [locationOverrides, setLocationOverrides] = useState({});
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState(null);
@@ -30,13 +33,23 @@ export default function App() {
 
   function doFetch() {
     const h = Math.floor(Date.now() / 3600000);
-    return fetch(import.meta.env.BASE_URL + `jobs.json?h=${h}`)
-      .then(r => {
+    const fetchJson = (path, fallback) =>
+      fetch(import.meta.env.BASE_URL + path)
+        .then(r => r.ok ? r.json() : fallback)
+        .catch(() => fallback);
+
+    return Promise.all([
+      fetch(import.meta.env.BASE_URL + `jobs.json?h=${h}`).then(r => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json();
-      })
-      .then(d => {
-        if (d?.jobs) setJobs(d.jobs);
+      }),
+      fetchJson(`company-locations.json?h=${h}`, {}),
+      fetchJson(`company-locations-manual.json?h=${h}`, {}),
+    ])
+      .then(([jobsData, cache, manual]) => {
+        if (jobsData?.jobs) setJobs(jobsData.jobs);
+        setLocationsCache(cache || {});
+        setLocationOverrides(manual || {});
       })
       .catch(e => setFetchError(e.message || "Failed to load jobs"))
       .finally(() => setLoading(false));
@@ -102,14 +115,17 @@ export default function App() {
         return best;
       }, "de-basic");
 
+      const resolved = resolveCompanyLocation(roles, locationsCache, locationOverrides);
+
       return {
         id: `co-${key.replace(/\s+/g, "-")}`,
         name: displayName,
         logo: "\u{1F3E2}",
         district: first.city || "Wien",
-        address: first.address || "",
-        lat: first.lat,
-        lng: first.lng,
+        address: resolved.address || first.address || "",
+        lat: resolved.lat,
+        lng: resolved.lng,
+        locationSource: resolved.source,
         kununuRating: roles.find(r => r.kununuScore)?.kununuScore || null,
         techStack,
         jobUrl: first.url,
@@ -118,7 +134,7 @@ export default function App() {
         firstSeen,
       };
     });
-  }, [jobs, firstSeenMap]);
+  }, [jobs, firstSeenMap, locationsCache, locationOverrides]);
 
   // Simple seniority-based salary estimate per company (best across roles)
   const salaryMap = useMemo(() => {

@@ -31,6 +31,14 @@ export class DashboardPage {
         body: JSON.stringify(fixture),
       });
     });
+    // Empty location overrides keep tests deterministic — the fixture
+    // already provides per-job lat/lng for any company that needs it.
+    await this.page.route('**/company-locations.json*', route => {
+      route.fulfill({ contentType: 'application/json', body: '{}' });
+    });
+    await this.page.route('**/company-locations-manual.json*', route => {
+      route.fulfill({ contentType: 'application/json', body: '{}' });
+    });
     await this.page.addInitScript(() => localStorage.clear());
     await this.page.goto('/vienna-set-tracker/');
   }

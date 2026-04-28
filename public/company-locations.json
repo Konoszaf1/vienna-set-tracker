@@ -15,9 +15,9 @@
     "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund"
   },
   "qnit austria gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2364804,
+    "lng": 16.4133714,
+    "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt"
   },
   "xxxldigital – part of xxxl group": {
     "lat": null,
@@ -50,9 +50,9 @@
     "address": "Handelskai, 388, 1020, KG Leopoldstadt"
   },
   "ivm technical consultants": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1345908,
+    "lng": 16.3256384,
+    "address": "Schönbrunner Allee 1-5, 2331 Vösendorf, Niederösterreich"
   },
   "softcom consulting gmbh": {
     "lat": null,
@@ -65,9 +65,9 @@
     "address": null
   },
   "sv-chipkarten betriebs- und errichtungsges.m.b.h.": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2240208,
+    "lng": 16.3965462,
+    "address": "Ernst-Melchior-Gasse 22, 1020 Wien, Leopoldstadt"
   },
   "frequentis ag": {
     "lat": 48.1639426,
@@ -105,14 +105,14 @@
     "address": "Wehlistraße, 1020, KG Leopoldstadt"
   },
   "capgemini": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2409393,
+    "lng": 16.3861173,
+    "address": "Handelskai 94-96, 1200 Wien, Brigittenau"
   },
   "qestit dach": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2117568,
+    "lng": 16.3728768,
+    "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt"
   },
   "pke holding ag": {
     "lat": 48.1591557,
@@ -120,39 +120,39 @@
     "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt"
   },
   "coolpeople": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1984704,
+    "lng": 16.350896,
+    "address": "Mariahilfer Straße 71, 1060 Wien, Mariahilf"
   },
   "ketryx": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1961044,
+    "lng": 16.3443488,
+    "address": "Webgasse 43, 1060 Wien, Mariahilf"
   },
   "adesso austria gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1833424,
+    "lng": 16.4142072,
+    "address": "Modecenterstraße 17, 1110 Wien, Simmering"
   },
   "ringana": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.185219,
+    "lng": 16.3815469,
+    "address": "Canettistraße 5, 1100 Wien, Favoriten"
   },
   "deutsche telekom": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1867515,
+    "lng": 16.4032705,
+    "address": "Rennweg 97-99, 1030 Wien, Landstraße"
   },
   "delegate group": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2223709,
+    "lng": 16.392406,
+    "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt"
   },
   "t-systems austria": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1867515,
+    "lng": 16.4032705,
+    "address": "Rennweg 97-99, 1030 Wien, Landstraße"
   },
   "designer group": {
     "lat": 48.1943005,
@@ -160,9 +160,9 @@
     "address": "Hofmühlgasse, 20, 1060, Gumpendorf"
   },
   "enpulsion": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 47.8370619,
+    "lng": 16.2530127,
+    "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich"
   },
   "akkodis": {
     "lat": null,
@@ -170,9 +170,9 @@
     "address": null
   },
   "bybit eu": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2319522,
+    "lng": 16.4137062,
+    "address": "Donau-City-Straße 7, 1220 Wien, Donaustadt"
   },
   "raiffeisen group it gmbh": {
     "lat": 48.2380565,
@@ -190,9 +190,9 @@
     "address": null
   },
   "pineapple recruiting gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2237941,
+    "lng": 16.3968471,
+    "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt"
   },
   "öbb": {
     "lat": 48.2063799,
@@ -205,9 +205,9 @@
     "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt"
   },
   "nyra health": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2132964,
+    "lng": 16.3707901,
+    "address": "Salzgries 19, 1010 Wien, Innere Stadt"
   },
   "xxxlutz": {
     "lat": 48.2660883,
@@ -215,9 +215,9 @@
     "address": "Brünner Straße, 57A, 1210, KG Großjedlersdorf II"
   },
   "ibm": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2135962,
+    "lng": 16.3766853,
+    "address": "Obere Donaustraße 95, 1020 Wien, Leopoldstadt"
   },
   "ebcont": {
     "lat": null,
@@ -250,9 +250,9 @@
     "address": "Altmannsdorfer Straße, 165, 1230, KG Inzersdorf"
   },
   "emtensor gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2236565,
+    "lng": 16.5061687,
+    "address": "Sonnenallee, 28, 1220, Donaustadt"
   },
   "trayport": {
     "lat": 48.1686875,
@@ -265,9 +265,9 @@
     "address": null
   },
   "scientific games international gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1669135,
+    "lng": 16.2851061,
+    "address": "Klitschgasse, 4, 1130, Hietzing"
   },
   "mercury": {
     "lat": 48.1820832,
@@ -290,19 +290,19 @@
     "address": "Albert-Schweitzer-Gasse, 4;6, 1140, Katastralgemeinde Weidlingau"
   },
   "yorizon cloud": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1310332,
+    "lng": 16.3081784,
+    "address": "Lemböckgasse, 47, 1230, Liesing"
   },
   "flightkeys gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2084441,
+    "lng": 16.3665691,
+    "address": "Herrengasse, 2-4, 1010, Innere Stadt"
   },
   "jarosch & haas gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2117847,
+    "lng": 16.375957,
+    "address": "Rotenturmstraße, 29, 1010, Innere Stadt"
   },
   "agfa healthcare": {
     "lat": 48.1846345,
