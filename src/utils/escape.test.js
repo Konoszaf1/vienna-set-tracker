@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { escapeHtml, isSafeUrl } from './escape';
+import { escapeHtml, isHttpUrl } from './escape';
 
 describe("escapeHtml", () => {
   it("escapes &, <, >, \", and '", () => {
@@ -31,42 +31,42 @@ describe("escapeHtml", () => {
   });
 });
 
-describe("isSafeUrl", () => {
+describe("isHttpUrl", () => {
   it("returns true for http://", () => {
-    expect(isSafeUrl("http://example.com")).toBe(true);
+    expect(isHttpUrl("http://example.com")).toBe(true);
   });
 
   it("returns true for https://", () => {
-    expect(isSafeUrl("https://example.com")).toBe(true);
+    expect(isHttpUrl("https://example.com")).toBe(true);
   });
 
   it("is case-insensitive", () => {
-    expect(isSafeUrl("HTTPS://example.com")).toBe(true);
-    expect(isSafeUrl("Http://example.com")).toBe(true);
+    expect(isHttpUrl("HTTPS://example.com")).toBe(true);
+    expect(isHttpUrl("Http://example.com")).toBe(true);
   });
 
   it("returns false for javascript:", () => {
-    expect(isSafeUrl("javascript:alert(1)")).toBe(false);
+    expect(isHttpUrl("javascript:alert(1)")).toBe(false);
   });
 
   it("returns false for data:", () => {
-    expect(isSafeUrl("data:text/html,<h1>Hi</h1>")).toBe(false);
+    expect(isHttpUrl("data:text/html,<h1>Hi</h1>")).toBe(false);
   });
 
   it("returns false for file:", () => {
-    expect(isSafeUrl("file:///etc/passwd")).toBe(false);
+    expect(isHttpUrl("file:///etc/passwd")).toBe(false);
   });
 
   it("returns false for empty string", () => {
-    expect(isSafeUrl("")).toBe(false);
+    expect(isHttpUrl("")).toBe(false);
   });
 
   it("returns false for null", () => {
-    expect(isSafeUrl(null)).toBe(false);
+    expect(isHttpUrl(null)).toBe(false);
   });
 
   it("returns false for relative paths", () => {
-    expect(isSafeUrl("/path/to/page")).toBe(false);
-    expect(isSafeUrl("../page")).toBe(false);
+    expect(isHttpUrl("/path/to/page")).toBe(false);
+    expect(isHttpUrl("../page")).toBe(false);
   });
 });

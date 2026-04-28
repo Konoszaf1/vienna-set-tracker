@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { haversine, salaryColor, buildPopupHtml } from "./mapHelpers";
+import { haversine, salaryColor, buildPopupHtml, computeStackingIndex, stemHeight, clusterSize, clusterAvgSalary } from "./mapHelpers";
 
 /* ------------------------------------------------------------------ */
 /*  haversine                                                         */
@@ -56,6 +56,126 @@ describe("salaryColor", () => {
   it("<55 → red", () => {
     expect(salaryColor(54)).toBe("#ef4444");
     expect(salaryColor(30)).toBe("#ef4444");
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  computeStackingIndex                                              */
+/* ------------------------------------------------------------------ */
+describe("computeStackingIndex", () => {
+  it("returns empty object for empty array", () => {
+    expect(computeStackingIndex([])).toEqual({});
+  });
+
+  it("assigns 0 to a single company", () => {
+    const companies = [{ id: "a", lat: 48.2, lng: 16.3 }];
+    expect(computeStackingIndex(companies)).toEqual({ a: 0 });
+  });
+
+  it("stacks companies at the same location", () => {
+    const companies = [
+      { id: "a", lat: 48.2000, lng: 16.3000 },
+      { id: "b", lat: 48.2001, lng: 16.3001 }, // within ~22m
+    ];
+    const idx = computeStackingIndex(companies);
+    expect(idx.a).toBe(0);
+    expect(idx.b).toBe(1);
+  });
+
+  it("keeps distant companies in separate stacks", () => {
+    const companies = [
+      { id: "a", lat: 48.2000, lng: 16.3000 },
+      { id: "b", lat: 48.2100, lng: 16.3100 }, // ~1.3 km away
+    ];
+    const idx = computeStackingIndex(companies);
+    expect(idx.a).toBe(0);
+    expect(idx.b).toBe(0);
+  });
+
+  it("stacks three companies at the same building", () => {
+    const companies = [
+      { id: "a", lat: 48.2000, lng: 16.3000 },
+      { id: "b", lat: 48.20005, lng: 16.30005 },
+      { id: "c", lat: 48.20010, lng: 16.30010 },
+    ];
+    const idx = computeStackingIndex(companies);
+    expect(idx.a).toBe(0);
+    expect(idx.b).toBe(1);
+    expect(idx.c).toBe(2);
+  });
+
+  it("respects custom threshold", () => {
+    const companies = [
+      { id: "a", lat: 48.2000, lng: 16.3000 },
+      { id: "b", lat: 48.2001, lng: 16.3001 },
+    ];
+    // Tiny threshold — should NOT stack
+    const idx = computeStackingIndex(companies, 0.00001);
+    expect(idx.a).toBe(0);
+    expect(idx.b).toBe(0);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  stemHeight                                                        */
+/* ------------------------------------------------------------------ */
+describe("stemHeight", () => {
+  it("returns 0 for position 0", () => {
+    expect(stemHeight(0)).toBe(0);
+  });
+
+  it("returns 28px per slot by default", () => {
+    expect(stemHeight(1)).toBe(28);
+    expect(stemHeight(3)).toBe(84);
+  });
+
+  it("accepts custom slot height", () => {
+    expect(stemHeight(2, 40)).toBe(80);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  clusterSize                                                       */
+/* ------------------------------------------------------------------ */
+describe("clusterSize", () => {
+  it("returns 40 for count < 5", () => {
+    expect(clusterSize(1)).toBe(40);
+    expect(clusterSize(4)).toBe(40);
+  });
+
+  it("returns 48 for count 5–14", () => {
+    expect(clusterSize(5)).toBe(48);
+    expect(clusterSize(14)).toBe(48);
+  });
+
+  it("returns 56 for count >= 15", () => {
+    expect(clusterSize(15)).toBe(56);
+    expect(clusterSize(100)).toBe(56);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  clusterAvgSalary                                                  */
+/* ------------------------------------------------------------------ */
+describe("clusterAvgSalary", () => {
+  it("returns null for empty array", () => {
+    expect(clusterAvgSalary([])).toBeNull();
+  });
+
+  it("returns null when all estimates are null/undefined", () => {
+    expect(clusterAvgSalary([null, undefined, 0])).toBeNull();
+  });
+
+  it("averages valid estimates, ignoring nulls", () => {
+    expect(clusterAvgSalary([60, null, 80])).toBe(70);
+  });
+
+  it("returns the value for a single estimate", () => {
+    expect(clusterAvgSalary([65])).toBe(65);
+  });
+
+  it("computes correct average for mixed values", () => {
+    expect(clusterAvgSalary([71, 63, 48])).toBeCloseTo(60.67, 1);
   });
 });
 

@@ -8,7 +8,7 @@ export function escapeHtml(str) {
     .replace(/'/g, "&#39;");
 }
 
-export function isSafeUrl(url) {
+export function isHttpUrl(url) {
   if (!url) return false;
   return /^https?:\/\//i.test(url);
 }

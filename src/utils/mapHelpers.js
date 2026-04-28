@@ -1,4 +1,4 @@
-import { escapeHtml, isSafeUrl } from "./escape";
+import { escapeHtml, isHttpUrl } from "./escape";
 
 /**
  * Haversine distance between two lat/lng points in km.
@@ -14,6 +14,55 @@ export function haversine(lat1, lng1, lat2, lng2) {
 }
 
 /**
+ * Compute vertical stacking index for markers at the same location.
+ * Companies within `threshold` degrees (~22 m at default) share a stack.
+ * Returns an object mapping company id → stack position (0-based).
+ */
+export function computeStackingIndex(companies, threshold = 0.0002) {
+  const stackIndex = {};
+  const grouped = [];
+  for (const c of companies) {
+    let placed = false;
+    for (const g of grouped) {
+      if (Math.abs(g.lat - c.lat) < threshold && Math.abs(g.lng - c.lng) < threshold) {
+        stackIndex[c.id] = g.members.length;
+        g.members.push(c);
+        placed = true;
+        break;
+      }
+    }
+    if (!placed) {
+      stackIndex[c.id] = 0;
+      grouped.push({ lat: c.lat, lng: c.lng, members: [c] });
+    }
+  }
+  return stackIndex;
+}
+
+/**
+ * Pixel height of the stem below a stacked marker label.
+ */
+export function stemHeight(stackPosition, slotHeight = 28) {
+  return stackPosition * slotHeight;
+}
+
+/**
+ * Cluster icon diameter based on child marker count.
+ */
+export function clusterSize(count) {
+  return count < 5 ? 40 : count < 15 ? 48 : 56;
+}
+
+/**
+ * Average salary estimate for a cluster of markers.
+ * Ignores null/undefined estimates. Returns null if none are valid.
+ */
+export function clusterAvgSalary(estimates) {
+  const valid = estimates.filter(Boolean);
+  return valid.length > 0 ? valid.reduce((a, b) => a + b, 0) / valid.length : null;
+}
+
+/**
  * Salary estimate → marker color.
  */
 export function salaryColor(estimate) {
@@ -26,13 +75,13 @@ export function salaryColor(estimate) {
 
 /**
  * Build popup HTML for a map marker. All user-controlled fields are
- * run through escapeHtml; URLs are gated by isSafeUrl.
+ * run through escapeHtml; URLs are gated by isHttpUrl.
  */
 export function buildPopupHtml({ company: c, salary: sal, distance: km, color, estimate }) {
   const eName = escapeHtml(c.name);
   const eAddress = escapeHtml(c.address || "");
   const eLogo = escapeHtml(c.logo);
-  const safePrimaryUrl = isSafeUrl(c.jobUrl) ? escapeHtml(c.jobUrl) : null;
+  const safePrimaryUrl = isHttpUrl(c.jobUrl) ? escapeHtml(c.jobUrl) : null;
   const commuteNote = km < 2 ? "🚶 walkable" : km < 5 ? "🚲 bikeable" : km < 12 ? "🚇 quick transit" : "🚆 longer commute";
 
   const eTech = (c.techStack || []).slice(0, 6)
@@ -42,7 +91,7 @@ export function buildPopupHtml({ company: c, salary: sal, distance: km, color, e
   const openRoles = c.openRoles || [];
   const rolesHtml = openRoles.length > 0 ? `<div style="margin-top:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Open roles (${openRoles.length})</div>${openRoles.map((role, ri) => {
     const eTitle = escapeHtml(role.title);
-    const roleUrl = isSafeUrl(role.url) ? escapeHtml(role.url) : null;
+    const roleUrl = isHttpUrl(role.url) ? escapeHtml(role.url) : null;
     const roleEst = sal?.roles?.[ri]?.estimate;
     const estLabel = roleEst ? ` · €${roleEst}k` : "";
     return roleUrl
