@@ -17,6 +17,8 @@ export class DashboardPage {
     this.mapToggle = page.locator('[data-testid="view-toggle-map"]');
     this.settingsBtn = page.locator('[data-testid="settings-btn"]');
     this.mapContainer = page.locator('[data-testid="map-container"]');
+    this.analyticsToggle = page.locator('[data-testid="view-toggle-analytics"]');
+    this.analyticsView = page.locator('[data-testid="analytics-view"]');
     this.errorScreen = page.locator('[data-testid="error-screen"]');
     this.retryBtn = page.locator('[data-testid="retry-btn"]');
     this.emptyState = page.locator('[data-testid="empty-state"]');
@@ -96,6 +98,11 @@ export class DashboardPage {
   /** Switch to grid view. */
   async switchToGrid() {
     await this.gridToggle.click();
+  }
+
+  /** Switch to analytics view. */
+  async switchToAnalytics() {
+    await this.analyticsToggle.click();
   }
 
   /** Open settings modal. */

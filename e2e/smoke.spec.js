@@ -41,6 +41,16 @@ test('salary min filter reduces visible cards and clearing restores them', async
   await expect(dashboard.cards).toHaveCount(8);
 });
 
+test('analytics view toggle renders charts', async ({ page }) => {
+  const dashboard = new DashboardPage(page);
+  await dashboard.waitForCards();
+  await dashboard.switchToAnalytics();
+  await expect(dashboard.analyticsView).toBeVisible();
+  // At minimum: the section titles exist.
+  await expect(page.locator('text=Unique listings discovered over time')).toBeVisible();
+  await expect(page.locator('text=Top 10 employers')).toBeVisible();
+});
+
 test('pressing Escape closes settings modal', async ({ page }) => {
   const dashboard = new DashboardPage(page);
   await dashboard.openSettings();

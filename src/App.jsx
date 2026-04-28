@@ -7,6 +7,7 @@ import { normalizeCompanyName } from "./utils/normalizeCompany";
 import { resolveCompanyLocation } from "./utils/companyLocation";
 import CompanyCard from "./components/CompanyCard";
 import MapView from "./components/MapView";
+import AnalyticsView from "./components/AnalyticsView";
 import SettingsModal from "./components/SettingsModal";
 import styles from './App.module.css';
 
@@ -248,10 +249,11 @@ export default function App() {
           <div className={styles.viewToggle}>
             <button onClick={() => setView("grid")} className={`${styles.viewButton} ${view === "grid" ? styles.viewActive : ''}`} data-testid="view-toggle-grid">Cards</button>
             <button onClick={() => setView("map")} className={`${styles.viewButton} ${view === "map" ? styles.viewActive : ''}`} data-testid="view-toggle-map">Map</button>
+            <button onClick={() => setView("analytics")} className={`${styles.viewButton} ${view === "analytics" ? styles.viewActive : ''}`} data-testid="view-toggle-analytics">Analytics</button>
           </div>
         </div>
 
-        {view === "grid" ? (
+        {view === "grid" && (
           <div className={styles.cardGrid} data-testid="card-grid">
             {filtered.map(c => (
               <CompanyCard key={c.id} company={c} salary={salaryMap[c.id]} />
@@ -263,8 +265,12 @@ export default function App() {
               </div>
             )}
           </div>
-        ) : (
+        )}
+        {view === "map" && (
           <MapView companies={filtered} profile={profile} salaryMap={salaryMap} onHomeMove={handleSaveProfile} />
+        )}
+        {view === "analytics" && (
+          <AnalyticsView entries={entries} jobs={jobs} salaryMap={salaryMap} firstSeenMap={firstSeenMap} />
         )}
       </div>
 
