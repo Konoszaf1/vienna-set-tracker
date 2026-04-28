@@ -1,27 +1,7 @@
 {
-  "lastUpdated": "2026-04-27T09:23:54.225247+00:00",
-  "count": 29,
+  "lastUpdated": "2026-04-28T09:26:07.735293+00:00",
+  "count": 33,
   "jobs": [
-    {
-      "url": "https://www.karriere.at/jobs/7779197",
-      "title": "Test Engineer (m/w/d) - Fokus BPM / Testautomatisierung",
-      "company": "Michael Page International Austria GmbH",
-      "source": "Test Automation Wien",
-      "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "REST Assured",
-        "Postman",
-        "Xray",
-        "Jira",
-        "Confluence"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.2251975,
-      "lng": 16.3559533,
-      "kununuScore": 4.3
-    },
     {
       "url": "https://www.karriere.at/jobs/7781381",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
@@ -45,8 +25,27 @@
       ],
       "langReq": "de-basic",
       "lat": 48.2006384,
-      "lng": 16.4268953,
-      "kununuScore": 3.8
+      "lng": 16.4268953
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7779197",
+      "title": "Test Engineer (m/w/d) - Fokus BPM / Testautomatisierung",
+      "company": "Michael Page International Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "REST Assured",
+        "Postman",
+        "Xray",
+        "Jira",
+        "Confluence",
+        "Agile"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2251975,
+      "lng": 16.3559533
     },
     {
       "url": "https://www.karriere.at/jobs/7686185",
@@ -80,8 +79,7 @@
       ],
       "langReq": "de-basic",
       "lat": null,
-      "lng": null,
-      "kununuScore": 4.8
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -106,8 +104,7 @@
       ],
       "langReq": "en",
       "lat": 48.1858518,
-      "lng": 16.3539754,
-      "kununuScore": 3.6
+      "lng": 16.3539754
     },
     {
       "url": "https://www.karriere.at/jobs/7766282",
@@ -123,8 +120,7 @@
       ],
       "langReq": "de-basic",
       "lat": 48.1867515,
-      "lng": 16.4032705,
-      "kununuScore": 3.2
+      "lng": 16.4032705
     },
     {
       "url": "https://www.karriere.at/jobs/7757258",
@@ -144,8 +140,7 @@
       ],
       "langReq": "de-fluent",
       "lat": 48.1409112,
-      "lng": 16.2944131,
-      "kununuScore": 4.2
+      "lng": 16.2944131
     },
     {
       "url": "https://www.karriere.at/jobs/7595456",
@@ -162,8 +157,7 @@
       ],
       "langReq": "de-fluent",
       "lat": 48.203565,
-      "lng": 16.4352268,
-      "kununuScore": 3.2
+      "lng": 16.4352268
     },
     {
       "url": "https://www.karriere.at/jobs/7775258",
@@ -181,8 +175,7 @@
       ],
       "langReq": "de-fluent",
       "lat": null,
-      "lng": null,
-      "kununuScore": 4.4
+      "lng": null
     },
     {
       "url": "https://www.karriere.at/jobs/10015248",
@@ -206,8 +199,7 @@
       ],
       "langReq": "en",
       "lat": 48.1411061,
-      "lng": 16.2939161,
-      "kununuScore": 3.4
+      "lng": 16.2939161
     },
     {
       "url": "https://www.karriere.at/jobs/10016992",
@@ -249,8 +241,20 @@
       ],
       "langReq": "de-fluent",
       "lat": 48.1719649,
-      "lng": 16.3286908,
-      "kununuScore": 3.2
+      "lng": 16.3286908
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7724918",
+      "title": "System Test Engineer (all genders)",
+      "company": "MELECS EWS GmbH",
+      "source": "Software Tester Wien",
+      "address": "Handelskai, 388, 1020, KG Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [],
+      "langReq": "de-fluent",
+      "lat": 48.203565,
+      "lng": 16.4352268
     },
     {
       "url": "https://www.karriere.at/jobs/7784576",
@@ -270,8 +274,7 @@
       ],
       "langReq": "de-fluent",
       "lat": 48.2188239,
-      "lng": 16.3730485,
-      "kununuScore": 3.4
+      "lng": 16.3730485
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=2f38ac741fc7605b",
@@ -304,8 +307,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1822872,
-      "lng": 16.3923295,
-      "kununuScore": 4.9
+      "lng": 16.3923295
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4403743462",
@@ -339,8 +341,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1591557,
-      "lng": 16.3401205,
-      "kununuScore": 3.9
+      "lng": 16.3401205
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4387103203",
@@ -351,13 +352,23 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1591557,
-      "lng": 16.3401205,
-      "kununuScore": 3.9
+      "lng": 16.3401205
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4398273672",
       "title": "QA Engineer (m/w/d)",
       "company": "Yorizon Cloud",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4370503347",
+      "title": "Test Automation Engineer (all genders) [Wien]",
+      "company": "adesso Austria GmbH",
       "source": "jobspy-linkedin",
       "address": "Wien",
       "city": "Wien",
@@ -374,8 +385,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 4
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
@@ -386,8 +396,18 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1591557,
-      "lng": 16.3401205,
-      "kununuScore": 3.9
+      "lng": 16.3401205
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=50267476e3185d0b",
+      "title": "System Test Engineer (all genders)",
+      "company": "FREQUENTIS COMSOFT GmbH",
+      "source": "jobspy-indeed",
+      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1639426,
+      "lng": 16.3342088
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4326335915",
@@ -420,8 +440,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1639426,
-      "lng": 16.3342088,
-      "kununuScore": 4.4
+      "lng": 16.3342088
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=312acd402af925a1",
@@ -444,8 +463,18 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2380565,
-      "lng": 16.366175,
-      "kununuScore": 4.1
+      "lng": 16.366175
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4407800821",
+      "title": "Software Tester with experience (Enterprise Imaging) (m/f/d)",
+      "company": "AGFA HealthCare",
+      "source": "jobspy-linkedin",
+      "address": "Linke Wienzeile, 236, 1150, Katastralgemeinde Sechshaus",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1846345,
+      "lng": 16.332828
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=7da261b528d2e3d6",
@@ -456,8 +485,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.2063799,
-      "lng": 16.3849266,
-      "kununuScore": 3.8
+      "lng": 16.3849266
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4398825566",
@@ -468,8 +496,7 @@
       "city": "Wien",
       "zip": null,
       "lat": 48.1857192,
-      "lng": 16.4221587,
-      "kununuScore": 3.4
+      "lng": 16.4221587
     }
   ],
   "searchLinks": [
@@ -495,14 +522,13 @@
     }
   ],
   "validation": {
-    "accepted": 20,
-    "rejected": 92,
+    "accepted": 18,
+    "rejected": 62,
     "reasons": {
-      "not-sdet-role": 85,
       "management-role": 4,
-      "non-software-domain": 2,
-      "short-title": 1
+      "not-sdet-role": 56,
+      "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-04-27T09:24:05.204Z"
+  "lastVerified": "2026-04-28T09:27:10.868Z"
 }
