@@ -295,7 +295,7 @@
   },
   "emtensor": {
     "kununu": null,
-    "fetchedAt": "2026-04-15T08:30:57.242Z"
+    "fetchedAt": "2026-04-29T09:12:53.764Z"
   },
   "trayport": {
     "kununu": null,
@@ -345,5 +345,9 @@
   "agfa healthcare": {
     "kununu": null,
     "fetchedAt": "2026-04-28T09:26:52.252Z"
+  },
+  "agfa": {
+    "kununu": null,
+    "fetchedAt": "2026-04-29T09:12:55.773Z"
   }
 }

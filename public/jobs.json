@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-28T09:26:07.735293+00:00",
+  "lastUpdated": "2026-04-29T09:12:53.402582+00:00",
   "count": 33,
   "jobs": [
     {
@@ -40,19 +40,39 @@
         "Postman",
         "Xray",
         "Jira",
-        "Confluence",
-        "Agile"
+        "Confluence"
       ],
       "langReq": "de-fluent",
       "lat": 48.2251975,
       "lng": 16.3559533
     },
     {
+      "url": "https://www.karriere.at/jobs/7757258",
+      "title": "(Senior) IT Test Automation Engineer (m/w/d)",
+      "company": "Schrack Technik GmbH",
+      "source": "Test Automation Wien",
+      "address": "Seybelgasse, 13, 1230, KG Liesing",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Java",
+        "Python",
+        "JavaScript",
+        "C#",
+        "PHP",
+        "CI/CD",
+        "SOAP"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.1409112,
+      "lng": 16.2944131
+    },
+    {
       "url": "https://www.karriere.at/jobs/7686185",
       "title": "Test Automation Engineer (m/w/d)",
       "company": "Qnit Austria GmbH",
       "source": "Test Automation Wien",
-      "address": "Wien",
+      "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt",
       "city": "Wien",
       "zip": null,
       "techStack": [
@@ -68,6 +88,7 @@
         "TypeScript",
         "JavaScript",
         "C#",
+        "PHP",
         "React",
         "Angular",
         "CI/CD",
@@ -78,8 +99,8 @@
         "Git"
       ],
       "langReq": "de-basic",
-      "lat": null,
-      "lng": null
+      "lat": 48.2364804,
+      "lng": 16.4133714
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -116,31 +137,12 @@
       "zip": null,
       "techStack": [
         "Java",
-        "C#"
+        "C#",
+        "PHP"
       ],
       "langReq": "de-basic",
       "lat": 48.1867515,
       "lng": 16.4032705
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7757258",
-      "title": "(Senior) IT Test Automation Engineer (m/w/d)",
-      "company": "Schrack Technik GmbH",
-      "source": "Test Automation Wien",
-      "address": "Seybelgasse, 13, 1230, KG Liesing",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "Python",
-        "JavaScript",
-        "C#",
-        "CI/CD",
-        "SOAP"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.1409112,
-      "lng": 16.2944131
     },
     {
       "url": "https://www.karriere.at/jobs/7595456",
@@ -152,8 +154,7 @@
       "zip": null,
       "techStack": [
         "CI/CD",
-        "Git",
-        "Agile"
+        "Git"
       ],
       "langReq": "de-fluent",
       "lat": 48.203565,
@@ -164,7 +165,7 @@
       "title": "Senior Test Engineer (m/w/d)",
       "company": "IVM Technical Consultants",
       "source": "Test Automation Wien",
-      "address": "Wien",
+      "address": "Schönbrunner Allee 1-5, 2331 Vösendorf, Niederösterreich",
       "city": "Wien",
       "zip": null,
       "techStack": [
@@ -174,8 +175,29 @@
         "SQL"
       ],
       "langReq": "de-fluent",
-      "lat": null,
-      "lng": null
+      "lat": 48.1345908,
+      "lng": 16.3256384
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10016390",
+      "title": "Software Tester Field Service Management (m/w/d)",
+      "company": "Kontron AG",
+      "source": "Test Automation Wien",
+      "address": "Meidling, 1120 Wien",
+      "city": "Wien",
+      "zip": "1120",
+      "techStack": [
+        "Selenium",
+        "Appium",
+        "Tosca",
+        "JavaScript",
+        "Agile",
+        "Scrum",
+        "Swagger"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.1719649,
+      "lng": 16.3286908
     },
     {
       "url": "https://www.karriere.at/jobs/10015248",
@@ -206,7 +228,7 @@
       "title": "Software Test Engineer (f/m/d)",
       "company": "Scientific Games International GmbH",
       "source": "Software Tester Wien",
-      "address": "Wien",
+      "address": "Klitschgasse, 4, 1130, Hietzing",
       "city": "Wien",
       "zip": null,
       "techStack": [
@@ -219,29 +241,37 @@
         "Scrum"
       ],
       "langReq": "en",
-      "lat": null,
-      "lng": null
+      "lat": 48.1669135,
+      "lng": 16.2851061
     },
     {
-      "url": "https://www.karriere.at/jobs/10016390",
-      "title": "Software Tester Field Service Management (m/w/d)",
-      "company": "Kontron AG",
+      "url": "https://www.karriere.at/jobs/7774874",
+      "title": "Trainee System Test Engineer (all genders)",
+      "company": "FREQUENTIS AG",
       "source": "Software Tester Wien",
-      "address": "Meidling, 1120 Wien",
+      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
-      "zip": "1120",
+      "zip": null,
+      "techStack": [],
+      "langReq": "de-fluent",
+      "lat": 48.1639426,
+      "lng": 16.3342088
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7791854",
+      "title": "System Test Engineer (all genders)",
+      "company": "FREQUENTIS AG",
+      "source": "Software Tester Wien",
+      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
       "techStack": [
-        "Selenium",
-        "Appium",
-        "Tosca",
-        "JavaScript",
-        "Agile",
-        "Scrum",
-        "Swagger"
+        "ISTQB",
+        "Jira"
       ],
       "langReq": "de-fluent",
-      "lat": 48.1719649,
-      "lng": 16.3286908
+      "lat": 48.1639426,
+      "lng": 16.3342088
     },
     {
       "url": "https://www.karriere.at/jobs/7724918",
@@ -292,33 +322,33 @@
       "title": "Test Engineer — Electromagnetic Tomography",
       "company": "EMTensor GmbH",
       "source": "jobspy-indeed",
-      "address": "Wien, W, AT",
+      "address": "Sonnenallee, 28, 1220, Donaustadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1822872,
-      "lng": 16.3923295
+      "lat": 48.2236565,
+      "lng": 16.5061687
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=4ff25f479e81fe88",
       "title": "Software Quality Engineer",
       "company": "Ketryx",
       "source": "jobspy-indeed",
-      "address": "Wien, W, AT",
+      "address": "Webgasse 43, 1060 Wien, Mariahilf",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1822872,
-      "lng": 16.3923295
+      "lat": 48.1961044,
+      "lng": 16.3443488
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4403743462",
       "title": "SENIOR TEST AUTOMATION ENGINEER  (F/M/O)",
       "company": "Flightkeys GmbH",
       "source": "jobspy-linkedin",
-      "address": "Wien",
+      "address": "Herrengasse, 2-4, 1010, Innere Stadt",
       "city": "Wien",
       "zip": null,
-      "lat": null,
-      "lng": null,
+      "lat": 48.2084441,
+      "lng": 16.3665691,
       "kununuScore": 4.7
     },
     {
@@ -326,11 +356,11 @@
       "title": "Senior Consultant Test Automation Engineer (m/w/d)",
       "company": "QESTIT DACH",
       "source": "jobspy-linkedin",
-      "address": "Wien",
+      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
       "city": "Wien",
       "zip": null,
-      "lat": null,
-      "lng": null
+      "lat": 48.2117568,
+      "lng": 16.3728768
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4291933969",
@@ -359,33 +389,22 @@
       "title": "QA Engineer (m/w/d)",
       "company": "Yorizon Cloud",
       "source": "jobspy-linkedin",
-      "address": "Wien",
+      "address": "Lemböckgasse, 47, 1230, Liesing",
       "city": "Wien",
       "zip": null,
-      "lat": null,
-      "lng": null
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4370503347",
-      "title": "Test Automation Engineer (all genders) [Wien]",
-      "company": "adesso Austria GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null
+      "lat": 48.1310332,
+      "lng": 16.3081784
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4384883437",
       "title": "Software Test Engineer (m/w/d)",
       "company": "T-Systems Austria",
       "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
+      "address": "Rennweg 97-99, 1030 Wien, Landstraße",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
+      "lat": 48.1867515,
+      "lng": 16.4032705
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
@@ -432,38 +451,27 @@
       "lng": 16.3098046
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4392598760",
-      "title": "Trainee System Test Engineer (all genders) - DE",
-      "company": "Frequentis",
-      "source": "jobspy-linkedin",
-      "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt",
+      "url": "https://at.indeed.com/viewjob?jk=c2f8a74f15a5c7d2",
+      "title": "Software Tester with experience (Enterprise Imaging) (m/f/d)",
+      "company": "AGFA",
+      "source": "jobspy-indeed",
+      "address": "Linke Wienzeile, 236, 1150, Katastralgemeinde Sechshaus",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1639426,
-      "lng": 16.3342088
+      "lat": 48.1846345,
+      "lng": 16.332828
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=312acd402af925a1",
       "title": "Servicetechniker / Software tester",
       "company": "Jarosch & Haas GmbH",
       "source": "jobspy-indeed",
-      "address": "Wien, W, AT",
+      "address": "Rotenturmstraße, 29, 1010, Innere Stadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1822872,
-      "lng": 16.3923295,
+      "lat": 48.2117847,
+      "lng": 16.375957,
       "kununuScore": 3.4
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4403062170",
-      "title": "Senior Software Engineer in Test (f/m/x)",
-      "company": "Raiffeisen Group IT GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Adalbert-Stifter-Straße, 1200, Brigittenau",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2380565,
-      "lng": 16.366175
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4407800821",
@@ -492,11 +500,11 @@
       "title": "Testarchitekt (f/m/x)",
       "company": "IBM",
       "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
+      "address": "Obere Donaustraße 95, 1020 Wien, Leopoldstadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
+      "lat": 48.2135962,
+      "lng": 16.3766853
     }
   ],
   "searchLinks": [
@@ -522,13 +530,13 @@
     }
   ],
   "validation": {
-    "accepted": 18,
-    "rejected": 62,
+    "accepted": 15,
+    "rejected": 31,
     "reasons": {
+      "not-sdet-role": 25,
       "management-role": 4,
-      "not-sdet-role": 56,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-04-28T09:27:10.868Z"
+  "lastVerified": "2026-04-29T09:13:08.193Z"
 }
