@@ -299,7 +299,7 @@
   },
   "trayport": {
     "kununu": null,
-    "fetchedAt": "2026-04-16T08:30:20.756Z"
+    "fetchedAt": "2026-04-30T09:15:03.755Z"
   },
   "devjobs": {
     "kununu": null,
@@ -349,5 +349,9 @@
   "agfa": {
     "kununu": null,
     "fetchedAt": "2026-04-29T09:12:55.773Z"
+  },
+  "greentube": {
+    "kununu": null,
+    "fetchedAt": "2026-04-30T09:15:01.742Z"
   }
 }
