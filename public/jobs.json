@@ -1,41 +1,7 @@
 {
-  "lastUpdated": "2026-05-01T09:04:58.113133+00:00",
-  "count": 34,
+  "lastUpdated": "2026-05-02T08:24:15.801792+00:00",
+  "count": 35,
   "jobs": [
-    {
-      "url": "https://www.karriere.at/jobs/7686185",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Qnit Austria GmbH",
-      "source": "Test Automation Wien",
-      "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Cypress",
-        "Selenium",
-        "Robot Framework",
-        "REST Assured",
-        "Postman",
-        "ISTQB",
-        "Xray",
-        "Java",
-        "TypeScript",
-        "JavaScript",
-        "C#",
-        "React",
-        "Angular",
-        "CI/CD",
-        "Jenkins",
-        "GitLab CI/CD",
-        "GitHub Actions",
-        "Jira",
-        "Git"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.2364804,
-      "lng": 16.4133714
-    },
     {
       "url": "https://www.karriere.at/jobs/7781381",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
@@ -74,7 +40,8 @@
         "Postman",
         "Xray",
         "Jira",
-        "Confluence"
+        "Confluence",
+        "Agile"
       ],
       "langReq": "de-fluent",
       "lat": 48.2251975,
@@ -123,6 +90,40 @@
       "langReq": "de-fluent",
       "lat": 48.1409112,
       "lng": 16.2944131
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7686185",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Qnit Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Robot Framework",
+        "REST Assured",
+        "Postman",
+        "ISTQB",
+        "Xray",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "C#",
+        "React",
+        "Angular",
+        "CI/CD",
+        "Jenkins",
+        "GitLab CI/CD",
+        "GitHub Actions",
+        "Jira",
+        "Git"
+      ],
+      "langReq": "de-basic",
+      "lat": 48.2364804,
+      "lng": 16.4133714
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -330,6 +331,17 @@
       "lng": 16.5061687
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4387103203",
+      "title": "Junior QA Engineer - Zutrittskontrollsysteme",
+      "company": "PKE Holding AG",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4406448548",
       "title": "Senior Consultant Test Automation Engineer (m/w/d)",
       "company": "QESTIT DACH",
@@ -397,17 +409,6 @@
       "lng": 16.3401205
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4387103203",
-      "title": "Junior QA Engineer - Zutrittskontrollsysteme",
-      "company": "PKE Holding AG",
-      "source": "jobspy-linkedin",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4384883437",
       "title": "Software Test Engineer (m/w/d)",
       "company": "T-Systems Austria",
@@ -450,6 +451,17 @@
       "zip": null,
       "lat": 48.1761566,
       "lng": 16.3733846
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4381548320",
+      "title": "Quality Engineer",
+      "company": "Mercury",
+      "source": "jobspy-linkedin",
+      "address": "Rustenallee, 1130, KG Schönbrunn",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1820832,
+      "lng": 16.3098046
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=c2f8a74f15a5c7d2",
@@ -545,10 +557,10 @@
     "accepted": 15,
     "rejected": 31,
     "reasons": {
-      "management-role": 2,
       "not-sdet-role": 27,
+      "management-role": 2,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-05-01T09:05:08.988Z"
+  "lastVerified": "2026-05-02T08:24:29.850Z"
 }
