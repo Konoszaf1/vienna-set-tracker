@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-03T08:50:01.571077+00:00",
-  "count": 32,
+  "lastUpdated": "2026-05-04T09:25:04.805575+00:00",
+  "count": 35,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -48,29 +48,20 @@
       "lng": 16.3559533
     },
     {
-      "url": "https://www.karriere.at/jobs/7793453",
-      "title": "Test Automation Engineer (f/m/d)",
-      "company": "Greentube GmbH",
+      "url": "https://www.karriere.at/jobs/7766282",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Software Daten Service Gesellschaft m.b.H.",
       "source": "Test Automation Wien",
-      "address": null,
-      "city": null,
+      "address": "Rennweg 97-99, 1030 Wien",
+      "city": "Wien",
       "zip": null,
       "techStack": [
-        "Playwright",
-        "Cucumber",
-        "BDD",
-        "TypeScript",
-        "SQL",
-        "Docker",
-        "Kubernetes",
-        "CI/CD",
-        "Git",
-        "MongoDB",
-        "Agile"
+        "Java",
+        "C#"
       ],
-      "langReq": "en",
-      "lat": null,
-      "lng": null
+      "langReq": "de-basic",
+      "lat": 48.1867515,
+      "lng": 16.4032705
     },
     {
       "url": "https://www.karriere.at/jobs/7686185",
@@ -107,6 +98,30 @@
       "lng": 16.4133714
     },
     {
+      "url": "https://www.karriere.at/jobs/7793453",
+      "title": "Test Automation Engineer (f/m/d)",
+      "company": "Greentube GmbH",
+      "source": "Test Automation Wien",
+      "address": null,
+      "city": null,
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cucumber",
+        "BDD",
+        "TypeScript",
+        "SQL",
+        "Docker",
+        "Kubernetes",
+        "Git",
+        "MongoDB",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": null,
+      "lng": null
+    },
+    {
       "url": "https://www.karriere.at/jobs/7749476",
       "title": "Test Automation Engineer C# (m/f/x)",
       "company": "ADMIRAL Technologies",
@@ -130,23 +145,6 @@
       "langReq": "en",
       "lat": 48.1858518,
       "lng": 16.3539754
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7766282",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Software Daten Service Gesellschaft m.b.H.",
-      "source": "Test Automation Wien",
-      "address": "Rennweg 97-99, 1030 Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "C#",
-        "CI/CD"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.1867515,
-      "lng": 16.4032705
     },
     {
       "url": "https://www.karriere.at/jobs/7595456",
@@ -196,7 +194,6 @@
         "Cypress",
         "Postman",
         "ISTQB",
-        "Java",
         "Python",
         "TypeScript",
         "JavaScript",
@@ -207,6 +204,40 @@
       "langReq": "en",
       "lat": 48.1411061,
       "lng": 16.2939161
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10016390",
+      "title": "Software Tester Field Service Management (m/w/d)",
+      "company": "Kontron AG",
+      "source": "Software Tester Wien",
+      "address": "Meidling, 1120 Wien",
+      "city": "Wien",
+      "zip": "1120",
+      "techStack": [
+        "Selenium",
+        "Appium",
+        "Tosca",
+        "JavaScript",
+        "Agile",
+        "Scrum",
+        "Swagger"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.1719649,
+      "lng": 16.3286908
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7774874",
+      "title": "Trainee System Test Engineer (all genders)",
+      "company": "FREQUENTIS AG",
+      "source": "Software Tester Wien",
+      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [],
+      "langReq": "de-fluent",
+      "lat": 48.1639426,
+      "lng": 16.3342088
     },
     {
       "url": "https://www.karriere.at/jobs/7791854",
@@ -347,6 +378,18 @@
       "kununuScore": 4.7
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4408624945",
+      "title": "Quality Assurance Engineer",
+      "company": "ENPULSION",
+      "source": "jobspy-linkedin",
+      "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich",
+      "city": "Wien",
+      "zip": null,
+      "lat": 47.8370619,
+      "lng": 16.2530127,
+      "kununuScore": 3
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4384883437",
       "title": "Software Test Engineer (m/w/d)",
       "company": "T-Systems Austria",
@@ -369,6 +412,17 @@
       "lng": 16.3401205
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4408647231",
+      "title": "Senior Quality Assurance Engineer",
+      "company": "Bybit EU",
+      "source": "jobspy-linkedin",
+      "address": "Donau-City-Straße 7, 1220 Wien, Donaustadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2319522,
+      "lng": 16.4137062
+    },
+    {
       "url": "https://at.indeed.com/viewjob?jk=50267476e3185d0b",
       "title": "System Test Engineer (all genders)",
       "company": "FREQUENTIS COMSOFT GmbH",
@@ -389,17 +443,6 @@
       "zip": null,
       "lat": 48.1761566,
       "lng": 16.3733846
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4381548320",
-      "title": "Quality Engineer",
-      "company": "Mercury",
-      "source": "jobspy-linkedin",
-      "address": "Rustenallee, 1130, KG Schönbrunn",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1820832,
-      "lng": 16.3098046
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4399977766",
@@ -503,13 +546,13 @@
     }
   ],
   "validation": {
-    "accepted": 14,
-    "rejected": 28,
+    "accepted": 21,
+    "rejected": 61,
     "reasons": {
-      "not-sdet-role": 25,
-      "management-role": 1,
+      "management-role": 2,
+      "not-sdet-role": 57,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-05-03T08:50:09.961Z"
+  "lastVerified": "2026-05-04T09:25:28.653Z"
 }

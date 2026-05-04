@@ -203,10 +203,10 @@
   },
   "enpulsion": {
     "kununu": {
-      "score": 2.9,
+      "score": 3,
       "reviews": 0
     },
-    "fetchedAt": "2026-04-13T14:29:51.473Z"
+    "fetchedAt": "2026-05-04T09:25:10.924Z"
   },
   "akkodis": {
     "kununu": {
@@ -217,7 +217,7 @@
   },
   "bybit eu": {
     "kununu": null,
-    "fetchedAt": "2026-04-13T14:29:55.933Z"
+    "fetchedAt": "2026-05-04T09:25:13.617Z"
   },
   "raiffeisen it": {
     "kununu": null,
@@ -281,7 +281,7 @@
       "score": 4.3,
       "reviews": 0
     },
-    "fetchedAt": "2026-04-13T15:07:59.532Z"
+    "fetchedAt": "2026-05-04T09:25:06.011Z"
   },
   "hilti": {
     "kununu": {
@@ -350,5 +350,12 @@
   "greentube": {
     "kununu": null,
     "fetchedAt": "2026-04-30T09:15:01.742Z"
+  },
+  "wacker neuson": {
+    "kununu": {
+      "score": 3.8,
+      "reviews": 0
+    },
+    "fetchedAt": "2026-05-04T09:25:08.310Z"
   }
 }
