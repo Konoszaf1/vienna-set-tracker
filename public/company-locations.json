@@ -323,5 +323,10 @@
     "lat": 48.1553427,
     "lng": 16.423696,
     "address": "Speditionsstraße, 1110, Katastralgemeinde Simmering"
+  },
+  "nan": {
+    "lat": null,
+    "lng": null,
+    "address": null
   }
 }
