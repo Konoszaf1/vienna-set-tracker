@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-05T09:10:21.067692+00:00",
-  "count": 36,
+  "lastUpdated": "2026-05-06T09:27:13.618259+00:00",
+  "count": 38,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -40,12 +40,27 @@
         "Postman",
         "Xray",
         "Jira",
-        "Confluence",
-        "Agile"
+        "Confluence"
       ],
       "langReq": "de-fluent",
       "lat": 48.2251975,
       "lng": 16.3559533
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7796102",
+      "title": "Test Automation Engineer (w/m/d) Professional",
+      "company": "Bundesrechenzentrum GmbH",
+      "source": "Test Automation Wien",
+      "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Selenium",
+        "Java"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2087649,
+      "lng": 16.385966
     },
     {
       "url": "https://www.karriere.at/jobs/7749476",
@@ -147,6 +162,25 @@
       "lng": null
     },
     {
+      "url": "https://www.karriere.at/jobs/10018865",
+      "title": "Senior QA Automation Engineer (m/w/d)",
+      "company": "3-S-IT Dienstleistungen GmbH",
+      "source": "Test Automation Wien",
+      "address": "Leopoldstadt, 1020 Wien",
+      "city": "Wien",
+      "zip": "1020",
+      "techStack": [
+        "Playwright",
+        "BDD",
+        "Xray",
+        "TypeScript",
+        "CI/CD"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2006384,
+      "lng": 16.4268953
+    },
+    {
       "url": "https://www.karriere.at/jobs/7595456",
       "title": "Software Test Engineer (all genders)",
       "company": "MELECS EWS GmbH",
@@ -162,6 +196,29 @@
       "langReq": "de-fluent",
       "lat": 48.203565,
       "lng": 16.4352268
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7794788",
+      "title": "Senior Software Test Engineer (m/w/d)",
+      "company": "IVM Technical Consultants",
+      "source": "Test Automation Wien",
+      "address": "Schönbrunner Allee 1-5, 2331 Vösendorf, Niederösterreich",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "ISTQB",
+        "TypeScript",
+        "C#",
+        ".NET",
+        "CI/CD",
+        "Azure DevOps",
+        "Jira",
+        "Git"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.1345908,
+      "lng": 16.3256384
     },
     {
       "url": "https://www.karriere.at/jobs/10015248",
@@ -195,9 +252,7 @@
       "address": "Schönbrunner Allee 1-5, 2331 Vösendorf, Niederösterreich",
       "city": "Wien",
       "zip": null,
-      "techStack": [
-        "Scrum"
-      ],
+      "techStack": [],
       "langReq": "de-fluent",
       "lat": 48.1345908,
       "lng": 16.3256384
@@ -271,19 +326,6 @@
       "langReq": "de-fluent",
       "lat": 48.1639426,
       "lng": 16.3342088
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7724918",
-      "title": "System Test Engineer (all genders)",
-      "company": "MELECS EWS GmbH",
-      "source": "Software Tester Wien",
-      "address": "Handelskai, 388, 1020, KG Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [],
-      "langReq": "de-fluent",
-      "lat": 48.203565,
-      "lng": 16.4352268
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=2f38ac741fc7605b",
@@ -554,13 +596,13 @@
     }
   ],
   "validation": {
-    "accepted": 15,
-    "rejected": 34,
+    "accepted": 16,
+    "rejected": 30,
     "reasons": {
       "management-role": 2,
-      "not-sdet-role": 30,
-      "non-software-domain": 2
+      "not-sdet-role": 27,
+      "non-software-domain": 1
     }
   },
-  "lastVerified": "2026-05-05T09:10:38.006Z"
+  "lastVerified": "2026-05-06T09:27:34.619Z"
 }

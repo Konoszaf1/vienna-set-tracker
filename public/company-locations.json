@@ -328,5 +328,10 @@
     "lat": null,
     "lng": null,
     "address": null
+  },
+  "bundesrechenzentrum gmbh": {
+    "lat": 48.2087649,
+    "lng": 16.385966,
+    "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße"
   }
 }
