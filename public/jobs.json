@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-06T09:27:13.618259+00:00",
-  "count": 38,
+  "lastUpdated": "2026-05-07T09:36:54.698327+00:00",
+  "count": 40,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -56,7 +56,8 @@
       "zip": null,
       "techStack": [
         "Selenium",
-        "Java"
+        "Java",
+        "PHP"
       ],
       "langReq": "de-fluent",
       "lat": 48.2087649,
@@ -97,7 +98,8 @@
       "zip": null,
       "techStack": [
         "Java",
-        "C#"
+        "C#",
+        "PHP"
       ],
       "langReq": "de-basic",
       "lat": 48.1867515,
@@ -124,6 +126,7 @@
         "TypeScript",
         "JavaScript",
         "C#",
+        "PHP",
         "React",
         "Angular",
         "CI/CD",
@@ -150,6 +153,7 @@
         "Cucumber",
         "BDD",
         "TypeScript",
+        "PHP",
         "SQL",
         "Docker",
         "Kubernetes",
@@ -190,8 +194,7 @@
       "zip": null,
       "techStack": [
         "CI/CD",
-        "Git",
-        "Agile"
+        "Git"
       ],
       "langReq": "de-fluent",
       "lat": 48.203565,
@@ -221,30 +224,6 @@
       "lng": 16.3256384
     },
     {
-      "url": "https://www.karriere.at/jobs/10015248",
-      "title": "QA Engineer / Software Tester (all genders)",
-      "company": "AUSTRIACARD",
-      "source": "QA Engineer Wien",
-      "address": "Liesing, 1230 Wien",
-      "city": "Wien",
-      "zip": "1230",
-      "techStack": [
-        "Playwright",
-        "Cypress",
-        "Postman",
-        "ISTQB",
-        "Python",
-        "TypeScript",
-        "JavaScript",
-        "SQL",
-        "Agile",
-        "Scrum"
-      ],
-      "langReq": "en",
-      "lat": 48.1411061,
-      "lng": 16.2939161
-    },
-    {
       "url": "https://www.karriere.at/jobs/7794794",
       "title": "Junior QA Engineer (m/w/d)",
       "company": "IVM Technical Consultants",
@@ -256,6 +235,27 @@
       "langReq": "de-fluent",
       "lat": 48.1345908,
       "lng": 16.3256384
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10016992",
+      "title": "Software Test Engineer (f/m/d)",
+      "company": "Scientific Games International GmbH",
+      "source": "Software Tester Wien",
+      "address": "Klitschgasse, 4, 1130, Hietzing",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "ISTQB",
+        "SQL",
+        "Docker",
+        "Jenkins",
+        "Jira",
+        "Agile",
+        "Scrum"
+      ],
+      "langReq": "en",
+      "lat": 48.1669135,
+      "lng": 16.2851061
     },
     {
       "url": "https://www.karriere.at/jobs/10016390",
@@ -277,6 +277,19 @@
       "langReq": "de-fluent",
       "lat": 48.1719649,
       "lng": 16.3286908
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7724918",
+      "title": "System Test Engineer (all genders)",
+      "company": "MELECS EWS GmbH",
+      "source": "Software Tester Wien",
+      "address": "Handelskai, 388, 1020, KG Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [],
+      "langReq": "de-fluent",
+      "lat": 48.203565,
+      "lng": 16.4352268
     },
     {
       "url": "https://www.karriere.at/jobs/7784576",
@@ -315,7 +328,7 @@
       "url": "https://www.karriere.at/jobs/7791854",
       "title": "System Test Engineer (all genders)",
       "company": "FREQUENTIS AG",
-      "source": "Software Tester Wien",
+      "source": "Testautomatisierung Wien",
       "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
@@ -350,18 +363,6 @@
       "lng": 16.5061687
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4408624945",
-      "title": "Quality Assurance Engineer",
-      "company": "ENPULSION",
-      "source": "jobspy-linkedin",
-      "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich",
-      "city": "Wien",
-      "zip": null,
-      "lat": 47.8370619,
-      "lng": 16.2530127,
-      "kununuScore": 3
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4291933969",
       "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
       "company": "PKE Holding AG",
@@ -393,17 +394,6 @@
       "zip": null,
       "lat": 48.2117568,
       "lng": 16.3728768
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4308973953",
-      "title": "Software Quality Engineer",
-      "company": "Ketryx",
-      "source": "jobspy-linkedin",
-      "address": "Webgasse 43, 1060 Wien, Mariahilf",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1961044,
-      "lng": 16.3443488
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4370503347",
@@ -440,6 +430,17 @@
       "kununuScore": 4.7
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4410469493",
+      "title": "Senior QA Automation Engineer @ 3-S-IT Dienstleistungen GmbH",
+      "company": "DEVjobs",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4384883437",
       "title": "Software Test Engineer (m/w/d)",
       "company": "T-Systems Austria",
@@ -460,6 +461,18 @@
       "zip": null,
       "lat": 48.1822872,
       "lng": 16.3923295
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4408624945",
+      "title": "Quality Assurance Engineer",
+      "company": "ENPULSION",
+      "source": "jobspy-linkedin",
+      "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich",
+      "city": "Wien",
+      "zip": null,
+      "lat": 47.8370619,
+      "lng": 16.2530127,
+      "kununuScore": 3
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4408647231",
@@ -540,6 +553,17 @@
       "lng": 16.332828
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4410472405",
+      "title": "Software Tester",
+      "company": "FB Consulting & Trade GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4406704008",
       "title": "AI Automation Engineer",
       "company": "nyra health",
@@ -596,13 +620,13 @@
     }
   ],
   "validation": {
-    "accepted": 16,
-    "rejected": 30,
+    "accepted": 17,
+    "rejected": 32,
     "reasons": {
+      "not-sdet-role": 29,
       "management-role": 2,
-      "not-sdet-role": 27,
       "non-software-domain": 1
     }
   },
-  "lastVerified": "2026-05-06T09:27:34.619Z"
+  "lastVerified": "2026-05-07T09:37:17.712Z"
 }
