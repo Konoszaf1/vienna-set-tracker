@@ -26,5 +26,9 @@
   "vienna, vienna": {
     "lat": 48.1857192,
     "lng": 16.4221587
+  },
+  "leopoldstadt, vienna": {
+    "lat": 48.2006384,
+    "lng": 16.4268953
   }
 }
