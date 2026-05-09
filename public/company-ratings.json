@@ -58,7 +58,7 @@
       "score": 4,
       "reviews": 0
     },
-    "fetchedAt": "2026-04-13T14:28:54.852Z"
+    "fetchedAt": "2026-05-09T08:31:16.057Z"
   },
   "evva sicherheitstechnologie": {
     "kununu": {
@@ -327,14 +327,14 @@
       "score": 4.7,
       "reviews": 0
     },
-    "fetchedAt": "2026-04-25T08:08:57.865Z"
+    "fetchedAt": "2026-05-09T08:31:18.525Z"
   },
   "jarosch haas": {
     "kununu": {
       "score": 3.4,
       "reviews": 0
     },
-    "fetchedAt": "2026-04-25T08:09:00.230Z"
+    "fetchedAt": "2026-05-09T08:31:23.864Z"
   },
   "agfa healthcare": {
     "kununu": null,
@@ -370,5 +370,9 @@
   "fb consulting trade": {
     "kununu": null,
     "fetchedAt": "2026-05-07T09:37:01.023Z"
+  },
+  "reasunta technology": {
+    "kununu": null,
+    "fetchedAt": "2026-05-09T08:31:21.143Z"
   }
 }
