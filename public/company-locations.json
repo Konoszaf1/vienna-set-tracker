@@ -343,5 +343,10 @@
     "lat": null,
     "lng": null,
     "address": null
+  },
+  "isi group": {
+    "lat": null,
+    "lng": null,
+    "address": null
   }
 }
