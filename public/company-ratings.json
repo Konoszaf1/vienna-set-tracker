@@ -289,7 +289,7 @@
   },
   "emtensor": {
     "kununu": null,
-    "fetchedAt": "2026-04-29T09:12:53.764Z"
+    "fetchedAt": "2026-05-13T09:49:22.096Z"
   },
   "trayport": {
     "kununu": null,
@@ -342,7 +342,7 @@
   },
   "agfa": {
     "kununu": null,
-    "fetchedAt": "2026-04-29T09:12:55.773Z"
+    "fetchedAt": "2026-05-13T09:49:26.109Z"
   },
   "greentube": {
     "kununu": null,
@@ -382,5 +382,9 @@
   "steiner hitech": {
     "kununu": null,
     "fetchedAt": "2026-05-12T09:45:23.233Z"
+  },
+  "fluidtime data services": {
+    "kununu": null,
+    "fetchedAt": "2026-05-13T09:49:24.104Z"
   }
 }

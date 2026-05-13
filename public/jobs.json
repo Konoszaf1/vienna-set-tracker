@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-12T09:45:16.913911+00:00",
-  "count": 39,
+  "lastUpdated": "2026-05-13T09:49:21.842568+00:00",
+  "count": 37,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -126,31 +126,6 @@
       "langReq": "en",
       "lat": null,
       "lng": null
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7803239",
-      "title": "Test Automation Engineer (w/m/d)",
-      "company": "SOFTCOM CONSULTING GmbH",
-      "source": "Test Automation Wien",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Selenium",
-        "JUnit",
-        "TestNG",
-        "ISTQB",
-        "Java",
-        "SQL",
-        "React",
-        "Angular",
-        "REST APIs",
-        "SOAP"
-      ],
-      "langReq": "de-basic",
-      "lat": null,
-      "lng": null,
-      "kununuScore": 4
     },
     {
       "url": "https://www.karriere.at/jobs/7796102",
@@ -284,69 +259,6 @@
       "lng": 16.3256384
     },
     {
-      "url": "https://www.karriere.at/jobs/10016390",
-      "title": "Software Tester Field Service Management (m/w/d)",
-      "company": "Kontron AG",
-      "source": "Software Tester Wien",
-      "address": "Meidling, 1120 Wien",
-      "city": "Wien",
-      "zip": "1120",
-      "techStack": [
-        "Selenium",
-        "Appium",
-        "Tosca",
-        "JavaScript",
-        "Agile",
-        "Scrum",
-        "Swagger"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.1719649,
-      "lng": 16.3286908
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7774874",
-      "title": "Trainee System Test Engineer (all genders)",
-      "company": "FREQUENTIS AG",
-      "source": "Software Tester Wien",
-      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [],
-      "langReq": "de-fluent",
-      "lat": 48.1639426,
-      "lng": 16.3342088
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7791854",
-      "title": "System Test Engineer (all genders)",
-      "company": "FREQUENTIS AG",
-      "source": "Software Tester Wien",
-      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "ISTQB",
-        "Jira"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.1639426,
-      "lng": 16.3342088
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7724918",
-      "title": "System Test Engineer (all genders)",
-      "company": "MELECS EWS GmbH",
-      "source": "Software Tester Wien",
-      "address": "Handelskai, 388, 1020, KG Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [],
-      "langReq": "de-fluent",
-      "lat": 48.203565,
-      "lng": 16.4352268
-    },
-    {
       "url": "https://at.indeed.com/viewjob?jk=2f38ac741fc7605b",
       "title": "Quality Engineer",
       "company": "Trayport",
@@ -378,28 +290,6 @@
       "zip": null,
       "lat": 48.1857192,
       "lng": 16.4221587
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4410469493",
-      "title": "Senior QA Automation Engineer @ 3-S-IT Dienstleistungen GmbH",
-      "company": "DEVjobs",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4409280316",
-      "title": "Senior Consultant Test Automation Engineer (m/w/d)",
-      "company": "QESTIT DACH",
-      "source": "jobspy-linkedin",
-      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2117568,
-      "lng": 16.3728768
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4291933969",
@@ -446,16 +336,37 @@
       "lng": 16.3081784
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4403743462",
-      "title": "SENIOR TEST AUTOMATION ENGINEER  (F/M/O)",
-      "company": "Flightkeys GmbH",
+      "url": "https://www.linkedin.com/jobs/view/4413552498",
+      "title": "QA Engineer",
+      "company": "Bybit EU",
       "source": "jobspy-linkedin",
-      "address": "Herrengasse, 2-4, 1010, Innere Stadt",
+      "address": "Donau-City-Straße 7, 1220 Wien, Donaustadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.2084441,
-      "lng": 16.3665691,
-      "kununuScore": 4.7
+      "lat": 48.2319522,
+      "lng": 16.4137062
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4413876059",
+      "title": "QA Automation Engineer @ 3-S-IT Dienstleistungen GmbH",
+      "company": "DEVjobs",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4410186273",
+      "title": "Senior Consultant Test Automation Engineer (m/w/d)",
+      "company": "QESTIT DACH",
+      "source": "jobspy-linkedin",
+      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2117568,
+      "lng": 16.3728768
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4384883437",
@@ -467,6 +378,17 @@
       "zip": null,
       "lat": 48.1867515,
       "lng": 16.4032705
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=cbff00885972fe85",
+      "title": "Quality Assurance Engineer | (w/m/d)",
+      "company": "Fluidtime Data Services GmbH",
+      "source": "jobspy-indeed",
+      "address": "Neubaugasse, 12-14/25, 1070, Neubau",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1993835,
+      "lng": 16.3501252
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=5d343fa1278b41b0",
@@ -519,6 +441,17 @@
       "company": "FREQUENTIS COMSOFT GmbH",
       "source": "jobspy-indeed",
       "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1639426,
+      "lng": 16.3342088
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4395017784",
+      "title": "System Test Engineer Trainee Program (all genders)",
+      "company": "Frequentis",
+      "source": "jobspy-linkedin",
+      "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
       "lat": 48.1639426,
@@ -590,6 +523,17 @@
       "zip": null,
       "lat": 48.2135962,
       "lng": 16.3766853
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4408783257",
+      "title": "Senior Test Engineer - Software & Hardware (all genders) - DE",
+      "company": "Frequentis",
+      "source": "jobspy-linkedin",
+      "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1639426,
+      "lng": 16.3342088
     }
   ],
   "searchLinks": [
@@ -615,13 +559,13 @@
     }
   ],
   "validation": {
-    "accepted": 17,
-    "rejected": 31,
+    "accepted": 13,
+    "rejected": 29,
     "reasons": {
       "management-role": 2,
-      "not-sdet-role": 28,
-      "non-software-domain": 1
+      "not-sdet-role": 25,
+      "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-05-12T09:46:10.217Z"
+  "lastVerified": "2026-05-13T09:49:40.152Z"
 }
