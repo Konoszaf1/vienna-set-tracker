@@ -95,7 +95,7 @@
   },
   "bev bundesamt für eich und vermessungswesen": {
     "kununu": null,
-    "fetchedAt": "2026-04-28T09:26:28.183Z"
+    "fetchedAt": "2026-05-14T09:38:09.861Z"
   },
   "kapsch trafficcom": {
     "kununu": {
@@ -293,7 +293,7 @@
   },
   "trayport": {
     "kununu": null,
-    "fetchedAt": "2026-04-30T09:15:03.755Z"
+    "fetchedAt": "2026-05-14T09:38:11.872Z"
   },
   "devjobs": {
     "kununu": null,
@@ -346,7 +346,7 @@
   },
   "greentube": {
     "kununu": null,
-    "fetchedAt": "2026-04-30T09:15:01.742Z"
+    "fetchedAt": "2026-05-14T09:38:07.847Z"
   },
   "wacker neuson": {
     "kununu": {
@@ -386,5 +386,13 @@
   "fluidtime data services": {
     "kununu": null,
     "fetchedAt": "2026-05-13T09:49:24.104Z"
+  },
+  "consourcive": {
+    "kununu": null,
+    "fetchedAt": "2026-05-14T09:38:13.883Z"
+  },
+  "bairesdev": {
+    "kununu": null,
+    "fetchedAt": "2026-05-14T09:38:15.893Z"
   }
 }

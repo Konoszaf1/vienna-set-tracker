@@ -358,5 +358,15 @@
     "lat": 48.1993835,
     "lng": 16.3501252,
     "address": "Neubaugasse, 12-14/25, 1070, Neubau"
+  },
+  "consourcive": {
+    "lat": null,
+    "lng": null,
+    "address": null
+  },
+  "bairesdev": {
+    "lat": null,
+    "lng": null,
+    "address": null
   }
 }
