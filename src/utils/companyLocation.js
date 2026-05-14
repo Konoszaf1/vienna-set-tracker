@@ -1,3 +1,5 @@
+import { normalizeCompanyName } from "./normalizeCompany.js";
+
 // Coordinates that the upstream job sources return when they only know
 // "Vienna" — they geocode the city itself, not an office. Treat these as
 // "no real location" so we prefer any role with a more specific coord.
@@ -18,11 +20,27 @@ export function isGenericViennaCoord(lat, lng) {
 
 function cacheLookup(cache, name) {
   if (!cache || !name) return null;
-  const key = name.toLowerCase().trim();
-  const hit = cache[key];
-  if (hit && hit.lat != null && hit.lng != null) {
-    return { lat: hit.lat, lng: hit.lng, address: hit.address || null };
+  const keys = [
+    name.toLowerCase().trim(),
+    normalizeCompanyName(name),
+  ].filter(Boolean);
+
+  for (const key of [...new Set(keys)]) {
+    const hit = cache[key];
+    if (hit && hit.lat != null && hit.lng != null) {
+      return { lat: hit.lat, lng: hit.lng, address: hit.address || null };
+    }
   }
+
+  const normalized = normalizeCompanyName(name);
+  if (normalized) {
+    for (const [cacheKey, hit] of Object.entries(cache)) {
+      if (normalizeCompanyName(cacheKey) === normalized && hit?.lat != null && hit?.lng != null) {
+        return { lat: hit.lat, lng: hit.lng, address: hit.address || null };
+      }
+    }
+  }
+
   return null;
 }
 

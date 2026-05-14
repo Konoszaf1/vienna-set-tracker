@@ -44,6 +44,32 @@ describe("resolveCompanyLocation", () => {
     expect(out.source).toBe("cache");
   });
 
+  it("uses normalized cache aliases when the exact entry is a miss", () => {
+    const roles = [{ company: "RINGANA GmbH", lat: null, lng: null }];
+    const cache = {
+      "ringana gmbh": { lat: null, lng: null, address: null },
+      ringana: { lat: 48.185219, lng: 16.3815469, address: "Canettistraße 5" },
+    };
+    const out = resolveCompanyLocation(roles, cache, {});
+    expect(out.lat).toBe(48.185219);
+    expect(out.address).toBe("Canettistraße 5");
+    expect(out.source).toBe("cache");
+  });
+
+  it("matches cache keys that normalize to the same company", () => {
+    const roles = [{ company: "Software Daten Service GmbH", lat: null, lng: null }];
+    const cache = {
+      "software daten service gesellschaft m.b.h.": {
+        lat: 48.1867515,
+        lng: 16.4032705,
+        address: "Rennweg 97-99",
+      },
+    };
+    const out = resolveCompanyLocation(roles, cache, {});
+    expect(out.lat).toBe(48.1867515);
+    expect(out.address).toBe("Rennweg 97-99");
+  });
+
   it("ignores cache hit with null lat", () => {
     const roles = [{ company: "Gamma", lat: 48.20, lng: 16.40, address: "RoleStreet" }];
     const cache = { gamma: { lat: null, lng: null, address: null } };

@@ -5,6 +5,7 @@ import defaultProfileData from "./data/defaultProfile.json";
 import { estimateSalary } from "./utils/salaryEstimate";
 import { normalizeCompanyName } from "./utils/normalizeCompany";
 import { resolveCompanyLocation } from "./utils/companyLocation";
+import { deriveJobCompany, isRemoteRole } from "./utils/jobCompany";
 import CompanyCard from "./components/CompanyCard";
 import MapView from "./components/MapView";
 import AnalyticsView from "./components/AnalyticsView";
@@ -87,9 +88,10 @@ export default function App() {
   const entries = useMemo(() => {
     const groups = {};
     for (const j of jobs) {
-      const key = normalizeCompanyName(j.company);
+      const role = { ...j, company: deriveJobCompany(j), sourceCompany: j.company };
+      const key = normalizeCompanyName(role.company);
       if (!groups[key]) groups[key] = [];
-      groups[key].push(j);
+      groups[key].push(role);
     }
 
     return Object.entries(groups).map(([key, roles]) => {
@@ -101,6 +103,7 @@ export default function App() {
         ? roleDates.reduce((a, b) => a < b ? a : b)
         : null;
       const techStack = [...new Set(roles.flatMap(r => r.techStack || []))];
+      const remoteOnly = roles.length > 0 && roles.every(isRemoteRole);
 
       // Pick the most common langReq across roles.
       // Ties break toward more restrictive: de-fluent > de-basic > en.
@@ -133,6 +136,7 @@ export default function App() {
         langReq,
         openRoles: roles,
         firstSeen,
+        remoteOnly,
       };
     });
   }, [jobs, firstSeenMap, locationsCache, locationOverrides]);

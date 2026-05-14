@@ -17,17 +17,23 @@ describe("normalizeCompanyName", () => {
 
   it("strips Gesellschaft", () => {
     expect(normalizeCompanyName("SV-Chipkarten Betriebs- und Errichtungsges.m.b.H."))
-      .toBe("sv chipkarten betriebs und errichtungsges.m.b.h.");
-    // Note: "ges.m.b.h." doesn't match "gesellschaft" — it's an abbreviation.
-    // The function strips "gesellschaft" as a whole word only.
+      .toBe("sv chipkarten betriebs und errichtungsges");
   });
 
   it("strips multiple suffixes", () => {
-    expect(normalizeCompanyName("Merck Gesellschaft mbH")).toBe("merck mbh");
+    expect(normalizeCompanyName("Merck Gesellschaft mbH")).toBe("merck");
   });
 
   it("handles Part of / Group names", () => {
     expect(normalizeCompanyName("XXXLdigital – Part of XXXL Group"))
-      .toBe("xxxldigital part of xxxl");
+      .toBe("xxxldigital");
+  });
+
+  it("normalizes punctuation and ampersands", () => {
+    expect(normalizeCompanyName("Jarosch & Haas GmbH")).toBe("jarosch haas");
+  });
+
+  it("strips GmbH & Co KG as one legal suffix", () => {
+    expect(normalizeCompanyName("Example GmbH & Co. KG")).toBe("example");
   });
 });

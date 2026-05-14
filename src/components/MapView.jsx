@@ -16,7 +16,11 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
   const [ready, setReady] = useState(false);
 
   const unmappedCount = useMemo(
-    () => companies.filter(c => c.lat == null || c.lng == null).length,
+    () => companies.filter(c => !c.remoteOnly && (c.lat == null || c.lng == null)).length,
+    [companies]
+  );
+  const remoteOnlyCount = useMemo(
+    () => companies.filter(c => c.remoteOnly && (c.lat == null || c.lng == null)).length,
     [companies]
   );
 
@@ -301,6 +305,11 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
           {unmappedCount > 0 && (
             <span className={styles.unmapped} title="These companies don't have a resolved office address">
               {unmappedCount} unmapped
+            </span>
+          )}
+          {remoteOnlyCount > 0 && (
+            <span className={styles.unmapped} title="Remote-only companies are not pinned to a physical office">
+              {remoteOnlyCount} remote
             </span>
           )}
         </div>

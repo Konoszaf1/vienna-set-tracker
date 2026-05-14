@@ -1,0 +1,33 @@
+{
+  "_schema": "Manual office-location overlay. Shape: { \"Company Name\": { \"lat\": 48.2, \"lng\": 16.3, \"address\": \"Street, ZIP Wien\", \"sourceUrl\": \"https://...\" } }. Values are used by the frontend before geocoded cache entries.",
+  "STEINER-HITECH GmbH": {
+    "lat": 48.1320082,
+    "lng": 16.3071715,
+    "address": "Talpagasse 1A, 1230 Wien",
+    "sourceUrl": "https://www.steiner-hitech.at/kontakt"
+  },
+  "Greentube GmbH": {
+    "lat": 48.1868108,
+    "lng": 16.3634434,
+    "address": "Wiedner Hauptstrasse 94, 1050 Wien",
+    "sourceUrl": "https://www.greentube.com/contact/"
+  },
+  "SOFTCOM CONSULTING GmbH": {
+    "lat": 48.2123002,
+    "lng": 16.3738138,
+    "address": "Marc-Aurel-Strasse 10-12/1. OG, 1010 Wien",
+    "sourceUrl": "https://softcom.digital/impressum/"
+  },
+  "3-S-IT Dienstleistungen GmbH": {
+    "lat": 48.2052416,
+    "lng": 16.432395,
+    "address": "Johann-Boehm-Platz 1, 1020 Wien",
+    "sourceUrl": "https://3-s.at/impressum/"
+  },
+  "FB Consulting & Trade GmbH": {
+    "lat": 48.1991777,
+    "lng": 16.3500903,
+    "address": "Neubaugasse 10/3a, 1070 Wien",
+    "sourceUrl": "https://firmen.wko.at/fb-consulting---trade-gmbh/wien/?firmaid=4d2b8425-fd91-436f-85e4-88969167d33e"
+  }
+}

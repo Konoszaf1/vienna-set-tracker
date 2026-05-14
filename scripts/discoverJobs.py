@@ -119,6 +119,8 @@ CORP_SUFFIXES = re.compile(
     re.IGNORECASE,
 )
 
+AGGREGATOR_COMPANIES = {"devjobs"}
+
 # Gender markers stripped from titles during dedup comparison
 GENDER_MARKERS = re.compile(
     r"\s*\(m/[wfd](/[xd])?\)\s*|\s*\(all\s+genders?\)\s*",
@@ -134,6 +136,16 @@ def normalize_company(name: str) -> str:
     """Lowercase, strip corporate suffixes, collapse whitespace."""
     result = CORP_SUFFIXES.sub("", name.lower())
     return re.sub(r"\s+", " ", result).strip()
+
+
+def derive_company(company: str, title: str) -> str:
+    """Replace job-board aggregator names with the employer embedded in the title."""
+    company = company.strip()
+    if company.lower() in AGGREGATOR_COMPANIES:
+        match = re.search(r"\s@\s(.+?)\s*$", title)
+        if match:
+            return match.group(1).strip()
+    return company
 
 
 def clean_title(title: str) -> str:
@@ -253,6 +265,7 @@ def main():
             company = str(row.get("company", "")).strip()
             location = str(row.get("location", ""))
             site = str(row.get("site", ""))
+            company = derive_company(company, title)
 
             # Basic validation
             if not url or not title or not company:
