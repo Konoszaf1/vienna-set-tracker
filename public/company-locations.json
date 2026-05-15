@@ -22,7 +22,8 @@
   "xxxldigital – part of xxxl group": {
     "lat": null,
     "lng": null,
-    "address": null
+    "address": null,
+    "lastTried": "2026-05-15T09:52:52.760Z"
   },
   "schrack technik gmbh": {
     "lat": 48.1409112,
@@ -55,9 +56,9 @@
     "address": "Schönbrunner Allee 1-5, 2331 Vösendorf, Niederösterreich"
   },
   "softcom consulting gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.2123002,
+    "lng": 16.3738138,
+    "address": "Marc-Aurel-Strasse 10-12/1. OG, 1010 Wien"
   },
   "rhi magnesita gmbh": {
     "lat": null,
@@ -72,7 +73,7 @@
   "frequentis ag": {
     "lat": 48.1639426,
     "lng": 16.3342088,
-    "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt"
+    "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt"
   },
   "bev - bundesamt für eich- und vermessungswesen": {
     "lat": 48.2188239,
@@ -195,9 +196,9 @@
     "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt"
   },
   "öbb": {
-    "lat": 48.2063799,
-    "lng": 16.3849266,
-    "address": "Landstraßer Hauptstraße, 1b/Top 201, 1030, KG Landstraße"
+    "lat": 48.2006384,
+    "lng": 16.4268953,
+    "address": "Leopoldstadt, 1020 Wien"
   },
   "frequentis comsoft gmbh": {
     "lat": 48.1639426,
@@ -222,12 +223,14 @@
   "ebcont": {
     "lat": null,
     "lng": null,
-    "address": null
+    "address": null,
+    "lastTried": "2026-05-15T09:51:53.542Z"
   },
   "hirebuddy": {
     "lat": null,
     "lng": null,
-    "address": null
+    "address": null,
+    "lastTried": "2026-05-15T09:52:11.765Z"
   },
   "raiffeisen bank international ag (rbi)": {
     "lat": 48.2581603,
@@ -315,9 +318,9 @@
     "address": "Linke Wienzeile, 236, 1150, Katastralgemeinde Sechshaus"
   },
   "greentube gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1868108,
+    "lng": 16.3634434,
+    "address": "Wiedner Hauptstrasse 94, 1050 Wien"
   },
   "wacker neuson": {
     "lat": 48.1553427,
@@ -327,7 +330,8 @@
   "nan": {
     "lat": null,
     "lng": null,
-    "address": null
+    "address": null,
+    "lastTried": "2026-05-15T09:52:25.863Z"
   },
   "bundesrechenzentrum gmbh": {
     "lat": 48.2087649,
@@ -335,14 +339,15 @@
     "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße"
   },
   "fb consulting & trade gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1991777,
+    "lng": 16.3500903,
+    "address": "Neubaugasse 10/3a, 1070 Wien"
   },
   "reasunta technology": {
     "lat": null,
     "lng": null,
-    "address": null
+    "address": null,
+    "lastTried": "2026-05-15T09:52:42.609Z"
   },
   "isi group": {
     "lat": null,
@@ -350,9 +355,9 @@
     "address": null
   },
   "steiner-hitech gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1320082,
+    "lng": 16.3071715,
+    "address": "Talpagasse 1A, 1230 Wien"
   },
   "fluidtime data services gmbh": {
     "lat": 48.1993835,
@@ -362,11 +367,143 @@
   "consourcive": {
     "lat": null,
     "lng": null,
-    "address": null
+    "address": null,
+    "lastTried": "2026-05-15T09:52:20.098Z"
   },
   "bairesdev": {
     "lat": null,
     "lng": null,
     "address": null
+  },
+  "michael page": {
+    "lat": 48.2251975,
+    "lng": 16.3559533,
+    "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund"
+  },
+  "öbb-konzern": {
+    "lat": 48.2006384,
+    "lng": 16.4268953,
+    "address": "Leopoldstadt, 1020 Wien"
+  },
+  "software daten service": {
+    "lat": 48.1867515,
+    "lng": 16.4032705,
+    "address": "Rennweg 97-99, 1030 Wien"
+  },
+  "qnit": {
+    "lat": 48.2364804,
+    "lng": 16.4133714,
+    "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt"
+  },
+  "steiner hitech": {
+    "lat": 48.1320082,
+    "lng": 16.3071715,
+    "address": "Talpagasse 1A, 1230 Wien"
+  },
+  "greentube": {
+    "lat": 48.1868108,
+    "lng": 16.3634434,
+    "address": "Wiedner Hauptstrasse 94, 1050 Wien"
+  },
+  "softcom consulting": {
+    "lat": 48.2123002,
+    "lng": 16.3738138,
+    "address": "Marc-Aurel-Strasse 10-12/1. OG, 1010 Wien"
+  },
+  "bundesrechenzentrum": {
+    "lat": 48.2087649,
+    "lng": 16.385966,
+    "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße"
+  },
+  "melecs ews": {
+    "lat": 48.203565,
+    "lng": 16.4352268,
+    "address": "Handelskai, 388, 1020, KG Leopoldstadt"
+  },
+  "3 s it dienstleistungen": {
+    "lat": 48.2006384,
+    "lng": 16.4268953,
+    "address": "Leopoldstadt, 1020 Wien"
+  },
+  "3-s-it dienstleistungen gmbh": {
+    "lat": 48.2006384,
+    "lng": 16.4268953,
+    "address": "Leopoldstadt, 1020 Wien"
+  },
+  "kontron": {
+    "lat": 48.1719649,
+    "lng": 16.3286908,
+    "address": "Meidling, 1120 Wien"
+  },
+  "kontron ag": {
+    "lat": 48.1719649,
+    "lng": 16.3286908,
+    "address": "Meidling, 1120 Wien"
+  },
+  "bev bundesamt für eich und vermessungswesen": {
+    "lat": 48.2188239,
+    "lng": 16.3730485,
+    "address": "Franz-Hochedlinger-Gasse, 1020, KG Leopoldstadt"
+  },
+  "roche in österreich": {
+    "lat": 48.2131934,
+    "lng": 16.367351,
+    "address": "Wipplingerstraße, 27, 1010, Innere Stadt"
+  },
+  "t systems": {
+    "lat": 48.1867515,
+    "lng": 16.4032705,
+    "address": "Rennweg 97-99, 1030 Wien, Landstraße"
+  },
+  "t-systems austria gesmbh": {
+    "lat": 48.1867515,
+    "lng": 16.4032705,
+    "address": "Rennweg 97-99, 1030 Wien, Landstraße"
+  },
+  "schrack technik": {
+    "lat": 48.1409112,
+    "lng": 16.2944131,
+    "address": "Seybelgasse, 13, 1230, KG Liesing"
+  },
+  "pke": {
+    "lat": 48.1591557,
+    "lng": 16.3401205,
+    "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt"
+  },
+  "bybit": {
+    "lat": 48.2319522,
+    "lng": 16.4137062,
+    "address": "Donau-City-Straße 7, 1220 Wien, Donaustadt"
+  },
+  "adesso": {
+    "lat": 48.1833424,
+    "lng": 16.4142072,
+    "address": "Modecenterstraße 17, 1110 Wien, Simmering"
+  },
+  "fluidtime data services": {
+    "lat": 48.1993835,
+    "lng": 16.3501252,
+    "address": "Neubaugasse, 12-14/25, 1070, Neubau"
+  },
+  "frequentis comsoft": {
+    "lat": 48.1639426,
+    "lng": 16.3342088,
+    "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt"
+  },
+  "jarosch haas": {
+    "lat": 48.2117847,
+    "lng": 16.375957,
+    "address": "Rotenturmstraße, 29, 1010, Innere Stadt"
+  },
+  "fb consulting trade": {
+    "lat": 48.1991777,
+    "lng": 16.3500903,
+    "address": "Neubaugasse 10/3a, 1070 Wien"
+  },
+  "xxxldigital": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-05-15T09:52:52.760Z"
   }
 }

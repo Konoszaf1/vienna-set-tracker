@@ -28,7 +28,7 @@
   },
   "schrack technik": {
     "kununu": null,
-    "fetchedAt": "2026-04-28T09:26:18.148Z"
+    "fetchedAt": "2026-05-15T09:51:37.919Z"
   },
   "österreichische post": {
     "kununu": {
@@ -244,14 +244,11 @@
   },
   "nyra health": {
     "kununu": null,
-    "fetchedAt": "2026-05-01T09:04:58.454Z"
+    "fetchedAt": "2026-05-15T09:51:41.932Z"
   },
   "xxxlutz": {
-    "kununu": {
-      "score": 3.9,
-      "reviews": 0
-    },
-    "fetchedAt": "2026-04-13T14:30:11.823Z"
+    "kununu": null,
+    "fetchedAt": "2026-05-15T09:51:39.925Z"
   },
   "ibm": {
     "kununu": null,
@@ -267,7 +264,7 @@
   },
   "hirebuddy": {
     "kununu": null,
-    "fetchedAt": "2026-04-28T09:26:32.196Z"
+    "fetchedAt": "2026-05-15T09:51:35.913Z"
   },
   "raiffeisen bank rbi": {
     "kununu": null,
@@ -394,5 +391,13 @@
   "bairesdev": {
     "kununu": null,
     "fetchedAt": "2026-05-14T09:38:15.893Z"
+  },
+  "roche in österreich": {
+    "kununu": null,
+    "fetchedAt": "2026-05-15T09:51:31.897Z"
+  },
+  "t systems gesmbh": {
+    "kununu": null,
+    "fetchedAt": "2026-05-15T09:51:33.905Z"
   }
 }
