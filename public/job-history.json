@@ -1,0 +1,21 @@
+{
+  "snapshots": [
+    {
+      "date": "2026-05-14",
+      "activeJobs": 44,
+      "activeCompanies": 39,
+      "sourceLastUpdated": "2026-05-14T09:38:07.501470+00:00",
+      "sourceLastVerified": "2026-05-14T09:38:38.602Z",
+      "recordedAt": "2026-05-15T20:19:31.264Z"
+    },
+    {
+      "date": "2026-05-15",
+      "activeJobs": 44,
+      "activeCompanies": 40,
+      "sourceLastUpdated": "2026-05-15T09:51:31.620944+00:00",
+      "sourceLastVerified": "2026-05-15T09:53:05.045Z",
+      "recordedAt": "2026-05-15T20:34:10.979Z"
+    }
+  ],
+  "lastUpdated": "2026-05-15T20:34:10.979Z"
+}

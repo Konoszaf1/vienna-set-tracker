@@ -20,6 +20,15 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run test:coverage
+
+      - name: Upload coverage
+        if: always()
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/lcov.info
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
       - run: npm run build
 
       - name: Cache Playwright browsers

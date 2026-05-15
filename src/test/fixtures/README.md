@@ -34,9 +34,14 @@ Hand-crafted representative payload used by both vitest (via MSW) and Playwright
 
 **10 jobs → 8 companies** after normalization.
 
+## job-history.sample.json
+
+Small active-listing snapshot series used by analytics tests and e2e routing. It mirrors `public/job-history.json` and should stay aligned with `jobs.sample.json`'s current active count.
+
 ### How to update
 
 1. Edit `jobs.sample.json` — keep the mix of scenarios above.
-2. Update this table if you add a new scenario.
-3. Run `npm test` and `npm run e2e` to verify nothing broke.
-4. Avoid adding more than ~15 jobs — the fixture should stay small and readable.
+2. Update `job-history.sample.json` if the active job count changes.
+3. Update this table if you add a new scenario.
+4. Run `npm test` and `npm run e2e` to verify nothing broke.
+5. Avoid adding more than ~15 jobs — the fixture should stay small and readable.

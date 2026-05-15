@@ -1,0 +1,29 @@
+{
+  "lastUpdated": "2026-04-13T07:05:00Z",
+  "snapshots": [
+    {
+      "date": "2026-04-11",
+      "activeJobs": 8,
+      "activeCompanies": 7,
+      "sourceLastUpdated": "2026-04-11T07:00:00Z",
+      "sourceLastVerified": "2026-04-11T07:04:00Z",
+      "recordedAt": "2026-04-11T07:05:00Z"
+    },
+    {
+      "date": "2026-04-12",
+      "activeJobs": 9,
+      "activeCompanies": 8,
+      "sourceLastUpdated": "2026-04-12T07:00:00Z",
+      "sourceLastVerified": "2026-04-12T07:04:00Z",
+      "recordedAt": "2026-04-12T07:05:00Z"
+    },
+    {
+      "date": "2026-04-13",
+      "activeJobs": 10,
+      "activeCompanies": 8,
+      "sourceLastUpdated": "2026-04-13T07:00:00Z",
+      "sourceLastVerified": "2026-04-13T07:04:00Z",
+      "recordedAt": "2026-04-13T07:05:00Z"
+    }
+  ]
+}

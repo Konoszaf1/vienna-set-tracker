@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import {
+  activeListingsOverTime,
   listingsOverTime,
   topEmployers,
   langReqBreakdown,
@@ -11,7 +12,16 @@ import LineChart from "./charts/LineChart";
 import BarChart from "./charts/BarChart";
 import styles from "./AnalyticsView.module.css";
 
-export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap }) {
+export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap, jobHistory, jobsMeta }) {
+  const activeSeries = useMemo(
+    () => activeListingsOverTime({
+      history: jobHistory,
+      jobs,
+      firstSeenMap,
+      currentSnapshotDate: jobsMeta?.lastVerified || jobsMeta?.lastUpdated,
+    }),
+    [jobHistory, jobs, firstSeenMap, jobsMeta]
+  );
   const timeSeries = useMemo(() => listingsOverTime(firstSeenMap), [firstSeenMap]);
   const employers = useMemo(() => topEmployers(entries, 10), [entries]);
   const langs = useMemo(() => langReqBreakdown(entries), [entries]);
@@ -19,6 +29,7 @@ export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap }
   const tech = useMemo(() => topTechStack(entries, 10), [entries]);
   const districts = useMemo(() => districtBreakdown(entries), [entries]);
 
+  const activePoints = activeSeries.points.map(p => ({ x: p.date, y: p.active }));
   const cumulativePoints = timeSeries.points.map(p => ({ x: p.date, y: p.total }));
   const newPerDayPoints = timeSeries.points.map(p => ({ name: p.date.slice(5), value: p.new }));
 
@@ -35,6 +46,10 @@ export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap }
         <Stat label="Tracked days" value={trackedDays} muted />
         <Stat label="New today" value={newToday} />
       </div>
+
+      <Section title="Active job openings over time" subtitle="Daily live listing count after 404 and expired postings are pruned">
+        <LineChart points={activePoints} ariaLabel="Active job openings over time" showArea={false} color="#10b981" />
+      </Section>
 
       <Section title="Unique listings discovered over time" subtitle={`Cumulative — based on when this browser first saw each role`}>
         <LineChart points={cumulativePoints} ariaLabel="Cumulative unique listings over time" />

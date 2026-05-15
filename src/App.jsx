@@ -20,6 +20,8 @@ export default function App() {
   const [salaryMin, setSalaryMin] = useState(null);
   const [salaryMax, setSalaryMax] = useState(null);
   const [jobs, setJobs] = useState([]);
+  const [jobsMeta, setJobsMeta] = useState({});
+  const [jobHistory, setJobHistory] = useState({ snapshots: [] });
   const [locationsCache, setLocationsCache] = useState({});
   const [locationOverrides, setLocationOverrides] = useState({});
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -45,11 +47,17 @@ export default function App() {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json();
       }),
+      fetchJson(`job-history.json?h=${h}`, { snapshots: [] }),
       fetchJson(`company-locations.json?h=${h}`, {}),
       fetchJson(`company-locations-manual.json?h=${h}`, {}),
     ])
-      .then(([jobsData, cache, manual]) => {
+      .then(([jobsData, history, cache, manual]) => {
         if (jobsData?.jobs) setJobs(jobsData.jobs);
+        setJobsMeta({
+          lastUpdated: jobsData?.lastUpdated || null,
+          lastVerified: jobsData?.lastVerified || null,
+        });
+        setJobHistory(history || { snapshots: [] });
         setLocationsCache(cache || {});
         setLocationOverrides(manual || {});
       })
@@ -274,7 +282,14 @@ export default function App() {
           <MapView companies={filtered} profile={profile} salaryMap={salaryMap} onHomeMove={handleSaveProfile} />
         )}
         {view === "analytics" && (
-          <AnalyticsView entries={entries} jobs={jobs} salaryMap={salaryMap} firstSeenMap={firstSeenMap} />
+          <AnalyticsView
+            entries={entries}
+            jobs={jobs}
+            salaryMap={salaryMap}
+            firstSeenMap={firstSeenMap}
+            jobHistory={jobHistory}
+            jobsMeta={jobsMeta}
+          />
         )}
       </div>
 

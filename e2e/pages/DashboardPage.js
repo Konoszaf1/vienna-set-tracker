@@ -1,6 +1,7 @@
 import fs from 'fs';
 
 const fixture = JSON.parse(fs.readFileSync('src/test/fixtures/jobs.sample.json', 'utf-8'));
+const historyFixture = JSON.parse(fs.readFileSync('src/test/fixtures/job-history.sample.json', 'utf-8'));
 
 export class DashboardPage {
   constructor(page) {
@@ -31,6 +32,12 @@ export class DashboardPage {
       route.fulfill({
         contentType: 'application/json',
         body: JSON.stringify(fixture),
+      });
+    });
+    await this.page.route('**/job-history.json*', route => {
+      route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify(historyFixture),
       });
     });
     // Empty location overrides keep tests deterministic — the fixture

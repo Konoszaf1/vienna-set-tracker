@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import styles from "./Charts.module.css";
 
 const PAD = { top: 16, right: 16, bottom: 28, left: 36 };
@@ -12,8 +12,9 @@ const VB_H = 220;
  * categorical labels (one per point, thinned for legibility); the y-axis
  * renders 0…max with a couple of gridlines.
  */
-export default function LineChart({ points, ariaLabel = "Line chart", showArea = true }) {
+export default function LineChart({ points, ariaLabel = "Line chart", showArea = true, color = "#6366f1" }) {
   const [hover, setHover] = useState(null);
+  const gradientId = `line-area-${useId().replace(/:/g, "")}`;
 
   const { path, areaPath, scaledPoints, ticks, xLabels } = useMemo(() => {
     if (!points || points.length === 0) {
@@ -58,9 +59,9 @@ export default function LineChart({ points, ariaLabel = "Line chart", showArea =
   return (
     <svg className={styles.svg} viewBox={`0 0 ${VB_W} ${VB_H}`} role="img" aria-label={ariaLabel}>
       <defs>
-        <linearGradient id="area-grad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#6366f1" />
-          <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+        <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={color} />
+          <stop offset="100%" stopColor={color} stopOpacity="0" />
         </linearGradient>
       </defs>
 
@@ -77,8 +78,8 @@ export default function LineChart({ points, ariaLabel = "Line chart", showArea =
         </g>
       ))}
 
-      {showArea && <path className={styles.area} d={areaPath} />}
-      <path className={styles.line} d={path} />
+      {showArea && <path className={styles.area} style={{ fill: `url(#${gradientId})` }} d={areaPath} />}
+      <path className={styles.line} style={color !== "#6366f1" ? { stroke: color } : undefined} d={path} />
 
       {scaledPoints.map((p, i) => (
         <circle
@@ -87,6 +88,7 @@ export default function LineChart({ points, ariaLabel = "Line chart", showArea =
           cx={p.sx} cy={p.sy} r={hover === i ? 4 : 2.5}
           onMouseEnter={() => setHover(i)}
           onMouseLeave={() => setHover(null)}
+          style={color !== "#6366f1" ? { stroke: color } : undefined}
         >
           <title>{`${shortDate(p.x)}: ${p.y}`}</title>
         </circle>

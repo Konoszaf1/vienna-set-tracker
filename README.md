@@ -29,6 +29,7 @@ scripts/
   discoverJobs.py       # JobSpy pipeline (LinkedIn, Indeed, Google Jobs)
   geocodeCompanies.mjs  # Nominatim geocoding for office addresses
   verify-jobs.mjs       # weekly liveness checker — prunes expired listings
+  updateJobHistory.mjs  # appends daily active-job counts after verification
   jobValidator.mjs      # URL + title validation
 src/
   App.jsx               # fetch, group by company, filter/sort, view toggle
@@ -48,6 +49,7 @@ src/
     defaultProfile.json # seed profile (home address, commute prefs)
 public/
   jobs.json             # scraped job feed (updated daily by CI)
+  job-history.json      # daily active listing snapshots for analytics
 ```
 
 ## Job validator

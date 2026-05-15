@@ -73,7 +73,7 @@ Enforced in `vitest.config.js` and checked in CI:
 | `src/components/**` | 80% | 60% | 70% | 80% |
 
 `MapView.jsx` is excluded from coverage — it requires browser Leaflet. Its logic is covered by:
-- `src/utils/mapHelpers.js` (100% coverage) — haversine, salaryColor, buildPopupHtml
+- `src/utils/mapHelpers.js` (100% coverage) — haversine, salaryColor, buildPopupHtml, computeStackingIndex, stemHeight, clusterSize, clusterAvgSalary
 - E2e tests that exercise the map view in real browsers
 
 ## Browser matrix
@@ -88,7 +88,7 @@ Playwright runs against 5 projects:
 | mobile-chromium | Pixel 5 |
 | mobile-webkit | iPhone 13 |
 
-CI splits these into parallel jobs: `e2e-desktop` and `e2e-mobile`.
+All five browser projects run in a single CI job. To run a specific project locally, use `--project`.
 
 ## Adding tests
 

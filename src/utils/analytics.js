@@ -53,6 +53,97 @@ export function listingsOverTime(firstSeenMap) {
   return { points, totalUnique: total };
 }
 
+function snapshotPointsFromHistory(history, currentJobs, currentSnapshotDate) {
+  const snapshots = Array.isArray(history)
+    ? history
+    : Array.isArray(history?.snapshots)
+      ? history.snapshots
+      : [];
+
+  const byDate = new Map();
+  for (const s of snapshots) {
+    const k = dayKey(s?.date);
+    const activeJobs = Number(s?.activeJobs);
+    if (!k || !Number.isFinite(activeJobs) || activeJobs < 0) continue;
+    byDate.set(k, Math.round(activeJobs));
+  }
+
+  if (byDate.size === 0) return [];
+
+  const currentDate = dayKey(currentSnapshotDate);
+  if (currentDate && Array.isArray(currentJobs)) {
+    byDate.set(currentDate, currentJobs.length);
+  }
+
+  const days = [...byDate.keys()].sort();
+  const start = new Date(days[0]);
+  const end = new Date(days[days.length - 1]);
+  const points = [];
+  let lastValue = 0;
+
+  for (let t = start.getTime(); t <= end.getTime(); t += DAY_MS) {
+    const k = dayKey(new Date(t));
+    if (byDate.has(k)) lastValue = byDate.get(k);
+    points.push({ date: k, active: lastValue });
+  }
+
+  return points;
+}
+
+function snapshotPointsFromLiveListings(firstSeenMap, currentJobs, now) {
+  const liveUrls = new Set(
+    (currentJobs || [])
+      .map(j => j?.url)
+      .filter(Boolean)
+  );
+
+  if (liveUrls.size === 0) return [];
+
+  const buckets = new Map();
+  for (const url of liveUrls) {
+    const k = dayKey(firstSeenMap?.[url] || now);
+    if (!k) continue;
+    buckets.set(k, (buckets.get(k) || 0) + 1);
+  }
+
+  if (buckets.size === 0) return [];
+
+  const days = [...buckets.keys()].sort();
+  const start = new Date(days[0]);
+  const end = new Date(dayKey(now) || days[days.length - 1]);
+  const points = [];
+  let active = 0;
+
+  for (let t = start.getTime(); t <= end.getTime(); t += DAY_MS) {
+    const k = dayKey(new Date(t));
+    active += buckets.get(k) || 0;
+    points.push({ date: k, active });
+  }
+
+  return points;
+}
+
+/**
+ * Active job openings over time.
+ *
+ * Prefer persisted daily snapshots from public/job-history.json, which are
+ * written after the liveness verifier prunes 404/expired listings. If that
+ * history file does not exist yet, fall back to the browser's current live
+ * jobs plus first-seen dates, so removed jobs are not counted.
+ */
+export function activeListingsOverTime({
+  history,
+  jobs,
+  firstSeenMap,
+  now = new Date(),
+  currentSnapshotDate,
+} = {}) {
+  const historyPoints = snapshotPointsFromHistory(history, jobs, currentSnapshotDate);
+  if (historyPoints.length > 0) return { points: historyPoints };
+
+  return { points: snapshotPointsFromLiveListings(firstSeenMap, jobs, now) };
+}
+
 /**
  * Top-N employers by number of open roles (jobs in their group).
  * `entries` is the App's grouped company list.

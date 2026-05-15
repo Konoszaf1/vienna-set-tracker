@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
+  activeListingsOverTime,
   listingsOverTime,
   topEmployers,
   langReqBreakdown,
@@ -7,6 +8,53 @@ import {
   topTechStack,
   districtBreakdown,
 } from "./analytics";
+
+describe("activeListingsOverTime", () => {
+  it("uses persisted active-job snapshots and fills missing days", () => {
+    const history = {
+      snapshots: [
+        { date: "2026-04-25", activeJobs: 5 },
+        { date: "2026-04-27", activeJobs: 3 },
+      ],
+    };
+    const jobs = [{ url: "a" }, { url: "b" }, { url: "c" }, { url: "d" }];
+
+    expect(activeListingsOverTime({
+      history,
+      jobs,
+      currentSnapshotDate: "2026-04-28T09:00:00Z",
+    }).points).toEqual([
+      { date: "2026-04-25", active: 5 },
+      { date: "2026-04-26", active: 5 },
+      { date: "2026-04-27", active: 3 },
+      { date: "2026-04-28", active: 4 },
+    ]);
+  });
+
+  it("falls back to currently live listings and ignores removed URLs", () => {
+    const firstSeenMap = {
+      a: "2026-04-25T10:00:00Z",
+      removed: "2026-04-26T10:00:00Z",
+      c: "2026-04-27T10:00:00Z",
+    };
+    const jobs = [{ url: "a" }, { url: "c" }];
+
+    expect(activeListingsOverTime({
+      firstSeenMap,
+      jobs,
+      now: new Date("2026-04-28T09:00:00Z"),
+    }).points).toEqual([
+      { date: "2026-04-25", active: 1 },
+      { date: "2026-04-26", active: 1 },
+      { date: "2026-04-27", active: 2 },
+      { date: "2026-04-28", active: 2 },
+    ]);
+  });
+
+  it("returns no points when there are no jobs or snapshots", () => {
+    expect(activeListingsOverTime({ jobs: [], firstSeenMap: {} }).points).toEqual([]);
+  });
+});
 
 describe("listingsOverTime", () => {
   it("returns empty for empty map", () => {

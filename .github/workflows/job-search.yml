@@ -57,12 +57,15 @@ jobs:
       - name: Prune dead scraped jobs
         run: node scripts/verify-jobs.mjs
 
+      - name: Update active jobs history
+        run: node scripts/updateJobHistory.mjs
+
       # --- commit & deploy ---
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/jobs.json public/geocoding-cache.json public/company-locations.json public/company-ratings.json
+          git add public/jobs.json public/job-history.json public/geocoding-cache.json public/company-locations.json public/company-ratings.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
