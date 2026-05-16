@@ -350,9 +350,9 @@
     "lastTried": "2026-05-15T09:52:42.609Z"
   },
   "isi group": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.263822,
+    "lng": 16.4494167,
+    "address": "Kürschnergasse, 1210, Katastralgemeinde Leopoldau"
   },
   "steiner-hitech gmbh": {
     "lat": 48.1320082,
@@ -505,5 +505,10 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-05-15T09:52:52.760Z"
+  },
+  "isi": {
+    "lat": 48.263822,
+    "lng": 16.4494167,
+    "address": "Kürschnergasse, 1210, Katastralgemeinde Leopoldau"
   }
 }
