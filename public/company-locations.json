@@ -510,5 +510,10 @@
     "lat": 48.263822,
     "lng": 16.4494167,
     "address": "Kürschnergasse, 1210, Katastralgemeinde Leopoldau"
+  },
+  "aaa global": {
+    "lat": 48.1914062,
+    "lng": 16.3515998,
+    "address": "Mollardgasse 70C/5, 1060 Wien"
   }
 }

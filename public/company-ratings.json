@@ -199,11 +199,8 @@
     "fetchedAt": "2026-04-13T14:29:49.249Z"
   },
   "enpulsion": {
-    "kununu": {
-      "score": 3,
-      "reviews": 0
-    },
-    "fetchedAt": "2026-05-04T09:25:10.924Z"
+    "kununu": null,
+    "fetchedAt": "2026-05-18T11:10:21.799Z"
   },
   "akkodis": {
     "kununu": {
@@ -214,7 +211,7 @@
   },
   "bybit eu": {
     "kununu": null,
-    "fetchedAt": "2026-05-04T09:25:13.617Z"
+    "fetchedAt": "2026-05-18T11:10:17.784Z"
   },
   "raiffeisen it": {
     "kununu": null,
@@ -399,5 +396,9 @@
   "t systems gesmbh": {
     "kununu": null,
     "fetchedAt": "2026-05-15T09:51:33.905Z"
+  },
+  "aaa global": {
+    "kununu": null,
+    "fetchedAt": "2026-05-18T11:10:19.792Z"
   }
 }
