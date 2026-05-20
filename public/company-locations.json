@@ -520,5 +520,10 @@
     "lat": 48.1619354,
     "lng": 16.3107841,
     "address": "Stachegasse, 13, 1120, Katastralgemeinde Hetzendorf"
+  },
+  "andamp": {
+    "lat": 48.2222714,
+    "lng": 16.3546726,
+    "address": "Währinger Straße, 48/2. Hof, 1090, Thurygrund"
   }
 }

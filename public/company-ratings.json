@@ -24,7 +24,7 @@
   },
   "xxxldigital part of xxxl": {
     "kununu": null,
-    "fetchedAt": "2026-05-06T09:27:17.953Z"
+    "fetchedAt": "2026-05-20T10:28:29.526Z"
   },
   "schrack technik": {
     "kununu": null,
@@ -355,11 +355,11 @@
   },
   "bundesrechenzentrum": {
     "kununu": null,
-    "fetchedAt": "2026-05-06T09:27:13.936Z"
+    "fetchedAt": "2026-05-20T10:28:23.455Z"
   },
   "3 s it dienstleistungen": {
     "kununu": null,
-    "fetchedAt": "2026-05-06T09:27:15.946Z"
+    "fetchedAt": "2026-05-20T10:28:25.481Z"
   },
   "fb consulting trade": {
     "kununu": null,
@@ -404,5 +404,9 @@
   "beyond gravity": {
     "kununu": null,
     "fetchedAt": "2026-05-19T10:40:32.126Z"
+  },
+  "andamp": {
+    "kununu": null,
+    "fetchedAt": "2026-05-20T10:28:27.503Z"
   }
 }
