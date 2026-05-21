@@ -221,3 +221,150 @@ export function districtBreakdown(entries) {
     .map(([name, value]) => ({ name, value }))
     .sort((a, b) => b.value - a.value);
 }
+
+function getMonday(date) {
+  const d = new Date(date);
+  const day = d.getDay();
+  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+  return new Date(d.getFullYear(), d.getMonth(), diff);
+}
+
+function formatWeekRange(monday) {
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
+
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const startMonth = months[monday.getMonth()];
+  const endMonth = months[sunday.getMonth()];
+  const startDay = monday.getDate();
+  const endDay = sunday.getDate();
+
+  if (startMonth === endMonth) {
+    return `${startMonth} ${startDay}–${endDay}`;
+  } else {
+    return `${startMonth} ${startDay}–${endMonth} ${endDay}`;
+  }
+}
+
+export function weeklyNewListings(firstSeenMap) {
+  const buckets = new Map();
+  for (const ts of Object.values(firstSeenMap || {})) {
+    const d = new Date(ts);
+    if (Number.isNaN(d.getTime())) continue;
+    const monday = getMonday(d);
+    const key = monday.getTime();
+    buckets.set(key, (buckets.get(key) || 0) + 1);
+  }
+
+  if (buckets.size === 0) return [];
+
+  const mondays = [...buckets.keys()].sort((a, b) => a - b);
+  const start = mondays[0];
+  const end = mondays[mondays.length - 1];
+  const points = [];
+
+  let current = new Date(start);
+  const endDate = new Date(end);
+  while (current.getTime() <= endDate.getTime()) {
+    const key = current.getTime();
+    const val = buckets.get(key) || 0;
+    points.push({
+      name: formatWeekRange(current),
+      value: val
+    });
+    current = new Date(current.getFullYear(), current.getMonth(), current.getDate() + 7);
+  }
+  return points;
+}
+
+export function sourceBreakdown(jobs) {
+  const counts = new Map();
+  for (const j of jobs || []) {
+    if (!j?.url) continue;
+    let name = "Other";
+    try {
+      const u = new globalThis.URL(j.url);
+      const host = u.hostname.toLowerCase();
+      if (host.includes("karriere.at")) {
+        name = "karriere.at";
+      } else if (host.includes("linkedin.com")) {
+        name = "LinkedIn";
+      } else {
+        name = u.hostname.replace("www.", "");
+      }
+    } catch {
+      // ignore invalid URLs
+    }
+    counts.set(name, (counts.get(name) || 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([name, value]) => ({ name, value }))
+    .sort((a, b) => b.value - a.value);
+}
+
+export function marketPulse(history) {
+  const snapshots = Array.isArray(history)
+    ? history
+    : Array.isArray(history?.snapshots)
+      ? history.snapshots
+      : [];
+
+  if (snapshots.length === 0) {
+    return {
+      weekAgoJobs: null,
+      currentJobs: null,
+      jobsDelta: null,
+      weekAgoCompanies: null,
+      currentCompanies: null,
+      companiesDelta: null,
+    };
+  }
+
+  const sorted = [...snapshots].sort((a, b) => a.date.localeCompare(b.date));
+  const current = sorted[sorted.length - 1];
+
+  const currentDate = new Date(current.date);
+  const targetDate = new Date(currentDate);
+  targetDate.setDate(currentDate.getDate() - 7);
+  const targetDateStr = targetDate.toISOString().slice(0, 10);
+
+  let weekAgo = sorted.find(s => s.date === targetDateStr);
+
+  if (!weekAgo && sorted.length > 1) {
+    const targetMs = targetDate.getTime();
+    let bestDiff = Infinity;
+    for (const s of sorted) {
+      if (s === current) continue;
+      const sDate = new Date(s.date);
+      const diff = Math.abs(sDate.getTime() - targetMs);
+      if (diff < bestDiff) {
+        bestDiff = diff;
+        weekAgo = s;
+      }
+    }
+  }
+
+  if (!weekAgo) {
+    return {
+      weekAgoJobs: null,
+      currentJobs: current.activeJobs,
+      jobsDelta: null,
+      weekAgoCompanies: null,
+      currentCompanies: current.activeCompanies,
+      companiesDelta: null,
+    };
+  }
+
+  const jobsDelta = current.activeJobs - weekAgo.activeJobs;
+  const companiesDelta = current.activeCompanies - weekAgo.activeCompanies;
+
+  return {
+    weekAgoJobs: weekAgo.activeJobs,
+    currentJobs: current.activeJobs,
+    jobsDelta,
+    weekAgoCompanies: weekAgo.activeCompanies,
+    currentCompanies: current.activeCompanies,
+    companiesDelta,
+  };
+}
+

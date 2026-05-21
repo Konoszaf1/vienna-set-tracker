@@ -7,6 +7,9 @@ import {
   salaryTierBreakdown,
   topTechStack,
   districtBreakdown,
+  weeklyNewListings,
+  sourceBreakdown,
+  marketPulse,
 } from "./analytics";
 
 describe("activeListingsOverTime", () => {
@@ -205,3 +208,106 @@ describe("districtBreakdown", () => {
     expect(districtBreakdown([{}])).toEqual([{ name: "Unknown", value: 1 }]);
   });
 });
+
+describe("weeklyNewListings", () => {
+  it("returns empty for empty firstSeenMap", () => {
+    expect(weeklyNewListings({})).toEqual([]);
+  });
+
+  it("groups firstSeenMap dates by ISO week Monday and formats them correctly", () => {
+    const map = {
+      a: "2026-05-13T09:00:00Z", // Wednesday (week May 11–17)
+      b: "2026-05-14T09:00:00Z", // Thursday (week May 11–17)
+      c: "2026-05-20T10:00:00Z", // Wednesday (week May 18–24)
+    };
+    const out = weeklyNewListings(map);
+    expect(out).toEqual([
+      { name: "May 11–17", value: 2 },
+      { name: "May 18–24", value: 1 },
+    ]);
+  });
+
+  it("gaps in weeks are filled with zero-value weeks", () => {
+    const map = {
+      a: "2026-05-13T09:00:00Z", // May 11–17
+      c: "2026-05-27T10:00:00Z", // May 25–31
+    };
+    const out = weeklyNewListings(map);
+    expect(out).toEqual([
+      { name: "May 11–17", value: 1 },
+      { name: "May 18–24", value: 0 },
+      { name: "May 25–31", value: 1 },
+    ]);
+  });
+});
+
+describe("sourceBreakdown", () => {
+  it("ranks and counts jobs by source domain", () => {
+    const jobs = [
+      { url: "https://www.karriere.at/jobs/1" },
+      { url: "https://karriere.at/jobs/2" },
+      { url: "https://www.linkedin.com/jobs/3" },
+      { url: "https://at.linkedin.com/jobs/4" },
+      { url: "https://example.com/jobs/5" },
+      { url: "invalid-url" },
+    ];
+    const out = sourceBreakdown(jobs);
+    expect(out).toEqual([
+      { name: "karriere.at", value: 2 },
+      { name: "LinkedIn", value: 2 },
+      { name: "example.com", value: 1 },
+      { name: "Other", value: 1 },
+    ]);
+  });
+});
+
+describe("marketPulse", () => {
+  it("returns empty structure when history snapshots are empty", () => {
+    expect(marketPulse({})).toEqual({
+      weekAgoJobs: null,
+      currentJobs: null,
+      jobsDelta: null,
+      weekAgoCompanies: null,
+      currentCompanies: null,
+      companiesDelta: null,
+    });
+  });
+
+  it("calculates jobs and companies week-over-week deltas correctly using 7 days ago", () => {
+    const history = {
+      snapshots: [
+        { date: "2026-05-14", activeJobs: 40, activeCompanies: 30 },
+        { date: "2026-05-20", activeJobs: 43, activeCompanies: 32 },
+        { date: "2026-05-21", activeJobs: 45, activeCompanies: 33 }, // current (latest)
+      ]
+    };
+    const out = marketPulse(history);
+    expect(out).toEqual({
+      weekAgoJobs: 40,
+      currentJobs: 45,
+      jobsDelta: 5,
+      weekAgoCompanies: 30,
+      currentCompanies: 33,
+      companiesDelta: 3,
+    });
+  });
+
+  it("falls back to closest snapshot if exact 7-day-prior is not present", () => {
+    const history = {
+      snapshots: [
+        { date: "2026-05-15", activeJobs: 40, activeCompanies: 30 }, // 6 days prior (closest)
+        { date: "2026-05-21", activeJobs: 45, activeCompanies: 33 }, // current (latest)
+      ]
+    };
+    const out = marketPulse(history);
+    expect(out).toEqual({
+      weekAgoJobs: 40,
+      currentJobs: 45,
+      jobsDelta: 5,
+      weekAgoCompanies: 30,
+      currentCompanies: 33,
+      companiesDelta: 3,
+    });
+  });
+});
+

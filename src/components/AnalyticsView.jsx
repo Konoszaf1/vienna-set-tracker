@@ -7,6 +7,9 @@ import {
   salaryTierBreakdown,
   topTechStack,
   districtBreakdown,
+  weeklyNewListings,
+  sourceBreakdown,
+  marketPulse,
 } from "../utils/analytics";
 import LineChart from "./charts/LineChart";
 import BarChart from "./charts/BarChart";
@@ -28,10 +31,12 @@ export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap, 
   const salary = useMemo(() => salaryTierBreakdown(entries, salaryMap), [entries, salaryMap]);
   const tech = useMemo(() => topTechStack(entries, 10), [entries]);
   const districts = useMemo(() => districtBreakdown(entries), [entries]);
+  const weeklyNew = useMemo(() => weeklyNewListings(firstSeenMap), [firstSeenMap]);
+  const sources = useMemo(() => sourceBreakdown(jobs), [jobs]);
+  const pulse = useMemo(() => marketPulse(jobHistory), [jobHistory]);
 
   const activePoints = activeSeries.points.map(p => ({ x: p.date, y: p.active }));
   const cumulativePoints = timeSeries.points.map(p => ({ x: p.date, y: p.total }));
-  const newPerDayPoints = timeSeries.points.map(p => ({ name: p.date.slice(5), value: p.new }));
 
   const totalRoles = jobs?.length || 0;
   const trackedDays = timeSeries.points.length;
@@ -40,8 +45,8 @@ export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap, 
   return (
     <div className={styles.container} data-testid="analytics-view">
       <div className={styles.summary}>
-        <Stat label="Companies" value={entries.length} />
-        <Stat label="Open roles" value={totalRoles} />
+        <Stat label="Companies" value={entries.length} delta={pulse.companiesDelta} />
+        <Stat label="Open roles" value={totalRoles} delta={pulse.jobsDelta} />
         <Stat label="Unique seen" value={timeSeries.totalUnique} />
         <Stat label="Tracked days" value={trackedDays} muted />
         <Stat label="New today" value={newToday} />
@@ -55,8 +60,8 @@ export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap, 
         <LineChart points={cumulativePoints} ariaLabel="Cumulative unique listings over time" />
       </Section>
 
-      <Section title="New listings per day" subtitle="Bars are days — taller means more roles first observed that day">
-        <BarChart data={newPerDayPoints} ariaLabel="New listings per day" />
+      <Section title="Weekly new listings" subtitle="Discovered by this tracker, grouped by week Monday to Sunday">
+        <BarChart data={weeklyNew} ariaLabel="Weekly new listings" />
       </Section>
 
       <div className={styles.grid2}>
@@ -79,17 +84,45 @@ export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap, 
         </Section>
       </div>
 
-      <Section title="Listings by district" subtitle="Where Vienna's SET/SDET roles cluster">
-        <BarChart data={districts} ariaLabel="Listings by district" color="#06b6d4" />
-      </Section>
+      <div className={styles.grid2}>
+        <Section title="Listings by district" subtitle="Where Vienna's SET/SDET roles cluster">
+          <BarChart data={districts} ariaLabel="Listings by district" color="#06b6d4" />
+        </Section>
+
+        <Section title="Listings by source" subtitle="Distribution across job boards and career pages">
+          <BarChart data={sources} ariaLabel="Listings by source" color="#3b82f6" />
+        </Section>
+      </div>
     </div>
   );
 }
 
-function Stat({ label, value, muted }) {
+function Stat({ label, value, muted, delta }) {
+  const hasDelta = delta !== undefined && delta !== null;
+  const isPositive = delta > 0;
+  const isNegative = delta < 0;
+
+  let deltaClass = "";
+  let deltaText = "";
+  if (hasDelta) {
+    if (isPositive) {
+      deltaClass = styles.deltaPositive;
+      deltaText = `↑ +${delta}`;
+    } else if (isNegative) {
+      deltaClass = styles.deltaNegative;
+      deltaText = `↓ ${delta}`;
+    } else {
+      deltaClass = styles.deltaNeutral;
+      deltaText = `→ 0`;
+    }
+  }
+
   return (
     <div className={styles.stat}>
-      <div className={styles.statLabel}>{label}</div>
+      <div className={styles.statLabel}>
+        <span>{label}</span>
+        {hasDelta && <span className={`${styles.deltaBadge} ${deltaClass}`}>{deltaText}</span>}
+      </div>
       <div className={`${styles.statValue} ${muted ? styles.statValueMuted : ""}`}>{value}</div>
     </div>
   );
@@ -106,3 +139,4 @@ function Section({ title, subtitle, children }) {
     </div>
   );
 }
+

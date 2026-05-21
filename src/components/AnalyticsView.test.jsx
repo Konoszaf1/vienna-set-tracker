@@ -66,12 +66,13 @@ describe("AnalyticsView", () => {
     expect(screen.getByText("Active job openings over time")).toBeInTheDocument();
     expect(screen.getByRole("img", { name: "Active job openings over time" })).toBeInTheDocument();
     expect(screen.getByText("Unique listings discovered over time")).toBeInTheDocument();
-    expect(screen.getByText("New listings per day")).toBeInTheDocument();
+    expect(screen.getByText("Weekly new listings")).toBeInTheDocument();
     expect(screen.getByText("Top 10 employers")).toBeInTheDocument();
     expect(screen.getByText("Top 10 tech tags")).toBeInTheDocument();
     expect(screen.getByText("Language requirement")).toBeInTheDocument();
     expect(screen.getByText("Salary tier distribution")).toBeInTheDocument();
     expect(screen.getByText("Listings by district")).toBeInTheDocument();
+    expect(screen.getByText("Listings by source")).toBeInTheDocument();
   });
 
   it("handles empty analytics data", () => {
