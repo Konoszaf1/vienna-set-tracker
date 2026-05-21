@@ -155,7 +155,7 @@ export default function App() {
     for (const c of entries) {
       const estimates = (c.openRoles || []).map(r => ({
         title: r.title,
-        estimate: estimateSalary(r.title),
+        estimate: estimateSalary(r),
       }));
       const best = estimates.length > 0
         ? estimates.reduce((a, b) => a.estimate > b.estimate ? a : b).estimate

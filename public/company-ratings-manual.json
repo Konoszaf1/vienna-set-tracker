@@ -1,3 +1,14 @@
 {
-  "_schema": "Manual company ratings overlay. Shape: { \"Company Name\": { \"glassdoor\": 3.8 } }. Entries here are merged into company-ratings.json by fetchCompanyRatings.mjs — manual values win over scraped ones."
+  "_schema": "Manual company ratings overlay. Shape: { \"Company Name\": { \"glassdoor\": 3.8 } }. Entries here are merged into company-ratings.json by fetchCompanyRatings.mjs — manual values win over scraped ones.",
+  "Dynatrace": {
+    "glassdoor": 4.5,
+    "reportedSalary": 75
+  },
+  "Bitpanda": {
+    "glassdoor": 4.0,
+    "reportedSalary": 70
+  },
+  "ÖBB": {
+    "reportedSalary": 62
+  }
 }

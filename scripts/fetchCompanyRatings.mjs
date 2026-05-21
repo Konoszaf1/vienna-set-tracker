@@ -59,8 +59,17 @@ async function fetchKununuRating(companyName) {
           const top = profiles[0];
           const score = top.score ?? top.overallScore ?? null;
           const reviews = top.reviewCount ?? top.totalReviews ?? null;
+          let salary = top.salaryAverage ?? top.averageSalary ?? top.salary ?? null;
+          if (salary != null) {
+            salary = Number(salary);
+            if (salary > 1000) salary = Math.round(salary / 1000);
+          }
           if (score != null) {
-            return { score: Math.round(score * 10) / 10, reviews: reviews ?? 0 };
+            const resObj = { score: Math.round(score * 10) / 10, reviews: reviews ?? 0 };
+            if (salary != null && !Number.isNaN(salary) && salary > 0) {
+              resObj.reportedSalary = salary;
+            }
+            return resObj;
           }
         }
       } catch { /* fall through to HTML parsing */ }
@@ -145,21 +154,28 @@ async function main() {
 
   console.log(`\nKununu: ${fetched} found, ${failed} not found, ${cached} cached`);
 
-  // Merge manual Glassdoor ratings (overlay wins)
+  // Merge manual Glassdoor ratings & reported salaries (overlay wins)
   if (existsSync(MANUAL_RATINGS_PATH)) {
     try {
       const manual = JSON.parse(readFileSync(MANUAL_RATINGS_PATH, "utf-8"));
-      let merged = 0;
+      let mergedRatings = 0;
+      let mergedSalaries = 0;
       for (const [name, data] of Object.entries(manual)) {
         if (name === "_schema") continue;
         const key = normalizeCompanyKey(name);
         if (!ratings[key]) ratings[key] = {};
         if (data.glassdoor != null) {
           ratings[key].glassdoor = data.glassdoor;
-          merged++;
+          mergedRatings++;
+        }
+        if (data.reportedSalary != null) {
+          ratings[key].reportedSalary = data.reportedSalary;
+          mergedSalaries++;
         }
       }
-      if (merged > 0) console.log(`Merged ${merged} manual Glassdoor ratings`);
+      if (mergedRatings > 0 || mergedSalaries > 0) {
+        console.log(`Merged manual overlays: ${mergedRatings} ratings, ${mergedSalaries} salaries`);
+      }
     } catch (e) {
       console.warn(`Warning: could not read ${MANUAL_RATINGS_PATH}: ${e.message}`);
     }
@@ -169,7 +185,7 @@ async function main() {
   writeFileSync(RATINGS_PATH, JSON.stringify(ratings, null, 2));
   console.log(`Wrote ${Object.keys(ratings).length} entries to ${RATINGS_PATH}`);
 
-  // Merge back into jobs.json: set kununuScore and glassdoorScore per job
+  // Merge back into jobs.json: set kununuScore, glassdoorScore, and reportedSalary per job
   let enriched = 0;
   for (const j of jobs) {
     const key = normalizeCompanyKey(j.company);
@@ -181,10 +197,14 @@ async function main() {
     if (entry?.glassdoor != null) {
       j.glassdoorScore = entry.glassdoor;
     }
+    const rep = entry?.reportedSalary ?? entry?.kununu?.reportedSalary ?? null;
+    if (rep != null) {
+      j.reportedSalary = rep;
+    }
   }
 
   writeFileSync(JOBS_PATH, JSON.stringify(jobData, null, 2));
-  console.log(`Enriched ${enriched} jobs with kununu scores`);
+  console.log(`Enriched ${enriched} jobs with kununu scores & reported salaries`);
 }
 
 main();

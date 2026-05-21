@@ -5,7 +5,8 @@
   },
   "öbb": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:17.214Z"
+    "fetchedAt": "2026-05-12T09:45:17.214Z",
+    "reportedSalary": 62
   },
   "beko solutions": {
     "kununu": {
@@ -251,8 +252,14 @@
     "kununu": null,
     "fetchedAt": "2026-05-12T09:45:51.345Z"
   },
-  "dynatrace": {},
-  "bitpanda": {},
+  "dynatrace": {
+    "glassdoor": 4.5,
+    "reportedSalary": 75
+  },
+  "bitpanda": {
+    "glassdoor": 4,
+    "reportedSalary": 70
+  },
   "sportradar": {},
   "raiffeisen": {},
   "ebcont": {
