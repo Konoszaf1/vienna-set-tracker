@@ -5,3 +5,8 @@ dist
 .env
 .env.*
 .venv
+.serena
+coverage
+images
+playwright-report
+test-results

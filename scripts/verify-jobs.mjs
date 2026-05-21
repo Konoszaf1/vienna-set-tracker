@@ -9,6 +9,7 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from "fs";
+import { fileURLToPath } from "url";
 import { chromium } from "@playwright/test";
 
 const USER_AGENT =
@@ -18,7 +19,7 @@ const USER_AGENT =
 const CONCURRENCY = 3; // Keep concurrency conservative for browser contexts
 const TIMEOUT_MS = 15000;
 
-async function checkJob(job, browser) {
+export async function checkJob(job, browser) {
   const isIndeed = /indeed\.com/.test(job.url);
   const isLinkedIn = /linkedin\.com/.test(job.url);
   const isKununu = /kununu\.com/.test(job.url);
@@ -74,9 +75,8 @@ async function checkJob(job, browser) {
   let context = null;
   let page = null;
   try {
-    context = await browser.newContext({
-      userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    });
+    // Let Playwright use its bundled Chromium's real, up-to-date user-agent
+    context = await browser.newContext();
     page = await context.newPage();
 
     const response = await page.goto(job.url, { waitUntil: "domcontentloaded", timeout: TIMEOUT_MS });
@@ -86,39 +86,39 @@ async function checkJob(job, browser) {
       return { status: "dead", reason: "HTTP 404 via Playwright" };
     }
 
-    const content = await page.content();
+    // Use textContent('body') to get visible text only, avoiding
+    // script tags, CSS, and other HTML noise that could false-positive.
+    const text = await page.textContent("body");
 
     if (isLinkedIn) {
       if (
-        content.includes("no longer accepting applications") ||
-        content.includes("Job not found") ||
-        content.includes("Page not found") ||
-        /no longer accepting applications/i.test(content) ||
-        /job no longer available/i.test(content)
+        /no longer accepting applications/i.test(text) ||
+        /job not found/i.test(text) ||
+        /page not found/i.test(text) ||
+        /job no longer available/i.test(text)
       ) {
         return { status: "dead", reason: "LinkedIn inactive message" };
       }
     } else if (isIndeed) {
       if (
-        content.includes("Job not found") ||
-        content.includes("not found") ||
-        content.includes("expired") ||
-        /job not found/i.test(content) ||
-        /this job has expired/i.test(content)
+        /this job has expired/i.test(text) ||
+        /this job posting has expired/i.test(text) ||
+        /job has expired/i.test(text) ||
+        /this job listing is no longer available/i.test(text) ||
+        /this job is no longer available/i.test(text)
       ) {
         return { status: "dead", reason: "Indeed inactive message" };
       }
     } else if (isKununu) {
-      if (
-        content.includes("Seite nicht gefunden") ||
-        content.includes("404") ||
-        /seite nicht gefunden/i.test(content)
-      ) {
+      if (/seite nicht gefunden/i.test(text)) {
         return { status: "dead", reason: "Kununu page not found via Playwright" };
       }
     } else if (/karriere\.at/.test(job.url)) {
-      const inactiveMatch = /"jobDetail":\s*\{[^}]*"isInactive":\s*true/i.test(content);
-      const activeFalseMatch = /"jobDetail":\s*\{[^}]*"active":\s*false/i.test(content);
+      // karriere.at signals are in JSON data within script tags, not visible
+      // text — use page.content() to access the full HTML source.
+      const html = await page.content();
+      const inactiveMatch = /"jobDetail":\s*\{[^}]*"isInactive":\s*true/i.test(html);
+      const activeFalseMatch = /"jobDetail":\s*\{[^}]*"active":\s*false/i.test(html);
       if (inactiveMatch || activeFalseMatch) {
         return { status: "dead", reason: "karriere.at flagged inactive via Playwright" };
       }
@@ -213,4 +213,8 @@ async function main() {
   }
 }
 
-main();
+// Only run main() when executed directly, not when imported for testing.
+const isMain = process.argv[1] === fileURLToPath(import.meta.url);
+if (isMain) {
+  main();
+}
