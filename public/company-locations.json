@@ -525,5 +525,10 @@
     "lat": 48.2222714,
     "lng": 16.3546726,
     "address": "Währinger Straße, 48/2. Hof, 1090, Thurygrund"
+  },
+  "techtalk": {
+    "lat": 48.2364804,
+    "lng": 16.4133714,
+    "address": "Leonard-Bernstein-Straße 10, 1220 Wien"
   }
 }

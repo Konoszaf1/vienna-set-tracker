@@ -314,7 +314,7 @@
   },
   "yorizon cloud": {
     "kununu": null,
-    "fetchedAt": "2026-05-07T09:36:56.999Z"
+    "fetchedAt": "2026-05-21T10:43:36.766Z"
   },
   "flightkeys": {
     "kununu": {
@@ -363,7 +363,7 @@
   },
   "fb consulting trade": {
     "kununu": null,
-    "fetchedAt": "2026-05-07T09:37:01.023Z"
+    "fetchedAt": "2026-05-21T10:43:40.780Z"
   },
   "reasunta technology": {
     "kununu": null,
@@ -408,5 +408,9 @@
   "andamp": {
     "kununu": null,
     "fetchedAt": "2026-05-20T10:28:27.503Z"
+  },
+  "techtalk": {
+    "kununu": null,
+    "fetchedAt": "2026-05-21T10:43:38.774Z"
   }
 }
