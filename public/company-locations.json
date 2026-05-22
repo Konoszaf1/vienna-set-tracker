@@ -530,5 +530,10 @@
     "lat": 48.2364804,
     "lng": 16.4133714,
     "address": "Leonard-Bernstein-Straße 10, 1220 Wien"
+  },
+  "fluidtime": {
+    "lat": 48.1993835,
+    "lng": 16.3501252,
+    "address": "Neubaugasse, 12-14/25, 1070, Neubau"
   }
 }
