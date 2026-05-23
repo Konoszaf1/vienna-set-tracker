@@ -535,5 +535,10 @@
     "lat": 48.1993835,
     "lng": 16.3501252,
     "address": "Neubaugasse, 12-14/25, 1070, Neubau"
+  },
+  "wüstenrot": {
+    "lat": 48.1761566,
+    "lng": 16.3733846,
+    "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten"
   }
 }

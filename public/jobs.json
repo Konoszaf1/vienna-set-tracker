@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-22T10:28:30.480891+00:00",
+  "lastUpdated": "2026-05-23T09:05:54.200105+00:00",
   "count": 43,
   "jobs": [
     {
@@ -37,6 +37,7 @@
         "ISTQB",
         "Java",
         "JavaScript",
+        "PHP",
         "React",
         "Docker"
       ],
@@ -58,6 +59,7 @@
         "TestNG",
         "ISTQB",
         "Java",
+        "PHP",
         "SQL",
         "React",
         "Angular",
@@ -66,8 +68,7 @@
       ],
       "langReq": "de-basic",
       "lat": 48.2123002,
-      "lng": 16.3738138,
-      "kununuScore": 4
+      "lng": 16.3738138
     },
     {
       "url": "https://www.karriere.at/jobs/7686185",
@@ -90,6 +91,7 @@
         "TypeScript",
         "JavaScript",
         "C#",
+        "PHP",
         "React",
         "Angular",
         "CI/CD",
@@ -142,6 +144,7 @@
         "Cucumber",
         "BDD",
         "TypeScript",
+        "PHP",
         "SQL",
         "Docker",
         "Kubernetes",
@@ -163,7 +166,8 @@
       "zip": null,
       "techStack": [
         "Selenium",
-        "Java"
+        "Java",
+        "PHP"
       ],
       "langReq": "de-fluent",
       "lat": 48.2087649,
@@ -223,8 +227,7 @@
       "zip": null,
       "techStack": [
         "CI/CD",
-        "Git",
-        "Agile"
+        "Git"
       ],
       "langReq": "de-fluent",
       "lat": 48.203565,
@@ -245,8 +248,7 @@
         "TestRail",
         "SQL",
         "Jira",
-        "SOAP",
-        "Agile"
+        "SOAP"
       ],
       "langReq": "de-fluent",
       "lat": 48.1867515,
@@ -407,17 +409,6 @@
       "lng": 16.4221587
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4387103203",
-      "title": "Junior QA Engineer - Zutrittskontrollsysteme",
-      "company": "PKE Holding AG",
-      "source": "jobspy-linkedin",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4370503347",
       "title": "Test Automation Engineer (all genders) [Wien]",
       "company": "adesso Austria GmbH",
@@ -427,6 +418,17 @@
       "zip": null,
       "lat": 48.1833424,
       "lng": 16.4142072
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4387103203",
+      "title": "Junior QA Engineer - Zutrittskontrollsysteme",
+      "company": "PKE Holding AG",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4412681488",
@@ -495,6 +497,28 @@
       "lng": 16.3923295
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4416539851",
+      "title": "Quality Assurance Engineer @ Fluidtime",
+      "company": "Fluidtime",
+      "source": "jobspy-linkedin",
+      "address": "Neubaugasse, 12-14/25, 1070, Neubau",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1993835,
+      "lng": 16.3501252
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4399977766",
+      "title": "Quality Engineer",
+      "company": "Trayport",
+      "source": "jobspy-linkedin",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1686875,
+      "lng": 16.3336346
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4408624945",
       "title": "Quality Assurance Engineer",
       "company": "ENPULSION",
@@ -515,17 +539,6 @@
       "zip": null,
       "lat": 48.2319522,
       "lng": 16.4137062
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4416539851",
-      "title": "Quality Assurance Engineer @ Fluidtime",
-      "company": "Fluidtime",
-      "source": "jobspy-linkedin",
-      "address": "Neubaugasse, 12-14/25, 1070, Neubau",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1993835,
-      "lng": 16.3501252
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=f8ac24c82370f72b",
@@ -550,6 +563,17 @@
       "lng": 16.3342088
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4326335915",
+      "title": "Senior Software Quality Engineer (m/w/d)",
+      "company": "Wüstenrot Gruppe",
+      "source": "jobspy-linkedin",
+      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1761566,
+      "lng": 16.3733846
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4381548320",
       "title": "Quality Engineer",
       "company": "Mercury",
@@ -561,38 +585,26 @@
       "lng": 16.3098046
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4399977766",
-      "title": "Quality Engineer",
-      "company": "Trayport",
+      "url": "https://www.linkedin.com/jobs/view/4291933969",
+      "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
+      "company": "PKE Holding AG",
       "source": "jobspy-linkedin",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
+      "lat": 48.1591557,
+      "lng": 16.3401205
     },
     {
-      "url": "https://at.indeed.com/viewjob?jk=c2f8a74f15a5c7d2",
-      "title": "Software Tester with experience (Enterprise Imaging) (m/f/d)",
-      "company": "AGFA",
-      "source": "jobspy-indeed",
-      "address": "Linke Wienzeile, 236, 1150, Katastralgemeinde Sechshaus",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1846345,
-      "lng": 16.332828
-    },
-    {
-      "url": "https://at.indeed.com/viewjob?jk=312acd402af925a1",
-      "title": "Servicetechniker / Software tester",
+      "url": "https://at.indeed.com/viewjob?jk=37a0e21c72a5426e",
+      "title": "Technischer Support/ Software tester:in (M/W/D)",
       "company": "Jarosch & Haas GmbH",
       "source": "jobspy-indeed",
       "address": "Rotenturmstraße, 29, 1010, Innere Stadt",
       "city": "Wien",
       "zip": null,
       "lat": 48.2117847,
-      "lng": 16.375957,
-      "kununuScore": 3.4
+      "lng": 16.375957
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4410472405",
@@ -608,17 +620,6 @@
     {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
       "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
-      "company": "PKE Holding AG",
-      "source": "jobspy-linkedin",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4291933969",
-      "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
       "company": "PKE Holding AG",
       "source": "jobspy-linkedin",
       "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
@@ -663,12 +664,12 @@
   ],
   "validation": {
     "accepted": 15,
-    "rejected": 27,
+    "rejected": 29,
     "reasons": {
+      "not-sdet-role": 25,
       "management-role": 2,
-      "not-sdet-role": 23,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-05-22T10:29:25.100Z"
+  "lastVerified": "2026-05-23T09:06:52.465Z"
 }
