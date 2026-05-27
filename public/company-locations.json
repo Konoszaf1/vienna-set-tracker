@@ -540,5 +540,25 @@
     "lat": 48.1761566,
     "lng": 16.3733846,
     "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten"
+  },
+  "atomic energy agency": {
+    "lat": 48.2339406,
+    "lng": 16.4159904,
+    "address": "Platz der Vereinten Nationen, 1220, Katastralgemeinde Kaisermühlen"
+  },
+  "international atomic energy agency": {
+    "lat": 48.2339406,
+    "lng": 16.4159904,
+    "address": "Platz der Vereinten Nationen, 1220, Katastralgemeinde Kaisermühlen"
+  },
+  "atomic energy agency iaea": {
+    "lat": 48.2100072,
+    "lng": 16.3697034,
+    "address": "Innere Stadt, Vienna"
+  },
+  "international atomic energy agency (iaea)": {
+    "lat": 48.2100072,
+    "lng": 16.3697034,
+    "address": "Innere Stadt, Vienna"
   }
 }

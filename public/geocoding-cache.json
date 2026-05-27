@@ -30,5 +30,9 @@
   "leopoldstadt, vienna": {
     "lat": 48.2006384,
     "lng": 16.4268953
+  },
+  "innere stadt, vienna": {
+    "lat": 48.2100072,
+    "lng": 16.3697034
   }
 }

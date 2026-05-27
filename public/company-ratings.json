@@ -5,7 +5,7 @@
   },
   "öbb": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:17.214Z",
+    "fetchedAt": "2026-05-27T10:59:39.999Z",
     "reportedSalary": 62
   },
   "beko solutions": {
@@ -17,11 +17,11 @@
   },
   "michael page": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:19.221Z"
+    "fetchedAt": "2026-05-27T10:59:33.968Z"
   },
   "qnit": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:21.227Z"
+    "fetchedAt": "2026-05-27T10:59:35.977Z"
   },
   "xxxldigital part of xxxl": {
     "kununu": null,
@@ -40,7 +40,7 @@
   },
   "admiral technologies": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:25.238Z"
+    "fetchedAt": "2026-05-27T10:59:42.005Z"
   },
   "software daten service m b h": {
     "kununu": null,
@@ -48,11 +48,11 @@
   },
   "melecs ews": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:29.250Z"
+    "fetchedAt": "2026-05-27T10:59:44.013Z"
   },
   "ivm technical consultants": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:31.256Z"
+    "fetchedAt": "2026-05-27T10:59:46.018Z"
   },
   "softcom consulting": {
     "kununu": null,
@@ -78,7 +78,7 @@
   },
   "kontron": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:33.296Z"
+    "fetchedAt": "2026-05-27T10:59:48.026Z"
   },
   "sv chipkarten betriebs und errichtungsges m b h": {
     "kununu": {
@@ -89,7 +89,7 @@
   },
   "frequentis": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:35.302Z"
+    "fetchedAt": "2026-05-27T10:59:54.044Z"
   },
   "bev bundesamt für eich und vermessungswesen": {
     "kununu": null,
@@ -146,11 +146,11 @@
   },
   "qestit dach": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:39.313Z"
+    "fetchedAt": "2026-05-27T10:59:56.050Z"
   },
   "pke": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:41.318Z"
+    "fetchedAt": "2026-05-27T10:59:52.038Z"
   },
   "coolpeople": {
     "kununu": {
@@ -165,7 +165,7 @@
   },
   "adesso": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:43.322Z"
+    "fetchedAt": "2026-05-27T11:00:00.062Z"
   },
   "ringana": {
     "kununu": {
@@ -235,7 +235,7 @@
   },
   "frequentis comsoft": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:47.334Z"
+    "fetchedAt": "2026-05-27T11:00:08.086Z"
   },
   "nyra health": {
     "kununu": null,
@@ -247,7 +247,7 @@
   },
   "ibm": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:51.345Z"
+    "fetchedAt": "2026-05-27T11:00:10.093Z"
   },
   "dynatrace": {
     "glassdoor": 4.5,
@@ -261,7 +261,7 @@
   "raiffeisen": {},
   "ebcont": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:37.307Z"
+    "fetchedAt": "2026-05-27T10:59:58.056Z"
   },
   "hirebuddy": {
     "kununu": null,
@@ -333,7 +333,7 @@
   },
   "agfa healthcare": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:49.339Z"
+    "fetchedAt": "2026-05-27T11:00:02.069Z"
   },
   "agfa": {
     "kununu": null,
@@ -376,11 +376,11 @@
   },
   "steiner hitech": {
     "kununu": null,
-    "fetchedAt": "2026-05-12T09:45:23.233Z"
+    "fetchedAt": "2026-05-27T10:59:37.994Z"
   },
   "fluidtime data services": {
     "kununu": null,
-    "fetchedAt": "2026-05-13T09:49:24.104Z"
+    "fetchedAt": "2026-05-27T11:00:04.075Z"
   },
   "consourcive": {
     "kununu": null,
@@ -417,5 +417,13 @@
   "fluidtime": {
     "kununu": null,
     "fetchedAt": "2026-05-22T10:28:30.806Z"
+  },
+  "atomic energy agency": {
+    "kununu": null,
+    "fetchedAt": "2026-05-27T10:59:50.032Z"
+  },
+  "atomic energy agency iaea": {
+    "kununu": null,
+    "fetchedAt": "2026-05-27T11:00:06.081Z"
   }
 }
