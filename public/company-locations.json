@@ -560,5 +560,20 @@
     "lat": 48.2100072,
     "lng": 16.3697034,
     "address": "Innere Stadt, Vienna"
+  },
+  "bosch österreich": {
+    "lat": 48.2004858,
+    "lng": 16.4007318,
+    "address": "Göllnergasse, 15-17, 1030, Erdberg"
+  },
+  "bosch-gruppe österreich": {
+    "lat": 48.2004858,
+    "lng": 16.4007318,
+    "address": "Göllnergasse, 15-17, 1030, Erdberg"
+  },
+  "bosch": {
+    "lat": 48.1980958,
+    "lng": 16.349055,
+    "address": "Mariahilfer Straße, 74b, 1070, Neubau"
   }
 }

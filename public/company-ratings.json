@@ -239,7 +239,7 @@
   },
   "nyra health": {
     "kununu": null,
-    "fetchedAt": "2026-05-15T09:51:41.932Z"
+    "fetchedAt": "2026-05-29T10:50:33.442Z"
   },
   "xxxlutz": {
     "kununu": null,
@@ -396,7 +396,7 @@
   },
   "t systems gesmbh": {
     "kununu": null,
-    "fetchedAt": "2026-05-15T09:51:33.905Z"
+    "fetchedAt": "2026-05-29T10:50:29.426Z"
   },
   "aaa global": {
     "kununu": null,
@@ -425,5 +425,13 @@
   "atomic energy agency iaea": {
     "kununu": null,
     "fetchedAt": "2026-05-27T11:00:06.081Z"
+  },
+  "bosch österreich": {
+    "kununu": null,
+    "fetchedAt": "2026-05-29T10:50:31.435Z"
+  },
+  "bosch": {
+    "kununu": null,
+    "fetchedAt": "2026-05-29T10:50:35.450Z"
   }
 }
