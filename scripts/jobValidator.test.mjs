@@ -36,6 +36,11 @@ describe("validateJob", () => {
       .toEqual({ valid: true, reason: null });
   });
 
+  it("devjobs.at URL accepted", () => {
+    expect(validateJob(valid({ url: "https://devjobs.at/job/39b2109397c4c84bc9837a26b56f411e" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
   it("title too short rejected", () => {
     expect(validateJob(valid({ title: "QA" })))
       .toEqual({ valid: false, reason: "short-title" });
@@ -84,6 +89,21 @@ describe("validateJob", () => {
 
   it("Software Test Engineer accepted (MELECS)", () => {
     expect(validateJob(valid({ title: "Software Test Engineer (all genders)" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
+  it("Softwaretester accepted (ITSV)", () => {
+    expect(validateJob(valid({ title: "Softwaretester" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
+  it("QA Automation Engineer accepted (MAVOCO)", () => {
+    expect(validateJob(valid({ title: "QA Automation Engineer" })))
+      .toEqual({ valid: true, reason: null });
+  });
+
+  it("Technical QA Lead accepted when explicitly QA-focused", () => {
+    expect(validateJob(valid({ title: "Technical QA Lead" })))
       .toEqual({ valid: true, reason: null });
   });
 

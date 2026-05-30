@@ -2,21 +2,23 @@
 /**
  * Job scraper for Vienna SDET/QA roles.
  *
- * Sources: karriere.at (HTML scraping) and kununu.com (Next.js __NEXT_DATA__).
+ * Sources: karriere.at (HTML scraping), kununu.com (Next.js __NEXT_DATA__),
+ * and devjobs.at (Playwright browser scraping).
  * Extracts per-job addresses from karriere.at detail pages, geocodes via
  * Nominatim, deduplicates against the curated company dataset, and
  * writes the result to public/jobs.json.
  *
  * Compliance notes:
- *   - Both karriere.at and kununu.com are public job boards; search pages
+ *   - karriere.at, kununu.com, and devjobs.at are public job boards; search pages
  *     are freely accessible without login.
  *   - The script identifies itself via a custom User-Agent string.
- *   - Requests are rate-limited (1s karriere.at, 2s kununu) to avoid
- *     putting meaningful load on either site.
+ *   - Requests are rate-limited (1s karriere.at/devjobs.at, 2s kununu) to avoid
+ *     putting meaningful load on any site.
  *   - If either site requests removal, disable the relevant searches in
  *     .github/workflows/job-search.yml immediately.
  */
 
+import { chromium } from "@playwright/test";
 import { parse } from "node-html-parser";
 import { validateJob } from "./jobValidator.mjs";
 
@@ -44,6 +46,20 @@ const KUNUNU_SEARCHES = [
 
 const KUNUNU_PAGES_PER_SEARCH = 3; // 30 results/page, most Vienna hits are on early pages
 
+const DEVJOBS_SEARCHES = [
+  { slug: "qa-engineer-wien-109166", label: "devjobs.at: QA Engineer Wien" },
+  { slug: "test-qa-engineer-wien-109166", label: "devjobs.at: Test/QA Engineer Wien" },
+  { slug: "software-tester-wien-109166", label: "devjobs.at: Software Tester Wien" },
+  { slug: "test-automation-engineer-wien-109166", label: "devjobs.at: Test Automation Engineer Wien" },
+  { slug: "test-automation-developer-wien-109166", label: "devjobs.at: Test Automation Developer Wien" },
+];
+
+const DEVJOBS_BASE_URL = "https://devjobs.at";
+const DEVJOBS_JOB_LINK_SELECTOR = 'a[href^="/job/"], a[href^="https://devjobs.at/job/"]';
+const DEVJOBS_PAGE_DELAY_MS = 1000;
+
+const CORP_SUFFIXES = /\b(gmbh|ag|kg|gmbh\s*&\s*co\.?\s*kg|austria|österreich|international|ltd|e\.?u\.?|inc|corp|se|ges\.?m\.?b\.?h|konzern|group|holding)\b/gi;
+const GENDER_MARKERS = /\s*\(m\/[wfd](\/[xd])?\)\s*|\s*\(all\s+genders?\)\s*/gi;
 
 // ---------------------------------------------------------------------------
 // Search-page scraping
@@ -155,6 +171,261 @@ async function fetchKununuSearch({ q, label }) {
   }
 
   return jobs;
+}
+
+// ---------------------------------------------------------------------------
+// devjobs.at search (Vercel-protected pages, so use Playwright)
+// ---------------------------------------------------------------------------
+
+function normalizeWhitespace(value) {
+  return (value || "").replace(/\s+/g, " ").trim();
+}
+
+function normalizeCompanyName(name) {
+  return normalizeWhitespace((name || "").toLowerCase().replace(CORP_SUFFIXES, ""));
+}
+
+function companyWords(name) {
+  return new Set(normalizeCompanyName(name).match(/\p{L}[\p{L}\p{N}.-]{1,}/gu) || []);
+}
+
+function companiesOverlap(a, b) {
+  const normA = normalizeCompanyName(a);
+  const normB = normalizeCompanyName(b);
+  if (!normA || !normB) return false;
+  if (normA === normB) return true;
+  if ((normA.length >= 4 && normB.includes(normA)) || (normB.length >= 4 && normA.includes(normB))) {
+    return true;
+  }
+
+  const wordsA = companyWords(a);
+  const wordsB = companyWords(b);
+  if (wordsA.size === 0 || wordsB.size === 0) return false;
+  let overlap = 0;
+  for (const word of wordsA) {
+    if (wordsB.has(word)) overlap++;
+  }
+  return overlap / Math.min(wordsA.size, wordsB.size) > 0.6;
+}
+
+function cleanTitle(title) {
+  return normalizeWhitespace((title || "").replace(GENDER_MARKERS, " "));
+}
+
+function titlesOverlap(a, b) {
+  const wordsA = new Set(cleanTitle(a).toLowerCase().match(/\p{L}[\p{L}\p{N}#+.-]{1,}/gu) || []);
+  const wordsB = new Set(cleanTitle(b).toLowerCase().match(/\p{L}[\p{L}\p{N}#+.-]{1,}/gu) || []);
+  if (wordsA.size === 0 || wordsB.size === 0) return false;
+  let overlap = 0;
+  for (const word of wordsA) {
+    if (wordsB.has(word)) overlap++;
+  }
+  return overlap / Math.min(wordsA.size, wordsB.size) > 0.5;
+}
+
+function isSimilarJob(job, existingJobs) {
+  return existingJobs.some(existing =>
+    companiesOverlap(job.company, existing.company) &&
+    titlesOverlap(job.title, existing.title)
+  );
+}
+
+function parseMapCoordinates(mapHref) {
+  const match = (mapHref || "").match(/[?&]query=(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/);
+  if (!match) return { lat: null, lng: null };
+  return { lat: Number(match[1]), lng: Number(match[2]) };
+}
+
+function extractDevjobsLocation(text, details, mapHref) {
+  const rawCity = normalizeWhitespace(details.Ort || "");
+  const city = /wien/i.test(rawCity) ? "Wien" : rawCity || "Wien";
+  const coords = parseMapCoordinates(mapHref);
+  let address = city === "Wien" ? "Wien" : city;
+  let zip = null;
+
+  const section = (text.split("Job Standorte")[1] || "").split("Das ist dein Arbeitgeber")[0] || "";
+  const lines = section
+    .split(/\n+/)
+    .map(normalizeWhitespace)
+    .filter(Boolean)
+    .filter(line =>
+      !/Stadia Maps|OpenMapTiles|OpenStreetMap contributors/i.test(line) &&
+      line !== "Österreich"
+    );
+
+  for (let i = 0; i < lines.length; i++) {
+    if (!/^Standort\b/i.test(lines[i]) || !/wien/i.test(lines[i])) continue;
+
+    const block = [];
+    for (let j = i + 1; j < lines.length && !/^Standort\b/i.test(lines[j]); j++) {
+      block.push(lines[j]);
+    }
+
+    const zipIndex = block.findIndex(line => /\b1\d{3}\s+Wien\b/i.test(line));
+    if (zipIndex >= 0) {
+      const postalLine = block[zipIndex];
+      zip = postalLine.match(/\b(1\d{3})\s+Wien\b/i)?.[1] || null;
+      const street = block.slice(0, zipIndex).reverse().find(line => !/^\d{4}\s+Wien$/i.test(line));
+      address = street ? `${street}, ${postalLine}` : postalLine;
+      break;
+    }
+  }
+
+  return {
+    address,
+    city,
+    zip,
+    lat: coords.lat,
+    lng: coords.lng,
+  };
+}
+
+function parseDevjobsCardFallback(card, source) {
+  const lines = (card.text || "")
+    .split(/\n+/)
+    .map(normalizeWhitespace)
+    .filter(Boolean)
+    .filter(line => !/^(top|easy apply|neu|merken|bewerben|matching)$/i.test(line));
+
+  return {
+    url: card.url,
+    title: lines[0] || "",
+    company: lines[1] || "",
+    source,
+    city: "Wien",
+    address: "Wien",
+    zip: null,
+    lat: null,
+    lng: null,
+    techStack: [],
+    langReq: "de-basic",
+  };
+}
+
+async function collectDevjobsCards(page) {
+  return page.locator(DEVJOBS_JOB_LINK_SELECTOR).evaluateAll(anchors => {
+    const normalize = value => (value || "").replace(/\s+/g, " ").trim();
+    return anchors
+      .map(anchor => ({
+        url: anchor.href,
+        text: normalize(anchor.innerText || anchor.textContent),
+      }))
+      .filter(card => /^https:\/\/devjobs\.at\/job\//.test(card.url));
+  });
+}
+
+async function fetchDevjobsDetail(page, card, source) {
+  try {
+    await page.goto(card.url, { waitUntil: "domcontentloaded", timeout: 30000 });
+    await page.waitForSelector("h1", { timeout: 15000 });
+
+    const detail = await page.evaluate(() => {
+      const doc = globalThis.document;
+      const normalize = value => (value || "").replace(/\s+/g, " ").trim();
+      const details = {};
+      for (const dt of doc.querySelectorAll("dt")) {
+        const key = normalize(dt.textContent);
+        const value = normalize(dt.parentElement?.querySelector("dd")?.textContent);
+        if (key && value) details[key] = value;
+      }
+
+      const techHeading = [...doc.querySelectorAll("h2,h3")]
+        .find(heading => normalize(heading.textContent) === "Job Technologien");
+      const techList = techHeading?.parentElement?.nextElementSibling;
+      const techStack = techList
+        ? [...techList.querySelectorAll('a[href^="/jobs/"]')].map(link => normalize(link.textContent)).filter(Boolean)
+        : [];
+
+      const companyLink = [...doc.querySelectorAll('a[href^="/team/"], a[href^="https://devjobs.at/team/"]')]
+        .find(link => normalize(link.textContent));
+      const mapHref = [...doc.querySelectorAll('a[href*="google.com/maps/search"]')]
+        .map(link => link.href)
+        .find(Boolean) || "";
+
+      return {
+        title: normalize(doc.querySelector("h1")?.textContent),
+        company: normalize(companyLink?.textContent),
+        details,
+        techStack,
+        mapHref,
+        text: doc.body.innerText || "",
+      };
+    });
+
+    const fallback = parseDevjobsCardFallback(card, source);
+    const location = extractDevjobsLocation(detail.text, detail.details, detail.mapHref);
+    const techStack = detail.techStack.length > 0 ? detail.techStack : extractTechStack(detail.text);
+
+    return {
+      ...fallback,
+      title: detail.title || fallback.title,
+      company: detail.company || fallback.company,
+      city: location.city,
+      address: location.address,
+      zip: location.zip,
+      lat: location.lat,
+      lng: location.lng,
+      techStack,
+      langReq: extractLangReq(detail.text),
+    };
+  } catch (e) {
+    console.warn(`  Could not fetch devjobs.at detail for ${card.url}: ${e.message}`);
+    return parseDevjobsCardFallback(card, source);
+  }
+}
+
+async function fetchDevjobsSearch({ slug, label }, browser) {
+  const context = await browser.newContext();
+  const searchPage = await context.newPage();
+  const cardsByUrl = new Map();
+
+  try {
+    await searchPage.goto(`${DEVJOBS_BASE_URL}/jobs/${slug}`, {
+      waitUntil: "domcontentloaded",
+      timeout: 30000,
+    });
+    await searchPage.waitForSelector(DEVJOBS_JOB_LINK_SELECTOR, { timeout: 15000 });
+    await searchPage.waitForTimeout(500);
+
+    const buttonPageCount = await searchPage.locator("button").evaluateAll(buttons => {
+      const numericLabels = buttons
+        .map(button => (button.innerText || "").trim())
+        .filter(label => /^\d+$/.test(label))
+        .map(Number);
+      return Math.max(1, ...numericLabels);
+    });
+    const resultPageCount = await searchPage.locator("body").evaluate(body => {
+      const match = body.innerText.match(/(\d+)\s+Stellenangebote gefunden/i);
+      return match ? Math.ceil(Number(match[1]) / 15) : 1;
+    });
+    const pageCount = Math.max(buttonPageCount, resultPageCount);
+
+    for (let pageNo = 1; pageNo <= pageCount; pageNo++) {
+      if (pageNo > 1) {
+        await searchPage.getByRole("button", { name: String(pageNo), exact: true }).click();
+        await searchPage.waitForTimeout(DEVJOBS_PAGE_DELAY_MS);
+      }
+
+      const cards = await collectDevjobsCards(searchPage);
+      for (const card of cards) {
+        if (!cardsByUrl.has(card.url)) cardsByUrl.set(card.url, card);
+      }
+    }
+
+    const detailPage = await context.newPage();
+    const jobs = [];
+    for (const card of cardsByUrl.values()) {
+      jobs.push(await fetchDevjobsDetail(detailPage, card, label));
+      await detailPage.waitForTimeout(DEVJOBS_PAGE_DELAY_MS);
+    }
+
+    return jobs;
+  } catch (e) {
+    console.error(`  Failed devjobs.at search ${slug}: ${e.message}`);
+    return [];
+  } finally {
+    await context.close();
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -328,6 +599,10 @@ async function geocodeJobs(jobs, cachePath) {
   let cacheHits = 0, newLookups = 0, failures = 0;
 
   for (const job of jobs) {
+    if (typeof job.lat === "number" && typeof job.lng === "number") {
+      continue;
+    }
+
     // Skip bare "Wien" — too generic to geocode meaningfully
     if (!job.address || job.address === "Wien") {
       job.lat = null;
@@ -441,6 +716,40 @@ async function main() {
     }
   }
 
+  // --- devjobs.at ---
+  console.log("\nSearching devjobs.at for Vienna SDET/QA jobs...");
+  let devjobsBrowser = null;
+  try {
+    devjobsBrowser = await chromium.launch({ headless: true });
+
+    for (const s of DEVJOBS_SEARCHES) {
+      const jobs = await fetchDevjobsSearch(s, devjobsBrowser);
+      console.log(`  "${s.label}": ${jobs.length} results`);
+      for (const j of jobs) {
+        if (allJobs.has(j.url)) continue;
+
+        if (isSimilarJob(j, [...allJobs.values()])) {
+          rejected++;
+          rejectionCounts["duplicate-title-company"] = (rejectionCounts["duplicate-title-company"] || 0) + 1;
+          continue;
+        }
+
+        const result = validateJob(j);
+        if (result.valid) {
+          allJobs.set(j.url, j);
+          accepted++;
+        } else {
+          rejected++;
+          rejectionCounts[result.reason] = (rejectionCounts[result.reason] || 0) + 1;
+        }
+      }
+    }
+  } catch (e) {
+    console.warn(`  WARNING: devjobs.at search skipped: ${e.message}`);
+  } finally {
+    if (devjobsBrowser) await devjobsBrowser.close();
+  }
+
   // Validation summary
   const reasonSummary = Object.entries(rejectionCounts)
     .map(([r, c]) => `${c} ${r}`)
@@ -449,7 +758,7 @@ async function main() {
 
   if (allJobs.size === 0) {
     console.error("\nERROR: All searches returned zero valid results.");
-    console.error("karriere.at or kununu may have changed their markup.");
+    console.error("karriere.at, kununu, or devjobs.at may have changed their markup.");
     process.exit(1);
   }
 
@@ -517,6 +826,7 @@ async function main() {
     searchLinks: [
       { label: "karriere.at", url: "https://www.karriere.at/jobs/test-automation/in-wien" },
       { label: "kununu", url: "https://www.kununu.com/at/jobs?q=test+automation&loc=Wien" },
+      { label: "devjobs.at", url: "https://devjobs.at/jobs/qa-engineer-wien-109166" },
       { label: "LinkedIn", url: "https://www.linkedin.com/jobs/search/?keywords=SDET&location=Vienna" },
       { label: "StepStone", url: "https://www.stepstone.at/jobs/test-automation/in-wien" },
       { label: "indeed.at", url: "https://at.indeed.com/jobs?q=SDET&l=Wien" },

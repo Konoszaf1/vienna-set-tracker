@@ -8,7 +8,7 @@ A daily-scraped job board for Vienna SDET/QA positions, served as a static singl
 
 ## What it does
 
-A GitHub Actions pipeline scrapes Vienna QA/SDET listings daily from karriere.at, kununu, and JobSpy (LinkedIn, Indeed, Google Jobs), geocodes office addresses, and writes `jobs.json`. The frontend groups jobs by company, shows them as filterable cards or clustered map pins, and adds a rough salary estimate based on the job title seniority level.
+A GitHub Actions pipeline scrapes Vienna QA/SDET listings daily from karriere.at, kununu, devjobs.at, and JobSpy (LinkedIn, Indeed, Google Jobs), geocodes office addresses, and writes `jobs.json`. The frontend groups jobs by company, shows them as filterable cards or clustered map pins, and adds a rough salary estimate based on the job title seniority level.
 
 ## Quick start
 
@@ -25,7 +25,7 @@ Run tests with `npm test` (unit) and `npm run e2e` (Playwright against a product
 
 ```
 scripts/
-  search-jobs.mjs       # karriere.at + kununu scraper
+  search-jobs.mjs       # karriere.at + kununu + devjobs.at scraper
   discoverJobs.py       # JobSpy pipeline (LinkedIn, Indeed, Google Jobs)
   geocodeCompanies.mjs  # Nominatim geocoding for office addresses
   verify-jobs.mjs       # weekly liveness checker — prunes expired listings

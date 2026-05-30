@@ -82,9 +82,11 @@ DOMAIN_EXCLUSIONS = [
 ROLE_WHITELIST = re.compile(
     r"sdet|software\s+engineer.*test|engineer\s+in\s+test"
     r"|test\s+(?:automation\s+)?engineer|automation\s+engineer"
+    r"|qa\s+automation\s+engineer|technical\s+qa\s+lead"
     r"|qa\s+engineer|quality\s+(?:assurance\s+)?engineer"
     r"|test\s*automatisier|testautomatisierung(?:sing|seng)"
-    r"|software\s+test|testingenieur|test\s+architect|testarchitekt",
+    r"|software\s+test|software[-\s]?tester"
+    r"|testingenieur|test\s+architect|testarchitekt",
     re.IGNORECASE,
 )
 

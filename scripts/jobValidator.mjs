@@ -6,7 +6,7 @@
  * Gate 3: Management filter — reject management titles without hands-on signal
  */
 
-const URL_PATTERN = /^https:\/\/(www\.karriere\.at\/jobs\/\d+|www\.kununu\.com\/|www\.linkedin\.com\/jobs\/|at\.indeed\.com\/)/;
+const URL_PATTERN = /^https:\/\/(www\.karriere\.at\/jobs\/\d+|www\.kununu\.com\/|www\.linkedin\.com\/jobs\/|at\.indeed\.com\/|devjobs\.at\/job\/)/;
 const MIN_TITLE_LENGTH = 10;
 const BLOCKLISTED_COMPANIES = new Set([
   "jetzt bewerben",
@@ -46,11 +46,14 @@ const SDET_ROLE = new RegExp([
   "\\bengineer\\s+in\\s+test\\b",
   "\\btest\\s+(automation\\s+)?engineer\\b",
   "\\bautomation\\s+engineer\\b",
+  "\\bqa\\s+automation\\s+engineer\\b",
   "\\bqa\\s+engineer\\b",
+  "\\btechnical\\s+qa\\s+lead\\b",
   "\\bquality\\s+(?:assurance\\s+)?engineer\\b",
   "\\btest\\s*automatisier",
   "\\btestautomatisierung(?:sing|seng)",
   "\\bsoftware\\s+test",
+  "\\bsoftware[-\\s]?tester\\b",
   "\\btestingenieur",
   "\\btest\\s+architect",
   "\\btestarchitekt",
