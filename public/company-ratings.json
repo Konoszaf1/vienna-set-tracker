@@ -265,7 +265,7 @@
   },
   "hirebuddy": {
     "kununu": null,
-    "fetchedAt": "2026-05-15T09:51:35.913Z"
+    "fetchedAt": "2026-05-31T09:52:30.835Z"
   },
   "raiffeisen bank rbi": {
     "kununu": null,
@@ -303,7 +303,7 @@
   },
   "mercury": {
     "kununu": null,
-    "fetchedAt": "2026-05-16T08:51:46.696Z"
+    "fetchedAt": "2026-05-31T09:52:34.846Z"
   },
   "wüstenrot": {
     "kununu": null,
@@ -433,5 +433,17 @@
   "bosch": {
     "kununu": null,
     "fetchedAt": "2026-05-29T10:50:35.450Z"
+  },
+  "jarosch haas ges m b h": {
+    "kununu": null,
+    "fetchedAt": "2026-05-31T09:52:28.827Z"
+  },
+  "techtalk building software that matters": {
+    "kununu": null,
+    "fetchedAt": "2026-05-31T09:52:32.841Z"
+  },
+  "ristl it": {
+    "kununu": null,
+    "fetchedAt": "2026-05-31T09:52:36.852Z"
   }
 }

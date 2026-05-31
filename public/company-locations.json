@@ -575,5 +575,30 @@
     "lat": 48.1980958,
     "lng": 16.349055,
     "address": "Mariahilfer Straße, 74b, 1070, Neubau"
+  },
+  "jarosch & haas ges.m.b.h.": {
+    "lat": 48.2117847,
+    "lng": 16.375957,
+    "address": "Rotenturmstraße, 29, 1010, Innere Stadt"
+  },
+  "techtalk building software that matters": {
+    "lat": 48.2364804,
+    "lng": 16.4133714,
+    "address": "Leonard-Bernstein-Straße 10, 1220 Wien"
+  },
+  "techtalk – building software that matters": {
+    "lat": 48.2364804,
+    "lng": 16.4133714,
+    "address": "Leonard-Bernstein-Straße 10, 1220 Wien"
+  },
+  "ristl it": {
+    "lat": 48.2136486,
+    "lng": 16.3735294,
+    "address": "Salztorgasse 7/16, 1010 Wien"
+  },
+  "ristl.it gmbh": {
+    "lat": 48.2136486,
+    "lng": 16.3735294,
+    "address": "Salztorgasse 7/16, 1010 Wien"
   }
 }
