@@ -600,5 +600,17 @@
     "lat": 48.2136486,
     "lng": 16.3735294,
     "address": "Salztorgasse 7/16, 1010 Wien"
+  },
+  "techbiz global": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-03T12:02:23.662Z"
+  },
+  "techbiz global gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-03T12:02:23.662Z"
   }
 }
