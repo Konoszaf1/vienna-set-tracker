@@ -612,5 +612,20 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-06-03T12:02:23.662Z"
+  },
+  "dedalus healthcare": {
+    "lat": 48.1866526,
+    "lng": 16.3781692,
+    "address": "Gertrude-Fröhlich-Sandner-Straße 1, 1100 Wien"
+  },
+  "dedalus healthcare ges.m.b.h.": {
+    "lat": 48.1866526,
+    "lng": 16.3781692,
+    "address": "Gertrude-Fröhlich-Sandner-Straße 1, 1100 Wien"
+  },
+  "flightkeys": {
+    "lat": 48.2084441,
+    "lng": 16.3665691,
+    "address": "Herrengasse, 2-4, 1010, Innere Stadt"
   }
 }

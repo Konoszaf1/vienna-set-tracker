@@ -318,14 +318,11 @@
   },
   "yorizon cloud": {
     "kununu": null,
-    "fetchedAt": "2026-05-21T10:43:36.766Z"
+    "fetchedAt": "2026-06-04T10:44:08.234Z"
   },
   "flightkeys": {
-    "kununu": {
-      "score": 4.7,
-      "reviews": 0
-    },
-    "fetchedAt": "2026-05-09T08:31:18.525Z"
+    "kununu": null,
+    "fetchedAt": "2026-06-04T10:44:10.241Z"
   },
   "jarosch haas": {
     "kununu": null,
@@ -364,7 +361,7 @@
   },
   "fb consulting trade": {
     "kununu": null,
-    "fetchedAt": "2026-05-21T10:43:40.780Z"
+    "fetchedAt": "2026-06-04T10:44:14.255Z"
   },
   "reasunta technology": {
     "kununu": null,
@@ -392,7 +389,7 @@
   },
   "roche in österreich": {
     "kununu": null,
-    "fetchedAt": "2026-05-15T09:51:31.897Z"
+    "fetchedAt": "2026-06-04T10:44:04.217Z"
   },
   "t systems gesmbh": {
     "kununu": null,
@@ -412,7 +409,7 @@
   },
   "techtalk": {
     "kununu": null,
-    "fetchedAt": "2026-05-21T10:43:38.774Z"
+    "fetchedAt": "2026-06-04T10:44:12.248Z"
   },
   "fluidtime": {
     "kununu": null,
@@ -449,5 +446,9 @@
   "techbiz global": {
     "kununu": null,
     "fetchedAt": "2026-06-03T12:02:04.490Z"
+  },
+  "dedalus healthcare ges m b h": {
+    "kununu": null,
+    "fetchedAt": "2026-06-04T10:44:06.228Z"
   }
 }
