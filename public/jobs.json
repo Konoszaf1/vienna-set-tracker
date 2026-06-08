@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-07T10:10:40.506051+00:00",
+  "lastUpdated": "2026-06-08T12:03:31.987084+00:00",
   "count": 44,
   "jobs": [
     {
@@ -29,6 +29,55 @@
       "reportedSalary": 62
     },
     {
+      "url": "https://www.karriere.at/jobs/7822034",
+      "title": "Test Automation Engineer C# (m/f/x)",
+      "company": "ADMIRAL Technologies",
+      "source": "Test Automation Wien",
+      "address": "Siebenbrunnengasse, 1050, Margareten",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "BDD",
+        "TypeScript",
+        "C#",
+        "SQL",
+        "CI/CD",
+        "Jira",
+        "Git",
+        "REST APIs",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": 48.1858518,
+      "lng": 16.3539754
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7808399",
+      "title": "Test Automation Engineer (w/m/d)",
+      "company": "SOFTCOM CONSULTING GmbH",
+      "source": "Test Automation Wien",
+      "address": "Marc-Aurel-Strasse 10-12/1. OG, 1010 Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Selenium",
+        "JUnit",
+        "TestNG",
+        "ISTQB",
+        "Java",
+        "PHP",
+        "SQL",
+        "React",
+        "Angular",
+        "REST APIs",
+        "SOAP"
+      ],
+      "langReq": "de-basic",
+      "lat": 48.2123002,
+      "lng": 16.3738138
+    },
+    {
       "url": "https://www.karriere.at/jobs/7821038",
       "title": "Test Automation Engineer (m/w/d)",
       "company": "Software Daten Service Gesellschaft m.b.H.",
@@ -38,7 +87,8 @@
       "zip": null,
       "techStack": [
         "Java",
-        "C#"
+        "C#",
+        "PHP"
       ],
       "langReq": "de-basic",
       "lat": 48.1867515,
@@ -65,6 +115,7 @@
         "TypeScript",
         "JavaScript",
         "C#",
+        "PHP",
         "React",
         "Angular",
         "CI/CD",
@@ -79,31 +130,6 @@
       "lng": 16.4133714
     },
     {
-      "url": "https://www.karriere.at/jobs/7749476",
-      "title": "Test Automation Engineer C# (m/f/x)",
-      "company": "ADMIRAL Technologies",
-      "source": "Test Automation Wien",
-      "address": "Siebenbrunnengasse, 1050, Margareten",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "BDD",
-        "TypeScript",
-        "C#",
-        ".NET",
-        "SQL",
-        "CI/CD",
-        "Jira",
-        "Git",
-        "REST APIs",
-        "Agile"
-      ],
-      "langReq": "en",
-      "lat": 48.1858518,
-      "lng": 16.3539754
-    },
-    {
       "url": "https://www.karriere.at/jobs/7817471",
       "title": "Test Automation Engineer (f/m/d)",
       "company": "Greentube GmbH",
@@ -116,6 +142,7 @@
         "Cucumber",
         "BDD",
         "TypeScript",
+        "PHP",
         "SQL",
         "Docker",
         "Kubernetes",
@@ -142,36 +169,13 @@
         "ISTQB",
         "Java",
         "JavaScript",
+        "PHP",
         "React",
         "Docker"
       ],
       "langReq": "de-basic",
       "lat": 48.1320082,
       "lng": 16.3071715
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7808399",
-      "title": "Test Automation Engineer (w/m/d)",
-      "company": "SOFTCOM CONSULTING GmbH",
-      "source": "Test Automation Wien",
-      "address": "Marc-Aurel-Strasse 10-12/1. OG, 1010 Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Selenium",
-        "JUnit",
-        "TestNG",
-        "ISTQB",
-        "Java",
-        "SQL",
-        "React",
-        "Angular",
-        "REST APIs",
-        "SOAP"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.2123002,
-      "lng": 16.3738138
     },
     {
       "url": "https://www.karriere.at/jobs/7595456",
@@ -285,6 +289,7 @@
       "zip": null,
       "techStack": [
         "C#",
+        "PHP",
         "SQL",
         "Jira",
         "Confluence"
@@ -292,25 +297,6 @@
       "langReq": "de-basic",
       "lat": 48.2117847,
       "lng": 16.375957
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7815293",
-      "title": "Praktikum Software Testing (w/m/div.)",
-      "company": "Bosch-Gruppe Österreich",
-      "source": "Software Tester Wien",
-      "address": "Göllnergasse, 15-17, 1030, Erdberg",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Cypress",
-        "Java",
-        "SQL",
-        "Agile",
-        "Scrum"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.2004858,
-      "lng": 16.4007318
     },
     {
       "url": "https://www.karriere.at/jobs/7784576",
@@ -346,6 +332,31 @@
       "lng": 16.4352268
     },
     {
+      "url": "https://www.karriere.at/jobs/10020381",
+      "title": "Frontend Quality Engineer (m/w/d)",
+      "company": "x-tention Informationstechnologie GmbH",
+      "source": "Quality Assurance Wien",
+      "address": "Leopold-Böhm-Straße 12, 1030 Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Jest",
+        "BDD",
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "Angular",
+        "CI/CD",
+        "Git"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.184324,
+      "lng": 16.4127281
+    },
+    {
       "url": "https://at.indeed.com/viewjob?jk=31528ae45758cee6",
       "title": "Test Automation Engineer (all genders)",
       "company": "FREQUENTIS COMSOFT GmbH",
@@ -379,15 +390,15 @@
       "lng": 16.4159904
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4424569545",
-      "title": "Quality Assurance Engineer",
-      "company": "ENPULSION",
+      "url": "https://www.linkedin.com/jobs/view/4421198879",
+      "title": "Automation Engineer - Microsoft 365 & API-Workflow (TechOps) (m/w/d)",
+      "company": "ristl.IT GmbH",
       "source": "jobspy-linkedin",
-      "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich",
+      "address": "Salztorgasse 7/16, 1010 Wien",
       "city": "Wien",
       "zip": null,
-      "lat": 47.8370619,
-      "lng": 16.2530127
+      "lat": 48.2136486,
+      "lng": 16.3735294
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4424212862",
@@ -410,6 +421,28 @@
       "zip": null,
       "lat": 48.2084441,
       "lng": 16.3665691
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4422946069",
+      "title": "AI Automation Engineer",
+      "company": "nyra health",
+      "source": "jobspy-linkedin",
+      "address": "Salzgries 19, 1010 Wien, Innere Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2132964,
+      "lng": 16.3707901
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4422831231",
+      "title": "QA Engineer @ Fluidtime",
+      "company": "Fluidtime",
+      "source": "jobspy-linkedin",
+      "address": "Neubaugasse, 12-14/25, 1070, Neubau",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1993835,
+      "lng": 16.3501252
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4370503347",
@@ -478,6 +511,28 @@
       "lng": 16.4221587
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4413552498",
+      "title": "QA Engineer",
+      "company": "Bybit EU",
+      "source": "jobspy-linkedin",
+      "address": "Donau-City-Straße 7, 1220 Wien, Donaustadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2319522,
+      "lng": 16.4137062
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4417962300",
+      "title": "Software Tester with experience (Enterprise Imaging) (m/f/d)",
+      "company": "AGFA HealthCare",
+      "source": "jobspy-linkedin",
+      "address": "Linke Wienzeile, 236, 1150, Katastralgemeinde Sechshaus",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1846345,
+      "lng": 16.332828
+    },
+    {
       "url": "https://at.indeed.com/viewjob?jk=d908d19278f213b6",
       "title": "Senior QA Engineer (m/w/d)",
       "company": "TechTalk",
@@ -487,17 +542,6 @@
       "zip": null,
       "lat": 48.2364804,
       "lng": 16.4133714
-    },
-    {
-      "url": "https://at.indeed.com/viewjob?jk=e868f7c103532138",
-      "title": "AI Automation Engineer",
-      "company": "nyra health",
-      "source": "jobspy-indeed",
-      "address": "Salzgries 19, 1010 Wien, Innere Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2132964,
-      "lng": 16.3707901
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=cbff00885972fe85",
@@ -511,15 +555,70 @@
       "lng": 16.3501252
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4422831231",
-      "title": "QA Engineer @ Fluidtime",
-      "company": "Fluidtime",
+      "url": "https://www.linkedin.com/jobs/view/4424569545",
+      "title": "Quality Assurance Engineer",
+      "company": "ENPULSION",
       "source": "jobspy-linkedin",
-      "address": "Neubaugasse, 12-14/25, 1070, Neubau",
+      "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1993835,
-      "lng": 16.3501252
+      "lat": 47.8370619,
+      "lng": 16.2530127
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4326335915",
+      "title": "Senior Software Quality Engineer (m/w/d)",
+      "company": "Wüstenrot Gruppe",
+      "source": "jobspy-linkedin",
+      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1761566,
+      "lng": 16.3733846
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4423355534",
+      "title": "Associate Software Quality Assurance Engineer (P2)",
+      "company": "International Atomic Energy Agency (IAEA)",
+      "source": "jobspy-linkedin",
+      "address": "Innere Stadt, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2100072,
+      "lng": 16.3697034
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4381548320",
+      "title": "Quality Engineer",
+      "company": "Mercury",
+      "source": "jobspy-linkedin",
+      "address": "Rustenallee, 1130, KG Schönbrunn",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1820832,
+      "lng": 16.3098046
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4399977766",
+      "title": "Quality Engineer",
+      "company": "Trayport",
+      "source": "jobspy-linkedin",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1686875,
+      "lng": 16.3336346
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4416251107",
+      "title": "Supplier Quality Assurance Engineer (all genders)",
+      "company": "Beyond Gravity",
+      "source": "jobspy-linkedin",
+      "address": "Stachegasse, 13, 1120, Katastralgemeinde Hetzendorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1619354,
+      "lng": 16.3107841
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4423220569",
@@ -554,94 +653,6 @@
       "lat": 48.1857192,
       "lng": 16.4221587,
       "reportedSalary": 62
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4413552498",
-      "title": "QA Engineer",
-      "company": "Bybit EU",
-      "source": "jobspy-linkedin",
-      "address": "Donau-City-Straße 7, 1220 Wien, Donaustadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2319522,
-      "lng": 16.4137062
-    },
-    {
-      "url": "https://at.indeed.com/viewjob?jk=f8ac24c82370f72b",
-      "title": "Supplier Quality Assurance Engineer (all genders)",
-      "company": "Beyond Gravity",
-      "source": "jobspy-indeed",
-      "address": "Stachegasse, 13, 1120, Katastralgemeinde Hetzendorf",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1619354,
-      "lng": 16.3107841
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4423355534",
-      "title": "Associate Software Quality Assurance Engineer (P2)",
-      "company": "International Atomic Energy Agency (IAEA)",
-      "source": "jobspy-linkedin",
-      "address": "Innere Stadt, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2100072,
-      "lng": 16.3697034
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4417962300",
-      "title": "Software Tester with experience (Enterprise Imaging) (m/f/d)",
-      "company": "AGFA HealthCare",
-      "source": "jobspy-linkedin",
-      "address": "Linke Wienzeile, 236, 1150, Katastralgemeinde Sechshaus",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1846345,
-      "lng": 16.332828
-    },
-    {
-      "url": "https://at.indeed.com/viewjob?jk=81e95d6fcb01c112",
-      "title": "Praktikum Software Testing (w/m/div.)",
-      "company": "Bosch",
-      "source": "jobspy-indeed",
-      "address": "Mariahilfer Straße, 74b, 1070, Neubau",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1980958,
-      "lng": 16.349055
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4326335915",
-      "title": "Senior Software Quality Engineer (m/w/d)",
-      "company": "Wüstenrot Gruppe",
-      "source": "jobspy-linkedin",
-      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1761566,
-      "lng": 16.3733846
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4421198879",
-      "title": "Automation Engineer - Microsoft 365 & API-Workflow (TechOps) (m/w/d)",
-      "company": "ristl.IT GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Salztorgasse 7/16, 1010 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2136486,
-      "lng": 16.3735294
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4399977766",
-      "title": "Quality Engineer",
-      "company": "Trayport",
-      "source": "jobspy-linkedin",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4398825566",
@@ -683,11 +694,11 @@
   ],
   "validation": {
     "accepted": 16,
-    "rejected": 28,
+    "rejected": 27,
     "reasons": {
-      "not-sdet-role": 25,
+      "not-sdet-role": 24,
       "non-software-domain": 3
     }
   },
-  "lastVerified": "2026-06-07T10:11:09.035Z"
+  "lastVerified": "2026-06-08T12:04:15.912Z"
 }
