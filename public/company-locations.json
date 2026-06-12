@@ -637,5 +637,21 @@
     "lat": 48.184324,
     "lng": 16.4127281,
     "address": "Leopold-Böhm-Straße 12, 1030 Wien"
+  },
+  "loytec": {
+    "lat": 48.2205116,
+    "lng": 16.33471,
+    "address": "35-37, 1170, Katastralgemeinde Hernals"
+  },
+  "delta electronics emea": {
+    "lat": 48.1769482,
+    "lng": 16.4138082,
+    "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering"
+  },
+  "dedalus": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-12T11:07:23.142Z"
   }
 }
