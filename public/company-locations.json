@@ -653,5 +653,33 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-06-12T11:07:23.142Z"
+  },
+  "atos": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-13T10:01:25.098Z"
+  },
+  "it services der sozialversicherung": {
+    "lat": 48.2052415,
+    "lng": 16.432395,
+    "address": "Johann-Böhm-Platz 1, 1020 Wien"
+  },
+  "it-services der sozialversicherung gmbh": {
+    "lat": 48.2052415,
+    "lng": 16.432395,
+    "address": "Johann-Böhm-Platz 1, 1020 Wien"
+  },
+  "fonio ai": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-13T10:01:44.469Z"
+  },
+  "fonio.ai": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-13T10:01:44.469Z"
   }
 }
