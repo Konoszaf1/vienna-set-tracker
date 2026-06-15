@@ -681,5 +681,10 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-06-13T10:01:44.469Z"
+  },
+  "alstom": {
+    "lat": 48.265492,
+    "lng": 16.4718943,
+    "address": "5, 1220, Katastralgemeinde Kagran"
   }
 }
