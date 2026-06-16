@@ -265,7 +265,7 @@
   },
   "hirebuddy": {
     "kununu": null,
-    "fetchedAt": "2026-05-31T09:52:30.835Z"
+    "fetchedAt": "2026-06-16T12:16:57.776Z"
   },
   "raiffeisen bank rbi": {
     "kununu": null,
@@ -303,7 +303,7 @@
   },
   "mercury": {
     "kununu": null,
-    "fetchedAt": "2026-05-31T09:52:34.846Z"
+    "fetchedAt": "2026-06-16T12:17:03.837Z"
   },
   "wüstenrot": {
     "kununu": null,
@@ -401,7 +401,7 @@
   },
   "beyond gravity": {
     "kununu": null,
-    "fetchedAt": "2026-06-02T11:23:57.454Z"
+    "fetchedAt": "2026-06-16T12:17:01.816Z"
   },
   "andamp": {
     "kununu": null,
@@ -482,5 +482,21 @@
   "alstom": {
     "kununu": null,
     "fetchedAt": "2026-06-15T13:20:37.262Z"
+  },
+  "fronius": {
+    "kununu": null,
+    "fetchedAt": "2026-06-16T12:16:55.754Z"
+  },
+  "ivm technical consultants vienna the technical experts": {
+    "kununu": null,
+    "fetchedAt": "2026-06-16T12:16:59.797Z"
+  },
+  "fronius usa llc": {
+    "kununu": null,
+    "fetchedAt": "2026-06-16T12:17:05.858Z"
+  },
+  "talentbird": {
+    "kununu": null,
+    "fetchedAt": "2026-06-16T12:17:07.879Z"
   }
 }

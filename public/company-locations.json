@@ -224,13 +224,13 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-05-15T09:51:53.542Z"
+    "lastTried": "2026-06-16T12:17:30.123Z"
   },
   "hirebuddy": {
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-05-15T09:52:11.765Z"
+    "lastTried": "2026-06-16T12:17:19.416Z"
   },
   "raiffeisen bank international ag (rbi)": {
     "lat": 48.2581603,
@@ -686,5 +686,37 @@
     "lat": 48.265492,
     "lng": 16.4718943,
     "address": "5, 1220, Katastralgemeinde Kagran"
+  },
+  "fronius": {
+    "lat": 48.1653639,
+    "lng": 16.375847,
+    "address": "Daumegasse, 1100, Katastralgemeinde Favoriten"
+  },
+  "ivm technical consultants vienna the technical experts": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-16T12:17:42.756Z"
+  },
+  "ivm technical consultants vienna - the technical experts": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-16T12:17:42.756Z"
+  },
+  "fronius usa llc": {
+    "lat": 48.1653639,
+    "lng": 16.375847,
+    "address": "Daumegasse, 1100, Katastralgemeinde Favoriten"
+  },
+  "talentbird": {
+    "lat": 48.1931544,
+    "lng": 16.2591554,
+    "address": "Erzbischofgasse 61, 1130 Wien"
+  },
+  "talentbird gmbh": {
+    "lat": 48.1931544,
+    "lng": 16.2591554,
+    "address": "Erzbischofgasse 61, 1130 Wien"
   }
 }
