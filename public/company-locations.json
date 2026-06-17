@@ -718,5 +718,15 @@
     "lat": 48.1931544,
     "lng": 16.2591554,
     "address": "Erzbischofgasse 61, 1130 Wien"
+  },
+  "evva sicherheitstechnologie": {
+    "lat": 48.1713977,
+    "lng": 16.3289387,
+    "address": "Wienerbergstraße, 59-65, 1120, Katastralgemeinde Altmannsdorf"
+  },
+  "evva sicherheitstechnologie gmbh": {
+    "lat": 48.1713977,
+    "lng": 16.3289387,
+    "address": "Wienerbergstraße, 59-65, 1120, Katastralgemeinde Altmannsdorf"
   }
 }
