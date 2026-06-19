@@ -728,5 +728,10 @@
     "lat": 48.1713977,
     "lng": 16.3289387,
     "address": "Wienerbergstraße, 59-65, 1120, Katastralgemeinde Altmannsdorf"
+  },
+  "sbg associates": {
+    "lat": 48.1395494,
+    "lng": 16.3440133,
+    "address": "Kolpingstraße 19/2, 1120 Wien"
   }
 }
