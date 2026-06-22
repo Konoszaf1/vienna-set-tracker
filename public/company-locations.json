@@ -733,5 +733,17 @@
     "lat": 48.1395494,
     "lng": 16.3440133,
     "address": "Kolpingstraße 19/2, 1120 Wien"
+  },
+  "annny": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-22T12:55:49.554Z"
+  },
+  "annny gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-06-22T12:55:49.554Z"
   }
 }
