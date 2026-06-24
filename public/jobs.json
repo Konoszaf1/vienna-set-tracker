@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T10:41:51.572481+00:00",
+  "lastUpdated": "2026-06-24T10:28:07.457683+00:00",
   "count": 41,
   "jobs": [
     {
@@ -42,6 +42,7 @@
         "Cucumber",
         "BDD",
         "TypeScript",
+        "PHP",
         "SQL",
         "Docker",
         "Kubernetes",
@@ -166,6 +167,47 @@
       "lng": 16.4032705
     },
     {
+      "url": "https://www.karriere.at/jobs/7807409",
+      "title": "Software Test Engineer (m/w/d)",
+      "company": "T-Systems Austria GesmbH",
+      "source": "Test Automation Wien",
+      "address": "Rennweg 97-99, 1030 Wien, Landstraße",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Tosca",
+        "Postman",
+        "ISTQB",
+        "TestRail",
+        "SQL",
+        "Jira",
+        "SOAP",
+        "Agile"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.1867515,
+      "lng": 16.4032705
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10018865",
+      "title": "Senior QA Automation Engineer (m/w/d)",
+      "company": "3-S-IT Dienstleistungen GmbH",
+      "source": "Test Automation Wien",
+      "address": "Leopoldstadt, 1020 Wien",
+      "city": "Wien",
+      "zip": "1020",
+      "techStack": [
+        "Playwright",
+        "BDD",
+        "Xray",
+        "TypeScript",
+        "CI/CD"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2006384,
+      "lng": 16.4268953
+    },
+    {
       "url": "https://www.karriere.at/jobs/7794788",
       "title": "Senior Software Test Engineer (m/w/d)",
       "company": "IVM Technical Consultants",
@@ -209,47 +251,6 @@
       "langReq": "de-basic",
       "lat": 48.1653639,
       "lng": 16.375847
-    },
-    {
-      "url": "https://www.karriere.at/jobs/10018865",
-      "title": "Senior QA Automation Engineer (m/w/d)",
-      "company": "3-S-IT Dienstleistungen GmbH",
-      "source": "Test Automation Wien",
-      "address": "Leopoldstadt, 1020 Wien",
-      "city": "Wien",
-      "zip": "1020",
-      "techStack": [
-        "Playwright",
-        "BDD",
-        "Xray",
-        "TypeScript",
-        "CI/CD"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.2006384,
-      "lng": 16.4268953
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7807409",
-      "title": "Software Test Engineer (m/w/d)",
-      "company": "T-Systems Austria GesmbH",
-      "source": "Test Automation Wien",
-      "address": "Rennweg 97-99, 1030 Wien, Landstraße",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Tosca",
-        "Postman",
-        "ISTQB",
-        "TestRail",
-        "SQL",
-        "Jira",
-        "SOAP",
-        "Agile"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.1867515,
-      "lng": 16.4032705
     },
     {
       "url": "https://www.karriere.at/jobs/7829021",
@@ -365,17 +366,6 @@
       "lng": null
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4426943260",
-      "title": "Test Automation Engineer",
-      "company": "Delta Electronics EMEA",
-      "source": "jobspy-linkedin",
-      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1769482,
-      "lng": 16.4138082
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4425302065",
       "title": "Test Automation Engineer (m/f/d)",
       "company": "Atos",
@@ -387,15 +377,15 @@
       "lng": 16.4221587
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4424882928",
-      "title": "Test Automation Engineer - Senior Consultant (m,w,d)",
-      "company": "QESTIT DACH",
+      "url": "https://www.linkedin.com/jobs/view/4426943260",
+      "title": "Test Automation Engineer",
+      "company": "Delta Electronics EMEA",
       "source": "jobspy-linkedin",
-      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
+      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
       "city": "Wien",
       "zip": null,
-      "lat": 48.2117568,
-      "lng": 16.3728768
+      "lat": 48.1769482,
+      "lng": 16.4138082
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4291933969",
@@ -475,15 +465,37 @@
       "lng": 16.332828
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4426560348",
-      "title": "Senior Software Engineer in Test (Java) - Remote Work | REF#293828",
-      "company": "BairesDev",
+      "url": "https://www.linkedin.com/jobs/view/4432530423",
+      "title": "QA Engineer - Fokus Backend @ Fluidtime",
+      "company": "Fluidtime",
       "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
+      "address": "Neubaugasse, 12-14/25, 1070, Neubau",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
+      "lat": 48.1993835,
+      "lng": 16.3501252
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4399977766",
+      "title": "Quality Engineer",
+      "company": "Trayport",
+      "source": "jobspy-linkedin",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1686875,
+      "lng": 16.3336346
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4424882928",
+      "title": "Test Automation Engineer - Senior Consultant (m,w,d)",
+      "company": "QESTIT DACH",
+      "source": "jobspy-linkedin",
+      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2117568,
+      "lng": 16.3728768
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4427840026",
@@ -506,28 +518,6 @@
       "zip": null,
       "lat": 48.1857192,
       "lng": 16.4221587
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4399977766",
-      "title": "Quality Engineer",
-      "company": "Trayport",
-      "source": "jobspy-linkedin",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4425795405",
-      "title": "VIE - Serial Supplier Quality Engineer (m/f/d)",
-      "company": "Alstom",
-      "source": "jobspy-linkedin",
-      "address": "5, 1220, Katastralgemeinde Kagran",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.265492,
-      "lng": 16.4718943
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4416251107",
@@ -585,6 +575,17 @@
       "lng": 16.2591554
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4426560348",
+      "title": "Senior Software Engineer in Test (Java) - Remote Work | REF#293828",
+      "company": "BairesDev",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4422946069",
       "title": "AI Automation Engineer",
       "company": "nyra health",
@@ -624,11 +625,11 @@
   ],
   "validation": {
     "accepted": 15,
-    "rejected": 28,
+    "rejected": 27,
     "reasons": {
-      "not-sdet-role": 26,
+      "not-sdet-role": 25,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-06-23T10:42:18.559Z"
+  "lastVerified": "2026-06-24T10:28:37.143Z"
 }
