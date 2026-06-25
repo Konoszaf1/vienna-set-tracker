@@ -745,5 +745,10 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-06-22T12:55:49.554Z"
+  },
+  "scientific games": {
+    "lat": 48.1669135,
+    "lng": 16.2851061,
+    "address": "Klitschgasse, 4, 1130, Hietzing"
   }
 }
