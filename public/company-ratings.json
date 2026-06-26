@@ -288,7 +288,7 @@
   },
   "trayport": {
     "kununu": null,
-    "fetchedAt": "2026-06-11T11:27:43.026Z"
+    "fetchedAt": "2026-06-26T10:28:27.614Z"
   },
   "devjobs": {
     "kununu": null,
@@ -335,7 +335,7 @@
   },
   "greentube": {
     "kununu": null,
-    "fetchedAt": "2026-06-11T11:27:41.011Z"
+    "fetchedAt": "2026-06-26T10:28:21.595Z"
   },
   "wacker neuson": {
     "kununu": {
@@ -350,7 +350,7 @@
   },
   "bundesrechenzentrum": {
     "kununu": null,
-    "fetchedAt": "2026-06-11T11:27:38.995Z"
+    "fetchedAt": "2026-06-26T10:28:23.602Z"
   },
   "3 s it dienstleistungen": {
     "kununu": null,
@@ -382,7 +382,7 @@
   },
   "bairesdev": {
     "kununu": null,
-    "fetchedAt": "2026-06-11T11:27:47.054Z"
+    "fetchedAt": "2026-06-26T10:28:29.620Z"
   },
   "roche in österreich": {
     "kununu": null,
@@ -503,5 +503,9 @@
   "annny": {
     "kununu": null,
     "fetchedAt": "2026-06-22T12:55:30.287Z"
+  },
+  "sportsbook software": {
+    "kununu": null,
+    "fetchedAt": "2026-06-26T10:28:25.608Z"
   }
 }

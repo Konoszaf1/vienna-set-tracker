@@ -750,5 +750,15 @@
     "lat": 48.1669135,
     "lng": 16.2851061,
     "address": "Klitschgasse, 4, 1130, Hietzing"
+  },
+  "sportsbook software": {
+    "lat": 48.2143607,
+    "lng": 16.4860715,
+    "address": "Donaustadt, 1220 Wien"
+  },
+  "sportsbook software gmbh": {
+    "lat": 48.2143607,
+    "lng": 16.4860715,
+    "address": "Donaustadt, 1220 Wien"
   }
 }
