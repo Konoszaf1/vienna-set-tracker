@@ -1,41 +1,7 @@
 {
-  "lastUpdated": "2026-06-26T10:28:21.313017+00:00",
-  "count": 39,
+  "lastUpdated": "2026-06-27T09:33:13.368519+00:00",
+  "count": 41,
   "jobs": [
-    {
-      "url": "https://www.karriere.at/jobs/7686185",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "Qnit Austria GmbH",
-      "source": "Test Automation Wien",
-      "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Cypress",
-        "Selenium",
-        "Robot Framework",
-        "REST Assured",
-        "Postman",
-        "ISTQB",
-        "Xray",
-        "Java",
-        "TypeScript",
-        "JavaScript",
-        "C#",
-        "React",
-        "Angular",
-        "CI/CD",
-        "Jenkins",
-        "GitLab CI/CD",
-        "GitHub Actions",
-        "Jira",
-        "Git"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.2364804,
-      "lng": 16.4133714
-    },
     {
       "url": "https://www.karriere.at/jobs/7781381",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
@@ -62,6 +28,19 @@
       "lat": 48.2006384,
       "lng": 16.4268953,
       "reportedSalary": 62
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7686185",
+      "title": "Test Automation Engineer (m/w/d)",
+      "company": "Qnit Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt",
+      "city": null,
+      "zip": null,
+      "techStack": [],
+      "langReq": "de-basic",
+      "lat": 48.2364804,
+      "lng": 16.4133714
     },
     {
       "url": "https://www.karriere.at/jobs/7821038",
@@ -154,6 +133,7 @@
         "BDD",
         "TypeScript",
         "C#",
+        ".NET",
         "SQL",
         "CI/CD",
         "Jira",
@@ -278,7 +258,8 @@
       "city": "Wien",
       "zip": null,
       "techStack": [
-        "ISTQB"
+        "ISTQB",
+        "Agile"
       ],
       "langReq": "de-fluent",
       "lat": 48.2087649,
@@ -293,7 +274,8 @@
       "city": "Wien",
       "zip": null,
       "techStack": [
-        "ISTQB"
+        "ISTQB",
+        "Agile"
       ],
       "langReq": "de-fluent",
       "lat": 48.2087649,
@@ -324,6 +306,31 @@
       "langReq": "de-fluent",
       "lat": 48.203565,
       "lng": 16.4352268
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10020381",
+      "title": "Frontend Quality Engineer (m/w/d)",
+      "company": "x-tention Informationstechnologie GmbH",
+      "source": "Testautomatisierung Wien",
+      "address": "Leopold-Böhm-Straße 12, 1030 Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Jest",
+        "BDD",
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "Angular",
+        "CI/CD",
+        "Git"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.184324,
+      "lng": 16.4127281
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=3814aa40dafe5211",
@@ -370,6 +377,17 @@
       "lng": 16.3342088
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4429841931",
+      "title": "Test Automation Engineer – Senior Consultant (m,w,d)",
+      "company": "QESTIT DACH",
+      "source": "jobspy-linkedin",
+      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2117568,
+      "lng": 16.3728768
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
       "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
       "company": "PKE Holding AG",
@@ -379,6 +397,17 @@
       "zip": null,
       "lat": 48.1591557,
       "lng": 16.3401205
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4399977766",
+      "title": "Quality Engineer",
+      "company": "Trayport",
+      "source": "jobspy-linkedin",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1686875,
+      "lng": 16.3336346
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4426804567",
@@ -412,17 +441,6 @@
       "zip": null,
       "lat": 48.1769482,
       "lng": 16.4138082
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4424882928",
-      "title": "Test Automation Engineer - Senior Consultant (m,w,d)",
-      "company": "QESTIT DACH",
-      "source": "jobspy-linkedin",
-      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2117568,
-      "lng": 16.3728768
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4291933969",
@@ -491,6 +509,17 @@
       "lng": 16.2851061
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4425795405",
+      "title": "VIE - Serial Supplier Quality Engineer (m/f/d)",
+      "company": "Alstom",
+      "source": "jobspy-linkedin",
+      "address": "5, 1220, Katastralgemeinde Kagran",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.265492,
+      "lng": 16.4718943
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4427840026",
       "title": "Test Engineer Embedded Software",
       "company": "SBG Associates",
@@ -513,15 +542,26 @@
       "lng": 16.4221587
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4399977766",
-      "title": "Quality Engineer",
-      "company": "Trayport",
+      "url": "https://www.linkedin.com/jobs/view/4426560348",
+      "title": "Senior Software Engineer in Test (Java) - Remote Work | REF#293828",
+      "company": "BairesDev",
       "source": "jobspy-linkedin",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "address": "Vienna, Vienna",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
+      "lat": 48.1857192,
+      "lng": 16.4221587
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4381548320",
+      "title": "Quality Engineer",
+      "company": "Mercury",
+      "source": "jobspy-linkedin",
+      "address": "Rustenallee, 1130, KG Schönbrunn",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1820832,
+      "lng": 16.3098046
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4416251107",
@@ -535,15 +575,15 @@
       "lng": 16.3107841
     },
     {
-      "url": "https://at.indeed.com/viewjob?jk=a58b0587d7fba7d7",
-      "title": "Software Tester für API und Integration Testing (m/w/d)",
-      "company": "Fronius USA LLC",
-      "source": "jobspy-indeed",
-      "address": "Daumegasse, 1100, Katastralgemeinde Favoriten",
+      "url": "https://www.linkedin.com/jobs/view/4326335915",
+      "title": "Senior Software Quality Engineer (m/w/d)",
+      "company": "Wüstenrot Gruppe",
+      "source": "jobspy-linkedin",
+      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1653639,
-      "lng": 16.375847
+      "lat": 48.1761566,
+      "lng": 16.3733846
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4426810350",
@@ -555,28 +595,6 @@
       "zip": null,
       "lat": 48.1931544,
       "lng": 16.2591554
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4426560348",
-      "title": "Senior Software Engineer in Test (Java) - Remote Work | REF#293828",
-      "company": "BairesDev",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4326335915",
-      "title": "Senior Software Quality Engineer (m/w/d)",
-      "company": "Wüstenrot Gruppe",
-      "source": "jobspy-linkedin",
-      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1761566,
-      "lng": 16.3733846
     }
   ],
   "searchLinks": [
@@ -606,12 +624,12 @@
     }
   ],
   "validation": {
-    "accepted": 16,
+    "accepted": 17,
     "rejected": 24,
     "reasons": {
       "not-sdet-role": 22,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-06-26T10:28:54.732Z"
+  "lastVerified": "2026-06-27T09:33:48.573Z"
 }
