@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-27T09:33:13.368519+00:00",
-  "count": 41,
+  "lastUpdated": "2026-06-28T10:02:04.521812+00:00",
+  "count": 39,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/7781381",
@@ -30,14 +30,59 @@
       "reportedSalary": 62
     },
     {
+      "url": "https://www.karriere.at/jobs/7822034",
+      "title": "Test Automation Engineer C# (m/f/x)",
+      "company": "ADMIRAL Technologies",
+      "source": "Test Automation Wien",
+      "address": "Siebenbrunnengasse, 1050, Margareten",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "BDD",
+        "TypeScript",
+        "C#",
+        "SQL",
+        "CI/CD",
+        "Jira",
+        "Git",
+        "REST APIs",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": 48.1858518,
+      "lng": 16.3539754
+    },
+    {
       "url": "https://www.karriere.at/jobs/7686185",
       "title": "Test Automation Engineer (m/w/d)",
       "company": "Qnit Austria GmbH",
       "source": "Test Automation Wien",
       "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt",
-      "city": null,
+      "city": "Wien",
       "zip": null,
-      "techStack": [],
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Robot Framework",
+        "REST Assured",
+        "Postman",
+        "ISTQB",
+        "Xray",
+        "Java",
+        "TypeScript",
+        "JavaScript",
+        "C#",
+        "React",
+        "Angular",
+        "CI/CD",
+        "Jenkins",
+        "GitLab CI/CD",
+        "GitHub Actions",
+        "Jira",
+        "Git"
+      ],
       "langReq": "de-basic",
       "lat": 48.2364804,
       "lng": 16.4133714
@@ -119,31 +164,6 @@
       "langReq": "de-basic",
       "lat": 48.1320082,
       "lng": 16.3071715
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7822034",
-      "title": "Test Automation Engineer C# (m/f/x)",
-      "company": "ADMIRAL Technologies",
-      "source": "Test Automation Wien",
-      "address": "Siebenbrunnengasse, 1050, Margareten",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "BDD",
-        "TypeScript",
-        "C#",
-        ".NET",
-        "SQL",
-        "CI/CD",
-        "Jira",
-        "Git",
-        "REST APIs",
-        "Agile"
-      ],
-      "langReq": "en",
-      "lat": 48.1858518,
-      "lng": 16.3539754
     },
     {
       "url": "https://www.karriere.at/jobs/7826255",
@@ -232,26 +252,8 @@
       "lng": 16.3256384
     },
     {
-      "url": "https://www.karriere.at/jobs/10024328",
-      "title": "Softwaretester (m/w/d)",
-      "company": "Sportsbook Software GmbH",
-      "source": "Test Automation Wien",
-      "address": "Donaustadt, 1220 Wien",
-      "city": "Wien",
-      "zip": "1220",
-      "techStack": [
-        "Cypress",
-        "ISTQB",
-        "Jira",
-        "Confluence"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.2143607,
-      "lng": 16.4860715
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7829021",
-      "title": "Software Tester:in (w/m/d)",
+      "url": "https://www.karriere.at/jobs/7828199",
+      "title": "Software Tester:in (w/m/d) AMS-Account",
       "company": "Bundesrechenzentrum GmbH",
       "source": "Software Tester Wien",
       "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße",
@@ -266,8 +268,8 @@
       "lng": 16.385966
     },
     {
-      "url": "https://www.karriere.at/jobs/7828199",
-      "title": "Software Tester:in (w/m/d) AMS-Account",
+      "url": "https://www.karriere.at/jobs/7829021",
+      "title": "Software Tester:in (w/m/d)",
       "company": "Bundesrechenzentrum GmbH",
       "source": "Software Tester Wien",
       "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße",
@@ -306,6 +308,24 @@
       "langReq": "de-fluent",
       "lat": 48.203565,
       "lng": 16.4352268
+    },
+    {
+      "url": "https://www.karriere.at/jobs/10024328",
+      "title": "Softwaretester (m/w/d)",
+      "company": "Sportsbook Software GmbH",
+      "source": "Testautomatisierung Wien",
+      "address": "Donaustadt, 1220 Wien",
+      "city": "Wien",
+      "zip": "1220",
+      "techStack": [
+        "Cypress",
+        "ISTQB",
+        "Jira",
+        "Confluence"
+      ],
+      "langReq": "de-basic",
+      "lat": 48.2143607,
+      "lng": 16.4860715
     },
     {
       "url": "https://www.karriere.at/jobs/10020381",
@@ -377,17 +397,6 @@
       "lng": 16.3342088
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4429841931",
-      "title": "Test Automation Engineer – Senior Consultant (m,w,d)",
-      "company": "QESTIT DACH",
-      "source": "jobspy-linkedin",
-      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2117568,
-      "lng": 16.3728768
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4270732892",
       "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
       "company": "PKE Holding AG",
@@ -419,6 +428,17 @@
       "zip": null,
       "lat": null,
       "lng": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4426810350",
+      "title": "Software Tester:in (w/m/d)",
+      "company": "talentbird GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Erzbischofgasse 61, 1130 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1931544,
+      "lng": 16.2591554
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4425302065",
@@ -509,17 +529,6 @@
       "lng": 16.2851061
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4425795405",
-      "title": "VIE - Serial Supplier Quality Engineer (m/f/d)",
-      "company": "Alstom",
-      "source": "jobspy-linkedin",
-      "address": "5, 1220, Katastralgemeinde Kagran",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.265492,
-      "lng": 16.4718943
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4427840026",
       "title": "Test Engineer Embedded Software",
       "company": "SBG Associates",
@@ -542,6 +551,17 @@
       "lng": 16.4221587
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4326335915",
+      "title": "Senior Software Quality Engineer (m/w/d)",
+      "company": "Wüstenrot Gruppe",
+      "source": "jobspy-linkedin",
+      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1761566,
+      "lng": 16.3733846
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4426560348",
       "title": "Senior Software Engineer in Test (Java) - Remote Work | REF#293828",
       "company": "BairesDev",
@@ -551,17 +571,6 @@
       "zip": null,
       "lat": 48.1857192,
       "lng": 16.4221587
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4381548320",
-      "title": "Quality Engineer",
-      "company": "Mercury",
-      "source": "jobspy-linkedin",
-      "address": "Rustenallee, 1130, KG Schönbrunn",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1820832,
-      "lng": 16.3098046
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4416251107",
@@ -575,26 +584,15 @@
       "lng": 16.3107841
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4326335915",
-      "title": "Senior Software Quality Engineer (m/w/d)",
-      "company": "Wüstenrot Gruppe",
+      "url": "https://www.linkedin.com/jobs/view/4429841931",
+      "title": "Test Automation Engineer – Senior Consultant (m,w,d)",
+      "company": "QESTIT DACH",
       "source": "jobspy-linkedin",
-      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
+      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1761566,
-      "lng": 16.3733846
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4426810350",
-      "title": "Software Tester:in (w/m/d)",
-      "company": "talentbird GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Erzbischofgasse 61, 1130 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1931544,
-      "lng": 16.2591554
+      "lat": 48.2117568,
+      "lng": 16.3728768
     }
   ],
   "searchLinks": [
@@ -625,11 +623,11 @@
   ],
   "validation": {
     "accepted": 17,
-    "rejected": 24,
+    "rejected": 25,
     "reasons": {
-      "not-sdet-role": 22,
+      "not-sdet-role": 23,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-06-27T09:33:48.573Z"
+  "lastVerified": "2026-06-28T10:02:30.000Z"
 }
