@@ -760,5 +760,10 @@
     "lat": 48.2143607,
     "lng": 16.4860715,
     "address": "Donaustadt, 1220 Wien"
+  },
+  "hays": {
+    "lat": 48.1961765,
+    "lng": 16.3388733,
+    "address": "Europaplatz 3/5, 1150 Wien"
   }
 }

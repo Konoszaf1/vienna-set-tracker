@@ -258,11 +258,11 @@
   "raiffeisen": {},
   "ebcont": {
     "kununu": null,
-    "fetchedAt": "2026-06-10T11:02:02.079Z"
+    "fetchedAt": "2026-07-01T10:49:10.382Z"
   },
   "hirebuddy": {
     "kununu": null,
-    "fetchedAt": "2026-06-16T12:16:57.776Z"
+    "fetchedAt": "2026-07-01T10:49:08.375Z"
   },
   "raiffeisen bank rbi": {
     "kununu": null,
@@ -300,7 +300,7 @@
   },
   "mercury": {
     "kununu": null,
-    "fetchedAt": "2026-06-16T12:17:03.837Z"
+    "fetchedAt": "2026-07-01T10:49:14.397Z"
   },
   "wüstenrot": {
     "kununu": null,
@@ -398,7 +398,7 @@
   },
   "beyond gravity": {
     "kununu": null,
-    "fetchedAt": "2026-06-16T12:17:01.816Z"
+    "fetchedAt": "2026-07-01T10:49:16.404Z"
   },
   "andamp": {
     "kununu": null,
@@ -481,12 +481,15 @@
     "fetchedAt": "2026-06-30T10:36:12.377Z"
   },
   "fronius": {
-    "kununu": null,
-    "fetchedAt": "2026-06-16T12:16:55.754Z"
+    "kununu": {
+      "score": 3.9,
+      "reviews": 0
+    },
+    "fetchedAt": "2026-07-01T10:49:06.364Z"
   },
   "ivm technical consultants vienna the technical experts": {
     "kununu": null,
-    "fetchedAt": "2026-06-16T12:16:59.797Z"
+    "fetchedAt": "2026-07-01T10:49:12.389Z"
   },
   "fronius usa llc": {
     "kununu": null,
@@ -507,5 +510,9 @@
   "sportsbook software": {
     "kununu": null,
     "fetchedAt": "2026-06-26T10:28:25.608Z"
+  },
+  "hays": {
+    "kununu": null,
+    "fetchedAt": "2026-07-01T10:49:18.411Z"
   }
 }
