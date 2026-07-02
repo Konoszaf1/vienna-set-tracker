@@ -765,5 +765,16 @@
     "lat": 48.1961765,
     "lng": 16.3388733,
     "address": "Europaplatz 3/5, 1150 Wien"
+  },
+  "kontron transportation": {
+    "lat": 48.1699953,
+    "lng": 16.331851,
+    "address": "Lehrbachgasse 11, 1120 Wien"
+  },
+  "ge vernova": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-07-02T10:15:27.395Z"
   }
 }
