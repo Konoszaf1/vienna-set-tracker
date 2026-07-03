@@ -354,11 +354,11 @@
   },
   "3 s it dienstleistungen": {
     "kununu": null,
-    "fetchedAt": "2026-06-18T11:14:26.974Z"
+    "fetchedAt": "2026-07-03T10:10:37.655Z"
   },
   "fb consulting trade": {
     "kununu": null,
-    "fetchedAt": "2026-06-18T11:14:33.034Z"
+    "fetchedAt": "2026-07-03T10:10:41.699Z"
   },
   "reasunta technology": {
     "kununu": null,
@@ -522,5 +522,9 @@
   "ge vernova": {
     "kununu": null,
     "fetchedAt": "2026-07-02T10:15:04.913Z"
+  },
+  "zellner personal lösungen": {
+    "kununu": null,
+    "fetchedAt": "2026-07-03T10:10:39.679Z"
   }
 }
