@@ -180,7 +180,7 @@
   },
   "delegate": {
     "kununu": null,
-    "fetchedAt": "2026-04-13T14:29:44.682Z"
+    "fetchedAt": "2026-07-06T11:33:06.798Z"
   },
   "t systems": {
     "kununu": null,
@@ -386,7 +386,7 @@
   },
   "roche in österreich": {
     "kununu": null,
-    "fetchedAt": "2026-06-21T10:35:33.753Z"
+    "fetchedAt": "2026-07-06T11:33:00.777Z"
   },
   "t systems gesmbh": {
     "kununu": null,
@@ -526,5 +526,13 @@
   "zellner personal lösungen": {
     "kununu": null,
     "fetchedAt": "2026-07-03T10:10:39.679Z"
+  },
+  "specific": {
+    "kununu": null,
+    "fetchedAt": "2026-07-06T11:33:02.785Z"
+  },
+  "plasmateria": {
+    "kununu": null,
+    "fetchedAt": "2026-07-06T11:33:04.792Z"
   }
 }

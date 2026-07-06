@@ -782,5 +782,32 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-07-03T10:10:55.932Z"
+  },
+  "specific": {
+    "lat": 48.2110128,
+    "lng": 16.3721345,
+    "address": "Hoher Markt 5, 1010 Wien"
+  },
+  "specific-group austria": {
+    "lat": 48.2110128,
+    "lng": 16.3721345,
+    "address": "Hoher Markt 5, 1010 Wien"
+  },
+  "plasmateria": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-07-06T11:33:31.019Z"
+  },
+  "plasmateria gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-07-06T11:33:31.019Z"
+  },
+  "delegate": {
+    "lat": 48.2223709,
+    "lng": 16.392406,
+    "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt"
   }
 }
