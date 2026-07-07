@@ -56,7 +56,7 @@
   },
   "softcom consulting": {
     "kununu": null,
-    "fetchedAt": "2026-06-20T10:13:42.631Z"
+    "fetchedAt": "2026-07-07T10:31:19.439Z"
   },
   "evva sicherheitstechnologie": {
     "kununu": null,
@@ -304,7 +304,7 @@
   },
   "wüstenrot": {
     "kununu": null,
-    "fetchedAt": "2026-06-21T10:35:35.762Z"
+    "fetchedAt": "2026-07-07T10:31:21.446Z"
   },
   "raiffeisenbank wienerwald egen": {
     "kununu": {
@@ -534,5 +534,13 @@
   "plasmateria": {
     "kununu": null,
     "fetchedAt": "2026-07-06T11:33:04.792Z"
+  },
+  "zooplus": {
+    "kununu": null,
+    "fetchedAt": "2026-07-07T10:31:23.452Z"
+  },
+  "delegate technology": {
+    "kununu": null,
+    "fetchedAt": "2026-07-07T10:31:25.457Z"
   }
 }

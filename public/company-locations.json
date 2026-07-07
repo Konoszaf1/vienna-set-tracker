@@ -809,5 +809,21 @@
     "lat": 48.2223709,
     "lng": 16.392406,
     "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt"
+  },
+  "zooplus": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-07-07T10:31:35.196Z"
+  },
+  "delegate technology": {
+    "lat": 48.2233945,
+    "lng": 16.3941778,
+    "address": "Jakov-Lind-Straße 2/2/2, 1020 Wien"
+  },
+  "delegate technology gmbh": {
+    "lat": 48.2233945,
+    "lng": 16.3941778,
+    "address": "Jakov-Lind-Straße 2/2/2, 1020 Wien"
   }
 }
