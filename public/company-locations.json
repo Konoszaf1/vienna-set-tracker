@@ -96,9 +96,9 @@
     "address": "1160, KG Ottakring"
   },
   "wienit gmbh": {
-    "lat": null,
-    "lng": null,
-    "address": null
+    "lat": 48.1926272,
+    "lng": 16.4131233,
+    "address": "Thomas-Klestil-Platz 13, 1030 Wien"
   },
   "coca-cola hbc austria gmbh": {
     "lat": 48.2053005,
@@ -825,5 +825,10 @@
     "lat": 48.2233945,
     "lng": 16.3941778,
     "address": "Jakov-Lind-Straße 2/2/2, 1020 Wien"
+  },
+  "wienit": {
+    "lat": 48.1926272,
+    "lng": 16.4131233,
+    "address": "Thomas-Klestil-Platz 13, 1030 Wien"
   }
 }
