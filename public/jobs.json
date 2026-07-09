@@ -1,7 +1,37 @@
 {
-  "lastUpdated": "2026-07-08T09:30:49.159537+00:00",
-  "count": 49,
+  "lastUpdated": "2026-07-09T10:30:15.311767+00:00",
+  "count": 43,
   "jobs": [
+    {
+      "url": "https://www.karriere.at/jobs/7841135",
+      "title": "Test Automation Engineer (f/m/d)",
+      "company": "Hutchison Drei Austria GmbH",
+      "source": "Test Automation Wien",
+      "address": "Brünner Straße, 52, 1210, Katastralgemeinde Großjedlersdorf II",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cypress",
+        "Appium",
+        "Robot Framework",
+        "Xray",
+        "Java",
+        "Python",
+        "SQL",
+        "React",
+        "Next.js",
+        "Docker",
+        "CI/CD",
+        "Jira",
+        "Confluence",
+        "REST APIs",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": 48.264039,
+      "lng": 16.401842
+    },
     {
       "url": "https://www.karriere.at/jobs/7781381",
       "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
@@ -207,29 +237,6 @@
       "lng": 16.385966
     },
     {
-      "url": "https://www.karriere.at/jobs/7826255",
-      "title": "Software Tester für API und Integration Testing (m/w/d)",
-      "company": "Fronius",
-      "source": "Test Automation Wien",
-      "address": "Daumegasse, 1100, Katastralgemeinde Favoriten",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Cypress",
-        "Appium",
-        "ISTQB",
-        "Python",
-        "JavaScript",
-        "C#",
-        "CI/CD",
-        "Jenkins"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.1653639,
-      "lng": 16.375847,
-      "kununuScore": 3.9
-    },
-    {
       "url": "https://www.karriere.at/jobs/7807409",
       "title": "Software Test Engineer (m/w/d)",
       "company": "T-Systems Austria GesmbH",
@@ -343,146 +350,6 @@
       "lng": 16.4860715
     },
     {
-      "url": "https://www.kununu.com/job-postings/at/35bdaa7f-a5e4-498a-baa2-878ce6f75beb",
-      "title": "Test Automation Engineer (all genders)",
-      "company": "adesso Austria GmbH",
-      "source": "kununu: Test Automation",
-      "city": "Graz, Wien",
-      "address": "Modecenterstraße 17, 1110 Wien, Simmering",
-      "zip": null,
-      "kununuScore": 4.4,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.1833424,
-      "lng": 16.4142072
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/9f9f945c-e677-40f8-a781-91234155af22",
-      "title": "Senior Test Automation Engineer (m/w/d) - Gefahrenmanagementsysteme",
-      "company": "PKE Holding AG",
-      "source": "kununu: Test Automation",
-      "city": "Wien",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "zip": null,
-      "kununuScore": 3.9,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/511f1dd2-dca6-4a97-bdd8-33998cd7ecee",
-      "title": "Test Automation Engineer (d/w/m)",
-      "company": "EBCONT",
-      "source": "kununu: Test Automation",
-      "city": "Wien",
-      "address": "Wien",
-      "zip": null,
-      "kununuScore": 4.5,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": null,
-      "lng": null
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/edd95aab-48b0-4761-bf6d-59abcccff59a",
-      "title": "Test Automation Engineer (m/w/d)",
-      "company": "T-Systems Austria GesmbH",
-      "source": "kununu: Test Automation",
-      "city": "Wien",
-      "address": "Rennweg 97-99, 1030 Wien, Landstraße",
-      "zip": null,
-      "kununuScore": 4,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.1867515,
-      "lng": 16.4032705
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/726bfb17-c5ab-467e-980b-82d20d0d8e43",
-      "title": "Test Automation Engineer (w/m/d)",
-      "company": "Hirebuddy",
-      "source": "kununu: Test Automation",
-      "city": "Wien",
-      "address": "Wien",
-      "zip": null,
-      "kununuScore": 4.8,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": null,
-      "lng": null
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/d9a82254-a142-4ea8-b44f-820e17124264",
-      "title": "Senior Test Automation Engineer (all genders)",
-      "company": "adesso Austria GmbH",
-      "source": "kununu: Test Automation",
-      "city": "Graz, Wien",
-      "address": "Modecenterstraße 17, 1110 Wien, Simmering",
-      "zip": null,
-      "kununuScore": 4.4,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.1833424,
-      "lng": 16.4142072
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/a2e5b29c-9cbc-4086-b14f-f5c3c1e87ed5",
-      "title": "Senior Test Automation Engineer (m/w/d) - Gefahrenmanagementsysteme",
-      "company": "PKE Holding AG",
-      "source": "kununu: Test Automation",
-      "city": "Vienna",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "zip": null,
-      "kununuScore": 3.9,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/81f84e1b-cf8f-4a07-a43a-7adf98ea8436",
-      "title": "Senior QA Engineer (m/w/d)",
-      "company": "TechTalk – Building Software that Matters",
-      "source": "kununu: QA Engineer",
-      "city": "Wien",
-      "address": "Leonard-Bernstein-Straße 10, 1220 Wien",
-      "zip": null,
-      "kununuScore": 4.1,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.2364804,
-      "lng": 16.4133714
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/f20effc1-a1a9-40e7-9f1b-3b12706f98e2",
-      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
-      "company": "PKE Holding AG",
-      "source": "kununu: QA Engineer",
-      "city": "Wien",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "zip": null,
-      "kununuScore": 3.9,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
-      "url": "https://www.kununu.com/job-postings/at/379e2a31-2a10-4aba-b8c9-dc8b09b7f375",
-      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
-      "company": "PKE Holding AG",
-      "source": "kununu: QA Engineer",
-      "city": "Vienna",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "zip": null,
-      "kununuScore": 3.9,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
       "url": "https://at.indeed.com/viewjob?jk=0d19a71dd606bedc",
       "title": "Software Test Automation Engineer (m/w/d)",
       "company": "Kontron Transportation",
@@ -505,15 +372,26 @@
       "lng": 16.33471
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4436091108",
-      "title": "Test Automation Engineer – Playwright & TypeScript | Senior Team",
-      "company": "Specific-Group Austria",
+      "url": "https://www.linkedin.com/jobs/view/4433953379",
+      "title": "Senior QA Engineer (All Genders)",
+      "company": "zooplus",
       "source": "jobspy-linkedin",
-      "address": "Hoher Markt 5, 1010 Wien",
+      "address": "Vienna, Vienna",
       "city": "Wien",
       "zip": null,
-      "lat": 48.2110128,
-      "lng": 16.3721345
+      "lat": 48.1857192,
+      "lng": 16.4221587
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4427713680",
+      "title": "Software Tester für API und Integration Testing (m/w/d)",
+      "company": "Fronius Österreich",
+      "source": "jobspy-linkedin",
+      "address": "Daumegasse, 1100, Katastralgemeinde Favoriten",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1653639,
+      "lng": 16.375847
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4425302065",
@@ -538,6 +416,17 @@
       "lng": 16.432395
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4434656218",
+      "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4432374723",
       "title": "Test Automation Engineer – Senior Consultant (m,w,d)",
       "company": "QESTIT DACH",
@@ -547,6 +436,17 @@
       "zip": null,
       "lat": 48.2117568,
       "lng": 16.3728768
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4434643740",
+      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4422944228",
@@ -571,17 +471,6 @@
       "lng": 16.2851061
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4426943260",
-      "title": "Test Automation Engineer",
-      "company": "Delta Electronics EMEA",
-      "source": "jobspy-linkedin",
-      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1769482,
-      "lng": 16.4138082
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4426929771",
       "title": "Software Tester",
       "company": "FB Consulting & Trade GmbH",
@@ -593,37 +482,48 @@
       "lng": 16.3500903
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4433953379",
-      "title": "Senior QA Engineer (All Genders)",
-      "company": "zooplus",
+      "url": "https://www.linkedin.com/jobs/view/4436091108",
+      "title": "Test Automation Engineer – Playwright & TypeScript | Senior Team",
+      "company": "Specific-Group Austria",
       "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
+      "address": "Hoher Markt 5, 1010 Wien",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
+      "lat": 48.2110128,
+      "lng": 16.3721345
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4433935682",
-      "title": "Software Test Engineer & Documentation Writer (w/m/d)",
-      "company": "Delegate Group",
+      "url": "https://www.linkedin.com/jobs/view/4399977766",
+      "title": "Quality Engineer",
+      "company": "Trayport",
       "source": "jobspy-linkedin",
-      "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
       "city": "Wien",
       "zip": null,
-      "lat": 48.2223709,
-      "lng": 16.392406
+      "lat": 48.1686875,
+      "lng": 16.3336346
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4426560348",
-      "title": "Senior Software Engineer in Test (Java) - Remote Work | REF#293828",
-      "company": "BairesDev",
+      "url": "https://www.linkedin.com/jobs/view/4426943260",
+      "title": "Test Automation Engineer",
+      "company": "Delta Electronics EMEA",
       "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
+      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
+      "lat": 48.1769482,
+      "lng": 16.4138082
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4437046741",
+      "title": "Test Automation Engineer (f/m/d)",
+      "company": "Drei Österreich",
+      "source": "jobspy-linkedin",
+      "address": "Wallensteinstraße, 12, 1200, Brigittenau",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2282967,
+      "lng": 16.3679422
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=9664c2ebeec093df",
@@ -648,6 +548,17 @@
       "lng": 16.3923295
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4433935682",
+      "title": "Software Test Engineer & Documentation Writer (w/m/d)",
+      "company": "Delegate Group",
+      "source": "jobspy-linkedin",
+      "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2223709,
+      "lng": 16.392406
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4427840026",
       "title": "Test Engineer Embedded Software",
       "company": "SBG Associates",
@@ -657,28 +568,6 @@
       "zip": null,
       "lat": 48.1395494,
       "lng": 16.3440133
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4425795405",
-      "title": "VIE - Serial Supplier Quality Engineer (m/f/d)",
-      "company": "Alstom",
-      "source": "jobspy-linkedin",
-      "address": "5, 1220, Katastralgemeinde Kagran",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.265492,
-      "lng": 16.4718943
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4399977766",
-      "title": "Quality Engineer",
-      "company": "Trayport",
-      "source": "jobspy-linkedin",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4416251107",
@@ -703,15 +592,15 @@
       "lng": 16.3098046
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4326335915",
-      "title": "Senior Software Quality Engineer (m/w/d)",
-      "company": "Wüstenrot Gruppe",
+      "url": "https://www.linkedin.com/jobs/view/4425795405",
+      "title": "VIE - Serial Supplier Quality Engineer (m/f/d)",
+      "company": "Alstom",
       "source": "jobspy-linkedin",
-      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
+      "address": "5, 1220, Katastralgemeinde Kagran",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1761566,
-      "lng": 16.3733846
+      "lat": 48.265492,
+      "lng": 16.4718943
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=8530b92725e5e866",
@@ -723,6 +612,28 @@
       "zip": null,
       "lat": 48.1639426,
       "lng": 16.3342088
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4438203027",
+      "title": "Software Test Engineer (m/w/d) SAP ERP",
+      "company": "Computer Futures",
+      "source": "jobspy-linkedin",
+      "address": "Fischergasse, 1020, Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2125665,
+      "lng": 16.3822635
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4370386899",
+      "title": "Senior Test Automation Engineer (all genders) [Wien]",
+      "company": "adesso Austria GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Modecenterstraße 17, 1110 Wien, Simmering",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1833424,
+      "lng": 16.4142072
     }
   ],
   "searchLinks": [
@@ -752,12 +663,12 @@
     }
   ],
   "validation": {
-    "accepted": 27,
-    "rejected": 50,
+    "accepted": 17,
+    "rejected": 26,
     "reasons": {
-      "not-sdet-role": 49,
+      "not-sdet-role": 25,
       "non-software-domain": 1
     }
   },
-  "lastVerified": "2026-07-08T09:31:31.341Z"
+  "lastVerified": "2026-07-09T10:31:35.551Z"
 }

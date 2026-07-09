@@ -830,5 +830,30 @@
     "lat": 48.1926272,
     "lng": 16.4131233,
     "address": "Thomas-Klestil-Platz 13, 1030 Wien"
+  },
+  "hutchison drei": {
+    "lat": 48.264039,
+    "lng": 16.401842,
+    "address": "Brünner Straße, 52, 1210, Katastralgemeinde Großjedlersdorf II"
+  },
+  "hutchison drei austria gmbh": {
+    "lat": 48.264039,
+    "lng": 16.401842,
+    "address": "Brünner Straße, 52, 1210, Katastralgemeinde Großjedlersdorf II"
+  },
+  "fronius österreich": {
+    "lat": 48.1653639,
+    "lng": 16.375847,
+    "address": "Daumegasse, 1100, Katastralgemeinde Favoriten"
+  },
+  "drei österreich": {
+    "lat": 48.2282967,
+    "lng": 16.3679422,
+    "address": "Wallensteinstraße, 12, 1200, Brigittenau"
+  },
+  "computer futures": {
+    "lat": 48.2125665,
+    "lng": 16.3822635,
+    "address": "Fischergasse, 1020, Leopoldstadt"
   }
 }
