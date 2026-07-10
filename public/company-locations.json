@@ -855,5 +855,10 @@
     "lat": 48.2125665,
     "lng": 16.3822635,
     "address": "Fischergasse, 1020, Leopoldstadt"
+  },
+  "pineapple recruiting": {
+    "lat": 48.2237941,
+    "lng": 16.3968471,
+    "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt"
   }
 }
