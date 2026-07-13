@@ -655,10 +655,9 @@
     "lastTried": "2026-06-12T11:07:23.142Z"
   },
   "atos": {
-    "lat": null,
-    "lng": null,
-    "address": null,
-    "lastTried": "2026-06-13T10:01:25.098Z"
+    "lat": 48.1878925,
+    "lng": 16.4179418,
+    "address": "Modecenterstraße 1, 1030 Wien"
   },
   "it services der sozialversicherung": {
     "lat": 48.2052415,
@@ -860,5 +859,10 @@
     "lat": 48.2237941,
     "lng": 16.3968471,
     "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt"
+  },
+  "wiener stadtwerke": {
+    "lat": 48.2333903,
+    "lng": 16.3595505,
+    "address": "Nordbergbrücke, 1090, Katastralgemeinde Alsergrund"
   }
 }

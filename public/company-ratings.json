@@ -460,11 +460,11 @@
   },
   "atos": {
     "kununu": null,
-    "fetchedAt": "2026-06-28T10:02:04.925Z"
+    "fetchedAt": "2026-07-13T10:32:32.808Z"
   },
   "it services der sozialversicherung": {
     "kununu": null,
-    "fetchedAt": "2026-06-28T10:02:06.938Z"
+    "fetchedAt": "2026-07-13T10:32:34.814Z"
   },
   "fonio ai": {
     "kununu": null,
@@ -552,5 +552,9 @@
   "computer futures": {
     "kununu": null,
     "fetchedAt": "2026-07-09T10:30:41.936Z"
+  },
+  "wiener stadtwerke": {
+    "kununu": null,
+    "fetchedAt": "2026-07-13T10:32:30.798Z"
   }
 }
