@@ -864,5 +864,17 @@
     "lat": 48.2333903,
     "lng": 16.3595505,
     "address": "Nordbergbrücke, 1090, Katastralgemeinde Alsergrund"
+  },
+  "capture": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-07-14T09:09:26.365Z"
+  },
+  "capture group": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-07-14T09:09:26.365Z"
   }
 }
