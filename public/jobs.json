@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-14T09:09:15.783502+00:00",
-  "count": 44,
+  "lastUpdated": "2026-07-15T09:13:57.369385+00:00",
+  "count": 42,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10025928",
@@ -247,6 +247,25 @@
       "lng": 16.4032705
     },
     {
+      "url": "https://www.karriere.at/jobs/7844153",
+      "title": "Software Tester mit Schwerpunkt Billing Systeme (m/w/d)",
+      "company": "Software Daten Service Gesellschaft m.b.H.",
+      "source": "Software Tester Wien",
+      "address": "Rennweg 97-99, 1030 Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Python",
+        "SQL",
+        "Kubernetes",
+        "Git",
+        "Agile"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.1867515,
+      "lng": 16.4032705
+    },
+    {
       "url": "https://www.karriere.at/jobs/7829021",
       "title": "Software Tester:in (w/m/d)",
       "company": "Bundesrechenzentrum GmbH",
@@ -318,21 +337,6 @@
       "lng": 16.4352268
     },
     {
-      "url": "https://www.karriere.at/jobs/7834511",
-      "title": "(Junior) System Test Engineer (all genders)",
-      "company": "FREQUENTIS AG",
-      "source": "Software Tester Wien",
-      "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Jira"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.1639426,
-      "lng": 16.3342088
-    },
-    {
       "url": "https://www.karriere.at/jobs/10024328",
       "title": "Softwaretester (m/w/d)",
       "company": "Sportsbook Software GmbH",
@@ -362,8 +366,8 @@
       "lng": 16.331851
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4437216508",
-      "title": "Test Automation Engineer - Senior Consultant (m,w,d)",
+      "url": "https://www.linkedin.com/jobs/view/4437277338",
+      "title": "Test Automation Engineer – Senior Consultant (m,w,d)",
       "company": "QESTIT DACH",
       "source": "jobspy-linkedin",
       "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
@@ -384,15 +388,26 @@
       "lng": 16.4138082
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4427713680",
-      "title": "Software Tester für API und Integration Testing (m/w/d)",
-      "company": "Fronius Österreich",
+      "url": "https://www.linkedin.com/jobs/view/4437046741",
+      "title": "Test Automation Engineer (f/m/d)",
+      "company": "Drei Österreich",
       "source": "jobspy-linkedin",
-      "address": "Daumegasse, 1100, Katastralgemeinde Favoriten",
+      "address": "Wallensteinstraße, 12, 1200, Brigittenau",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1653639,
-      "lng": 16.375847
+      "lat": 48.2282967,
+      "lng": 16.3679422
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4436091108",
+      "title": "Test Automation Engineer – Playwright & TypeScript | Senior Team",
+      "company": "Specific-Group Austria",
+      "source": "jobspy-linkedin",
+      "address": "Hoher Markt 5, 1010 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2110128,
+      "lng": 16.3721345
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4425302065",
@@ -406,41 +421,8 @@
       "lng": 16.4179418
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4427933384",
-      "title": "SOFTWARETESTER:IN (W/M/X)",
-      "company": "IT-Services der Sozialversicherung GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Johann-Böhm-Platz 1, 1020 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2052415,
-      "lng": 16.432395
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4435542328",
-      "title": "Test Automation Engineer",
-      "company": "STEINER-HITECH GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Talpagasse 1A, 1230 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1320082,
-      "lng": 16.3071715
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4434656218",
       "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
-      "company": "PKE",
-      "source": "jobspy-linkedin",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4434643740",
-      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
       "company": "PKE",
       "source": "jobspy-linkedin",
       "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
@@ -461,8 +443,8 @@
       "lng": 16.4142072
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4422944228",
-      "title": "Test Automation Engineer (all genders) - DE",
+      "url": "https://www.linkedin.com/jobs/view/4424212862",
+      "title": "Test Automation Engineer (all genders)",
       "company": "Frequentis",
       "source": "jobspy-linkedin",
       "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt",
@@ -470,39 +452,6 @@
       "zip": null,
       "lat": 48.1639426,
       "lng": 16.3342088
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4431490456",
-      "title": "Software Test Engineer (f/m/d)",
-      "company": "SCIENTIFIC GAMES",
-      "source": "jobspy-linkedin",
-      "address": "Klitschgasse, 4, 1130, Hietzing",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1669135,
-      "lng": 16.2851061
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4440068034",
-      "title": "Senior QA Engineer (Manual & Automation Testing)",
-      "company": "Capture Group",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4437046741",
-      "title": "Test Automation Engineer (f/m/d)",
-      "company": "Drei Österreich",
-      "source": "jobspy-linkedin",
-      "address": "Wallensteinstraße, 12, 1200, Brigittenau",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2282967,
-      "lng": 16.3679422
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4438203027",
@@ -527,15 +476,15 @@
       "lng": 16.4221587
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4436091108",
-      "title": "Test Automation Engineer – Playwright & TypeScript | Senior Team",
-      "company": "Specific-Group Austria",
+      "url": "https://www.linkedin.com/jobs/view/4431490456",
+      "title": "Software Test Engineer (f/m/d)",
+      "company": "SCIENTIFIC GAMES",
       "source": "jobspy-linkedin",
-      "address": "Hoher Markt 5, 1010 Wien",
+      "address": "Klitschgasse, 4, 1130, Hietzing",
       "city": "Wien",
       "zip": null,
-      "lat": 48.2110128,
-      "lng": 16.3721345
+      "lat": 48.1669135,
+      "lng": 16.2851061
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=9664c2ebeec093df",
@@ -560,39 +509,6 @@
       "lng": 16.3923295
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4435675933",
-      "title": "Senior Software Tester (w/m/x) - Community Lead",
-      "company": "Pineapple Recruiting GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2237941,
-      "lng": 16.3968471
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4381548320",
-      "title": "Quality Engineer",
-      "company": "Mercury",
-      "source": "jobspy-linkedin",
-      "address": "Rustenallee, 1130, KG Schönbrunn",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1820832,
-      "lng": 16.3098046
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4425795405",
-      "title": "VIE - Serial Supplier Quality Engineer (m/f/d)",
-      "company": "Alstom",
-      "source": "jobspy-linkedin",
-      "address": "5, 1220, Katastralgemeinde Kagran",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.265492,
-      "lng": 16.4718943
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4399977766",
       "title": "Quality Engineer",
       "company": "Trayport",
@@ -602,6 +518,17 @@
       "zip": null,
       "lat": 48.1686875,
       "lng": 16.3336346
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4435675933",
+      "title": "Senior Software Tester (w/m/x) - Community Lead",
+      "company": "Pineapple Recruiting GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2237941,
+      "lng": 16.3968471
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4433935682",
@@ -615,6 +542,28 @@
       "lng": 16.392406
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4434643740",
+      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4425795405",
+      "title": "VIE - Serial Supplier Quality Engineer (m/f/d)",
+      "company": "Alstom",
+      "source": "jobspy-linkedin",
+      "address": "5, 1220, Katastralgemeinde Kagran",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.265492,
+      "lng": 16.4718943
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4416251107",
       "title": "Supplier Quality Assurance Engineer (all genders)",
       "company": "Beyond Gravity",
@@ -626,15 +575,49 @@
       "lng": 16.3107841
     },
     {
-      "url": "https://at.indeed.com/viewjob?jk=8530b92725e5e866",
-      "title": "(Junior) System Test Engineer (all genders)",
-      "company": "FREQUENTIS COMSOFT GmbH",
-      "source": "jobspy-indeed",
-      "address": "Innovationsstraße, 1, 1100, KG Inzersdorf Stadt",
+      "url": "https://www.linkedin.com/jobs/view/4381548320",
+      "title": "Quality Engineer",
+      "company": "Mercury",
+      "source": "jobspy-linkedin",
+      "address": "Rustenallee, 1130, KG Schönbrunn",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1639426,
-      "lng": 16.3342088
+      "lat": 48.1820832,
+      "lng": 16.3098046
+    },
+    {
+      "url": "https://at.indeed.com/viewjob?jk=a58b0587d7fba7d7",
+      "title": "Software Tester für API und Integration Testing (m/w/d)",
+      "company": "Fronius",
+      "source": "jobspy-indeed",
+      "address": "Daumegasse, 1100, Katastralgemeinde Favoriten",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1653639,
+      "lng": 16.375847,
+      "kununuScore": 3.9
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4440068034",
+      "title": "Senior QA Engineer (Manual & Automation Testing)",
+      "company": "Capture Group",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4427933384",
+      "title": "SOFTWARETESTER:IN (W/M/X)",
+      "company": "IT-Services der Sozialversicherung GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Johann-Böhm-Platz 1, 1020 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2052415,
+      "lng": 16.432395
     }
   ],
   "searchLinks": [
@@ -665,11 +648,11 @@
   ],
   "validation": {
     "accepted": 18,
-    "rejected": 27,
+    "rejected": 28,
     "reasons": {
-      "not-sdet-role": 26,
+      "not-sdet-role": 27,
       "non-software-domain": 1
     }
   },
-  "lastVerified": "2026-07-14T09:09:52.632Z"
+  "lastVerified": "2026-07-15T09:14:24.618Z"
 }
