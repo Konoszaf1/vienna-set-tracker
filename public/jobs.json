@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-18T08:53:43.852981+00:00",
-  "count": 43,
+  "lastUpdated": "2026-07-19T09:10:15.772892+00:00",
+  "count": 42,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10025928",
@@ -139,6 +139,7 @@
         "BDD",
         "TypeScript",
         "C#",
+        ".NET",
         "SQL",
         "CI/CD",
         "Jira",
@@ -246,22 +247,6 @@
       "lng": 16.4032705
     },
     {
-      "url": "https://www.karriere.at/jobs/7828199",
-      "title": "Software Tester:in (w/m/d) AMS-Account",
-      "company": "Bundesrechenzentrum GmbH",
-      "source": "Software Tester Wien",
-      "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "ISTQB",
-        "Agile"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.2087649,
-      "lng": 16.385966
-    },
-    {
       "url": "https://www.karriere.at/jobs/7829021",
       "title": "Software Tester:in (w/m/d)",
       "company": "Bundesrechenzentrum GmbH",
@@ -297,6 +282,22 @@
       "lng": 16.4032705
     },
     {
+      "url": "https://www.karriere.at/jobs/7828199",
+      "title": "Software Tester:in (w/m/d) AMS-Account",
+      "company": "Bundesrechenzentrum GmbH",
+      "source": "Software Tester Wien",
+      "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "ISTQB",
+        "Agile"
+      ],
+      "langReq": "de-fluent",
+      "lat": 48.2087649,
+      "lng": 16.385966
+    },
+    {
       "url": "https://www.karriere.at/jobs/10023276",
       "title": "Testingenieur:in (m/w/d)",
       "company": "EVVA Sicherheitstechnologie GmbH",
@@ -308,6 +309,19 @@
       "langReq": "de-fluent",
       "lat": 48.1713977,
       "lng": 16.3289387
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7724918",
+      "title": "System Test Engineer (all genders)",
+      "company": "MELECS EWS GmbH",
+      "source": "Software Tester Wien",
+      "address": "Handelskai, 388, 1020, KG Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [],
+      "langReq": "de-fluent",
+      "lat": 48.203565,
+      "lng": 16.4352268
     },
     {
       "url": "https://www.karriere.at/jobs/7846445",
@@ -323,32 +337,6 @@
       "langReq": "de-fluent",
       "lat": 48.1639426,
       "lng": 16.3342088
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7842614",
-      "title": "R&D- und Testingenieur (m/w/d) - Maschinenbauindustrie",
-      "company": "Michael Page International Austria GmbH",
-      "source": "Software Tester Wien",
-      "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [],
-      "langReq": "de-basic",
-      "lat": 48.2251975,
-      "lng": 16.3559533
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7724918",
-      "title": "System Test Engineer (all genders)",
-      "company": "MELECS EWS GmbH",
-      "source": "Software Tester Wien",
-      "address": "Handelskai, 388, 1020, KG Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [],
-      "langReq": "de-fluent",
-      "lat": 48.203565,
-      "lng": 16.4352268
     },
     {
       "url": "https://www.karriere.at/jobs/10024328",
@@ -424,28 +412,6 @@
       "lng": 16.3679422
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4433953379",
-      "title": "Senior QA Engineer (All Genders)",
-      "company": "zooplus",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4436091108",
-      "title": "Test Automation Engineer – Playwright & TypeScript | Senior Team",
-      "company": "Specific-Group Austria",
-      "source": "jobspy-linkedin",
-      "address": "Hoher Markt 5, 1010 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2110128,
-      "lng": 16.3721345
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4425302065",
       "title": "Test Automation Engineer (m/f/d)",
       "company": "Atos",
@@ -479,15 +445,15 @@
       "lng": 16.4142072
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4431490456",
-      "title": "Software Test Engineer (f/m/d)",
-      "company": "SCIENTIFIC GAMES",
+      "url": "https://www.linkedin.com/jobs/view/4438203027",
+      "title": "Software Test Engineer (m/w/d) SAP ERP",
+      "company": "Computer Futures",
       "source": "jobspy-linkedin",
-      "address": "Klitschgasse, 4, 1130, Hietzing",
+      "address": "Fischergasse, 1020, Leopoldstadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1669135,
-      "lng": 16.2851061
+      "lat": 48.2125665,
+      "lng": 16.3822635
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4433935682",
@@ -499,6 +465,28 @@
       "zip": null,
       "lat": 48.2223709,
       "lng": 16.392406
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4436091108",
+      "title": "Test Automation Engineer – Playwright & TypeScript | Senior Team",
+      "company": "Specific-Group Austria",
+      "source": "jobspy-linkedin",
+      "address": "Hoher Markt 5, 1010 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2110128,
+      "lng": 16.3721345
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4431490456",
+      "title": "Software Test Engineer (f/m/d)",
+      "company": "SCIENTIFIC GAMES",
+      "source": "jobspy-linkedin",
+      "address": "Klitschgasse, 4, 1130, Hietzing",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1669135,
+      "lng": 16.2851061
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=9664c2ebeec093df",
@@ -534,15 +522,15 @@
       "lng": 16.3336346
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4434643740",
-      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
-      "company": "PKE",
+      "url": "https://www.linkedin.com/jobs/view/4433953379",
+      "title": "Senior QA Engineer (All Genders)",
+      "company": "zooplus",
       "source": "jobspy-linkedin",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "address": "Vienna, Vienna",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1591557,
-      "lng": 16.3401205
+      "lat": 48.1857192,
+      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4381548320",
@@ -556,15 +544,15 @@
       "lng": 16.3098046
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4438203027",
-      "title": "Software Test Engineer (m/w/d) SAP ERP",
-      "company": "Computer Futures",
+      "url": "https://www.linkedin.com/jobs/view/4440068034",
+      "title": "Senior QA Engineer (Manual & Automation Testing)",
+      "company": "Capture Group",
       "source": "jobspy-linkedin",
-      "address": "Fischergasse, 1020, Leopoldstadt",
+      "address": "Wien",
       "city": "Wien",
       "zip": null,
-      "lat": 48.2125665,
-      "lng": 16.3822635
+      "lat": null,
+      "lng": null
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4416251107",
@@ -600,17 +588,6 @@
       "lng": 16.3500903
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4440068034",
-      "title": "Senior QA Engineer (Manual & Automation Testing)",
-      "company": "Capture Group",
-      "source": "jobspy-linkedin",
-      "address": "Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": null,
-      "lng": null
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4427933384",
       "title": "SOFTWARETESTER:IN (W/M/X)",
       "company": "IT-Services der Sozialversicherung GmbH",
@@ -631,6 +608,17 @@
       "zip": null,
       "lat": 48.1639426,
       "lng": 16.3342088
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4434643740",
+      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205
     }
   ],
   "searchLinks": [
@@ -660,12 +648,12 @@
     }
   ],
   "validation": {
-    "accepted": 19,
-    "rejected": 29,
+    "accepted": 18,
+    "rejected": 28,
     "reasons": {
-      "not-sdet-role": 27,
+      "not-sdet-role": 26,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-07-18T08:54:11.595Z"
+  "lastVerified": "2026-07-19T09:10:42.645Z"
 }
