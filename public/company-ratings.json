@@ -169,15 +169,12 @@
     "fetchedAt": "2026-04-13T14:29:40.152Z"
   },
   "deutsche telekom": {
-    "kununu": {
-      "score": 3.9,
-      "reviews": 0
-    },
-    "fetchedAt": "2026-04-13T14:29:42.435Z"
+    "kununu": null,
+    "fetchedAt": "2026-07-21T09:32:57.818Z"
   },
   "delegate": {
     "kununu": null,
-    "fetchedAt": "2026-07-06T11:33:06.798Z"
+    "fetchedAt": "2026-07-21T09:32:59.828Z"
   },
   "t systems": {
     "kununu": null,
@@ -192,7 +189,7 @@
   },
   "enpulsion": {
     "kununu": null,
-    "fetchedAt": "2026-06-15T13:20:35.256Z"
+    "fetchedAt": "2026-07-21T09:33:01.840Z"
   },
   "akkodis": {
     "kununu": {
@@ -520,7 +517,7 @@
   },
   "specific": {
     "kununu": null,
-    "fetchedAt": "2026-07-06T11:33:02.785Z"
+    "fetchedAt": "2026-07-21T09:32:55.806Z"
   },
   "plasmateria": {
     "kununu": null,
