@@ -56,7 +56,7 @@
   },
   "softcom consulting": {
     "kununu": null,
-    "fetchedAt": "2026-07-07T10:31:19.439Z"
+    "fetchedAt": "2026-07-22T09:32:43.717Z"
   },
   "evva sicherheitstechnologie": {
     "kununu": null,
@@ -122,7 +122,7 @@
   },
   "wienit": {
     "kununu": null,
-    "fetchedAt": "2026-07-08T09:30:49.412Z"
+    "fetchedAt": "2026-07-22T09:32:45.723Z"
   },
   "coca cola hbc": {
     "kununu": {
@@ -525,11 +525,11 @@
   },
   "zooplus": {
     "kununu": null,
-    "fetchedAt": "2026-07-07T10:31:23.452Z"
+    "fetchedAt": "2026-07-22T09:32:47.728Z"
   },
   "delegate technology": {
     "kununu": null,
-    "fetchedAt": "2026-07-07T10:31:25.457Z"
+    "fetchedAt": "2026-07-22T09:32:49.733Z"
   },
   "hutchison drei": {
     "kununu": null,
@@ -554,5 +554,9 @@
   "capture": {
     "kununu": null,
     "fetchedAt": "2026-07-14T09:09:16.074Z"
+  },
+  "uniqa insurance": {
+    "kununu": null,
+    "fetchedAt": "2026-07-22T09:32:51.738Z"
   }
 }

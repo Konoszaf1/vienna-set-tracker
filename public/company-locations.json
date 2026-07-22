@@ -876,5 +876,15 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-07-14T09:09:26.365Z"
+  },
+  "uniqa insurance": {
+    "lat": 48.2356659,
+    "lng": 16.4226884,
+    "address": "Wagramer Straße, 23, 1220, Katastralgemeinde Kaisermühlen"
+  },
+  "uniqa insurance group": {
+    "lat": 48.2356659,
+    "lng": 16.4226884,
+    "address": "Wagramer Straße, 23, 1220, Katastralgemeinde Kaisermühlen"
   }
 }
