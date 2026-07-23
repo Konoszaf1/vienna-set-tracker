@@ -373,7 +373,7 @@
   },
   "bairesdev": {
     "kununu": null,
-    "fetchedAt": "2026-06-26T10:28:29.620Z"
+    "fetchedAt": "2026-07-23T09:30:26.837Z"
   },
   "roche in österreich": {
     "kununu": null,
@@ -453,7 +453,7 @@
   },
   "dedalus": {
     "kununu": null,
-    "fetchedAt": "2026-06-27T09:33:21.661Z"
+    "fetchedAt": "2026-07-23T09:30:24.828Z"
   },
   "atos": {
     "kununu": null,
@@ -558,5 +558,9 @@
   "uniqa insurance": {
     "kununu": null,
     "fetchedAt": "2026-07-22T09:32:51.738Z"
+  },
+  "qualysoft": {
+    "kununu": null,
+    "fetchedAt": "2026-07-23T09:30:28.842Z"
   }
 }

@@ -652,7 +652,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-06-12T11:07:23.142Z"
+    "lastTried": "2026-07-23T09:30:49.441Z"
   },
   "atos": {
     "lat": 48.1878925,
@@ -737,13 +737,13 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-06-22T12:55:49.554Z"
+    "lastTried": "2026-07-23T09:30:39.644Z"
   },
   "annny gmbh": {
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-06-22T12:55:49.554Z"
+    "lastTried": "2026-07-23T09:30:39.644Z"
   },
   "scientific games": {
     "lat": 48.1669135,
@@ -886,5 +886,20 @@
     "lat": 48.2356659,
     "lng": 16.4226884,
     "address": "Wagramer Straße, 23, 1220, Katastralgemeinde Kaisermühlen"
+  },
+  "uniqa insurance group ag": {
+    "lat": 48.2356659,
+    "lng": 16.4226884,
+    "address": "Wagramer Straße, 23, 1220, Katastralgemeinde Kaisermühlen"
+  },
+  "qualysoft": {
+    "lat": 48.2146932,
+    "lng": 16.3690891,
+    "address": "Neutorgasse 12/14, 1010 Wien"
+  },
+  "qualysoft gmbh": {
+    "lat": 48.2146932,
+    "lng": 16.3690891,
+    "address": "Neutorgasse 12/14, 1010 Wien"
   }
 }
