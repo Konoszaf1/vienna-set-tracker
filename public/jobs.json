@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-24T09:26:59.373748+00:00",
-  "count": 44,
+  "lastUpdated": "2026-07-25T09:07:32.302284+00:00",
+  "count": 38,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10025928",
@@ -20,50 +20,6 @@
       "langReq": "en",
       "lat": null,
       "lng": null
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7845440",
-      "title": "Test Automation Engineer (f/m/d)",
-      "company": "Greentube GmbH",
-      "source": "Test Automation Wien",
-      "address": "Wiedner Hauptstrasse 94, 1050 Wien",
-      "city": null,
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Cucumber",
-        "BDD",
-        "TypeScript",
-        "SQL",
-        "Docker",
-        "Kubernetes",
-        "Git",
-        "MongoDB",
-        "Agile"
-      ],
-      "langReq": "en",
-      "lat": 48.1868108,
-      "lng": 16.3634434
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7842950",
-      "title": "C# Entwickler für Testautomatisierung Solar & Energy (m/w/d)",
-      "company": "Fronius",
-      "source": "Test Automation Wien",
-      "address": "Daumegasse, 1100, Katastralgemeinde Favoriten",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "Python",
-        "C#",
-        ".NET",
-        "CI/CD",
-        "Jenkins"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.1653639,
-      "lng": 16.375847
     },
     {
       "url": "https://www.karriere.at/jobs/7686185",
@@ -139,6 +95,7 @@
         "Java",
         "JavaScript",
         "SQL",
+        "Angular",
         "CI/CD",
         "Jira",
         "Confluence",
@@ -149,6 +106,67 @@
       "lat": 48.2006384,
       "lng": 16.4268953,
       "reportedSalary": 62
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7842950",
+      "title": "C# Entwickler für Testautomatisierung Solar & Energy (m/w/d)",
+      "company": "Fronius",
+      "source": "Test Automation Wien",
+      "address": "Daumegasse, 1100, Katastralgemeinde Favoriten",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Java",
+        "Python",
+        "C#",
+        ".NET",
+        "CI/CD",
+        "Jenkins"
+      ],
+      "langReq": "de-basic",
+      "lat": 48.1653639,
+      "lng": 16.375847
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7839674",
+      "title": "Test Automation Engineer (w/m/d)",
+      "company": "WienIT GmbH",
+      "source": "Test Automation Wien",
+      "address": "Thomas-Klestil-Platz 13, 1030 Wien",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Tosca",
+        "ISTQB"
+      ],
+      "langReq": "de-basic",
+      "lat": 48.1926272,
+      "lng": 16.4131233
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7845440",
+      "title": "Test Automation Engineer (f/m/d)",
+      "company": "Greentube GmbH",
+      "source": "Test Automation Wien",
+      "address": "Wiedner Hauptstrasse 94, 1050 Wien",
+      "city": null,
+      "zip": null,
+      "techStack": [
+        "Playwright",
+        "Cucumber",
+        "BDD",
+        "TypeScript",
+        "SQL",
+        "Docker",
+        "Kubernetes",
+        "Git",
+        "MongoDB",
+        "Agile"
+      ],
+      "langReq": "en",
+      "lat": 48.1868108,
+      "lng": 16.3634434
     },
     {
       "url": "https://www.karriere.at/jobs/7821038",
@@ -195,6 +213,7 @@
         "BDD",
         "TypeScript",
         "C#",
+        ".NET",
         "SQL",
         "CI/CD",
         "Jira",
@@ -205,23 +224,6 @@
       "langReq": "en",
       "lat": 48.1858518,
       "lng": 16.3539754
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7839674",
-      "title": "Test Automation Engineer (w/m/d)",
-      "company": "WienIT GmbH",
-      "source": "Test Automation Wien",
-      "address": "Thomas-Klestil-Platz 13, 1030 Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Playwright",
-        "Tosca",
-        "ISTQB"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.1926272,
-      "lng": 16.4131233
     },
     {
       "url": "https://www.karriere.at/jobs/7807409",
@@ -319,38 +321,6 @@
       "lng": 16.4352268
     },
     {
-      "url": "https://www.karriere.at/jobs/7847093",
-      "title": "Test Engineer (m/w/d)",
-      "company": "Software Daten Service Gesellschaft m.b.H.",
-      "source": "Software Tester Wien",
-      "address": "Rennweg 97-99, 1030 Wien",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Java",
-        "C#",
-        "SQL"
-      ],
-      "langReq": "en",
-      "lat": 48.1867515,
-      "lng": 16.4032705
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7846445",
-      "title": "(Junior) System Test Engineer (all genders)",
-      "company": "FREQUENTIS AG",
-      "source": "Software Tester Wien",
-      "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Jira"
-      ],
-      "langReq": "de-fluent",
-      "lat": 48.1639426,
-      "lng": 16.3342088
-    },
-    {
       "url": "https://www.karriere.at/jobs/10024328",
       "title": "Softwaretester (m/w/d)",
       "company": "Sportsbook Software GmbH",
@@ -380,17 +350,6 @@
       "lng": 16.331851
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4442094269",
-      "title": "Test Automation Engineer",
-      "company": "Delta Electronics EMEA",
-      "source": "jobspy-linkedin",
-      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1769482,
-      "lng": 16.4138082
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4442750345",
       "title": "Test Automation Engineer (m/w/d)",
       "company": "Deutsche Telekom",
@@ -402,17 +361,6 @@
       "lng": 16.4032705
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4437277338",
-      "title": "Test Automation Engineer – Senior Consultant (m,w,d)",
-      "company": "QESTIT DACH",
-      "source": "jobspy-linkedin",
-      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2117568,
-      "lng": 16.3728768
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4437046741",
       "title": "Test Automation Engineer (f/m/d)",
       "company": "Drei Österreich",
@@ -422,17 +370,6 @@
       "zip": null,
       "lat": 48.2282967,
       "lng": 16.3679422
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4433953379",
-      "title": "Senior QA Engineer (All Genders)",
-      "company": "zooplus",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4425302065",
@@ -457,15 +394,15 @@
       "lng": 16.4142072
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4434656218",
-      "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
-      "company": "PKE",
+      "url": "https://www.linkedin.com/jobs/view/4442094269",
+      "title": "Test Automation Engineer",
+      "company": "Delta Electronics EMEA",
       "source": "jobspy-linkedin",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1591557,
-      "lng": 16.3401205
+      "lat": 48.1769482,
+      "lng": 16.4138082
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4438203027",
@@ -477,6 +414,17 @@
       "zip": null,
       "lat": 48.2125665,
       "lng": 16.3822635
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4441806629",
+      "title": "Senior QA Engineer (All Genders)",
+      "company": "zooplus",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=9664c2ebeec093df",
@@ -499,6 +447,17 @@
       "zip": null,
       "lat": 48.1822872,
       "lng": 16.3923295
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4440148776",
+      "title": "Test Engineer",
+      "company": "ENPULSION",
+      "source": "jobspy-linkedin",
+      "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich",
+      "city": "Wien",
+      "zip": null,
+      "lat": 47.8370619,
+      "lng": 16.2530127
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4439199848",
@@ -534,26 +493,26 @@
       "lng": 16.392406
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4440148776",
-      "title": "Test Engineer",
-      "company": "ENPULSION",
+      "url": "https://www.linkedin.com/jobs/view/4416251107",
+      "title": "Supplier Quality Assurance Engineer (all genders)",
+      "company": "Beyond Gravity",
       "source": "jobspy-linkedin",
-      "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich",
+      "address": "Stachegasse, 13, 1120, Katastralgemeinde Hetzendorf",
       "city": "Wien",
       "zip": null,
-      "lat": 47.8370619,
-      "lng": 16.2530127
+      "lat": 48.1619354,
+      "lng": 16.3107841
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4326335915",
-      "title": "Senior Software Quality Engineer (m/w/d)",
-      "company": "Wüstenrot Gruppe",
+      "url": "https://www.linkedin.com/jobs/view/4434643740",
+      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
+      "company": "PKE",
       "source": "jobspy-linkedin",
-      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.1761566,
-      "lng": 16.3733846
+      "lat": 48.1591557,
+      "lng": 16.3401205
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4381548320",
@@ -565,39 +524,6 @@
       "zip": null,
       "lat": 48.1820832,
       "lng": 16.3098046
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4426560348",
-      "title": "Senior Software Engineer in Test (Java) - Remote Work | REF#293828",
-      "company": "BairesDev",
-      "source": "jobspy-linkedin",
-      "address": "Vienna, Vienna",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1857192,
-      "lng": 16.4221587
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4425795405",
-      "title": "VIE - Serial Supplier Quality Engineer (m/f/d)",
-      "company": "Alstom",
-      "source": "jobspy-linkedin",
-      "address": "5, 1220, Katastralgemeinde Kagran",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.265492,
-      "lng": 16.4718943
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4416251107",
-      "title": "Supplier Quality Assurance Engineer (all genders)",
-      "company": "Beyond Gravity",
-      "source": "jobspy-linkedin",
-      "address": "Stachegasse, 13, 1120, Katastralgemeinde Hetzendorf",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1619354,
-      "lng": 16.3107841
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4440672135",
@@ -622,17 +548,6 @@
       "lng": 16.432395
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4434643740",
-      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
-      "company": "PKE",
-      "source": "jobspy-linkedin",
-      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1591557,
-      "lng": 16.3401205
-    },
-    {
       "url": "https://at.indeed.com/viewjob?jk=ec6d55f3efb2c384",
       "title": "Expert Testautomatisierung (f/m/d)",
       "company": "Qualysoft GmbH",
@@ -642,6 +557,17 @@
       "zip": null,
       "lat": 48.2146932,
       "lng": 16.3690891
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4434656218",
+      "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205
     }
   ],
   "searchLinks": [
@@ -671,12 +597,12 @@
     }
   ],
   "validation": {
-    "accepted": 19,
+    "accepted": 17,
     "rejected": 29,
     "reasons": {
       "not-sdet-role": 27,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-07-24T09:27:50.171Z"
+  "lastVerified": "2026-07-25T09:08:05.911Z"
 }
