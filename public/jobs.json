@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-26T09:18:17.949030+00:00",
-  "count": 40,
+  "lastUpdated": "2026-07-27T10:49:39.564500+00:00",
+  "count": 44,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10025928",
@@ -368,6 +368,17 @@
       "lng": 16.331851
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4425302065",
+      "title": "Test Automation Engineer (m/f/d)",
+      "company": "Atos",
+      "source": "jobspy-linkedin",
+      "address": "Modecenterstraße 1, 1030 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1878925,
+      "lng": 16.4179418
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4442094269",
       "title": "Test Automation Engineer",
       "company": "Delta Electronics EMEA",
@@ -434,17 +445,6 @@
       "lng": 16.4142072
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4425302065",
-      "title": "Test Automation Engineer (m/f/d)",
-      "company": "Atos",
-      "source": "jobspy-linkedin",
-      "address": "Modecenterstraße 1, 1030 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1878925,
-      "lng": 16.4179418
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4441806629",
       "title": "Senior QA Engineer (All Genders)",
       "company": "zooplus",
@@ -454,17 +454,6 @@
       "zip": null,
       "lat": 48.1857192,
       "lng": 16.4221587
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4438203027",
-      "title": "Software Test Engineer (m/w/d) SAP ERP",
-      "company": "Computer Futures",
-      "source": "jobspy-linkedin",
-      "address": "Fischergasse, 1020, Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2125665,
-      "lng": 16.3822635
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4433935682",
@@ -533,6 +522,17 @@
       "lng": 16.3107841
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4434643740",
+      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4440148776",
       "title": "Test Engineer",
       "company": "ENPULSION",
@@ -542,17 +542,6 @@
       "zip": null,
       "lat": 47.8370619,
       "lng": 16.2530127
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4326335915",
-      "title": "Senior Software Quality Engineer (m/w/d)",
-      "company": "Wüstenrot Gruppe",
-      "source": "jobspy-linkedin",
-      "address": "Laxenburger Straße, 1100, Katastralgemeinde Favoriten",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1761566,
-      "lng": 16.3733846
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4381548320",
@@ -566,6 +555,17 @@
       "lng": 16.3098046
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4442804847",
+      "title": "Test Engineer Embedded Software",
+      "company": "SBG Associates",
+      "source": "jobspy-linkedin",
+      "address": "Kolpingstraße 19/2, 1120 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1395494,
+      "lng": 16.3440133
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4427933384",
       "title": "SOFTWARETESTER:IN (W/M/X)",
       "company": "IT-Services der Sozialversicherung GmbH",
@@ -577,6 +577,28 @@
       "lng": 16.432395
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4440425752",
+      "title": "Senior Software Tester (w/m/x) - Community Lead",
+      "company": "Pineapple Recruiting GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2237941,
+      "lng": 16.3968471
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4442757159",
+      "title": "Software Tester mit Schwerpunkt Billing Systeme (m/w/d)",
+      "company": "Deutsche Telekom",
+      "source": "jobspy-linkedin",
+      "address": "Rennweg 97-99, 1030 Wien, Landstraße",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1867515,
+      "lng": 16.4032705
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4440672135",
       "title": "Software Tester",
       "company": "FB Consulting & Trade GmbH",
@@ -586,6 +608,28 @@
       "zip": null,
       "lat": 48.1991777,
       "lng": 16.3500903
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4438203027",
+      "title": "Software Test Engineer (m/w/d) SAP ERP",
+      "company": "Computer Futures",
+      "source": "jobspy-linkedin",
+      "address": "Fischergasse, 1020, Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2125665,
+      "lng": 16.3822635
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4426560348",
+      "title": "Senior Software Engineer in Test (Java) - Remote Work | REF#293828",
+      "company": "BairesDev",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587
     },
     {
       "url": "https://at.indeed.com/viewjob?jk=ec6d55f3efb2c384",
@@ -633,5 +677,5 @@
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-07-26T09:18:44.953Z"
+  "lastVerified": "2026-07-27T10:50:31.317Z"
 }
