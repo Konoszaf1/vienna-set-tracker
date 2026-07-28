@@ -901,5 +901,10 @@
     "lat": 48.2146932,
     "lng": 16.3690891,
     "address": "Neutorgasse 12/14, 1010 Wien"
+  },
+  "uniqa": {
+    "lat": 48.2626562,
+    "lng": 16.4628097,
+    "address": "Rautenweg, 37, 1220, Katastralgemeinde Kagran"
   }
 }

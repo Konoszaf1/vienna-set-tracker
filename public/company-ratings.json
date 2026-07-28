@@ -553,7 +553,7 @@
   },
   "capture": {
     "kununu": null,
-    "fetchedAt": "2026-07-14T09:09:16.074Z"
+    "fetchedAt": "2026-07-28T09:42:18.118Z"
   },
   "uniqa insurance": {
     "kununu": null,
@@ -562,5 +562,9 @@
   "qualysoft": {
     "kununu": null,
     "fetchedAt": "2026-07-23T09:30:28.842Z"
+  },
+  "uniqa": {
+    "kununu": null,
+    "fetchedAt": "2026-07-28T09:42:16.106Z"
   }
 }
