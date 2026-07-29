@@ -599,7 +599,15 @@
       "sourceLastUpdated": "2026-07-28T09:42:15.765894+00:00",
       "sourceLastVerified": "2026-07-28T09:42:45.659Z",
       "recordedAt": "2026-07-28T09:42:45.708Z"
+    },
+    {
+      "date": "2026-07-29",
+      "activeJobs": 42,
+      "activeCompanies": 41,
+      "sourceLastUpdated": "2026-07-29T09:42:35.599618+00:00",
+      "sourceLastVerified": "2026-07-29T09:42:59.516Z",
+      "recordedAt": "2026-07-29T09:42:59.566Z"
     }
   ],
-  "lastUpdated": "2026-07-28T09:42:45.708Z"
+  "lastUpdated": "2026-07-29T09:42:59.566Z"
 }
