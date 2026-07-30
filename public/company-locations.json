@@ -23,7 +23,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-06-14T10:30:25.655Z"
+    "lastTried": "2026-07-30T09:37:08.671Z"
   },
   "schrack technik gmbh": {
     "lat": 48.1409112,
@@ -504,7 +504,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-06-14T10:30:25.655Z"
+    "lastTried": "2026-07-30T09:37:08.671Z"
   },
   "isi": {
     "lat": 48.263822,
@@ -906,5 +906,17 @@
     "lat": 48.2626562,
     "lng": 16.4628097,
     "address": "Rautenweg, 37, 1220, Katastralgemeinde Kagran"
+  },
+  "equip": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-07-30T09:37:00.356Z"
+  },
+  "equip gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-07-30T09:37:00.356Z"
   }
 }
