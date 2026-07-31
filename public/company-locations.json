@@ -918,5 +918,25 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-07-30T09:37:00.356Z"
+  },
+  "ergo versicherung": {
+    "lat": 48.1837603,
+    "lng": 16.4139441,
+    "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering"
+  },
+  "ergo versicherung ag": {
+    "lat": 48.1837603,
+    "lng": 16.4139441,
+    "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering"
+  },
+  "ergo": {
+    "lat": 48.1837603,
+    "lng": 16.4139441,
+    "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering"
+  },
+  "ergo group": {
+    "lat": 48.1837603,
+    "lng": 16.4139441,
+    "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering"
   }
 }
