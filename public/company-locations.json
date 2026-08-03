@@ -774,7 +774,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-07-02T10:15:27.395Z"
+    "lastTried": "2026-08-03T10:47:31.880Z"
   },
   "zellner personal lösungen": {
     "lat": null,
@@ -938,5 +938,27 @@
     "lat": 48.1837603,
     "lng": 16.4139441,
     "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering"
+  },
+  "agrarmarkt": {
+    "lat": 48.2353781,
+    "lng": 16.3810293,
+    "address": "Dresdner Straße, 70, 1200, Brigittenau"
+  },
+  "agrarmarkt austria": {
+    "lat": 48.2353781,
+    "lng": 16.3810293,
+    "address": "Dresdner Straße, 70, 1200, Brigittenau"
+  },
+  "evolit schweiz": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-08-03T10:47:42.537Z"
+  },
+  "evolit schweiz ag": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-08-03T10:47:42.537Z"
   }
 }
