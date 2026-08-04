@@ -170,11 +170,11 @@
   },
   "deutsche telekom": {
     "kununu": null,
-    "fetchedAt": "2026-07-21T09:32:57.818Z"
+    "fetchedAt": "2026-08-04T09:43:27.648Z"
   },
   "delegate": {
     "kununu": null,
-    "fetchedAt": "2026-07-21T09:32:59.828Z"
+    "fetchedAt": "2026-08-04T09:43:25.642Z"
   },
   "t systems": {
     "kununu": null,
@@ -189,7 +189,7 @@
   },
   "enpulsion": {
     "kununu": null,
-    "fetchedAt": "2026-07-21T09:33:01.840Z"
+    "fetchedAt": "2026-08-04T09:43:23.635Z"
   },
   "akkodis": {
     "kununu": {
@@ -586,5 +586,13 @@
   "evolit schweiz": {
     "kununu": null,
     "fetchedAt": "2026-08-03T10:47:21.867Z"
+  },
+  "epunkt": {
+    "kununu": null,
+    "fetchedAt": "2026-08-04T09:43:19.620Z"
+  },
+  "ximes": {
+    "kununu": null,
+    "fetchedAt": "2026-08-04T09:43:21.628Z"
   }
 }

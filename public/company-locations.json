@@ -960,5 +960,25 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-08-03T10:47:42.537Z"
+  },
+  "epunkt": {
+    "lat": 48.2121007,
+    "lng": 16.361668,
+    "address": "Universitätsring, 8, 1010, Innere Stadt"
+  },
+  "epunkt gmbh": {
+    "lat": 48.2121007,
+    "lng": 16.361668,
+    "address": "Universitätsring, 8, 1010, Innere Stadt"
+  },
+  "ximes": {
+    "lat": 48.2156598,
+    "lng": 16.3767547,
+    "address": "Hollandstraße 12/12, 1020 Wien"
+  },
+  "ximes gmbh": {
+    "lat": 48.2156598,
+    "lng": 16.3767547,
+    "address": "Hollandstraße 12/12, 1020 Wien"
   }
 }
