@@ -980,5 +980,11 @@
     "lat": 48.2156598,
     "lng": 16.3767547,
     "address": "Hollandstraße 12/12, 1020 Wien"
+  },
+  "ivm consulting co": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-08-06T09:44:46.358Z"
   }
 }
