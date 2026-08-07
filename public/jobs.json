@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-08-06T09:44:29.750513+00:00",
-  "count": 46,
+  "lastUpdated": "2026-08-07T08:19:10.085562+00:00",
+  "count": 45,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10025928",
@@ -206,6 +206,8 @@
         "Java",
         "Python",
         "JavaScript",
+        ".NET",
+        "React",
         "Jira"
       ],
       "langReq": "de-fluent",
@@ -224,10 +226,7 @@
         "Playwright",
         "Cucumber",
         "BDD",
-        "Java",
         "TypeScript",
-        "C#",
-        ".NET",
         "SQL",
         "Docker",
         "Kubernetes",
@@ -260,6 +259,24 @@
       "langReq": "de-fluent",
       "lat": 48.1867515,
       "lng": 16.4032705
+    },
+    {
+      "url": "https://www.karriere.at/jobs/7853642",
+      "title": "Software Tester (m/w/d)",
+      "company": "ERGO Versicherung AG",
+      "source": "Test Automation Wien",
+      "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering",
+      "city": "Wien",
+      "zip": null,
+      "techStack": [
+        "Tosca",
+        "CI/CD",
+        "Jenkins",
+        "Agile"
+      ],
+      "langReq": "de-basic",
+      "lat": 48.1837603,
+      "lng": 16.4139441
     },
     {
       "url": "https://www.karriere.at/jobs/7852610",
@@ -303,29 +320,12 @@
       "zip": null,
       "techStack": [
         "Tosca",
-        "Java"
+        ".NET",
+        "React"
       ],
       "langReq": "de-fluent",
       "lat": 48.2356659,
       "lng": 16.4226884
-    },
-    {
-      "url": "https://www.karriere.at/jobs/7853642",
-      "title": "Software Tester (m/w/d)",
-      "company": "ERGO Versicherung AG",
-      "source": "Software Tester Wien",
-      "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering",
-      "city": "Wien",
-      "zip": null,
-      "techStack": [
-        "Tosca",
-        "CI/CD",
-        "Jenkins",
-        "Agile"
-      ],
-      "langReq": "de-basic",
-      "lat": 48.1837603,
-      "lng": 16.4139441
     },
     {
       "url": "https://www.karriere.at/jobs/10023276",
@@ -374,17 +374,6 @@
       "zip": null,
       "lat": 48.2136486,
       "lng": 16.3735294
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4446216336",
-      "title": "Software Tester / QA Engineer (m/w/d)",
-      "company": "XIMES GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Hollandstraße 12/12, 1020 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2156598,
-      "lng": 16.3767547
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4447950790",
@@ -498,6 +487,17 @@
       "lng": 16.3342088
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4442757159",
+      "title": "Software Tester mit Schwerpunkt Billing Systeme (m/w/d)",
+      "company": "Deutsche Telekom",
+      "source": "jobspy-linkedin",
+      "address": "Rennweg 97-99, 1030 Wien, Landstraße",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1867515,
+      "lng": 16.4032705
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4440672135",
       "title": "Software Tester",
       "company": "FB Consulting & Trade GmbH",
@@ -520,6 +520,17 @@
       "lng": 16.3679422
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4399977766",
+      "title": "Quality Engineer",
+      "company": "Trayport",
+      "source": "jobspy-linkedin",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1686875,
+      "lng": 16.3336346
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4446394630",
       "title": "SENIOR SOFTWARE TESTER / TEST LEAD (W/M/D)",
       "company": "Evolit Schweiz AG",
@@ -540,17 +551,6 @@
       "zip": null,
       "lat": 48.2237941,
       "lng": 16.3968471
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4399977766",
-      "title": "Quality Engineer",
-      "company": "Trayport",
-      "source": "jobspy-linkedin",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4447386784",
@@ -641,17 +641,6 @@
       "lng": 16.4139441
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4442757159",
-      "title": "Software Tester mit Schwerpunkt Billing Systeme (m/w/d)",
-      "company": "Deutsche Telekom",
-      "source": "jobspy-linkedin",
-      "address": "Rennweg 97-99, 1030 Wien, Landstraße",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1867515,
-      "lng": 16.4032705
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4326335915",
       "title": "Senior Software Quality Engineer (m/w/d)",
       "company": "Wüstenrot Gruppe",
@@ -702,11 +691,11 @@
   ],
   "validation": {
     "accepted": 17,
-    "rejected": 30,
+    "rejected": 29,
     "reasons": {
-      "not-sdet-role": 28,
+      "not-sdet-role": 27,
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-08-06T09:45:13.941Z"
+  "lastVerified": "2026-08-07T08:19:35.083Z"
 }
