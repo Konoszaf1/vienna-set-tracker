@@ -986,5 +986,10 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-08-06T09:44:46.358Z"
+  },
+  "sv chipkarten betriebs und errichtungsges": {
+    "lat": 48.2240208,
+    "lng": 16.3965462,
+    "address": "Ernst-Melchior-Gasse 22, 1020 Wien, Leopoldstadt"
   }
 }
