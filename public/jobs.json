@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-08-11T08:13:58.283026+00:00",
-  "count": 42,
+  "lastUpdated": "2026-08-12T08:22:26.957167+00:00",
+  "count": 40,
   "jobs": [
     {
       "url": "https://www.karriere.at/jobs/10028043",
@@ -170,6 +170,8 @@
         "Java",
         "Python",
         "JavaScript",
+        ".NET",
+        "React",
         "Jira"
       ],
       "langReq": "de-fluent",
@@ -263,7 +265,9 @@
       "city": "Wien",
       "zip": null,
       "techStack": [
-        "Tosca"
+        "Tosca",
+        ".NET",
+        "React"
       ],
       "langReq": "de-fluent",
       "lat": 48.2356659,
@@ -280,7 +284,8 @@
       "techStack": [
         "Tosca",
         "CI/CD",
-        "Jenkins"
+        "Jenkins",
+        "Agile"
       ],
       "langReq": "de-basic",
       "lat": 48.1837603,
@@ -298,7 +303,8 @@
         "Python",
         "SQL",
         "Kubernetes",
-        "Git"
+        "Git",
+        "Agile"
       ],
       "langReq": "de-fluent",
       "lat": 48.1867515,
@@ -362,6 +368,18 @@
       "lng": 16.4032705
     },
     {
+      "url": "https://www.linkedin.com/jobs/view/4446756955",
+      "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
+      "company": "ÖBB",
+      "source": "jobspy-linkedin",
+      "address": "Leopoldstadt, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2006384,
+      "lng": 16.4268953,
+      "reportedSalary": 62
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4447381340",
       "title": "Test Automation Engineer – Senior Consultant (m,w,d)",
       "company": "QESTIT DACH",
@@ -373,17 +391,6 @@
       "lng": 16.3728768
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4447347323",
-      "title": "Automation Engineer - Microsoft 365 & API-Workflow (TechOps) (m/w/d)",
-      "company": "ristl.IT GmbH",
-      "source": "jobspy-linkedin",
-      "address": "Salztorgasse 7/16, 1010 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2136486,
-      "lng": 16.3735294
-    },
-    {
       "url": "https://www.linkedin.com/jobs/view/4447950790",
       "title": "Test Engineer",
       "company": "SCIENTIFIC GAMES",
@@ -393,6 +400,17 @@
       "zip": null,
       "lat": 48.1669135,
       "lng": 16.2851061
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4399977766",
+      "title": "Quality Engineer",
+      "company": "Trayport",
+      "source": "jobspy-linkedin",
+      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1686875,
+      "lng": 16.3336346
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4370503347",
@@ -426,17 +444,6 @@
       "zip": null,
       "lat": 48.1769482,
       "lng": 16.4138082
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4436335248",
-      "title": "Software Test Automation Engineer (m/w/d)",
-      "company": "Kontron Transportation",
-      "source": "jobspy-linkedin",
-      "address": "Lehrbachgasse 11, 1120 Wien",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1699953,
-      "lng": 16.331851
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4427933384",
@@ -483,27 +490,15 @@
       "lng": 16.3500903
     },
     {
-      "url": "https://www.linkedin.com/jobs/view/4446756955",
-      "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
-      "company": "ÖBB",
+      "url": "https://www.linkedin.com/jobs/view/4447386784",
+      "title": "Software Test Engineer & Documentation Writer (w/m/d)",
+      "company": "Delegate Group",
       "source": "jobspy-linkedin",
-      "address": "Leopoldstadt, Vienna",
+      "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt",
       "city": "Wien",
       "zip": null,
-      "lat": 48.2006384,
-      "lng": 16.4268953,
-      "reportedSalary": 62
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4399977766",
-      "title": "Quality Engineer",
-      "company": "Trayport",
-      "source": "jobspy-linkedin",
-      "address": "Technologiestraße, 10, 1120, KG Altmannsdorf",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.1686875,
-      "lng": 16.3336346
+      "lat": 48.2223709,
+      "lng": 16.392406
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4446394630",
@@ -548,17 +543,6 @@
       "zip": null,
       "lat": 48.1820832,
       "lng": 16.3098046
-    },
-    {
-      "url": "https://www.linkedin.com/jobs/view/4447386784",
-      "title": "Software Test Engineer & Documentation Writer (w/m/d)",
-      "company": "Delegate Group",
-      "source": "jobspy-linkedin",
-      "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt",
-      "city": "Wien",
-      "zip": null,
-      "lat": 48.2223709,
-      "lng": 16.392406
     },
     {
       "url": "https://www.linkedin.com/jobs/view/4442804847",
@@ -661,5 +645,5 @@
       "non-software-domain": 2
     }
   },
-  "lastVerified": "2026-08-11T08:14:31.079Z"
+  "lastVerified": "2026-08-12T08:22:50.817Z"
 }
