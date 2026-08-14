@@ -57,7 +57,8 @@
   },
   "evva sicherheitstechnologie": {
     "kununu": null,
-    "fetchedAt": "2026-07-31T09:49:35.920Z"
+    "fetchedAt": "2026-08-14T20:59:02.593Z",
+    "lastErrorAt": null
   },
   "rhi magnesita": {
     "kununu": {
@@ -503,7 +504,8 @@
   },
   "ge vernova": {
     "kununu": null,
-    "fetchedAt": "2026-07-31T09:49:39.932Z"
+    "fetchedAt": "2026-08-14T20:59:04.602Z",
+    "lastErrorAt": null
   },
   "zellner personal lösungen": {
     "kununu": null,
@@ -567,11 +569,13 @@
   },
   "ergo versicherung": {
     "kununu": null,
-    "fetchedAt": "2026-07-31T09:49:33.910Z"
+    "fetchedAt": "2026-08-14T20:59:00.585Z",
+    "lastErrorAt": null
   },
   "ergo": {
     "kununu": null,
-    "fetchedAt": "2026-07-31T09:49:41.938Z"
+    "fetchedAt": "2026-08-14T20:58:58.575Z",
+    "lastErrorAt": null
   },
   "agrarmarkt": {
     "kununu": null,

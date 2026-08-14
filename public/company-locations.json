@@ -17,7 +17,7 @@
   "qnit austria gmbh": {
     "lat": 48.2364804,
     "lng": 16.4133714,
-    "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt"
+    "address": "Wien"
   },
   "xxxldigital – part of xxxl group": {
     "lat": null,
@@ -38,17 +38,17 @@
   "admiral technologies": {
     "lat": 48.1858518,
     "lng": 16.3539754,
-    "address": "Siebenbrunnengasse, 1050, Margareten"
+    "address": "Wien"
   },
   "software daten service gesellschaft m.b.h.": {
     "lat": 48.1867515,
     "lng": 16.4032705,
-    "address": "Rennweg 97-99, 1030 Wien"
+    "address": "Wien"
   },
   "melecs ews gmbh": {
     "lat": 48.203565,
     "lng": 16.4352268,
-    "address": "Handelskai, 388, 1020, KG Leopoldstadt"
+    "address": "Wien"
   },
   "ivm technical consultants": {
     "lat": 48.1345908,
@@ -58,7 +58,7 @@
   "softcom consulting gmbh": {
     "lat": 48.2123002,
     "lng": 16.3738138,
-    "address": "Marc-Aurel-Strasse 10-12/1. OG, 1010 Wien"
+    "address": "Wien"
   },
   "rhi magnesita gmbh": {
     "lat": null,
@@ -68,12 +68,12 @@
   "sv-chipkarten betriebs- und errichtungsges.m.b.h.": {
     "lat": 48.2240208,
     "lng": 16.3965462,
-    "address": "Ernst-Melchior-Gasse 22, 1020 Wien, Leopoldstadt"
+    "address": "Wien"
   },
   "frequentis ag": {
     "lat": 48.1639426,
     "lng": 16.3342088,
-    "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt"
+    "address": "Wien"
   },
   "bev - bundesamt für eich- und vermessungswesen": {
     "lat": 48.2188239,
@@ -133,7 +133,7 @@
   "adesso austria gmbh": {
     "lat": 48.1833424,
     "lng": 16.4142072,
-    "address": "Modecenterstraße 17, 1110 Wien, Simmering"
+    "address": "Wien"
   },
   "ringana": {
     "lat": 48.185219,
@@ -193,12 +193,12 @@
   "pineapple recruiting gmbh": {
     "lat": 48.2237941,
     "lng": 16.3968471,
-    "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt"
+    "address": "Wien"
   },
   "öbb": {
     "lat": 48.2006384,
     "lng": 16.4268953,
-    "address": "Leopoldstadt, 1020 Wien"
+    "address": "Leopoldstadt, Vienna"
   },
   "frequentis comsoft gmbh": {
     "lat": 48.1639426,
@@ -285,7 +285,7 @@
   "frequentis": {
     "lat": 48.1639426,
     "lng": 16.3342088,
-    "address": "Innovationsstraße, 1, 1100, Katastralgemeinde Inzersdorf Stadt"
+    "address": "Wien"
   },
   "raiffeisenbank wienerwald egen": {
     "lat": 48.208074,
@@ -320,7 +320,7 @@
   "greentube gmbh": {
     "lat": 48.1868108,
     "lng": 16.3634434,
-    "address": "Wiedner Hauptstrasse 94, 1050 Wien"
+    "address": "Wien"
   },
   "wacker neuson": {
     "lat": 48.1553427,
@@ -383,17 +383,17 @@
   "öbb-konzern": {
     "lat": 48.2006384,
     "lng": 16.4268953,
-    "address": "Leopoldstadt, 1020 Wien"
+    "address": "Leopoldstadt, Vienna"
   },
   "software daten service": {
     "lat": 48.1867515,
     "lng": 16.4032705,
-    "address": "Rennweg 97-99, 1030 Wien"
+    "address": "Wien"
   },
   "qnit": {
     "lat": 48.2364804,
     "lng": 16.4133714,
-    "address": "Leonard-Bernstein-Straße 10, 1220 Wien, Donaustadt"
+    "address": "Wien"
   },
   "steiner hitech": {
     "lat": 48.1320082,
@@ -403,12 +403,12 @@
   "greentube": {
     "lat": 48.1868108,
     "lng": 16.3634434,
-    "address": "Wiedner Hauptstrasse 94, 1050 Wien"
+    "address": "Wien"
   },
   "softcom consulting": {
     "lat": 48.2123002,
     "lng": 16.3738138,
-    "address": "Marc-Aurel-Strasse 10-12/1. OG, 1010 Wien"
+    "address": "Wien"
   },
   "bundesrechenzentrum": {
     "lat": 48.2087649,
@@ -418,7 +418,7 @@
   "melecs ews": {
     "lat": 48.203565,
     "lng": 16.4352268,
-    "address": "Handelskai, 388, 1020, KG Leopoldstadt"
+    "address": "Wien"
   },
   "3 s it dienstleistungen": {
     "lat": 48.2052416,
@@ -453,12 +453,12 @@
   "t systems": {
     "lat": 48.1867515,
     "lng": 16.4032705,
-    "address": "Rennweg 97-99, 1030 Wien, Landstraße"
+    "address": "Wien"
   },
   "t-systems austria gesmbh": {
     "lat": 48.1867515,
     "lng": 16.4032705,
-    "address": "Rennweg 97-99, 1030 Wien, Landstraße"
+    "address": "Wien"
   },
   "schrack technik": {
     "lat": 48.1409112,
@@ -478,7 +478,7 @@
   "adesso": {
     "lat": 48.1833424,
     "lng": 16.4142072,
-    "address": "Modecenterstraße 17, 1110 Wien, Simmering"
+    "address": "Wien"
   },
   "fluidtime data services": {
     "lat": 48.1993835,
@@ -721,17 +721,17 @@
   "evva sicherheitstechnologie": {
     "lat": 48.1713977,
     "lng": 16.3289387,
-    "address": "Wienerbergstraße, 59-65, 1120, Katastralgemeinde Altmannsdorf"
+    "address": "Wien"
   },
   "evva sicherheitstechnologie gmbh": {
     "lat": 48.1713977,
     "lng": 16.3289387,
-    "address": "Wienerbergstraße, 59-65, 1120, Katastralgemeinde Altmannsdorf"
+    "address": "Wien"
   },
   "sbg associates": {
     "lat": 48.1395494,
     "lng": 16.3440133,
-    "address": "Kolpingstraße 19/2, 1120 Wien"
+    "address": "Wien"
   },
   "annny": {
     "lat": null,
@@ -748,7 +748,7 @@
   "scientific games": {
     "lat": 48.1669135,
     "lng": 16.2851061,
-    "address": "Klitschgasse, 4, 1130, Hietzing"
+    "address": "Wien"
   },
   "sportsbook software": {
     "lat": 48.2143607,
@@ -858,7 +858,7 @@
   "pineapple recruiting": {
     "lat": 48.2237941,
     "lng": 16.3968471,
-    "address": "Ernst-Melchior-Gasse 24, 1020 Wien, Leopoldstadt"
+    "address": "Wien"
   },
   "wiener stadtwerke": {
     "lat": 48.2333903,
@@ -880,7 +880,7 @@
   "uniqa insurance": {
     "lat": 48.2356659,
     "lng": 16.4226884,
-    "address": "Wagramer Straße, 23, 1220, Katastralgemeinde Kaisermühlen"
+    "address": "Wien"
   },
   "uniqa insurance group": {
     "lat": 48.2356659,
@@ -890,7 +890,7 @@
   "uniqa insurance group ag": {
     "lat": 48.2356659,
     "lng": 16.4226884,
-    "address": "Wagramer Straße, 23, 1220, Katastralgemeinde Kaisermühlen"
+    "address": "Wien"
   },
   "qualysoft": {
     "lat": 48.2146932,
@@ -922,12 +922,12 @@
   "ergo versicherung": {
     "lat": 48.1837603,
     "lng": 16.4139441,
-    "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering"
+    "address": "Wien"
   },
   "ergo versicherung ag": {
     "lat": 48.1837603,
     "lng": 16.4139441,
-    "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering"
+    "address": "Wien"
   },
   "ergo": {
     "lat": 48.1837603,
@@ -964,12 +964,12 @@
   "epunkt": {
     "lat": 48.2121007,
     "lng": 16.361668,
-    "address": "Universitätsring, 8, 1010, Innere Stadt"
+    "address": "Wien"
   },
   "epunkt gmbh": {
     "lat": 48.2121007,
     "lng": 16.361668,
-    "address": "Universitätsring, 8, 1010, Innere Stadt"
+    "address": "Wien"
   },
   "ximes": {
     "lat": 48.2156598,
@@ -990,7 +990,7 @@
   "sv chipkarten betriebs und errichtungsges": {
     "lat": 48.2240208,
     "lng": 16.3965462,
-    "address": "Ernst-Melchior-Gasse 22, 1020 Wien, Leopoldstadt"
+    "address": "Wien"
   },
   "österreichische post": {
     "lat": 48.2510399,
