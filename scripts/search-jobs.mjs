@@ -51,11 +51,11 @@ const KUNUNU_SEARCHES = [
 const KUNUNU_PAGES_PER_SEARCH = 3; // 30 results/page, most Vienna hits are on early pages
 
 const DEVJOBS_SEARCHES = [
-  { slug: "qa-engineer", label: "devjobs.at: QA Engineer Wien" },
-  { slug: "test-qa-engineer", label: "devjobs.at: Test/QA Engineer Wien" },
-  { slug: "software-tester", label: "devjobs.at: Software Tester Wien" },
-  { slug: "test-automation-engineer", label: "devjobs.at: Test Automation Engineer Wien" },
-  { slug: "test-automation-developer", label: "devjobs.at: Test Automation Developer Wien" },
+  { slug: "qa-engineer", label: "devjobs.at: QA Engineer Wien", optional: true },
+  { slug: "test-qa-engineer", label: "devjobs.at: Test/QA Engineer Wien", optional: true },
+  { slug: "software-tester", label: "devjobs.at: Software Tester Wien", optional: true },
+  { slug: "test-automation-engineer", label: "devjobs.at: Test Automation Engineer Wien", optional: true },
+  { slug: "test-automation-developer", label: "devjobs.at: Test Automation Developer Wien", optional: true },
 ];
 
 const DEVJOBS_BASE_URL = "https://devjobs.at";
@@ -194,6 +194,10 @@ function normalizeWhitespace(value) {
 
 export function isViennaLocation(value) {
   return /(?:^|,\s*)(?:wien|vienna)(?=\s*(?:,|$))/i.test(normalizeWhitespace(value));
+}
+
+export function isDevjobsBlockedPage(title, bodyText) {
+  return /vercel security checkpoint/i.test(`${title || ""} ${bodyText || ""}`);
 }
 
 function parseMapCoordinates(mapHref) {
@@ -357,6 +361,17 @@ async function fetchDevjobsSearch({ slug, label }, browser) {
       waitUntil: "domcontentloaded",
       timeout: 30000,
     });
+    const [pageTitle, bodyText] = await Promise.all([
+      searchPage.title(),
+      searchPage.locator("body").innerText().catch(() => ""),
+    ]);
+    if (isDevjobsBlockedPage(pageTitle, bodyText)) {
+      return {
+        jobs: [],
+        complete: false,
+        error: "Vercel Security Checkpoint blocked the automated request",
+      };
+    }
     await searchPage.waitForSelector(DEVJOBS_JOB_LINK_SELECTOR, { timeout: 15000 });
     await searchPage.waitForTimeout(500);
 
@@ -729,12 +744,14 @@ async function main() {
     for (const s of DEVJOBS_SEARCHES) {
       const result = await fetchDevjobsSearch(s, devjobsBrowser);
       console.log(`  "${s.label}": ${result.jobs.length} results${result.complete ? "" : " (partial)"}`);
-      recordResult(s.label, result);
+      recordResult(s.label, result, { required: !s.optional });
     }
   } catch (e) {
     console.warn(`  WARNING: devjobs.at search skipped: ${e.message}`);
     for (const s of DEVJOBS_SEARCHES) {
-      if (!queryHealth[s.label]) recordResult(s.label, { jobs: [], complete: false, error: e.message });
+      if (!queryHealth[s.label]) {
+        recordResult(s.label, { jobs: [], complete: false, error: e.message }, { required: !s.optional });
+      }
     }
   } finally {
     if (devjobsBrowser) await devjobsBrowser.close();
