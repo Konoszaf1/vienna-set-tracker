@@ -101,7 +101,11 @@ export function buildPopupHtml({ company: c, salary: sal, distance: km, color, e
 
   const ratingsBlock = c.kununuRating != null ? `<div style="margin-bottom:10px"><div style="background:#18181b;padding:6px 8px;border-radius:6px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Kununu</div><div style="font-size:14px;font-weight:700;color:#facc15">${c.kununuRating} ★</div></div></div>` : "";
 
-  const statusBadge = `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:#06b6d4;background:#06b6d420;border:1px solid #06b6d430">Live</span>`;
+  const stale = c.feedStatus === "stale";
+  const partial = c.feedStatus === "partial";
+  const statusLabel = stale ? "Stale" : partial ? "Partial" : "Verified";
+  const statusColor = stale ? "#f59e0b" : "#06b6d4";
+  const statusBadge = `<span style="margin-left:auto;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:600;color:${statusColor};background:${statusColor}20;border:1px solid ${statusColor}30">${statusLabel}</span>`;
 
   return `
     <div style="font-family:DM Sans,sans-serif;min-width:260px;padding:4px">

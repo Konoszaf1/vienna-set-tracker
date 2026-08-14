@@ -7,9 +7,11 @@
  * series for the "active job openings over time" chart.
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import { dirname } from "path";
+import { existsSync, readFileSync } from "fs";
 import { pathToFileURL } from "url";
+import { writeJsonAtomic } from "./atomicJson.mjs";
+import { deriveJobCompany } from "../src/utils/jobCompany.js";
+import { normalizeCompanyName } from "../src/utils/normalizeCompany.js";
 
 const JOBS_PATH = "public/jobs.json";
 const HISTORY_PATH = "public/job-history.json";
@@ -24,10 +26,19 @@ function dayKey(input) {
 function uniqueCompanyCount(jobs) {
   const companies = new Set(
     jobs
-      .map(j => (j.company || "").trim().toLowerCase())
+      .map(j => normalizeCompanyName(deriveJobCompany(j)))
       .filter(Boolean)
   );
   return companies.size;
+}
+
+function sourceCounts(jobs) {
+  const counts = {};
+  for (const job of jobs) {
+    const source = job.source || "unknown";
+    counts[source] = (counts[source] || 0) + 1;
+  }
+  return Object.fromEntries(Object.entries(counts).sort(([a], [b]) => a.localeCompare(b)));
 }
 
 export function normalizeHistory(raw) {
@@ -54,6 +65,10 @@ export function makeSnapshot(jobsData, options = {}) {
     activeCompanies: uniqueCompanyCount(jobs),
     sourceLastUpdated: jobsData?.lastUpdated || null,
     sourceLastVerified: jobsData?.lastVerified || null,
+    lastFullySuccessfulAt: jobsData?.lastFullySuccessfulAt || null,
+    partial: Boolean(jobsData?.partial),
+    datasetHash: jobsData?.datasetHash || null,
+    sourceCounts: sourceCounts(jobs),
     recordedAt,
   };
 }
@@ -101,8 +116,7 @@ export function writeJobHistory({
   const snapshot = makeSnapshot(jobsData, { date: snapshotDate });
   const updated = mergeSnapshot(history, snapshot);
 
-  mkdirSync(dirname(historyPath), { recursive: true });
-  writeFileSync(historyPath, JSON.stringify(updated, null, 2));
+  writeJsonAtomic(historyPath, updated);
   return updated;
 }
 

@@ -4,13 +4,15 @@
  *
  * Reads the job feed, checks each URL using a fast HTTP fetch or a headless
  * Playwright browser (for LinkedIn, Indeed, and failed requests), removes
- * listings that return HTTP errors or inactive indicators, and writes the
- * pruned file back. Designed to run daily/weekly via GitHub Actions.
+ * listings that repeatedly return inactive indicators, and writes the
+ * reconciled feed back. Designed to run daily via GitHub Actions.
  */
 
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { readFileSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import { chromium } from "@playwright/test";
+import { writeJsonAtomic } from "./atomicJson.mjs";
+import { datasetHash, hydrateJob } from "./jobLifecycle.mjs";
 
 const USER_AGENT =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 " +
@@ -61,7 +63,7 @@ export async function checkJob(job, browser) {
         return { status: "alive" };
       }
       // If HTTP status is >= 400 (except 404), fall back to Playwright
-    } catch (e) {
+    } catch {
       // Fall back to Playwright on network/fetch errors
     }
   }
@@ -135,6 +137,7 @@ export async function checkJob(job, browser) {
 
 async function main() {
   const path = "public/jobs.json";
+  const archivePath = "public/job-archive.json";
 
   if (!existsSync(path)) {
     console.log("No public/jobs.json found, nothing to verify.");
@@ -164,9 +167,11 @@ async function main() {
     console.warn("Continuing checks using standard fetch only.");
   }
 
-  const alive = [];
+  const checked = [];
   const dead = [];
   const errored = [];
+  const probation = [];
+  const checkedAt = new Date().toISOString();
 
   for (let i = 0; i < data.jobs.length; i += CONCURRENCY) {
     const batch = data.jobs.slice(i, i + CONCURRENCY);
@@ -174,12 +179,44 @@ async function main() {
 
     for (let j = 0; j < batch.length; j++) {
       if (results[j].status === "alive") {
-        alive.push(batch[j]);
+        checked.push({
+          ...hydrateJob(batch[j], { now: checkedAt, observed: false, fallbackFirstSeen: data.lastUpdated }),
+          lastCheckedAt: checkedAt,
+          verificationStatus: "alive",
+          consecutiveDeadChecks: 0,
+        });
       } else if (results[j].status === "dead") {
-        dead.push(batch[j]);
-        console.log(`  DEAD: ${batch[j].title} (${batch[j].company}) — ${results[j].reason}`);
+        const consecutiveDeadChecks = Number(batch[j].consecutiveDeadChecks || 0) + 1;
+        if (consecutiveDeadChecks >= 2) {
+          dead.push({
+            ...batch[j],
+            status: "closed",
+            closedAt: checkedAt,
+            closeReason: results[j].reason,
+            consecutiveDeadChecks,
+          });
+          console.log(`  DEAD: ${batch[j].title} (${batch[j].company}) — ${results[j].reason}`);
+        } else {
+          const retained = {
+            ...hydrateJob(batch[j], { now: checkedAt, observed: false, fallbackFirstSeen: data.lastUpdated }),
+            lastCheckedAt: checkedAt,
+            verificationStatus: "probation",
+            verificationReason: results[j].reason,
+            consecutiveDeadChecks,
+          };
+          checked.push(retained);
+          probation.push(retained);
+          console.log(`  PROBATION: ${batch[j].title} (${batch[j].company}) — ${results[j].reason}`);
+        }
       } else {
-        errored.push(batch[j]);
+        const retained = {
+          ...hydrateJob(batch[j], { now: checkedAt, observed: false, fallbackFirstSeen: data.lastUpdated }),
+          lastCheckedAt: checkedAt,
+          verificationStatus: "error",
+          verificationReason: results[j].reason,
+        };
+        checked.push(retained);
+        errored.push(retained);
         console.log(`  NETWORK/PLAYWRIGHT ERROR: ${batch[j].title} (${batch[j].company}) — ${results[j].reason}`);
       }
     }
@@ -193,23 +230,52 @@ async function main() {
     await browser.close();
   }
 
-  console.log(`\nResults: ${alive.length} alive, ${dead.length} dead, ${errored.length} errors (kept)`);
+  const aliveCount = checked.length - errored.length - probation.length;
+  console.log(`\nResults: ${aliveCount} alive, ${probation.length} probation, ${dead.length} dead, ${errored.length} errors (kept)`);
 
-  if (alive.length === 0) {
-    console.error("ERROR: 0 jobs verified as alive. Refusing to write empty feed.");
+  if (checked.length === 0) {
+    console.error("ERROR: 0 jobs remain after verification. Refusing to write empty feed.");
     console.error("Check soft-404 patterns, browser installation, and selectors.");
     process.exit(1);
   }
 
-  data.jobs = [...alive, ...errored];
+  data.jobs = checked;
   data.count = data.jobs.length;
-  data.lastVerified = new Date().toISOString();
-  writeFileSync(path, JSON.stringify(data, null, 2));
+  data.lastVerified = checkedAt;
+  data.datasetHash = datasetHash(data.jobs);
+  data.sourceHealth = {
+    ...(data.sourceHealth || {}),
+    verification: {
+      status: errored.length > 0 || probation.length > 0 ? "partial" : "healthy",
+      checkedAt,
+      alive: aliveCount,
+      probation: probation.length,
+      closed: dead.length,
+      errors: errored.length,
+    },
+  };
+  writeJsonAtomic(path, data);
+
+  if (dead.length > 0) {
+    let archive = { jobs: [] };
+    if (existsSync(archivePath)) {
+      try {
+        archive = JSON.parse(readFileSync(archivePath, "utf-8"));
+      } catch {
+        // A malformed archive should not block verification of the live feed.
+      }
+    }
+    const byId = new Map((archive.jobs || []).map(job => [job.id || job.url, job]));
+    for (const job of dead) byId.set(job.id || job.url, job);
+    archive.jobs = [...byId.values()].sort((a, b) => String(b.closedAt).localeCompare(String(a.closedAt)));
+    archive.lastUpdated = checkedAt;
+    writeJsonAtomic(archivePath, archive);
+  }
 
   if (dead.length > 0) {
     console.log(`Updated ${path} (removed ${dead.length} dead listings)`);
   } else {
-    console.log("All listings are alive, updated lastVerified.");
+    console.log("No listings closed; updated verification state.");
   }
 }
 

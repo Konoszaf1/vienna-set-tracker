@@ -16,7 +16,7 @@
 }
 
 .tick {
-  fill: #71717a;
+  fill: #a1a1aa;
   font-size: 10px;
 }
 
@@ -63,7 +63,7 @@
   align-items: center;
   justify-content: center;
   height: 220px;
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 13px;
   font-style: italic;
   background: #0c0c0f;

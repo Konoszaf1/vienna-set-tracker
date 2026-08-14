@@ -13,7 +13,10 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
   const extraLayersRef = useRef([]);
   const prevHomeRef = useRef(null);
   const prevCompanyKeyRef = useRef(null);
+  const reverseControllerRef = useRef(null);
   const [ready, setReady] = useState(false);
+  const [loadError, setLoadError] = useState(null);
+  const [loadAttempt, setLoadAttempt] = useState(0);
 
   const unmappedCount = useMemo(
     () => companies.filter(c => !c.remoteOnly && (c.lat == null || c.lng == null)).length,
@@ -38,6 +41,8 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
   }, [profile]);
 
   useEffect(() => {
+    let cancelled = false;
+    setLoadError(null);
     if (window.L && window.L.markerClusterGroup) { setReady(true); return; }
 
     const loadLeaflet = window.L
@@ -47,9 +52,12 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
     loadLeaflet.then(() =>
       import("leaflet.markercluster/dist/leaflet.markercluster.js")
     ).then(() => {
-      setReady(true);
+      if (!cancelled) setReady(true);
+    }).catch(error => {
+      if (!cancelled) setLoadError(error.message || "Map assets failed to load");
     });
-  }, []);
+    return () => { cancelled = true; };
+  }, [loadAttempt]);
 
   // Inject cluster + dark-theme styles once
   useEffect(() => {
@@ -147,6 +155,8 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
     homeMarkerRef.current = homeMarker;
 
     homeMarker.on("dragend", async () => {
+      reverseControllerRef.current?.abort();
+      reverseControllerRef.current = new AbortController();
       const pos = homeMarker.getLatLng();
       const lat = Math.round(pos.lat * 10000) / 10000;
       const lng = Math.round(pos.lng * 10000) / 10000;
@@ -155,9 +165,10 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
       try {
         // Nominatim rate limits apply — see https://operations.osmfoundation.org/policies/nominatim/
         const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&zoom=18&addressdetails=1`;
-        const res = await fetch(url, {
-          signal: AbortSignal.timeout(8000),
-        });
+        const signal = typeof AbortSignal.any === "function"
+          ? AbortSignal.any([reverseControllerRef.current.signal, AbortSignal.timeout(8000)])
+          : reverseControllerRef.current.signal;
+        const res = await fetch(url, { signal });
         if (res.ok) {
           const data = await res.json();
           const a = data.address || {};
@@ -165,7 +176,10 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
           if (parts.length > 0) address = parts.join(", ");
           else if (data.display_name) address = data.display_name.split(",").slice(0, 3).join(",").trim();
         }
-      } catch { /* keep coordinate string */ }
+      } catch (error) {
+        if (error.name === "AbortError") return;
+        // Keep the coordinate string when reverse-geocoding is unavailable.
+      }
       if (onHomeMove) {
         onHomeMove({ ...profile, home: { ...profile.home, lat, lng, address } });
       }
@@ -282,7 +296,10 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
     }
   }, [ready, companies, home, homeAddress, salaryMap, onHomeMove, profile]);
 
-  useEffect(() => () => { if (mapInstanceRef.current) { mapInstanceRef.current.remove(); mapInstanceRef.current = null; } }, []);
+  useEffect(() => () => {
+    reverseControllerRef.current?.abort();
+    if (mapInstanceRef.current) { mapInstanceRef.current.remove(); mapInstanceRef.current = null; }
+  }, []);
 
   const legendItems = [
     { label: "€70k+", color: "#10b981" },
@@ -315,7 +332,12 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
         </div>
       </div>
       <div className={styles.mapWrapper}>
-        {!ready ? (
+        {loadError ? (
+          <div className={styles.loading} role="alert">
+            <span>Map unavailable: {loadError}</span>
+            <button onClick={() => setLoadAttempt(value => value + 1)} className={styles.retryButton}>Retry map</button>
+          </div>
+        ) : !ready ? (
           <div className={styles.loading}>Loading map…</div>
         ) : (
           <div ref={containerRef} className={styles.mapContainer} />

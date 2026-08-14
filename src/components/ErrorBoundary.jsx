@@ -1,4 +1,5 @@
 import React from 'react';
+import { PROFILE_STORAGE_KEY } from '../constants';
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -11,7 +12,10 @@ export default class ErrorBoundary extends React.Component {
   }
 
   handleReset = () => {
-    try { localStorage.clear(); } catch {}
+    try {
+      localStorage.removeItem(PROFILE_STORAGE_KEY);
+      localStorage.removeItem("sdet-first-seen");
+    } catch {}
     window.location.reload();
   };
 

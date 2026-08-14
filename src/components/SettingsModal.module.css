@@ -23,6 +23,21 @@
   box-sizing: border-box;
 }
 
+.input:focus-visible,
+.lookupButton:focus-visible,
+.sampleButton:focus-visible,
+.cancelButton:focus-visible,
+.saveButton:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 2px;
+}
+
+.preferenceHint {
+  margin-top: 6px;
+  color: #a1a1aa;
+  font-size: 11px;
+}
+
 .addressRow {
   display: flex;
   gap: 8px;
@@ -39,7 +54,7 @@
   border-radius: 8px;
   border: 1px solid #6366f140;
   background: #6366f118;
-  color: #6366f1;
+  color: #a5b4fc;
   cursor: pointer;
   font-size: 13px;
   font-weight: 600;
@@ -65,20 +80,20 @@
 }
 
 .lookupError {
-  color: #ef4444;
+  color: #f87171;
   font-size: 11px;
   margin-top: 4px;
 }
 
 .coordHint {
-  color: #52525b;
+  color: #a1a1aa;
   font-size: 11px;
   margin-top: 2px;
   font-style: italic;
 }
 
 .sectionHeader {
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -99,7 +114,7 @@
   border-radius: 8px;
   border: 1px solid #6366f130;
   background: #6366f110;
-  color: #6366f1;
+  color: #a5b4fc;
   cursor: pointer;
   font-size: 13px;
   font-family: 'DM Sans', sans-serif;
@@ -127,4 +142,13 @@
   font-size: 14px;
   font-weight: 700;
   font-family: 'DM Sans', sans-serif;
+}
+
+@media (max-width: 520px) {
+  .grid2, .grid3 { grid-template-columns: 1fr; }
+  .addressRow { flex-direction: column; }
+  .lookupButton { min-height: 40px; }
+  .actions { flex-wrap: wrap; }
+  .sampleButton { width: 100%; margin-right: 0; }
+  .cancelButton, .saveButton { flex: 1; }
 }

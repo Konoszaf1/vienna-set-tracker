@@ -75,19 +75,9 @@ function snapshotPointsFromHistory(history, currentJobs, currentSnapshotDate) {
     byDate.set(currentDate, currentJobs.length);
   }
 
-  const days = [...byDate.keys()].sort();
-  const start = new Date(days[0]);
-  const end = new Date(days[days.length - 1]);
-  const points = [];
-  let lastValue = 0;
-
-  for (let t = start.getTime(); t <= end.getTime(); t += DAY_MS) {
-    const k = dayKey(new Date(t));
-    if (byDate.has(k)) lastValue = byDate.get(k);
-    points.push({ date: k, active: lastValue });
-  }
-
-  return points;
+  return [...byDate.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([date, active]) => ({ date, active }));
 }
 
 function snapshotPointsFromLiveListings(firstSeenMap, currentJobs, now) {
@@ -367,4 +357,3 @@ export function marketPulse(history) {
     companiesDelta,
   };
 }
-

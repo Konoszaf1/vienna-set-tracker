@@ -11,14 +11,14 @@ const valid = (overrides = {}) => ({
 describe("validateJob", () => {
   // ---- Basic checks (URL, title length, company) ----
 
-  it("karriere.at URL without numeric ID rejected", () => {
-    expect(validateJob(valid({ url: "https://www.karriere.at/jobs/search" })))
+  it("non-HTTPS URL rejected", () => {
+    expect(validateJob(valid({ url: "http://www.karriere.at/jobs/7758914" })))
       .toEqual({ valid: false, reason: "invalid-url" });
   });
 
-  it("URL from unsupported domain rejected", () => {
+  it("direct employer and ATS URLs are accepted", () => {
     expect(validateJob(valid({ url: "https://www.stepstone.at/jobs/12345" })))
-      .toEqual({ valid: false, reason: "invalid-url" });
+      .toEqual({ valid: true, reason: null });
   });
 
   it("kununu URL accepted", () => {

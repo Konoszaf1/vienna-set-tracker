@@ -46,6 +46,22 @@ describe("filterAndSort", () => {
     expect(result).toEqual([]);
   });
 
+  it("searches role titles and returns only matching vacancies", () => {
+    const roleCompany = [{
+      id: "roles",
+      name: "Example",
+      langReq: "de-fluent",
+      openRoles: [
+        { id: "qa", title: "QA Automation Engineer", langReq: "en", url: "https://example/qa" },
+        { id: "dev", title: "Backend Developer", langReq: "de-fluent", url: "https://example/dev" },
+      ],
+    }];
+    const result = filterAndSort({ ...defaults, companies: roleCompany, search: "automation" });
+    expect(result[0].openRoles.map(role => role.id)).toEqual(["qa"]);
+    expect(result[0].matchingRoleCount).toBe(1);
+    expect(result[0].totalRoleCount).toBe(2);
+  });
+
   // ---- Language filter ----
 
   it("'accessible' excludes de-fluent roles", () => {
@@ -58,6 +74,26 @@ describe("filterAndSort", () => {
     const result = filterAndSort({ ...defaults, filterLang: "de-fluent" });
     expect(result.every(c => c.langReq === "de-fluent")).toBe(true);
     expect(result.length).toBe(1);
+  });
+
+  it("filters mixed-language companies at vacancy level", () => {
+    const mixed = [{
+      id: "mixed",
+      name: "efinio",
+      langReq: "de-fluent",
+      openRoles: [
+        { id: "english", title: "QA Engineer", langReq: "en", url: "https://example/en" },
+        { id: "german", title: "Test Engineer", langReq: "de-fluent", url: "https://example/de" },
+      ],
+    }];
+    const result = filterAndSort({ ...defaults, companies: mixed, filterLang: "accessible" });
+    expect(result).toHaveLength(1);
+    expect(result[0].openRoles.map(role => role.id)).toEqual(["english"]);
+  });
+
+  it("does not present unknown language as accessible", () => {
+    const unknown = [{ ...companies[0], id: "unknown", langReq: "unknown" }];
+    expect(filterAndSort({ ...defaults, companies: unknown, filterLang: "accessible" })).toEqual([]);
   });
 
   // ---- Sort ----

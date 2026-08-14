@@ -18,7 +18,7 @@
 }
 
 .statLabel {
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
@@ -52,7 +52,7 @@
 }
 
 .deltaNeutral {
-  color: #71717a;
+  color: #a1a1aa;
   background: rgba(113, 113, 122, 0.1);
   border: 1px solid rgba(113, 113, 122, 0.15);
 }
@@ -95,7 +95,7 @@
 }
 
 .subtitle {
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 11px;
   font-weight: 500;
 }

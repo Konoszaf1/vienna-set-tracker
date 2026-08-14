@@ -57,7 +57,7 @@
 }
 
 .firstSeen {
-  color: #6366f1;
+  color: #a5b4fc;
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
@@ -70,7 +70,7 @@
 }
 
 .ratingLabel {
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -96,7 +96,7 @@
 }
 
 .salaryLabel {
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -109,11 +109,12 @@
 }
 
 .salaryAmount[data-tier="high"] { color: #10b981; }
-.salaryAmount[data-tier="mid"] { color: #f59e0b; }
+.salaryAmount[data-tier="midhi"] { color: #f59e0b; }
+.salaryAmount[data-tier="mid"] { color: #fb923c; }
 .salaryAmount[data-tier="low"] { color: #ef4444; }
 
 .sectionLabel {
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -135,7 +136,7 @@
 
 .langIcon {
   font-size: 11px;
-  color: #71717a;
+  color: #a1a1aa;
 }
 
 .actions {
@@ -151,7 +152,7 @@
   padding: 8px 0;
   border-radius: 8px;
   background: #6366f118;
-  color: #6366f1;
+  color: #a5b4fc;
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
@@ -179,14 +180,29 @@
   transition: border-color 0.2s;
 }
 
+.roleDetails {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.roleSource {
+  color: #a1a1aa;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
 .roleLink:hover {
   border-color: #6366f1;
   color: #fafafa;
 }
 
 .roleEstimate {
+  flex-shrink: 0;
   font-weight: 600;
   font-family: 'DM Mono', monospace;
-  color: #6366f1;
+  color: #a5b4fc;
   font-size: 11px;
 }

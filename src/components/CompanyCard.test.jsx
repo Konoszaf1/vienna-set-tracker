@@ -25,7 +25,7 @@ describe("CompanyCard", () => {
   it("renders company name and salary estimate", () => {
     render(<CompanyCard company={company} salary={salary} />);
     expect(screen.getByText("Test Corp")).toBeInTheDocument();
-    expect(screen.getByText("Est. Salary")).toBeInTheDocument();
+    expect(screen.getByText("Heuristic estimate")).toBeInTheDocument();
     expect(screen.getAllByText(/€71k/).length).toBeGreaterThanOrEqual(1);
   });
 

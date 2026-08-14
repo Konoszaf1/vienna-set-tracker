@@ -43,9 +43,9 @@ test.describe('Settings persistence', () => {
     await dashboard.openSettings();
     await expect(dashboard.dialog).toBeVisible();
 
-    const expInput = page.getByLabel(/years of experience/i);
-    await expInput.clear();
-    await expInput.fill('10');
+    const salaryInput = page.getByLabel(/minimum estimated salary/i);
+    await salaryInput.clear();
+    await salaryInput.fill('65');
 
     await page.getByText('Save').click();
     await expect(dashboard.dialog).not.toBeVisible();
@@ -55,7 +55,7 @@ test.describe('Settings persistence', () => {
     await dashboard.waitForCards();
     await dashboard.openSettings();
     await expect(dashboard.dialog).toBeVisible();
-    const value = await page.getByLabel(/years of experience/i).inputValue();
-    expect(value).toBe('10');
+    const value = await page.getByLabel(/minimum estimated salary/i).inputValue();
+    expect(value).toBe('65');
   });
 });

@@ -40,6 +40,9 @@ npx playwright test --ui                          # interactive UI mode
 
 # Lint
 npm run lint
+
+# Python discovery syntax check
+python3 -m py_compile scripts/discoverJobs.py
 ```
 
 ## Fixture data
@@ -99,3 +102,8 @@ All five browser projects run in a single CI job. To run a specific project loca
 **E2e test for a new flow**: Create `e2e/myflow.spec.js`. Import `DashboardPage`, call `dashboard.goto()` in `beforeEach`. The POM handles fixture routing and localStorage cleanup.
 
 **Script test**: Create `scripts/myScript.test.mjs`. Add to the `scripts/**/*.test.mjs` glob (already configured).
+
+Lifecycle and publication tests belong in `scripts/jobLifecycle.test.mjs` and
+`scripts/validateFeed.test.mjs`. Cover partial-source retention, repeat-run
+idempotency, stable IDs, close probation, canonical deduplication, feed age,
+and hash/count consistency without making live requests.

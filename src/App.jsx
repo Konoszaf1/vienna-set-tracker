@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { PROFILE_STORAGE_KEY } from "./constants";
 import { filterAndSort } from "./utils/filterSort";
 import defaultProfileData from "./data/defaultProfile.json";
@@ -6,19 +6,48 @@ import { estimateSalary } from "./utils/salaryEstimate";
 import { normalizeCompanyName } from "./utils/normalizeCompany";
 import { resolveCompanyLocation } from "./utils/companyLocation";
 import { deriveJobCompany, isRemoteRole } from "./utils/jobCompany";
+import { feedHealth as deriveFeedHealth } from "./utils/feedHealth";
+import { canonicalizeTechStack } from "./utils/normalizeTech";
 import CompanyCard from "./components/CompanyCard";
 import MapView from "./components/MapView";
 import AnalyticsView from "./components/AnalyticsView";
 import SettingsModal from "./components/SettingsModal";
 import styles from './App.module.css';
 
+const VALID_VIEWS = new Set(["grid", "map", "analytics"]);
+const VALID_LANG_FILTERS = new Set(["all", "accessible", "de-fluent", "unknown"]);
+const VALID_SORTS = new Set(["name", "newest", "salary", "rating"]);
+
+function queryParam(name, fallback, validValues) {
+  const value = new URLSearchParams(window.location.search).get(name);
+  return value && (!validValues || validValues.has(value)) ? value : fallback;
+}
+
+function numericQueryParam(name) {
+  const raw = new URLSearchParams(window.location.search).get(name);
+  if (raw == null || raw === "") return null;
+  const value = Number(raw);
+  return Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+function locationLabel(...values) {
+  const text = values.filter(Boolean).join(" ");
+  const postcode = text.match(/\b(1\d{3})\b/)?.[1];
+  if (postcode) {
+    const district = (Number(postcode) - 1000) / 10;
+    if (Number.isInteger(district) && district >= 1 && district <= 23) return `${district}. Bezirk`;
+  }
+  if (/\b(?:wien|vienna)\b/i.test(text)) return "Wien (district unknown)";
+  return values.find(Boolean) || "Unknown";
+}
+
 export default function App() {
-  const [view, setView] = useState("grid");
-  const [search, setSearch] = useState("");
-  const [filterLang, setFilterLang] = useState("all");
-  const [sortBy, setSortBy] = useState("name");
-  const [salaryMin, setSalaryMin] = useState(null);
-  const [salaryMax, setSalaryMax] = useState(null);
+  const [view, setView] = useState(() => queryParam("view", "grid", VALID_VIEWS));
+  const [search, setSearch] = useState(() => queryParam("q", ""));
+  const [filterLang, setFilterLang] = useState(() => queryParam("lang", "all", VALID_LANG_FILTERS));
+  const [sortBy, setSortBy] = useState(() => queryParam("sort", "name", VALID_SORTS));
+  const [salaryMin, setSalaryMin] = useState(() => numericQueryParam("min"));
+  const [salaryMax, setSalaryMax] = useState(() => numericQueryParam("max"));
   const [jobs, setJobs] = useState([]);
   const [jobsMeta, setJobsMeta] = useState({});
   const [jobHistory, setJobHistory] = useState({ snapshots: [] });
@@ -27,6 +56,9 @@ export default function App() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState(null);
+  const [dataWarnings, setDataWarnings] = useState([]);
+  const [lastLoadedAt, setLastLoadedAt] = useState(null);
+  const fetchControllerRef = useRef(null);
 
   const [profile, setProfile] = useState(() => {
     try {
@@ -35,56 +67,110 @@ export default function App() {
     } catch { return defaultProfileData; }
   });
 
-  function doFetch() {
+  const doFetch = useCallback(async (externalSignal) => {
     const h = Math.floor(Date.now() / 3600000);
-    const fetchJson = (path, fallback) =>
-      fetch(import.meta.env.BASE_URL + path)
-        .then(r => r.ok ? r.json() : fallback)
-        .catch(() => fallback);
+    const signal = typeof AbortSignal.any === "function"
+      ? AbortSignal.any([externalSignal, AbortSignal.timeout(15000)].filter(Boolean))
+      : externalSignal;
+    const fetchJson = async (path, fallback) => {
+      try {
+        const response = await fetch(import.meta.env.BASE_URL + path, { signal });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return { value: await response.json(), warning: null };
+      } catch (error) {
+        if (error.name === "AbortError" && externalSignal?.aborted) throw error;
+        return { value: fallback, warning: `${path.split("?")[0]} unavailable` };
+      }
+    };
 
-    return Promise.all([
-      fetch(import.meta.env.BASE_URL + `jobs.json?h=${h}`).then(r => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      }),
-      fetchJson(`job-history.json?h=${h}`, { snapshots: [] }),
-      fetchJson(`company-locations.json?h=${h}`, {}),
-      fetchJson(`company-locations-manual.json?h=${h}`, {}),
-    ])
-      .then(([jobsData, history, cache, manual]) => {
-        if (jobsData?.jobs) setJobs(jobsData.jobs);
-        setJobsMeta({
-          lastUpdated: jobsData?.lastUpdated || null,
-          lastVerified: jobsData?.lastVerified || null,
-        });
-        setJobHistory(history || { snapshots: [] });
-        setLocationsCache(cache || {});
-        setLocationOverrides(manual || {});
-      })
-      .catch(e => setFetchError(e.message || "Failed to load jobs"))
-      .finally(() => setLoading(false));
-  }
+    try {
+      const response = await fetch(import.meta.env.BASE_URL + `jobs.json?h=${h}`, { signal });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const jobsData = await response.json();
+      if (!Array.isArray(jobsData?.jobs)) throw new Error("Malformed jobs.json: jobs must be an array");
+
+      setJobs(jobsData.jobs);
+      setJobsMeta({
+        lastUpdated: jobsData.lastUpdated || null,
+        lastVerified: jobsData.lastVerified || null,
+        lastFullySuccessfulAt: jobsData.lastFullySuccessfulAt || null,
+        partial: Boolean(jobsData.partial),
+        sourceHealth: jobsData.sourceHealth || {},
+      });
+      setFetchError(null);
+      setLoading(false);
+      setLastLoadedAt(new Date().toISOString());
+
+      const [history, cache, manual] = await Promise.all([
+        fetchJson(`job-history.json?h=${h}`, { snapshots: [] }),
+        fetchJson(`company-locations.json?h=${h}`, {}),
+        fetchJson(`company-locations-manual.json?h=${h}`, {}),
+      ]);
+      setJobHistory(history.value || { snapshots: [] });
+      setLocationsCache(cache.value || {});
+      setLocationOverrides(manual.value || {});
+      setDataWarnings([history.warning, cache.warning, manual.warning].filter(Boolean));
+    } catch (error) {
+      if (error.name === "AbortError" && externalSignal?.aborted) return;
+      setFetchError(error.message || "Failed to load jobs");
+      setLoading(false);
+    }
+  }, []);
+
+  const runFetch = useCallback(() => {
+    fetchControllerRef.current?.abort();
+    fetchControllerRef.current = new AbortController();
+    return doFetch(fetchControllerRef.current.signal);
+  }, [doFetch]);
 
   function handleRetry() {
     setLoading(true);
     setFetchError(null);
-    doFetch();
+    runFetch();
   }
 
-  useEffect(() => { doFetch(); }, []);
+  useEffect(() => {
+    runFetch();
+    const refreshWhenVisible = () => {
+      if (document.visibilityState !== "visible") return;
+      runFetch();
+    };
+    document.addEventListener("visibilitychange", refreshWhenVisible);
+    return () => {
+      fetchControllerRef.current?.abort();
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
+    };
+  }, [runFetch]);
 
-  // Track when each job URL was first seen (persisted in localStorage).
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (view !== "grid") params.set("view", view);
+    if (search) params.set("q", search);
+    if (filterLang !== "all") params.set("lang", filterLang);
+    if (sortBy !== "name") params.set("sort", sortBy);
+    if (salaryMin != null) params.set("min", String(salaryMin));
+    if (salaryMax != null) params.set("max", String(salaryMax));
+    const query = params.toString();
+    window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`);
+  }, [view, search, filterLang, sortBy, salaryMin, salaryMax]);
+
+  // Prefer feed-owned lifecycle dates; retain a bounded browser fallback for
+  // legacy feeds so temporarily missing jobs do not become "new" on return.
   const firstSeenMap = useMemo(() => {
     if (jobs.length === 0) return {};
     const STORAGE_KEY = "sdet-first-seen";
     let stored = {};
     try { stored = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch {}
     const now = new Date().toISOString();
-    const map = {};
+    const map = { ...stored };
     for (const j of jobs) {
-      map[j.url] = stored[j.url] || now;
+      map[j.url] = j.firstSeenAt || stored[j.url] || now;
     }
-    return map;
+    return Object.fromEntries(
+      Object.entries(map)
+        .sort(([, a], [, b]) => String(b).localeCompare(String(a)))
+        .slice(0, 2000)
+    );
   }, [jobs]);
 
   useEffect(() => {
@@ -96,7 +182,12 @@ export default function App() {
   const entries = useMemo(() => {
     const groups = {};
     for (const j of jobs) {
-      const role = { ...j, company: deriveJobCompany(j), sourceCompany: j.company };
+      const role = {
+        ...j,
+        company: deriveJobCompany(j),
+        sourceCompany: j.company,
+        firstSeenAt: j.firstSeenAt || firstSeenMap[j.url] || null,
+      };
       const key = normalizeCompanyName(role.company);
       if (!groups[key]) groups[key] = [];
       groups[key].push(role);
@@ -106,26 +197,26 @@ export default function App() {
       // Display the longest original company name (usually the most informative)
       const displayName = roles.reduce((a, b) => b.company.length > a.length ? b.company : a, roles[0].company);
       const first = roles[0];
-      const roleDates = roles.map(r => firstSeenMap[r.url]).filter(Boolean);
+      const roleDates = roles.map(r => r.firstSeenAt).filter(Boolean);
       const firstSeen = roleDates.length > 0
-        ? roleDates.reduce((a, b) => a < b ? a : b)
+        ? roleDates.reduce((a, b) => a > b ? a : b)
         : null;
-      const techStack = [...new Set(roles.flatMap(r => r.techStack || []))];
+      const techStack = canonicalizeTechStack(roles.flatMap(r => r.techStack || []));
       const remoteOnly = roles.length > 0 && roles.every(isRemoteRole);
 
       // Pick the most common langReq across roles.
       // Ties break toward more restrictive: de-fluent > de-basic > en.
       const langCounts = {};
       for (const r of roles) {
-        const l = r.langReq || "de-basic";
+        const l = r.langReq || "unknown";
         langCounts[l] = (langCounts[l] || 0) + 1;
       }
-      const langOrder = ["de-fluent", "de-basic", "en"];
+      const langOrder = ["de-fluent", "de-basic", "en", "unknown"];
       const langReq = langOrder.reduce((best, l) => {
         if ((langCounts[l] || 0) > (langCounts[best] || 0)) return l;
         if ((langCounts[l] || 0) === (langCounts[best] || 0) && langOrder.indexOf(l) < langOrder.indexOf(best)) return l;
         return best;
-      }, "de-basic");
+      }, "unknown");
 
       const resolved = resolveCompanyLocation(roles, locationsCache, locationOverrides);
 
@@ -133,7 +224,7 @@ export default function App() {
         id: `co-${key.replace(/\s+/g, "-")}`,
         name: displayName,
         logo: "\u{1F3E2}",
-        district: first.city || "Wien",
+        district: locationLabel(resolved.address, first.zip, first.address, first.city),
         address: resolved.address || first.address || "",
         lat: resolved.lat,
         lng: resolved.lng,
@@ -154,6 +245,8 @@ export default function App() {
     const map = {};
     for (const c of entries) {
       const estimates = (c.openRoles || []).map(r => ({
+        id: r.id,
+        url: r.url,
         title: r.title,
         estimate: estimateSalary(r),
       }));
@@ -168,11 +261,45 @@ export default function App() {
   const handleSaveProfile = useCallback((newProfile) => {
     setProfile(newProfile);
     try { localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(newProfile)); } catch {}
+    const salaryFloor = Number(newProfile.salaryFloor);
+    setSalaryMin(salaryFloor > 0 ? salaryFloor : null);
+    setFilterLang(newProfile.germanLevel === "fluent" ? "all" : "accessible");
   }, []);
 
   const filtered = useMemo(() => {
     return filterAndSort({ companies: entries, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax });
   }, [entries, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax]);
+
+  const displaySalaryMap = useMemo(() => {
+    const map = {};
+    for (const company of filtered) {
+      const original = salaryMap[company.id]?.roles || [];
+      const roles = company.openRoles.map(role =>
+        original.find(item => (role.id && item.id === role.id) || item.url === role.url)
+        || { id: role.id, url: role.url, title: role.title, estimate: estimateSalary(role) }
+      );
+      map[company.id] = {
+        roles,
+        best: roles.length ? Math.max(...roles.map(role => role.estimate)) : null,
+      };
+    }
+    return map;
+  }, [filtered, salaryMap]);
+
+  const health = useMemo(() => deriveFeedHealth(jobsMeta), [jobsMeta]);
+  const mappedCompanies = useMemo(
+    () => filtered.map(company => ({ ...company, feedStatus: health.status })),
+    [filtered, health.status]
+  );
+  const matchingRoleCount = filtered.reduce((total, company) => total + company.openRoles.length, 0);
+  const hasActiveFilters = Boolean(search || filterLang !== "all" || salaryMin != null || salaryMax != null);
+
+  const resetFilters = () => {
+    setSearch("");
+    setFilterLang("all");
+    setSalaryMin(null);
+    setSalaryMax(null);
+  };
 
   if (loading) {
     return (
@@ -200,21 +327,36 @@ export default function App() {
             <div>
               <h1 className={styles.heading}>Vienna SET/SDET Tracker</h1>
               <p className={styles.subheading}>
-                {entries.length} companies · {jobs.length} open roles
+                {hasActiveFilters
+                  ? `${filtered.length} matching companies · ${matchingRoleCount} matching roles`
+                  : `${entries.length} companies · ${jobs.length} open roles`}
               </p>
             </div>
             <div className={styles.headerActions}>
+              <button onClick={runFetch} className={styles.settingsButton} data-testid="refresh-btn">Refresh</button>
               <button onClick={() => setSettingsOpen(true)} className={styles.settingsButton} data-testid="settings-btn">Settings</button>
             </div>
           </div>
         </div>
 
+        <div className={styles.freshness} data-status={health.status} role="status" data-testid="feed-freshness">
+          <span className={styles.freshnessTitle}>
+            {health.stale ? "Feed is stale" : health.partial ? "Feed partially refreshed" : "Feed verified"}
+          </span>
+          <span>
+            Last fully refreshed {health.ageLabel}
+            {lastLoadedAt ? ` · checked by this tab ${new Date(lastLoadedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}` : ""}
+          </span>
+          {dataWarnings.length > 0 && <span> · Optional data unavailable: {dataWarnings.join(", ")}</span>}
+        </div>
+
         <div className={styles.controls}>
           <input
-            placeholder="Search companies..."
+            placeholder="Search roles, companies, tech, source, or location..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className={`${styles.input} ${styles.searchInput}`}
+            aria-label="Search vacancies"
             data-testid="search-input"
           />
 
@@ -222,6 +364,7 @@ export default function App() {
             <option value="all">All Language Reqs</option>
             <option value="accessible">No Fluent German Needed</option>
             <option value="de-fluent">Fluent German Required</option>
+            <option value="unknown">Language Unknown</option>
           </select>
 
           <select value={sortBy} onChange={e => setSortBy(e.target.value)} className={`${styles.input} ${styles.sortSelect}`} data-testid="sort-select" aria-label="Sort order">
@@ -259,27 +402,30 @@ export default function App() {
           </div>
 
           <div className={styles.viewToggle}>
-            <button onClick={() => setView("grid")} className={`${styles.viewButton} ${view === "grid" ? styles.viewActive : ''}`} data-testid="view-toggle-grid">Cards</button>
-            <button onClick={() => setView("map")} className={`${styles.viewButton} ${view === "map" ? styles.viewActive : ''}`} data-testid="view-toggle-map">Map</button>
-            <button onClick={() => setView("analytics")} className={`${styles.viewButton} ${view === "analytics" ? styles.viewActive : ''}`} data-testid="view-toggle-analytics">Analytics</button>
+            <button onClick={() => setView("grid")} aria-pressed={view === "grid"} className={`${styles.viewButton} ${view === "grid" ? styles.viewActive : ''}`} data-testid="view-toggle-grid">Cards</button>
+            <button onClick={() => setView("map")} aria-pressed={view === "map"} className={`${styles.viewButton} ${view === "map" ? styles.viewActive : ''}`} data-testid="view-toggle-map">Map</button>
+            <button onClick={() => setView("analytics")} aria-pressed={view === "analytics"} className={`${styles.viewButton} ${view === "analytics" ? styles.viewActive : ''}`} data-testid="view-toggle-analytics">Analytics</button>
           </div>
+
+          {hasActiveFilters && <button onClick={resetFilters} className={styles.resetButton} data-testid="reset-filters">Reset filters</button>}
         </div>
 
         {view === "grid" && (
           <div className={styles.cardGrid} data-testid="card-grid">
             {filtered.map(c => (
-              <CompanyCard key={c.id} company={c} salary={salaryMap[c.id]} />
+              <CompanyCard key={c.id} company={c} salary={displaySalaryMap[c.id]} feedHealth={health} />
             ))}
             {filtered.length === 0 && (
               <div className={styles.emptyState} data-testid="empty-state">
                 <p className={styles.emptyTitle}>No companies match your filters</p>
                 <p className={styles.emptySubtitle}>Try adjusting your search or filters</p>
+                {hasActiveFilters && <button onClick={resetFilters} className={styles.resetButton}>Reset all filters</button>}
               </div>
             )}
           </div>
         )}
         {view === "map" && (
-          <MapView companies={filtered} profile={profile} salaryMap={salaryMap} onHomeMove={handleSaveProfile} />
+          <MapView companies={mappedCompanies} profile={profile} salaryMap={displaySalaryMap} onHomeMove={handleSaveProfile} />
         )}
         {view === "analytics" && (
           <AnalyticsView

@@ -21,6 +21,10 @@ describe("updateJobHistory", () => {
       activeCompanies: 2,
       sourceLastUpdated: "2026-04-24T07:00:00Z",
       sourceLastVerified: "2026-04-25T08:00:00Z",
+      lastFullySuccessfulAt: null,
+      partial: false,
+      datasetHash: null,
+      sourceCounts: { unknown: 3 },
       recordedAt: "2026-04-25T08:05:00Z",
     });
   });

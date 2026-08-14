@@ -8,7 +8,9 @@ A daily-scraped job board for Vienna SDET/QA positions, served as a static singl
 
 ## What it does
 
-A GitHub Actions pipeline scrapes Vienna QA/SDET listings daily from karriere.at, kununu, devjobs.at, and JobSpy (LinkedIn, Indeed, Google Jobs), geocodes office addresses, and writes `jobs.json`. The frontend groups jobs by company, shows them as filterable cards or clustered map pins, and adds a rough salary estimate based on the job title seniority level.
+A GitHub Actions pipeline scrapes Vienna QA/SDET listings daily from karriere.at, kununu, devjobs.at, and JobSpy (LinkedIn, Indeed, Google Jobs), geocodes office addresses, and publishes a validated `jobs.json`. The frontend searches individual vacancies before grouping them by company, shows data freshness and source status, and provides filterable cards, clustered map pins, analytics, and clearly labelled heuristic salary estimates.
+
+Feed updates are reconciled instead of replaced wholesale. Listings receive stable IDs and server-owned `firstSeenAt` / `lastSeenAt` timestamps, partial source failures retain the last known good rows, and missing or dead jobs require two successful checks before they close. Writes are atomic and the workflow validates lifecycle fields, uniqueness, coordinates, freshness, and a deterministic dataset hash before deployment.
 
 ## Quick start
 
@@ -27,8 +29,11 @@ Run tests with `npm test` (unit) and `npm run e2e` (Playwright against a product
 scripts/
   search-jobs.mjs       # karriere.at + kununu + devjobs.at scraper
   discoverJobs.py       # JobSpy pipeline (LinkedIn, Indeed, Google Jobs)
+  jobLifecycle.mjs      # stable identity, canonicalization, merge + close rules
+  atomicJson.mjs        # crash-safe JSON publication helper
+  validateFeed.mjs      # final feed contract and freshness gate
   geocodeCompanies.mjs  # Nominatim geocoding for office addresses
-  verify-jobs.mjs       # weekly liveness checker — prunes expired listings
+  verify-jobs.mjs       # liveness checks, probation, and closed-job archive
   updateJobHistory.mjs  # appends daily active-job counts after verification
   jobValidator.mjs      # URL + title validation
 src/
@@ -36,7 +41,9 @@ src/
   constants.js          # profile storage key
   utils/
     salaryEstimate.js   # seniority-only salary estimate (Senior/Mid/Junior)
-    filterSort.js       # search, language filter, salary range, sort
+    filterSort.js       # role-level search, language/salary filters, sort
+    feedHealth.js       # fresh/partial/stale feed state
+    normalizeTech.js    # canonical tech-tag vocabulary
     escape.js           # HTML escape + URL validation for map popups
   components/
     CompanyCard.jsx     # company card with salary, tech stack, open roles
@@ -49,6 +56,7 @@ src/
     defaultProfile.json # seed profile (home address, commute prefs)
 public/
   jobs.json             # scraped job feed (updated daily by CI)
+  job-archive.json      # closed listings retained for lifecycle history
   job-history.json      # daily active listing snapshots for analytics
 ```
 
@@ -78,9 +86,9 @@ npm run test:coverage # unit + coverage report
 npm run e2e           # Playwright across 5 browser targets
 ```
 
-**Unit tests** (182 tests, 14 files) cover utilities, components, script-layer logic, and a JSON schema contract test. All tests use deterministic fixtures via MSW — no live network calls.
+**Unit tests** (318 tests, 26 files) cover utilities, components, script-layer lifecycle/reconciliation logic, feed validation, and the JSON schema contract. All tests use deterministic fixtures via MSW — no live network calls.
 
-**E2E tests** (26 specs x 5 browsers = 130 tests) run against a production build with fixture data, covering filters, settings persistence, network error recovery, external link safety, accessibility (axe-core), and keyboard navigation.
+**E2E tests** (27 scenarios across 5 browser targets = 135 tests) run against a production build with fixture data, covering filters, settings persistence, network error recovery, external link safety, WCAG AA contrast/accessibility, and keyboard navigation.
 
 **Coverage thresholds** are enforced in CI: >=80% for `src/utils/`, >=80% statements / >=60% branches for `src/components/` (MapView excluded — covered by e2e + extracted helpers).
 
