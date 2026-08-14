@@ -85,8 +85,8 @@ export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap, 
       </div>
 
       <div className={styles.grid2}>
-        <Section title="Listings by district" subtitle="Where Vienna's SET/SDET roles cluster">
-          <BarChart data={districts} ariaLabel="Listings by district" color="#06b6d4" />
+        <Section title="Companies by office location" subtitle="Grouped by resolved Vienna district where available">
+          <BarChart data={districts} ariaLabel="Companies by office location" color="#06b6d4" />
         </Section>
 
         <Section title="Listings by source" subtitle="Distribution across job boards and career pages">
@@ -139,4 +139,3 @@ function Section({ title, subtitle, children }) {
     </div>
   );
 }
-

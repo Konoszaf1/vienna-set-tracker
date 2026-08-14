@@ -11,7 +11,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest",
-    "lint": "eslint src/ e2e/",
+    "lint": "eslint src/ scripts/ e2e/ playwright.config.js",
     "e2e": "playwright test"
   },
   "dependencies": {

@@ -7,7 +7,10 @@ import App from './App';
 // The default MSW handler serves jobs.sample.json (10 jobs → 8 companies)
 
 describe("App", () => {
-  beforeEach(() => localStorage.clear());
+  beforeEach(() => {
+    localStorage.clear();
+    window.history.replaceState(null, "", "/vienna-set-tracker/");
+  });
 
   it("successful load renders company cards", async () => {
     render(<App />);

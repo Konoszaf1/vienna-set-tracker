@@ -19,14 +19,9 @@ test.describe('Accessibility', () => {
     }
     expect(critical).toHaveLength(0);
 
-    // color-contrast violations at "serious" level are expected for the dark theme
-    // but we assert none are critical and log them for future design review
+    // Dark-theme text and controls must also meet WCAG AA contrast.
     const contrastViolations = results.violations.filter(v => v.id === 'color-contrast');
-    if (contrastViolations.length > 0) {
-      console.warn(
-        `color-contrast: ${contrastViolations[0].nodes.length} elements have insufficient contrast (dark theme known issue)`
-      );
-    }
+    expect(contrastViolations).toHaveLength(0);
   });
 
   test('settings modal has no critical a11y violations', async ({ page }) => {
@@ -42,5 +37,6 @@ test.describe('Accessibility', () => {
 
     const critical = results.violations.filter(v => v.impact === 'critical');
     expect(critical).toHaveLength(0);
+    expect(results.violations.filter(v => v.id === 'color-contrast')).toHaveLength(0);
   });
 });

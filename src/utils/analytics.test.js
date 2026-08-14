@@ -13,7 +13,7 @@ import {
 } from "./analytics";
 
 describe("activeListingsOverTime", () => {
-  it("uses persisted active-job snapshots and fills missing days", () => {
+  it("uses persisted snapshots without inventing measurements for missing days", () => {
     const history = {
       snapshots: [
         { date: "2026-04-25", activeJobs: 5 },
@@ -28,7 +28,6 @@ describe("activeListingsOverTime", () => {
       currentSnapshotDate: "2026-04-28T09:00:00Z",
     }).points).toEqual([
       { date: "2026-04-25", active: 5 },
-      { date: "2026-04-26", active: 5 },
       { date: "2026-04-27", active: 3 },
       { date: "2026-04-28", active: 4 },
     ]);
@@ -310,4 +309,3 @@ describe("marketPulse", () => {
     });
   });
 });
-

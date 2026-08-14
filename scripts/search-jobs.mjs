@@ -19,7 +19,11 @@
  */
 
 import { chromium } from "@playwright/test";
+import { existsSync, readFileSync } from "fs";
 import { parse } from "node-html-parser";
+import { fileURLToPath } from "url";
+import { writeJsonAtomic } from "./atomicJson.mjs";
+import { datasetHash, hydrateJob, reconcileJobs } from "./jobLifecycle.mjs";
 import { validateJob } from "./jobValidator.mjs";
 
 const USER_AGENT =
@@ -58,9 +62,6 @@ const DEVJOBS_BASE_URL = "https://devjobs.at";
 const DEVJOBS_JOB_LINK_SELECTOR = 'a[href^="/job/"], a[href^="https://devjobs.at/job/"]';
 const DEVJOBS_PAGE_DELAY_MS = 1000;
 
-const CORP_SUFFIXES = /\b(gmbh|ag|kg|gmbh\s*&\s*co\.?\s*kg|austria|österreich|international|ltd|e\.?u\.?|inc|corp|se|ges\.?m\.?b\.?h|konzern|group|holding)\b/gi;
-const GENDER_MARKERS = /\s*\(m\/[wfd](\/[xd])?\)\s*|\s*\(all\s+genders?\)\s*/gi;
-
 // ---------------------------------------------------------------------------
 // Search-page scraping
 // ---------------------------------------------------------------------------
@@ -74,7 +75,7 @@ async function fetchSearch({ slug, label }) {
     });
     if (!res.ok) {
       console.error(`  HTTP ${res.status} for ${slug}`);
-      return [];
+      return { jobs: [], complete: false, error: `HTTP ${res.status}` };
     }
     const html = await res.text();
     const root = parse(html);
@@ -94,10 +95,10 @@ async function fetchSearch({ slug, label }) {
         jobs.push({ url: jobUrl, title, company, source: label });
       }
     }
-    return jobs;
+    return { jobs, complete: true };
   } catch (e) {
     console.error(`  Failed: ${slug}: ${e.message}`);
-    return [];
+    return { jobs: [], complete: false, error: e.message };
   }
 }
 
@@ -107,6 +108,8 @@ async function fetchSearch({ slug, label }) {
 
 async function fetchKununuSearch({ q, label }) {
   const jobs = [];
+  let complete = true;
+  let reportedLastPage = 1;
 
   for (let page = 1; page <= KUNUNU_PAGES_PER_SEARCH; page++) {
     const url = `https://www.kununu.com/at/jobs?q=${encodeURIComponent(q)}&loc=Wien&page=${page}`;
@@ -117,6 +120,7 @@ async function fetchKununuSearch({ q, label }) {
       });
       if (!res.ok) {
         console.error(`  HTTP ${res.status} for kununu page ${page}`);
+        complete = false;
         break;
       }
       const html = await res.text();
@@ -125,21 +129,26 @@ async function fetchKununuSearch({ q, label }) {
       const match = html.match(/<script\s+id="__NEXT_DATA__"[^>]*>(.*?)<\/script>/s);
       if (!match) {
         console.error(`  No __NEXT_DATA__ found on kununu page ${page}`);
+        complete = false;
         break;
       }
 
       const data = JSON.parse(match[1]);
       const searchJobs = data?.props?.pageProps?.searchJobs;
-      if (!searchJobs?.jobs) break;
+      if (!searchJobs?.jobs) {
+        complete = false;
+        break;
+      }
 
       const lastPage = searchJobs.pagination?.lastPage || 1;
+      reportedLastPage = lastPage;
 
       for (const job of searchJobs.jobs) {
         // Filter to Vienna: stateCode AT-9 or Wien in city/region
         const isVienna =
           job.stateCode === "AT-9" ||
-          /wien/i.test(job.city || "") ||
-          /wien/i.test(job.region || "");
+          /^(?:wien|vienna)(?:\s*,|$)/i.test(job.city || "") ||
+          /^(?:wien|vienna)(?:\s*,|$)/i.test(job.region || "");
         if (!isVienna) continue;
 
         const jobUrl = job.url
@@ -164,13 +173,15 @@ async function fetchKununuSearch({ q, label }) {
       if (page >= lastPage) break;
     } catch (e) {
       console.error(`  Failed kununu page ${page}: ${e.message}`);
+      complete = false;
       break;
     }
 
     await new Promise(r => setTimeout(r, 2000));
   }
 
-  return jobs;
+  if (reportedLastPage > KUNUNU_PAGES_PER_SEARCH) complete = false;
+  return { jobs, complete, error: complete ? null : "incomplete pagination or request" };
 }
 
 // ---------------------------------------------------------------------------
@@ -179,55 +190,6 @@ async function fetchKununuSearch({ q, label }) {
 
 function normalizeWhitespace(value) {
   return (value || "").replace(/\s+/g, " ").trim();
-}
-
-function normalizeCompanyName(name) {
-  return normalizeWhitespace((name || "").toLowerCase().replace(CORP_SUFFIXES, ""));
-}
-
-function companyWords(name) {
-  return new Set(normalizeCompanyName(name).match(/\p{L}[\p{L}\p{N}.-]{1,}/gu) || []);
-}
-
-function companiesOverlap(a, b) {
-  const normA = normalizeCompanyName(a);
-  const normB = normalizeCompanyName(b);
-  if (!normA || !normB) return false;
-  if (normA === normB) return true;
-  if ((normA.length >= 4 && normB.includes(normA)) || (normB.length >= 4 && normA.includes(normB))) {
-    return true;
-  }
-
-  const wordsA = companyWords(a);
-  const wordsB = companyWords(b);
-  if (wordsA.size === 0 || wordsB.size === 0) return false;
-  let overlap = 0;
-  for (const word of wordsA) {
-    if (wordsB.has(word)) overlap++;
-  }
-  return overlap / Math.min(wordsA.size, wordsB.size) > 0.6;
-}
-
-function cleanTitle(title) {
-  return normalizeWhitespace((title || "").replace(GENDER_MARKERS, " "));
-}
-
-function titlesOverlap(a, b) {
-  const wordsA = new Set(cleanTitle(a).toLowerCase().match(/\p{L}[\p{L}\p{N}#+.-]{1,}/gu) || []);
-  const wordsB = new Set(cleanTitle(b).toLowerCase().match(/\p{L}[\p{L}\p{N}#+.-]{1,}/gu) || []);
-  if (wordsA.size === 0 || wordsB.size === 0) return false;
-  let overlap = 0;
-  for (const word of wordsA) {
-    if (wordsB.has(word)) overlap++;
-  }
-  return overlap / Math.min(wordsA.size, wordsB.size) > 0.5;
-}
-
-function isSimilarJob(job, existingJobs) {
-  return existingJobs.some(existing =>
-    companiesOverlap(job.company, existing.company) &&
-    titlesOverlap(job.title, existing.title)
-  );
 }
 
 function parseMapCoordinates(mapHref) {
@@ -419,10 +381,10 @@ async function fetchDevjobsSearch({ slug, label }, browser) {
       await detailPage.waitForTimeout(DEVJOBS_PAGE_DELAY_MS);
     }
 
-    return jobs;
+    return { jobs, complete: true };
   } catch (e) {
     console.error(`  Failed devjobs.at search ${slug}: ${e.message}`);
-    return [];
+    return { jobs: [], complete: false, error: e.message };
   } finally {
     await context.close();
   }
@@ -589,8 +551,6 @@ function extractJobLocation(html) {
 // ---------------------------------------------------------------------------
 
 async function geocodeJobs(jobs, cachePath) {
-  const { readFileSync, writeFileSync, existsSync } = await import("fs");
-
   let cache = {};
   if (existsSync(cachePath)) {
     try { cache = JSON.parse(readFileSync(cachePath, "utf-8")); } catch { /* corrupt cache — start fresh */ }
@@ -661,7 +621,7 @@ async function geocodeJobs(jobs, cachePath) {
     await new Promise(r => setTimeout(r, 1000));
   }
 
-  writeFileSync(cachePath, JSON.stringify(cache, null, 2));
+  writeJsonAtomic(cachePath, cache);
   console.log(`Geocoded ${cacheHits + newLookups + failures} addresses (${cacheHits} cache hits, ${newLookups} new lookups, ${failures} failures)`);
 }
 
@@ -670,50 +630,75 @@ async function geocodeJobs(jobs, cachePath) {
 // ---------------------------------------------------------------------------
 
 async function main() {
-  const allJobs = new Map();
-  const failedSlugs = [];
+  const startedAt = new Date().toISOString();
+  const path = "public/jobs.json";
+  let previousData = { jobs: [] };
+  if (existsSync(path)) {
+    try {
+      previousData = JSON.parse(readFileSync(path, "utf-8"));
+    } catch {
+      // Continue with an empty snapshot; validation prevents publishing bad output.
+    }
+  }
+
+  const previousJobs = Array.isArray(previousData.jobs) ? previousData.jobs : [];
+  const previousScraperJobs = previousJobs.filter(j => !String(j.source || "").startsWith("jobspy-"));
+  const previousJobSpyJobs = previousJobs
+    .filter(j => String(j.source || "").startsWith("jobspy-"))
+    .map(j => hydrateJob(j, {
+      now: startedAt,
+      observed: false,
+      fallbackFirstSeen: previousData.lastUpdated,
+    }));
+  const candidates = [];
+  const completedSources = new Set();
+  const queryHealth = {};
   const rejectionCounts = {};
   let accepted = 0;
   let rejected = 0;
 
-  // --- karriere.at ---
-  console.log("Searching karriere.at for Vienna SDET/QA jobs...");
-  for (const s of KARRIERE_SEARCHES) {
-    const jobs = await fetchSearch(s);
-    console.log(`  "${s.label}": ${jobs.length} results`);
-    if (jobs.length === 0) {
-      failedSlugs.push(s.slug);
-    }
-    for (const j of jobs) {
-      if (allJobs.has(j.url)) continue;
-      const result = validateJob(j);
-      if (result.valid) {
-        allJobs.set(j.url, j);
+  const recordResult = (label, result) => {
+    const previousCount = previousScraperJobs.filter(job =>
+      [job.source, ...(job.sources || [])].includes(label)
+    ).length;
+    const countCliff = result.complete && previousCount > 0 && result.jobs.length === 0;
+    const complete = result.complete && !countCliff;
+    queryHealth[label] = {
+      status: complete ? "healthy" : "partial",
+      count: result.jobs.length,
+      previousCount,
+      error: result.error || (countCliff ? "unexpected zero-result source run" : null),
+      checkedAt: startedAt,
+    };
+    if (complete) completedSources.add(label);
+
+    for (const job of result.jobs) {
+      const validation = validateJob(job);
+      if (validation.valid) {
+        candidates.push(job);
         accepted++;
       } else {
         rejected++;
-        rejectionCounts[result.reason] = (rejectionCounts[result.reason] || 0) + 1;
+        rejectionCounts[validation.reason] = (rejectionCounts[validation.reason] || 0) + 1;
       }
     }
+  };
+
+  // --- karriere.at ---
+  console.log("Searching karriere.at for Vienna SDET/QA jobs...");
+  for (const s of KARRIERE_SEARCHES) {
+    const result = await fetchSearch(s);
+    console.log(`  "${s.label}": ${result.jobs.length} results${result.complete ? "" : " (partial)"}`);
+    recordResult(s.label, result);
     await new Promise(r => setTimeout(r, 1000));
   }
 
   // --- kununu ---
   console.log("\nSearching kununu.com for Vienna SDET/QA jobs...");
   for (const s of KUNUNU_SEARCHES) {
-    const jobs = await fetchKununuSearch(s);
-    console.log(`  "${s.label}": ${jobs.length} Vienna results`);
-    for (const j of jobs) {
-      if (allJobs.has(j.url)) continue;
-      const result = validateJob(j);
-      if (result.valid) {
-        allJobs.set(j.url, j);
-        accepted++;
-      } else {
-        rejected++;
-        rejectionCounts[result.reason] = (rejectionCounts[result.reason] || 0) + 1;
-      }
-    }
+    const result = await fetchKununuSearch(s);
+    console.log(`  "${s.label}": ${result.jobs.length} Vienna results${result.complete ? "" : " (partial)"}`);
+    recordResult(s.label, result);
   }
 
   // --- devjobs.at ---
@@ -723,29 +708,15 @@ async function main() {
     devjobsBrowser = await chromium.launch({ headless: true });
 
     for (const s of DEVJOBS_SEARCHES) {
-      const jobs = await fetchDevjobsSearch(s, devjobsBrowser);
-      console.log(`  "${s.label}": ${jobs.length} results`);
-      for (const j of jobs) {
-        if (allJobs.has(j.url)) continue;
-
-        if (isSimilarJob(j, [...allJobs.values()])) {
-          rejected++;
-          rejectionCounts["duplicate-title-company"] = (rejectionCounts["duplicate-title-company"] || 0) + 1;
-          continue;
-        }
-
-        const result = validateJob(j);
-        if (result.valid) {
-          allJobs.set(j.url, j);
-          accepted++;
-        } else {
-          rejected++;
-          rejectionCounts[result.reason] = (rejectionCounts[result.reason] || 0) + 1;
-        }
-      }
+      const result = await fetchDevjobsSearch(s, devjobsBrowser);
+      console.log(`  "${s.label}": ${result.jobs.length} results${result.complete ? "" : " (partial)"}`);
+      recordResult(s.label, result);
     }
   } catch (e) {
     console.warn(`  WARNING: devjobs.at search skipped: ${e.message}`);
+    for (const s of DEVJOBS_SEARCHES) {
+      if (!queryHealth[s.label]) recordResult(s.label, { jobs: [], complete: false, error: e.message });
+    }
   } finally {
     if (devjobsBrowser) await devjobsBrowser.close();
   }
@@ -756,19 +727,18 @@ async function main() {
     .join(", ");
   console.log(`\nValidation: ${accepted} accepted, ${rejected} rejected${reasonSummary ? ` (${reasonSummary})` : ""}`);
 
-  if (allJobs.size === 0) {
-    console.error("\nERROR: All searches returned zero valid results.");
-    console.error("karriere.at, kununu, or devjobs.at may have changed their markup.");
+  if (completedSources.size === 0) {
+    console.error("\nERROR: No source query completed. Preserving the existing feed.");
     process.exit(1);
   }
 
-  if (failedSlugs.length > 0) {
-    console.warn(`\nWARNING: ${failedSlugs.length} karriere.at search(es) returned zero results: ${failedSlugs.join(", ")}`);
+  if (candidates.length === 0 && previousScraperJobs.length === 0) {
+    console.error("\nERROR: All completed searches returned zero valid results and there is no prior feed.");
+    process.exit(1);
   }
 
   // --- Task 1: Fetch detail pages for address info (karriere.at only) ---
-  const jobs = [...allJobs.values()];
-  const karriereJobs = jobs.filter(j => j.url.includes("karriere.at"));
+  const karriereJobs = candidates.filter(j => j.url.includes("karriere.at"));
   console.log(`\nFetching karriere.at detail pages for addresses (${karriereJobs.length} jobs)...`);
   let addressCount = 0;
   for (let i = 0; i < karriereJobs.length; i++) {
@@ -798,7 +768,7 @@ async function main() {
         job.city = null;
         job.zip = null;
         job.techStack = [];
-        job.langReq = "de-basic";
+        job.langReq = "unknown";
       }
     } catch (e) {
       console.warn(`  Could not fetch detail for ${job.title}: ${e.message}`);
@@ -806,7 +776,7 @@ async function main() {
       job.city = null;
       job.zip = null;
       job.techStack = [];
-      job.langReq = "de-basic";
+      job.langReq = "unknown";
     }
     if (i < karriereJobs.length - 1) {
       await new Promise(r => setTimeout(r, 1000));
@@ -816,11 +786,34 @@ async function main() {
 
   // --- Task 2: Geocode addresses ---
   console.log("\nGeocoding job addresses...");
-  await geocodeJobs(jobs, "public/geocoding-cache.json");
+  await geocodeJobs(candidates, "public/geocoding-cache.json");
+
+  const lifecycle = reconcileJobs({
+    previous: previousScraperJobs,
+    current: candidates,
+    completedSources,
+    now: startedAt,
+    missingThreshold: 2,
+    fallbackFirstSeen: previousData.lastUpdated,
+  });
+  const jobs = [...lifecycle.jobs, ...previousJobSpyJobs].sort((a, b) =>
+    String(a.company).localeCompare(String(b.company))
+    || String(a.title).localeCompare(String(b.title))
+    || String(a.id).localeCompare(String(b.id))
+  );
+
+  const allQueries = [...KARRIERE_SEARCHES, ...KUNUNU_SEARCHES, ...DEVJOBS_SEARCHES];
+  const fullySuccessful = allQueries.every(query => queryHealth[query.label]?.status === "healthy");
 
   // --- Task 3: Write output to public/jobs.json ---
   const result = {
-    lastUpdated: new Date().toISOString(),
+    ...previousData,
+    lastUpdated: startedAt,
+    contentUpdatedAt: startedAt,
+    lastFullySuccessfulAt: fullySuccessful
+      ? startedAt
+      : (previousData.lastFullySuccessfulAt || previousData.lastUpdated || null),
+    partial: !fullySuccessful,
     count: jobs.length,
     jobs,
     searchLinks: [
@@ -831,13 +824,30 @@ async function main() {
       { label: "StepStone", url: "https://www.stepstone.at/jobs/test-automation/in-wien" },
       { label: "indeed.at", url: "https://at.indeed.com/jobs?q=SDET&l=Wien" },
     ],
-    validation: { accepted, rejected, reasons: rejectionCounts },
+    validation: {
+      accepted,
+      rejected,
+      reasons: rejectionCounts,
+      deduplicated: accepted - lifecycle.jobs.filter(job => job.lastSeenAt === startedAt).length,
+    },
+    sourceHealth: {
+      ...(previousData.sourceHealth || {}),
+      scraper: {
+        status: fullySuccessful ? "healthy" : "partial",
+        checkedAt: startedAt,
+        queries: queryHealth,
+      },
+    },
+    lifecycle: {
+      closedThisRun: lifecycle.closed.length,
+      retainedJobSpy: previousJobSpyJobs.length,
+    },
+    datasetHash: datasetHash(jobs),
   };
 
-  const { writeFileSync, mkdirSync } = await import("fs");
-  mkdirSync("public", { recursive: true });
-  writeFileSync("public/jobs.json", JSON.stringify(result, null, 2));
-  console.log(`Wrote ${jobs.length} unique jobs to public/jobs.json`);
+  writeJsonAtomic(path, result);
+  console.log(`Wrote ${jobs.length} reconciled jobs to ${path}`);
 }
 
-main();
+const isMain = process.argv[1] === fileURLToPath(import.meta.url);
+if (isMain) main();

@@ -33,7 +33,7 @@ const renderSettings = (overrides = {}) => {
 describe("SettingsModal", () => {
   it("form reflects profile on open", () => {
     renderSettings();
-    expect(screen.getByDisplayValue("5")).toBeInTheDocument(); // yearsExperience
+    expect(screen.getByDisplayValue("55")).toBeInTheDocument();
     expect(screen.getByDisplayValue("Stephansplatz, 1010 Wien")).toBeInTheDocument();
   });
 
@@ -41,7 +41,7 @@ describe("SettingsModal", () => {
     const { onSave, onClose } = renderSettings();
     await userEvent.click(screen.getByText("Save"));
     expect(onSave).toHaveBeenCalledTimes(1);
-    expect(onSave).toHaveBeenCalledWith(expect.objectContaining({ yearsExperience: 5 }));
+    expect(onSave).toHaveBeenCalledWith(expect.objectContaining({ salaryFloor: 55 }));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -53,20 +53,36 @@ describe("SettingsModal", () => {
   });
 
   it("Load sample replaces form with defaultProfile", async () => {
-    const customProfile = { ...defaultProfile, yearsExperience: 99 };
+    const customProfile = { ...defaultProfile, salaryFloor: 99 };
     renderSettings({ profile: customProfile });
     expect(screen.getByDisplayValue("99")).toBeInTheDocument();
 
     await userEvent.click(screen.getByText("Load sample profile"));
-    expect(screen.getByDisplayValue("5")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("55")).toBeInTheDocument();
   });
 
   it("field edit updates local state only (not onSave)", async () => {
     const { onSave } = renderSettings();
-    const expInput = screen.getByDisplayValue("5");
-    await userEvent.clear(expInput);
-    await userEvent.type(expInput, "10");
+    const salaryInput = screen.getByDisplayValue("55");
+    await userEvent.clear(salaryInput);
+    await userEvent.type(salaryInput, "60");
     expect(onSave).not.toHaveBeenCalled();
+  });
+
+  it("discards an unsaved draft when reopened", async () => {
+    const props = {
+      onClose: vi.fn(),
+      onSave: vi.fn(),
+      profile: defaultProfile,
+      defaultProfile,
+    };
+    const view = render(<SettingsModal {...props} open={true} />);
+    const salaryInput = screen.getByDisplayValue("55");
+    await userEvent.clear(salaryInput);
+    await userEvent.type(salaryInput, "99");
+    view.rerender(<SettingsModal {...props} open={false} />);
+    view.rerender(<SettingsModal {...props} open={true} />);
+    expect(screen.getByDisplayValue("55")).toBeInTheDocument();
   });
 
   // Nominatim lookup tests

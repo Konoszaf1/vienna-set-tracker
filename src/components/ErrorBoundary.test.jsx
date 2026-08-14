@@ -26,8 +26,10 @@ describe("ErrorBoundary", () => {
     expect(screen.getByText(/test error/)).toBeInTheDocument();
   });
 
-  it("reset button calls localStorage.clear", async () => {
-    const clearSpy = vi.spyOn(globalThis.Storage.prototype, "clear");
+  it("reset button removes only this app's localStorage keys", async () => {
+    localStorage.setItem("unrelated-app", "keep");
+    localStorage.setItem("sdet-first-seen", "{}");
+    const removeSpy = vi.spyOn(globalThis.Storage.prototype, "removeItem");
     render(<ErrorBoundary><ThrowingChild message="fail" /></ErrorBoundary>);
 
     // Mock reload to prevent jsdom error
@@ -38,7 +40,9 @@ describe("ErrorBoundary", () => {
     });
 
     await userEvent.click(screen.getByText("Reset data and reload"));
-    expect(clearSpy).toHaveBeenCalled();
-    clearSpy.mockRestore();
+    expect(removeSpy).toHaveBeenCalledWith("sdet-first-seen");
+    expect(removeSpy).toHaveBeenCalledWith("vienna-set-dashboard-profile");
+    expect(localStorage.getItem("unrelated-app")).toBe("keep");
+    removeSpy.mockRestore();
   });
 });

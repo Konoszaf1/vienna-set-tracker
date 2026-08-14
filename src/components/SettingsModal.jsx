@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 import FieldGroup from "./FieldGroup";
 import styles from './SettingsModal.module.css';
 
-const ROLE_LEVELS = ["junior", "mid", "mid-senior", "senior", "staff"];
 const GERMAN_LEVELS = ["none", "basic", "conversational", "fluent"];
 
 export default function SettingsModal({ open, onClose, profile, defaultProfile, onSave }) {
   const [form, setForm] = useState(() => ({ ...profile }));
   const [lookupStatus, setLookupStatus] = useState(null); // null | "loading" | "ok" | "error"
+  const lookupControllerRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) {
+      lookupControllerRef.current?.abort();
+      return;
+    }
+    setForm(JSON.parse(JSON.stringify(profile)));
+    setLookupStatus(null);
+  }, [open, profile]);
 
   const update = (k, v) => setForm(p => ({ ...p, [k]: v }));
   const updateHome = (k, v) => setForm(p => ({ ...p, home: { ...p.home, [k]: v } }));
@@ -25,14 +34,17 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
   const handleLookupAddress = async () => {
     const addr = form.home?.address;
     if (!addr || addr.trim().length < 3) return;
+    lookupControllerRef.current?.abort();
+    lookupControllerRef.current = new AbortController();
     setLookupStatus("loading");
     try {
       const q = encodeURIComponent(`${addr}, Vienna, Austria`);
       // Nominatim rate limits apply — see https://operations.osmfoundation.org/policies/nominatim/
       const url = `https://nominatim.openstreetmap.org/search?q=${q}&format=json&limit=1&addressdetails=1`;
-      const res = await fetch(url, {
-        signal: AbortSignal.timeout(8000),
-      });
+      const signal = typeof AbortSignal.any === "function"
+        ? AbortSignal.any([lookupControllerRef.current.signal, AbortSignal.timeout(8000)])
+        : lookupControllerRef.current.signal;
+      const res = await fetch(url, { signal });
       if (!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
       if (data.length > 0) {
@@ -43,7 +55,8 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
       } else {
         setLookupStatus("error");
       }
-    } catch {
+    } catch (error) {
+      if (error.name === "AbortError") return;
       setLookupStatus("error");
     }
   };
@@ -51,62 +64,28 @@ export default function SettingsModal({ open, onClose, profile, defaultProfile, 
   return (
     <Modal open={open} onClose={onClose} title="Profile Settings">
       <div className={styles.grid2}>
-        <FieldGroup label="Years of Experience">
+        <FieldGroup label="German Level">
+          <select
+            className={styles.input}
+            value={form.germanLevel || "none"}
+            onChange={e => update("germanLevel", e.target.value)}
+            aria-label="German level"
+          >
+            {GERMAN_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
+          </select>
+        </FieldGroup>
+        <FieldGroup label="Minimum Estimated Salary (€k)">
           <input
             type="number"
             min="0"
-            className={styles.input}
-            value={form.yearsExperience ?? ""}
-            onChange={e => update("yearsExperience", parseInt(e.target.value) || 0)}
-          />
-        </FieldGroup>
-        <FieldGroup label="Role Level">
-          <select
-            className={styles.input}
-            value={form.roleLevel || "mid"}
-            onChange={e => update("roleLevel", e.target.value)}
-            aria-label="Role level"
-          >
-            {ROLE_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
-          </select>
-        </FieldGroup>
-      </div>
-      <FieldGroup label="German Level">
-        <select
-          className={styles.input}
-          value={form.germanLevel || "none"}
-          onChange={e => update("germanLevel", e.target.value)}
-          aria-label="German level"
-        >
-          {GERMAN_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
-        </select>
-      </FieldGroup>
-      <div className={styles.grid3}>
-        <FieldGroup label="Salary Floor (€k)">
-          <input
-            type="number"
+            max="200"
             className={styles.input}
             value={form.salaryFloor ?? ""}
             onChange={e => update("salaryFloor", parseInt(e.target.value) || 0)}
           />
         </FieldGroup>
-        <FieldGroup label="Salary Target (€k)">
-          <input
-            type="number"
-            className={styles.input}
-            value={form.salaryTarget ?? ""}
-            onChange={e => update("salaryTarget", parseInt(e.target.value) || 0)}
-          />
-        </FieldGroup>
-        <FieldGroup label="Salary Stretch (€k)">
-          <input
-            type="number"
-            className={styles.input}
-            value={form.salaryStretch ?? ""}
-            onChange={e => update("salaryStretch", parseInt(e.target.value) || 0)}
-          />
-        </FieldGroup>
       </div>
+      <div className={styles.preferenceHint}>Saving applies these preferences to the vacancy finder.</div>
       <div className={styles.sectionHeader}>Home Location</div>
       <FieldGroup label="Address">
         <div className={styles.addressRow}>

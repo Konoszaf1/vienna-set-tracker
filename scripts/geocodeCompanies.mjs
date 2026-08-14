@@ -14,11 +14,12 @@
  *   node scripts/geocodeCompanies.mjs --apply      # write changes
  */
 
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { readFileSync, existsSync } from "fs";
 import { pathToFileURL } from "url";
 import { parse } from "node-html-parser";
 import { deriveJobCompany, isRemoteRole } from "../src/utils/jobCompany.js";
 import { normalizeCompanyName } from "../src/utils/normalizeCompany.js";
+import { writeJsonAtomic } from "./atomicJson.mjs";
 
 const USER_AGENT =
   "vienna-set-tracker/1.0 (+https://github.com/Konoszaf1/vienna-set-tracker)";
@@ -477,13 +478,11 @@ async function main() {
 
   if (apply) {
     data.jobs = jobs;
-    writeFileSync(JOBS_PATH, JSON.stringify(data, null, 2));
-    writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2));
+    writeJsonAtomic(JOBS_PATH, data);
+    writeJsonAtomic(CACHE_PATH, cache);
     console.log(`\nWrote updated jobs.json and company-locations.json`);
   } else {
-    // Still save the cache even in dry-run so lookups aren't wasted
-    writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2));
-    console.log(`\nDry run. Use --apply to write location updates to jobs.json.`);
+    console.log(`\nDry run. No files written. Use --apply to save location updates.`);
   }
 }
 

@@ -71,7 +71,7 @@ describe("AnalyticsView", () => {
     expect(screen.getByText("Top 10 tech tags")).toBeInTheDocument();
     expect(screen.getByText("Language requirement")).toBeInTheDocument();
     expect(screen.getByText("Salary tier distribution")).toBeInTheDocument();
-    expect(screen.getByText("Listings by district")).toBeInTheDocument();
+    expect(screen.getByText("Companies by office location")).toBeInTheDocument();
     expect(screen.getByText("Listings by source")).toBeInTheDocument();
   });
 

@@ -48,7 +48,7 @@
 
 .subheading {
   margin: 4px 0 0;
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 14px;
 }
 
@@ -57,15 +57,50 @@
   gap: 8px;
 }
 
+.freshness {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: -16px 0 20px;
+  padding: 9px 12px;
+  border: 1px solid #164e63;
+  border-radius: 8px;
+  background: #08334455;
+  color: #bae6fd;
+  font-size: 12px;
+}
+
+.freshness[data-status="stale"] {
+  border-color: #92400e;
+  background: #451a0355;
+  color: #fde68a;
+}
+
+.freshness[data-status="partial"] {
+  border-color: #854d0e;
+  background: #42200655;
+  color: #fef08a;
+}
+
+.freshnessTitle { font-weight: 700; }
+
 .settingsButton {
   padding: 10px 16px;
   border-radius: 8px;
   border: 1px solid #27272a;
   background: transparent;
-  color: #71717a;
+  color: #a1a1aa;
   cursor: pointer;
   font-size: 13px;
   font-family: 'DM Sans', sans-serif;
+}
+
+.settingsButton:focus-visible,
+.input:focus-visible,
+.viewButton:focus-visible,
+.resetButton:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 2px;
 }
 
 .controls {
@@ -118,7 +153,7 @@
   border-radius: 6px;
   border: none;
   background: transparent;
-  color: #71717a;
+  color: #a1a1aa;
   cursor: pointer;
   font-size: 13px;
   font-weight: 600;
@@ -127,12 +162,22 @@
 
 .viewActive {
   background: #6366f120;
-  color: #6366f1;
+  color: #a5b4fc;
+}
+
+.resetButton {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #6366f160;
+  background: #6366f118;
+  color: #a5b4fc;
+  cursor: pointer;
+  font: 600 12px 'DM Sans', sans-serif;
 }
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
   gap: 16px;
 }
 
@@ -150,4 +195,17 @@
 
 .emptySubtitle {
   font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 18px 12px; }
+  .headerActions { width: 100%; }
+  .headerActions .settingsButton { flex: 1; }
+  .searchInput, .langSelect, .sortSelect { max-width: none; }
+  .salaryRange { width: 100%; }
+  .salaryInput { flex: 1; }
+  .viewToggle { margin-left: 0; width: 100%; }
+  .viewButton { flex: 1; padding-inline: 8px; }
+  .resetButton { width: 100%; }
+  .emptyState { padding: 40px 12px; }
 }

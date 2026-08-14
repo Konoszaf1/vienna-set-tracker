@@ -9,8 +9,10 @@
  * Run after search-jobs.mjs, before verify-jobs.mjs.
  */
 
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { readFileSync, existsSync } from "fs";
+import { pathToFileURL } from "url";
 import { parse } from "node-html-parser";
+import { writeJsonAtomic } from "./atomicJson.mjs";
 
 const USER_AGENT =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 " +
@@ -45,7 +47,7 @@ async function fetchKununuRating(companyName) {
       headers: { "User-Agent": USER_AGENT },
       signal: AbortSignal.timeout(15000),
     });
-    if (!res.ok) return null;
+    if (!res.ok) return { status: "transient-error", reason: `HTTP ${res.status}` };
 
     const html = await res.text();
 
@@ -69,7 +71,7 @@ async function fetchKununuRating(companyName) {
             if (salary != null && !Number.isNaN(salary) && salary > 0) {
               resObj.reportedSalary = salary;
             }
-            return resObj;
+            return { status: "found", value: resObj };
           }
         }
       } catch { /* fall through to HTML parsing */ }
@@ -81,14 +83,14 @@ async function fetchKununuRating(companyName) {
     if (scoreEl) {
       const score = parseFloat(scoreEl.text.replace(",", "."));
       if (!isNaN(score) && score >= 1 && score <= 5) {
-        return { score, reviews: 0 };
+        return { status: "found", value: { score, reviews: 0 } };
       }
     }
 
-    return null;
+    return { status: "definitive-miss" };
   } catch (e) {
     console.error(`  Failed to fetch kununu for "${companyName}": ${e.message}`);
-    return null;
+    return { status: "transient-error", reason: e.message };
   }
 }
 
@@ -129,22 +131,31 @@ async function main() {
 
     console.log(`  Querying kununu for "${displayName}"...`);
     const result = await fetchKununuRating(displayName);
-    if (result) {
+    if (result.status === "found") {
       ratings[key] = {
         ...ratings[key],
-        kununu: result,
+        kununu: result.value,
         fetchedAt: new Date().toISOString(),
+        lastErrorAt: null,
       };
-      console.log(`    → ${result.score} ★ (${result.reviews} reviews)`);
+      console.log(`    → ${result.value.score} ★ (${result.value.reviews} reviews)`);
       fetched++;
-    } else {
-      // Cache the miss to avoid re-fetching
+    } else if (result.status === "definitive-miss") {
       if (!ratings[key]) ratings[key] = {};
       ratings[key] = {
         ...ratings[key],
         kununu: null,
         fetchedAt: new Date().toISOString(),
+        lastErrorAt: null,
       };
+      failed++;
+    } else {
+      ratings[key] = {
+        ...(ratings[key] || {}),
+        lastErrorAt: new Date().toISOString(),
+        lastError: result.reason || "transient lookup failure",
+      };
+      console.warn(`    → transient failure; preserved cached rating`);
       failed++;
     }
 
@@ -158,6 +169,10 @@ async function main() {
   if (existsSync(MANUAL_RATINGS_PATH)) {
     try {
       const manual = JSON.parse(readFileSync(MANUAL_RATINGS_PATH, "utf-8"));
+      for (const entry of Object.values(ratings)) {
+        delete entry.glassdoor;
+        delete entry.reportedSalary;
+      }
       let mergedRatings = 0;
       let mergedSalaries = 0;
       for (const [name, data] of Object.entries(manual)) {
@@ -182,7 +197,7 @@ async function main() {
   }
 
   // Write ratings cache
-  writeFileSync(RATINGS_PATH, JSON.stringify(ratings, null, 2));
+  writeJsonAtomic(RATINGS_PATH, ratings);
   console.log(`Wrote ${Object.keys(ratings).length} entries to ${RATINGS_PATH}`);
 
   // Merge back into jobs.json: set kununuScore, glassdoorScore, and reportedSalary per job
@@ -196,15 +211,21 @@ async function main() {
     }
     if (entry?.glassdoor != null) {
       j.glassdoorScore = entry.glassdoor;
+    } else {
+      delete j.glassdoorScore;
     }
     const rep = entry?.reportedSalary ?? entry?.kununu?.reportedSalary ?? null;
     if (rep != null) {
       j.reportedSalary = rep;
+    } else {
+      delete j.reportedSalary;
     }
   }
 
-  writeFileSync(JOBS_PATH, JSON.stringify(jobData, null, 2));
+  writeJsonAtomic(JOBS_PATH, jobData);
   console.log(`Enriched ${enriched} jobs with kununu scores & reported salaries`);
 }
 
-main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+
+export { fetchKununuRating, isFresh, normalizeCompanyKey };

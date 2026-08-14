@@ -41,7 +41,7 @@
 }
 
 .legendLabel {
-  color: #71717a;
+  color: #a1a1aa;
   font-size: 10px;
   font-weight: 600;
 }
@@ -70,10 +70,32 @@
   border-radius: 10px;
   color: #6366f1;
   font-size: 14px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.retryButton {
+  padding: 8px 14px;
+  border: 1px solid #6366f160;
+  border-radius: 8px;
+  background: #6366f120;
+  color: #c7d2fe;
+  cursor: pointer;
+}
+
+.retryButton:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 2px;
 }
 
 .mapContainer {
   height: 700px;
   border-radius: 10px;
   overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .header { padding-inline: 12px; }
+  .mapWrapper { padding: 8px; }
+  .loading, .mapContainer { height: min(70dvh, 560px); min-height: 420px; }
 }

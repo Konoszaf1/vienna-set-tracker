@@ -6,7 +6,6 @@
  * Gate 3: Management filter — reject management titles without hands-on signal
  */
 
-const URL_PATTERN = /^https:\/\/(www\.karriere\.at\/jobs\/\d+|www\.kununu\.com\/|www\.linkedin\.com\/jobs\/|at\.indeed\.com\/|devjobs\.at\/job\/)/;
 const MIN_TITLE_LENGTH = 10;
 const BLOCKLISTED_COMPANIES = new Set([
   "jetzt bewerben",
@@ -66,7 +65,14 @@ const MANAGEMENT_PATTERN = /\b(?:head\s+of|leiter(?:in)?|leitung|gruppenleit|koo
 const HANDS_ON_SIGNAL = /engineer|entwickler|developer|architect|architekt/i;
 
 export function validateJob(job) {
-  if (!URL_PATTERN.test(job.url || "")) {
+  let validUrl = false;
+  try {
+    const url = new URL(job.url || "");
+    validUrl = url.protocol === "https:" && Boolean(url.hostname);
+  } catch {
+    // The validation result below reports malformed URLs uniformly.
+  }
+  if (!validUrl) {
     return { valid: false, reason: "invalid-url" };
   }
 
