@@ -86,7 +86,7 @@ npm run test:coverage # unit + coverage report
 npm run e2e           # Playwright across 5 browser targets
 ```
 
-**Unit tests** (318 tests, 26 files) cover utilities, components, script-layer lifecycle/reconciliation logic, feed validation, and the JSON schema contract. All tests use deterministic fixtures via MSW — no live network calls.
+**Unit tests** (321 tests, 27 files) cover utilities, components, script-layer lifecycle/reconciliation logic, source location boundaries, feed validation, and the JSON schema contract. All tests use deterministic fixtures via MSW — no live network calls.
 
 **E2E tests** (27 scenarios across 5 browser targets = 135 tests) run against a production build with fixture data, covering filters, settings persistence, network error recovery, external link safety, WCAG AA contrast/accessibility, and keyboard navigation.
 

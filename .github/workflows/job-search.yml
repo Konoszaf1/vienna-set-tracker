@@ -55,7 +55,7 @@ jobs:
       - name: Set up Python venv
         run: |
           uv venv .venv
-          uv pip install python-jobspy==1.1.82
+          uv pip install -r requirements-job-search.txt
 
       - name: Discover jobs via JobSpy (LinkedIn, Indeed, Google)
         run: .venv/bin/python scripts/discoverJobs.py --apply

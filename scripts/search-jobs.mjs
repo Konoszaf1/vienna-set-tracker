@@ -40,22 +40,22 @@ const KARRIERE_SEARCHES = [
 ];
 
 const KUNUNU_SEARCHES = [
-  { q: "test automation", label: "kununu: Test Automation" },
-  { q: "QA engineer", label: "kununu: QA Engineer" },
-  { q: "SDET", label: "kununu: SDET" },
-  { q: "Testautomatisierung", label: "kununu: Testautomatisierung" },
-  { q: "quality assurance", label: "kununu: Quality Assurance" },
-  { q: "software tester", label: "kununu: Software Tester" },
+  { q: "test automation", label: "kununu: Test Automation", optional: true },
+  { q: "QA engineer", label: "kununu: QA Engineer", optional: true },
+  { q: "SDET", label: "kununu: SDET", optional: true },
+  { q: "Testautomatisierung", label: "kununu: Testautomatisierung", optional: true },
+  { q: "quality assurance", label: "kununu: Quality Assurance", optional: true },
+  { q: "software tester", label: "kununu: Software Tester", optional: true },
 ];
 
 const KUNUNU_PAGES_PER_SEARCH = 3; // 30 results/page, most Vienna hits are on early pages
 
 const DEVJOBS_SEARCHES = [
-  { slug: "qa-engineer-wien-109166", label: "devjobs.at: QA Engineer Wien" },
-  { slug: "test-qa-engineer-wien-109166", label: "devjobs.at: Test/QA Engineer Wien" },
-  { slug: "software-tester-wien-109166", label: "devjobs.at: Software Tester Wien" },
-  { slug: "test-automation-engineer-wien-109166", label: "devjobs.at: Test Automation Engineer Wien" },
-  { slug: "test-automation-developer-wien-109166", label: "devjobs.at: Test Automation Developer Wien" },
+  { slug: "qa-engineer", label: "devjobs.at: QA Engineer Wien" },
+  { slug: "test-qa-engineer", label: "devjobs.at: Test/QA Engineer Wien" },
+  { slug: "software-tester", label: "devjobs.at: Software Tester Wien" },
+  { slug: "test-automation-engineer", label: "devjobs.at: Test Automation Engineer Wien" },
+  { slug: "test-automation-developer", label: "devjobs.at: Test Automation Developer Wien" },
 ];
 
 const DEVJOBS_BASE_URL = "https://devjobs.at";
@@ -192,6 +192,10 @@ function normalizeWhitespace(value) {
   return (value || "").replace(/\s+/g, " ").trim();
 }
 
+export function isViennaLocation(value) {
+  return /(?:^|,\s*)(?:wien|vienna)(?=\s*(?:,|$))/i.test(normalizeWhitespace(value));
+}
+
 function parseMapCoordinates(mapHref) {
   const match = (mapHref || "").match(/[?&]query=(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/);
   if (!match) return { lat: null, lng: null };
@@ -200,7 +204,7 @@ function parseMapCoordinates(mapHref) {
 
 function extractDevjobsLocation(text, details, mapHref) {
   const rawCity = normalizeWhitespace(details.Ort || "");
-  const city = /wien/i.test(rawCity) ? "Wien" : rawCity || "Wien";
+  const city = isViennaLocation(rawCity) ? "Wien" : rawCity;
   const coords = parseMapCoordinates(mapHref);
   let address = city === "Wien" ? "Wien" : city;
   let zip = null;
@@ -254,13 +258,13 @@ function parseDevjobsCardFallback(card, source) {
     title: lines[0] || "",
     company: lines[1] || "",
     source,
-    city: "Wien",
-    address: "Wien",
+    city: null,
+    address: null,
     zip: null,
     lat: null,
     lng: null,
     techStack: [],
-    langReq: "de-basic",
+    langReq: "unknown",
   };
 }
 
@@ -272,7 +276,10 @@ async function collectDevjobsCards(page) {
         url: anchor.href,
         text: normalize(anchor.innerText || anchor.textContent),
       }))
-      .filter(card => /^https:\/\/devjobs\.at\/job\//.test(card.url));
+      .filter(card =>
+        /^https:\/\/devjobs\.at\/job\//.test(card.url) &&
+        /(?:^|[\s,])Wien(?=[\s,]|$)/i.test(card.text)
+      );
   });
 }
 
@@ -316,23 +323,27 @@ async function fetchDevjobsDetail(page, card, source) {
 
     const fallback = parseDevjobsCardFallback(card, source);
     const location = extractDevjobsLocation(detail.text, detail.details, detail.mapHref);
+    if (!isViennaLocation(detail.details.Ort)) return { job: null, complete: true };
     const techStack = detail.techStack.length > 0 ? detail.techStack : extractTechStack(detail.text);
 
     return {
-      ...fallback,
-      title: detail.title || fallback.title,
-      company: detail.company || fallback.company,
-      city: location.city,
-      address: location.address,
-      zip: location.zip,
-      lat: location.lat,
-      lng: location.lng,
-      techStack,
-      langReq: extractLangReq(detail.text),
+      complete: true,
+      job: {
+        ...fallback,
+        title: detail.title || fallback.title,
+        company: detail.company || fallback.company,
+        city: location.city,
+        address: location.address,
+        zip: location.zip,
+        lat: location.lat,
+        lng: location.lng,
+        techStack,
+        langReq: extractLangReq(detail.text),
+      },
     };
   } catch (e) {
     console.warn(`  Could not fetch devjobs.at detail for ${card.url}: ${e.message}`);
-    return parseDevjobsCardFallback(card, source);
+    return { job: null, complete: false, error: e.message };
   }
 }
 
@@ -376,12 +387,19 @@ async function fetchDevjobsSearch({ slug, label }, browser) {
 
     const detailPage = await context.newPage();
     const jobs = [];
+    let detailFailures = 0;
     for (const card of cardsByUrl.values()) {
-      jobs.push(await fetchDevjobsDetail(detailPage, card, label));
+      const detail = await fetchDevjobsDetail(detailPage, card, label);
+      if (detail.job) jobs.push(detail.job);
+      if (!detail.complete) detailFailures++;
       await detailPage.waitForTimeout(DEVJOBS_PAGE_DELAY_MS);
     }
 
-    return { jobs, complete: true };
+    return {
+      jobs,
+      complete: detailFailures === 0,
+      error: detailFailures > 0 ? `${detailFailures} detail pages failed` : null,
+    };
   } catch (e) {
     console.error(`  Failed devjobs.at search ${slug}: ${e.message}`);
     return { jobs: [], complete: false, error: e.message };
@@ -657,14 +675,15 @@ async function main() {
   let accepted = 0;
   let rejected = 0;
 
-  const recordResult = (label, result) => {
+  const recordResult = (label, result, { required = true } = {}) => {
     const previousCount = previousScraperJobs.filter(job =>
       [job.source, ...(job.sources || [])].includes(label)
     ).length;
     const countCliff = result.complete && previousCount > 0 && result.jobs.length === 0;
     const complete = result.complete && !countCliff;
     queryHealth[label] = {
-      status: complete ? "healthy" : "partial",
+      status: complete ? "healthy" : required ? "partial" : "unavailable",
+      required,
       count: result.jobs.length,
       previousCount,
       error: result.error || (countCliff ? "unexpected zero-result source run" : null),
@@ -698,7 +717,7 @@ async function main() {
   for (const s of KUNUNU_SEARCHES) {
     const result = await fetchKununuSearch(s);
     console.log(`  "${s.label}": ${result.jobs.length} Vienna results${result.complete ? "" : " (partial)"}`);
-    recordResult(s.label, result);
+    recordResult(s.label, result, { required: !s.optional });
   }
 
   // --- devjobs.at ---
@@ -803,7 +822,10 @@ async function main() {
   );
 
   const allQueries = [...KARRIERE_SEARCHES, ...KUNUNU_SEARCHES, ...DEVJOBS_SEARCHES];
-  const fullySuccessful = allQueries.every(query => queryHealth[query.label]?.status === "healthy");
+  const fullySuccessful = allQueries
+    .filter(query => !query.optional)
+    .every(query => queryHealth[query.label]?.status === "healthy");
+  const hasSourceWarnings = allQueries.some(query => queryHealth[query.label]?.status !== "healthy");
 
   // --- Task 3: Write output to public/jobs.json ---
   const result = {
@@ -819,7 +841,7 @@ async function main() {
     searchLinks: [
       { label: "karriere.at", url: "https://www.karriere.at/jobs/test-automation/in-wien" },
       { label: "kununu", url: "https://www.kununu.com/at/jobs?q=test+automation&loc=Wien" },
-      { label: "devjobs.at", url: "https://devjobs.at/jobs/qa-engineer-wien-109166" },
+      { label: "devjobs.at", url: "https://devjobs.at/jobs/qa-engineer" },
       { label: "LinkedIn", url: "https://www.linkedin.com/jobs/search/?keywords=SDET&location=Vienna" },
       { label: "StepStone", url: "https://www.stepstone.at/jobs/test-automation/in-wien" },
       { label: "indeed.at", url: "https://at.indeed.com/jobs?q=SDET&l=Wien" },
@@ -833,7 +855,9 @@ async function main() {
     sourceHealth: {
       ...(previousData.sourceHealth || {}),
       scraper: {
-        status: fullySuccessful ? "healthy" : "partial",
+        status: fullySuccessful
+          ? (hasSourceWarnings ? "healthy-with-warnings" : "healthy")
+          : "partial",
         checkedAt: startedAt,
         queries: queryHealth,
       },
