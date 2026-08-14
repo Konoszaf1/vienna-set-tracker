@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-08-14T21:22:15.452689+00:00",
-  "count": 34,
+  "lastUpdated": "2026-08-14T23:31:35.399730+00:00",
+  "count": 43,
   "jobs": [
     {
       "url": "https://www.linkedin.com/jobs/view/4370386899",
@@ -22,11 +22,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T20:58:58.223419+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
-      "sourceStatus": "retained-until-verified",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -64,11 +64,123 @@
         "Testautomatisierung Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4425302065",
+      "title": "Test Automation Engineer (m/f/d)",
+      "company": "Atos",
+      "source": "jobspy-linkedin",
+      "address": "Modecenterstraße 1, 1030 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1878925,
+      "lng": 16.4179418,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4425302065",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4425302065"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
+      "consecutiveMisses": 0,
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4416251107",
+      "title": "Supplier Quality Assurance Engineer (all genders)",
+      "company": "Beyond Gravity",
+      "source": "jobspy-linkedin",
+      "address": "Stachegasse, 13, 1120, Katastralgemeinde Hetzendorf",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1619354,
+      "lng": 16.3107841,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4416251107",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4416251107"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
+      "consecutiveMisses": 0,
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4447386784",
+      "title": "Software Test Engineer & Documentation Writer (w/m/d)",
+      "company": "Delegate Group",
+      "source": "jobspy-linkedin",
+      "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2223709,
+      "lng": 16.392406,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4447386784",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4447386784"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
+      "consecutiveMisses": 0,
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4442094269",
+      "title": "Test Automation Engineer",
+      "company": "Delta Electronics EMEA",
+      "source": "jobspy-linkedin",
+      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1769482,
+      "lng": 16.4138082,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4442094269",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4442094269"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
+      "consecutiveMisses": 0,
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -92,11 +204,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -120,11 +232,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T20:58:58.223419+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
-      "sourceStatus": "retained-until-verified",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -137,12 +249,14 @@
       "city": "Wien",
       "zip": null,
       "techStack": [
+        ".NET",
         "Cypress",
         "Java",
         "JavaScript",
         "Jira",
         "Playwright",
         "Python",
+        "React",
         "Selenium"
       ],
       "langReq": "de-fluent",
@@ -158,11 +272,11 @@
         "Testautomatisierung Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -186,11 +300,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -219,11 +333,39 @@
         "Software Tester Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4446394630",
+      "title": "SENIOR SOFTWARE TESTER / TEST LEAD (W/M/D)",
+      "company": "Evolit Schweiz AG",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4446394630",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4446394630"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
+      "consecutiveMisses": 0,
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -249,9 +391,37 @@
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
       "lastSeenAt": "2026-08-14T21:17:49.185Z",
       "status": "open",
+      "consecutiveMisses": 1,
+      "sourceStatus": "missing-probation",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4440672135",
+      "title": "Software Tester",
+      "company": "FB Consulting & Trade GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Neubaugasse 10/3a, 1070 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1991777,
+      "lng": 16.3500903,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4440672135",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4440672135"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -275,11 +445,11 @@
         "Software Tester Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -307,7 +477,7 @@
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "retained-until-verified",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -331,11 +501,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -373,11 +543,11 @@
         "Software Tester Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -401,11 +571,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -429,11 +599,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -457,11 +627,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -485,11 +655,11 @@
         "Software Tester Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -513,11 +683,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -541,11 +711,67 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4434643740",
+      "title": "Senior QA Engineer (m/w/d) & Testautomation - Plattformservices",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4434643740",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4434643740"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
+      "consecutiveMisses": 0,
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4434656218",
+      "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4434656218",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4434656218"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
+      "consecutiveMisses": 0,
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -569,11 +795,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -616,14 +842,15 @@
       ],
       "sources": [
         "Test Automation Wien",
-        "Testautomatisierung Wien"
+        "Testautomatisierung Wien",
+        "Software Tester Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -647,11 +874,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -675,11 +902,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
-      "sourceStatus": "retained-until-verified",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "sourceStatus": "healthy",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -703,11 +930,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -734,8 +961,36 @@
       "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
       "status": "open",
       "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
+      "verificationStatus": "alive",
+      "consecutiveDeadChecks": 0
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4447950790",
+      "title": "Test Engineer",
+      "company": "SCIENTIFIC GAMES",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4447950790",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4447950790"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "status": "open",
+      "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -772,11 +1027,11 @@
         "Testautomatisierung Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -806,11 +1061,11 @@
         "Software Tester Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -839,11 +1094,11 @@
         "Software Tester Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -877,11 +1132,11 @@
         "Software Tester Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -894,7 +1149,9 @@
       "city": "Wien",
       "zip": null,
       "techStack": [
+        ".NET",
         "Java",
+        "React",
         "Tosca"
       ],
       "langReq": "de-fluent",
@@ -909,11 +1166,11 @@
         "Testautomatisierung Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -939,11 +1196,11 @@
         "QA Engineer Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -968,11 +1225,11 @@
       "techStack": [],
       "langReq": "unknown",
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -996,12 +1253,12 @@
         "jobspy-linkedin"
       ],
       "firstSeenAt": "2026-08-14T20:58:58.223419+00:00",
-      "lastSeenAt": "2026-08-14T21:22:15.452689+00:00",
+      "lastSeenAt": "2026-08-14T23:31:35.399730+00:00",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
       "reportedSalary": 62,
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -1039,12 +1296,12 @@
         "Testautomatisierung Wien"
       ],
       "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
-      "lastSeenAt": "2026-08-14T21:17:49.185Z",
+      "lastSeenAt": "2026-08-14T23:28:28.628Z",
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "healthy",
       "reportedSalary": 62,
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     },
@@ -1072,7 +1329,7 @@
       "status": "open",
       "consecutiveMisses": 0,
       "sourceStatus": "retained-until-verified",
-      "lastCheckedAt": "2026-08-14T21:22:16.195Z",
+      "lastCheckedAt": "2026-08-14T23:31:38.303Z",
       "verificationStatus": "alive",
       "consecutiveDeadChecks": 0
     }
@@ -1105,21 +1362,21 @@
   ],
   "validation": {
     "accepted": 27,
-    "rejected": 39,
+    "rejected": 38,
     "reasons": {
-      "not-sdet-role": 37,
+      "not-sdet-role": 36,
       "non-software-domain": 2
     },
-    "deduplicated": 12
+    "deduplicated": 13
   },
-  "lastVerified": "2026-08-14T21:22:16.195Z",
-  "contentUpdatedAt": "2026-08-14T21:22:15.452689+00:00",
-  "lastFullySuccessfulAt": "2026-08-14T08:21:12.807882+00:00",
-  "partial": true,
+  "lastVerified": "2026-08-14T23:31:38.303Z",
+  "contentUpdatedAt": "2026-08-14T23:31:35.399730+00:00",
+  "lastFullySuccessfulAt": "2026-08-14T23:31:35.399730+00:00",
+  "partial": false,
   "sourceHealth": {
     "scraper": {
-      "status": "partial",
-      "checkedAt": "2026-08-14T21:17:49.185Z",
+      "status": "healthy-with-warnings",
+      "checkedAt": "2026-08-14T23:28:28.628Z",
       "queries": {
         "Test Automation Wien": {
           "status": "healthy",
@@ -1127,7 +1384,7 @@
           "count": 15,
           "previousCount": 8,
           "error": null,
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "SDET Wien": {
           "status": "healthy",
@@ -1135,7 +1392,7 @@
           "count": 0,
           "previousCount": 0,
           "error": null,
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "QA Engineer Wien": {
           "status": "healthy",
@@ -1143,7 +1400,7 @@
           "count": 5,
           "previousCount": 1,
           "error": null,
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "Software Tester Wien": {
           "status": "healthy",
@@ -1151,7 +1408,7 @@
           "count": 15,
           "previousCount": 12,
           "error": null,
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "Testautomatisierung Wien": {
           "status": "healthy",
@@ -1159,15 +1416,15 @@
           "count": 15,
           "previousCount": 6,
           "error": null,
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "Quality Assurance Wien": {
           "status": "healthy",
           "required": true,
-          "count": 16,
+          "count": 15,
           "previousCount": 0,
           "error": null,
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "kununu: Test Automation": {
           "status": "unavailable",
@@ -1175,7 +1432,7 @@
           "count": 0,
           "previousCount": 0,
           "error": "incomplete pagination or request",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "kununu: QA Engineer": {
           "status": "unavailable",
@@ -1183,7 +1440,7 @@
           "count": 0,
           "previousCount": 0,
           "error": "incomplete pagination or request",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "kununu: SDET": {
           "status": "unavailable",
@@ -1191,7 +1448,7 @@
           "count": 0,
           "previousCount": 0,
           "error": "incomplete pagination or request",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "kununu: Testautomatisierung": {
           "status": "unavailable",
@@ -1199,7 +1456,7 @@
           "count": 0,
           "previousCount": 0,
           "error": "incomplete pagination or request",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "kununu: Quality Assurance": {
           "status": "unavailable",
@@ -1207,7 +1464,7 @@
           "count": 0,
           "previousCount": 0,
           "error": "incomplete pagination or request",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "kununu: Software Tester": {
           "status": "unavailable",
@@ -1215,62 +1472,62 @@
           "count": 0,
           "previousCount": 0,
           "error": "incomplete pagination or request",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "devjobs.at: QA Engineer Wien": {
-          "status": "partial",
-          "required": true,
+          "status": "unavailable",
+          "required": false,
           "count": 0,
           "previousCount": 0,
-          "error": "page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('a[href^=\"/job/\"], a[href^=\"https://devjobs.at/job/\"]') to be visible\n",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "error": "Vercel Security Checkpoint blocked the automated request",
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "devjobs.at: Test/QA Engineer Wien": {
-          "status": "partial",
-          "required": true,
+          "status": "unavailable",
+          "required": false,
           "count": 0,
           "previousCount": 0,
-          "error": "page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('a[href^=\"/job/\"], a[href^=\"https://devjobs.at/job/\"]') to be visible\n",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "error": "Vercel Security Checkpoint blocked the automated request",
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "devjobs.at: Software Tester Wien": {
-          "status": "partial",
-          "required": true,
+          "status": "unavailable",
+          "required": false,
           "count": 0,
           "previousCount": 0,
-          "error": "page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('a[href^=\"/job/\"], a[href^=\"https://devjobs.at/job/\"]') to be visible\n",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "error": "Vercel Security Checkpoint blocked the automated request",
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "devjobs.at: Test Automation Engineer Wien": {
-          "status": "partial",
-          "required": true,
+          "status": "unavailable",
+          "required": false,
           "count": 0,
           "previousCount": 0,
-          "error": "page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('a[href^=\"/job/\"], a[href^=\"https://devjobs.at/job/\"]') to be visible\n",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "error": "Vercel Security Checkpoint blocked the automated request",
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         },
         "devjobs.at: Test Automation Developer Wien": {
-          "status": "partial",
-          "required": true,
+          "status": "unavailable",
+          "required": false,
           "count": 0,
           "previousCount": 0,
-          "error": "page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('a[href^=\"/job/\"], a[href^=\"https://devjobs.at/job/\"]') to be visible\n",
-          "checkedAt": "2026-08-14T21:17:49.185Z"
+          "error": "Vercel Security Checkpoint blocked the automated request",
+          "checkedAt": "2026-08-14T23:28:28.628Z"
         }
       }
     },
     "jobspy": {
       "status": "healthy",
-      "checkedAt": "2026-08-14T21:22:15.452689+00:00",
+      "checkedAt": "2026-08-14T23:31:35.399730+00:00",
       "failedQueries": [],
       "countCliff": false,
-      "discovered": 15,
-      "retained": 5
+      "discovered": 26,
+      "retained": 3
     },
     "verification": {
       "status": "healthy",
-      "checkedAt": "2026-08-14T21:22:16.195Z",
-      "alive": 34,
+      "checkedAt": "2026-08-14T23:31:38.303Z",
+      "alive": 43,
       "probation": 0,
       "closed": 0,
       "errors": 0
@@ -1280,5 +1537,5 @@
     "closedThisRun": 0,
     "retainedJobSpy": 19
   },
-  "datasetHash": "49003eca076570c5c7d88093fa7f3e8cfef82cd2434049ecd77118486c2aac92"
+  "datasetHash": "9d3e5821ca743cb2376369b4b23641c70ea2b736f9bad2f9d802941f0bd6e89d"
 }

@@ -730,22 +730,22 @@
     },
     {
       "date": "2026-08-14",
-      "activeJobs": 34,
-      "activeCompanies": 32,
-      "sourceLastUpdated": "2026-08-14T21:22:15.452689+00:00",
-      "sourceLastVerified": "2026-08-14T21:22:16.195Z",
-      "lastFullySuccessfulAt": "2026-08-14T08:21:12.807882+00:00",
-      "partial": true,
-      "datasetHash": "49003eca076570c5c7d88093fa7f3e8cfef82cd2434049ecd77118486c2aac92",
+      "activeJobs": 43,
+      "activeCompanies": 39,
+      "sourceLastUpdated": "2026-08-14T23:31:35.399730+00:00",
+      "sourceLastVerified": "2026-08-14T23:31:38.303Z",
+      "lastFullySuccessfulAt": "2026-08-14T23:31:35.399730+00:00",
+      "partial": false,
+      "datasetHash": "9d3e5821ca743cb2376369b4b23641c70ea2b736f9bad2f9d802941f0bd6e89d",
       "sourceCounts": {
         "jobspy-indeed": 3,
-        "jobspy-linkedin": 16,
+        "jobspy-linkedin": 25,
         "QA Engineer Wien": 1,
         "Software Tester Wien": 8,
         "Testautomatisierung Wien": 6
       },
-      "recordedAt": "2026-08-14T21:22:35.498Z"
+      "recordedAt": "2026-08-14T23:32:05.779Z"
     }
   ],
-  "lastUpdated": "2026-08-14T21:22:35.498Z"
+  "lastUpdated": "2026-08-14T23:32:05.779Z"
 }
