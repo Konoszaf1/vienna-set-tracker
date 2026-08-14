@@ -991,5 +991,10 @@
     "lat": 48.2240208,
     "lng": 16.3965462,
     "address": "Ernst-Melchior-Gasse 22, 1020 Wien, Leopoldstadt"
+  },
+  "österreichische post": {
+    "lat": 48.2510399,
+    "lng": 16.4447756,
+    "address": "Wagramer Straße, 162, 1220, KG Kagran"
   }
 }
