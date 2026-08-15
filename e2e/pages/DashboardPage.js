@@ -12,6 +12,7 @@ export class DashboardPage {
     this.searchInput = page.locator('[data-testid="search-input"]');
     this.langSelect = page.locator('[data-testid="lang-select"]');
     this.sortSelect = page.locator('[data-testid="sort-select"]');
+    this.recencySelect = page.locator('[data-testid="recency-select"]');
     this.salaryMin = page.locator('[data-testid="salary-min"]');
     this.salaryMax = page.locator('[data-testid="salary-max"]');
     this.gridToggle = page.locator('[data-testid="view-toggle-grid"]');
@@ -28,10 +29,21 @@ export class DashboardPage {
 
   /** Route jobs.json to fixture, clear localStorage, navigate. */
   async goto() {
+    const now = Date.now();
+    const datedFixture = {
+      ...fixture,
+      jobs: fixture.jobs.map((job, index) => ({
+        ...job,
+        publishedAt: new Date(now - (index < 3 ? 86_400_000 : 10 * 86_400_000)).toISOString(),
+        publishedAtSource: "e2e-fixture",
+        publishedAtConfidence: "high",
+        verificationStatus: "alive",
+      })),
+    };
     await this.page.route('**/jobs.json*', route => {
       route.fulfill({
         contentType: 'application/json',
-        body: JSON.stringify(fixture),
+        body: JSON.stringify(datedFixture),
       });
     });
     await this.page.route('**/job-history.json*', route => {
@@ -75,6 +87,11 @@ export class DashboardPage {
   /** Set sort order. */
   async sortBy(value) {
     await this.sortSelect.selectOption(value);
+  }
+
+  /** Filter roles by source publication/discovery age. */
+  async filterByRecency(value) {
+    await this.recencySelect.selectOption(value);
   }
 
   /** Set salary min filter. */

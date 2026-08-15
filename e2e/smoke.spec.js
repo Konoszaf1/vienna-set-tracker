@@ -48,7 +48,7 @@ test('analytics view toggle renders charts', async ({ page }) => {
   await expect(dashboard.analyticsView).toBeVisible();
   // At minimum: the section titles exist.
   await expect(page.locator('text=Active job openings over time')).toBeVisible();
-  await expect(page.locator('text=Unique listings discovered over time')).toBeVisible();
+  await expect(page.locator('text=Listings by known opening date')).toBeVisible();
   await expect(page.locator('text=Top 10 employers')).toBeVisible();
 });
 

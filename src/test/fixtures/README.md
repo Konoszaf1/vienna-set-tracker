@@ -28,9 +28,9 @@ Hand-crafted representative payload used by both vitest (via MSW) and Playwright
 | XSS payload in company name | `<img src=x onerror=alert(1)>` |
 | Collapse via normalizeCompanyName | ÖBB-Konzern + ÖBB → 1 company |
 | Multiple roles per company | RINGANA (2 roles) |
-| Senior seniority (→ €71k) | Dynatrace, PKE |
-| Junior seniority (→ €48k) | CoolPeople |
-| Mid-level (→ €63k) | all others |
+| Senior market ranges | Dynatrace, PKE |
+| Junior market range | CoolPeople |
+| Regular market ranges | all others |
 
 **10 jobs → 8 companies** after normalization.
 

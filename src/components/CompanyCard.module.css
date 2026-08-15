@@ -102,10 +102,28 @@
   letter-spacing: 0.06em;
 }
 
+.salaryConfidence {
+  color: #a1a1aa;
+  font-size: 10px;
+  margin-top: 3px;
+}
+
 .salaryAmount {
   font-weight: 700;
   font-size: 22px;
   font-family: 'DM Mono', monospace;
+}
+
+.roleMetadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.roleDate {
+  color: #a5b4fc;
+  font-size: 10px;
 }
 
 .salaryAmount[data-tier="high"] { color: #10b981; }

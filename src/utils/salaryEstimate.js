@@ -1,155 +1,151 @@
-/**
- * Multi-factor salary estimate for Vienna SDET roles.
- *
- * Evaluates multiple factors: seniority, tech stack, language requirements, and
- * company reputation score, and anchors with a 30% weight to reported company salaries.
- * Includes a perfect backward-compatibility fallback if only title is provided.
- */
+import { VIENNA_SALARY_MARKET_2026 } from "../data/salaryMarketVienna2026";
 
-const BASELINE = 63; // mid-level SDET in Vienna, EUR thousands gross annual
+export const BASELINE = VIENNA_SALARY_MARKET_2026.levels.regular.target;
 
-export function estimateSalary(roleOrTitle, optionalTech, optionalLang, optionalScore, optionalReportedSalary) {
-  let title = "";
-  let tech = null;
-  let lang = null;
-  let score = null;
-  let reportedSalary = null;
+const LEAD = /\b(lead|architect|principal|head(?:\s+of)?|staff|manager)\b/i;
+const SENIOR = /\b(senior|sr\.?|specialist|expert)\b/i;
+const JUNIOR = /\b(junior|jr\.?|graduate|entry[- ]level)\b/i;
+const INTERN = /\b(intern|trainee|praktikum|student|working\s+student)\b/i;
 
-  if (roleOrTitle && typeof roleOrTitle === "object") {
-    title = roleOrTitle.title || "";
-    tech = roleOrTitle.techStack || null;
-    lang = roleOrTitle.langReq || null;
-    score = roleOrTitle.kununuScore || null;
-    reportedSalary = roleOrTitle.reportedSalary || null;
-  } else {
-    title = roleOrTitle || "";
-    tech = optionalTech !== undefined ? optionalTech : null;
-    lang = optionalLang !== undefined ? optionalLang : null;
-    score = optionalScore !== undefined ? optionalScore : null;
-    reportedSalary = optionalReportedSalary !== undefined ? optionalReportedSalary : null;
-  }
+const AUTOMATION = /\b(sdet|automation|automatisier|engineer\s+in\s+test|test\s+developer)\b/i;
+const MANUAL = /\b(manual|functional\s+tester|test\s+analyst)\b/i;
+const SPECIALIST = /\b(performance|load|security|embedded|mobile|api|integration)\b/i;
 
-  // --- 100% BACKWARD-COMPATIBILITY FALLBACK ---
-  // If only a title was supplied (or role has no extra attributes),
-  // return the legacy 3-bucket values to ensure zero regressions on pre-existing tests.
-  if (tech === null && lang === null && score === null && reportedSalary === null) {
-    const SENIOR_LEGACY = /\b(senior|sr\.?|lead|staff|principal|head\s+of)\b/i;
-    const JUNIOR_LEGACY = /\b(junior|jr\.?|trainee|intern|praktikum)\b/i;
-    if (SENIOR_LEGACY.test(title)) return BASELINE + 8;   // 71k
-    if (JUNIOR_LEGACY.test(title)) return BASELINE - 15;  // 48k
-    return BASELINE;                                      // 63k
-  }
+const CODE_TECH = new Set([
+  "java", "python", "c#", ".net", "c++", "go", "rust", "kotlin", "scala",
+  "typescript", "javascript", "playwright", "cypress", "selenium", "appium",
+  "junit", "pytest", "nunit", "rest assured",
+]);
+const PLATFORM_TECH = new Set([
+  "aws", "azure", "gcp", "docker", "kubernetes", "terraform", "ci/cd",
+  "jenkins", "github actions", "gitlab ci/cd", "azure devops",
+]);
 
-  // --- NEW MULTI-FACTOR HEURISTIC MODEL ---
-  // 1. Seniority Base Scale
-  const LEAD = /\b(lead|architect|principal|head(?:\s+of)?|staff)\b/i;
-  const SENIOR = /\b(senior|sr\.?|specialist|expert)\b/i;
-  const JUNIOR = /\b(junior|jr\.?|graduate)\b/i;
-  const INTERN = /\b(intern|trainee|praktikum|student)\b/i;
-
-  let base = 62; // Mid / Regular / Default
-  if (LEAD.test(title)) {
-    base = 80;
-  } else if (SENIOR.test(title)) {
-    base = 71;
-  } else if (JUNIOR.test(title)) {
-    base = 46;
-  } else if (INTERN.test(title)) {
-    base = 32;
-  }
-
-  // 2. Tech Stack Premium & Discount (Up to +8k / -6k)
-  let techAdjustment = 0;
-
-  const premiumTech = [
-    "java", "c#", ".net", "python", "rust", "go", "c++",
-    "kubernetes", "docker", "devops", "aws", "azure", "gcp", "cloud", "typescript", "ci/cd"
-  ];
-
-  const manualTags = ["manual testing", "jira", "confluence", "excel", "istqb", "regression"];
-
-  const automationSignals = [
-    "java", "python", "selenium", "playwright", "cypress", "c#", ".net", "rust", "go", "c++",
-    "typescript", "javascript", "appium", "automation", "automated", "testing-library",
-    "jest", "vitest", "junit", "nunit", "pytest", "robot", "cucumber", "postman", "ci/cd",
-    "jenkins", "github actions", "gitlab"
-  ];
-
-  const normalizedTech = Array.isArray(tech)
-    ? tech.map(t => t.toLowerCase())
-    : [];
-
-  const hasTechMatch = (techName) => {
-    return normalizedTech.includes(techName.toLowerCase()) ||
-           title.toLowerCase().includes(techName.toLowerCase());
-  };
-
-  // High-Tech Premium (+2k per tag, max +8k)
-  let premiumMatches = 0;
-  for (const t of premiumTech) {
-    if (hasTechMatch(t)) {
-      premiumMatches++;
-    }
-  }
-  techAdjustment += Math.min(8, premiumMatches * 2);
-
-  // Manual Testing Discount (-6k)
-  let hasManualSignal = false;
-  for (const t of manualTags) {
-    if (hasTechMatch(t)) {
-      hasManualSignal = true;
-      break;
-    }
-  }
-
-  let hasAutomationSignal = false;
-  for (const t of automationSignals) {
-    if (hasTechMatch(t)) {
-      hasAutomationSignal = true;
-      break;
-    }
-  }
-
-  if (hasManualSignal && !hasAutomationSignal) {
-    techAdjustment -= 6;
-  }
-
-  // 3. Language Requirement Adjustment (+3k / -2k)
-  let langAdjustment = 0;
-  if (lang === "en") {
-    langAdjustment += 3;
-  } else if (lang === "de-fluent") {
-    langAdjustment -= 2;
-  }
-
-  // 4. Company Reputation Booster (kununuScore) (Up to +4k / -3k)
-  let scoreAdjustment = 0;
-  if (score !== null && score !== undefined) {
-    const s = Number(score);
-    if (!isNaN(s)) {
-      if (s >= 4.5) {
-        scoreAdjustment += 4;
-      } else if (s >= 4.0) {
-        scoreAdjustment += 2;
-      } else if (s < 3.0) {
-        scoreAdjustment -= 3;
-      }
-    }
-  }
-
-  const heuristic = base + techAdjustment + langAdjustment + scoreAdjustment;
-
-  // 5. Low-Gravity Company Reported Salaries (30% weight anchoring)
-  let finalEstimate = heuristic;
-  if (reportedSalary !== null && reportedSalary !== undefined) {
-    const repSal = Number(reportedSalary);
-    if (!isNaN(repSal) && repSal > 0) {
-      finalEstimate = 0.7 * heuristic + 0.3 * repSal;
-    }
-  }
-
-  return Math.max(24, Math.min(115, Math.round(finalEstimate)));
+function rounded(value) {
+  return Math.round(Number(value));
 }
 
-export { BASELINE };
+function finiteSalary(value) {
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 20 && number <= 250 ? number : null;
+}
 
+function annualThousands(value) {
+  const number = finiteSalary(value);
+  if (number != null) return number;
+  const raw = Number(value);
+  return Number.isFinite(raw) && raw >= 20_000 && raw <= 250_000 ? raw / 1000 : null;
+}
+
+function seniority(title) {
+  if (LEAD.test(title)) return "lead";
+  if (SENIOR.test(title)) return "senior";
+  if (JUNIOR.test(title)) return "junior";
+  if (INTERN.test(title)) return "intern";
+  return "regular";
+}
+
+function applyAdjustment(range, [min, target, max], reasons, reason) {
+  range.min += min;
+  range.target += target;
+  range.max += max;
+  reasons.push(reason);
+}
+
+function modelRange(role) {
+  const title = String(role.title || "");
+  const level = seniority(title);
+  const benchmark = VIENNA_SALARY_MARKET_2026.levels[level];
+  const range = { min: benchmark.min, target: benchmark.target, max: benchmark.max };
+  const reasons = [`2026 Vienna ${level} benchmark`];
+  const tech = new Set((role.techStack || []).map(value => String(value).toLowerCase()));
+  const searchable = `${title} ${[...tech].join(" ")}`;
+  const codeSignals = [...tech].filter(value => CODE_TECH.has(value)).length;
+  const platformSignals = [...tech].filter(value => PLATFORM_TECH.has(value)).length;
+  const hasAutomation = AUTOMATION.test(searchable) || codeSignals > 0;
+
+  if (hasAutomation) applyAdjustment(range, [1, 3, 5], reasons, "test automation scope");
+  if (codeSignals >= 2) applyAdjustment(range, [1, 3, 5], reasons, "code-intensive stack");
+  else if (codeSignals === 1) applyAdjustment(range, [0, 1, 2], reasons, "coding stack");
+  if (platformSignals > 0) applyAdjustment(range, [0, 2, 4], reasons, "cloud/CI ownership");
+  if (SPECIALIST.test(searchable)) applyAdjustment(range, [0, 2, 4], reasons, "specialist testing domain");
+  if (MANUAL.test(searchable) && !hasAutomation) applyAdjustment(range, [-4, -5, -6], reasons, "manual-testing weighting");
+
+  const companySalary = annualThousands(role.reportedSalary);
+  if (companySalary != null) {
+    const delta = (companySalary - range.target) * 0.3;
+    range.min += delta;
+    range.target += delta;
+    range.max += delta;
+    reasons.push("company-reported salary anchor");
+  }
+
+  return { ...range, level, benchmarkFloor: benchmark.benchmarkFloor, reasons, companySalary };
+}
+
+function normalizeRange(range) {
+  let min = Math.max(24, rounded(range.min));
+  let target = Math.max(min, rounded(range.target));
+  let max = Math.max(target, rounded(range.max));
+  if (max > 140) max = 140;
+  if (target > max) target = max;
+  if (min > target) min = target;
+  return { min, target, max };
+}
+
+/**
+ * Estimate a role's Vienna gross annual salary range in EUR thousands.
+ * Evidence priority: advertised range > advertised minimum > company salary
+ * anchor > 2026 Vienna role/skill benchmark.
+ */
+export function estimateSalaryRange(roleOrTitle) {
+  const role = roleOrTitle && typeof roleOrTitle === "object"
+    ? roleOrTitle
+    : { title: String(roleOrTitle || ""), techStack: [] };
+  const model = modelRange(role);
+  const advertisedMin = annualThousands(role.advertisedSalaryMin);
+  const advertisedMax = annualThousands(role.advertisedSalaryMax);
+
+  if (advertisedMin != null && advertisedMax != null && advertisedMax > advertisedMin) {
+    const min = Math.min(advertisedMin, advertisedMax);
+    const max = Math.max(advertisedMin, advertisedMax);
+    return {
+      ...normalizeRange({ min, target: (min + max) / 2, max }),
+      evidence: "advertised-range",
+      confidence: "high",
+      label: "Advertised range",
+      level: model.level,
+      benchmarkFloor: model.benchmarkFloor,
+      reasons: ["salary range stated in listing"],
+    };
+  }
+
+  if (advertisedMin != null) {
+    const min = advertisedMin;
+    const target = Math.max(model.target, min * 1.08);
+    const max = Math.max(model.max, min * 1.22, target * 1.12);
+    return {
+      ...normalizeRange({ min, target, max }),
+      evidence: "advertised-minimum",
+      confidence: "medium-high",
+      label: "Advertised floor + market range",
+      level: model.level,
+      benchmarkFloor: model.benchmarkFloor,
+      reasons: ["minimum stated in listing", ...model.reasons],
+    };
+  }
+
+  return {
+    ...normalizeRange(model),
+    evidence: model.companySalary != null ? "company-market-model" : "market-model",
+    confidence: model.companySalary != null ? "medium" : "medium-low",
+    label: model.companySalary != null ? "Company data + market range" : "Vienna market range",
+    level: model.level,
+    benchmarkFloor: model.benchmarkFloor,
+    reasons: model.reasons,
+  };
+}
+
+export function estimateSalary(roleOrTitle) {
+  return estimateSalaryRange(roleOrTitle).target;
+}

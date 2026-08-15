@@ -59,14 +59,14 @@ describe("AnalyticsView", () => {
     const view = screen.getByTestId("analytics-view");
     expect(within(view).getByText("Companies")).toBeInTheDocument();
     expect(within(view).getByText("Open roles")).toBeInTheDocument();
-    expect(within(view).getByText("Unique seen")).toBeInTheDocument();
+    expect(within(view).getByText("Dated listings")).toBeInTheDocument();
     expect(within(view).getByText("Tracked days")).toBeInTheDocument();
-    expect(within(view).getByText("New today")).toBeInTheDocument();
+    expect(within(view).getByText("Posted/found today")).toBeInTheDocument();
 
     expect(screen.getByText("Active job openings over time")).toBeInTheDocument();
     expect(screen.getByRole("img", { name: "Active job openings over time" })).toBeInTheDocument();
-    expect(screen.getByText("Unique listings discovered over time")).toBeInTheDocument();
-    expect(screen.getByText("Weekly new listings")).toBeInTheDocument();
+    expect(screen.getByText("Listings by known opening date")).toBeInTheDocument();
+    expect(screen.getByText("Weekly posted/found listings")).toBeInTheDocument();
     expect(screen.getByText("Top 10 employers")).toBeInTheDocument();
     expect(screen.getByText("Top 10 tech tags")).toBeInTheDocument();
     expect(screen.getByText("Language requirement")).toBeInTheDocument();

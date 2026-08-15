@@ -1,15 +1,27 @@
 import { memo } from "react";
 import StarRating from "./StarRating";
 import Badge from "./Badge";
+import { formatListingAge, listingDate } from "../utils/listingRecency";
 import styles from './CompanyCard.module.css';
 
 const CompanyCard = memo(function CompanyCard({ company, salary, feedHealth }) {
   const primaryJobUrl = company.openRoles?.[0]?.url || company.jobUrl;
+  const roles = company.openRoles || [];
+  const verificationStatuses = roles.map(role => role.verificationStatus).filter(Boolean);
+  const allAlive = verificationStatuses.length > 0 && verificationStatuses.every(status => status === "alive");
+  const hasProbation = verificationStatuses.some(status => status === "probation");
   const listingLabel = feedHealth?.stale
     ? "Stale — verify before applying"
-    : feedHealth?.partial
-      ? "Partially verified"
-      : "Verified listing";
+    : hasProbation
+      ? "Verification pending"
+      : allAlive
+        ? "Verified listing"
+        : "Recently discovered";
+  const newestRole = roles.reduce((newest, role) => {
+    if (!newest) return role;
+    return String(listingDate(role).timestamp || "") > String(listingDate(newest).timestamp || "") ? role : newest;
+  }, null);
+  const bestRange = salary?.bestRange;
 
   return (
     <div className={styles.card} data-testid="company-card">
@@ -32,15 +44,9 @@ const CompanyCard = memo(function CompanyCard({ company, salary, feedHealth }) {
         <div className={styles.district}>
           <span>📍</span> {company.district}
         </div>
-        {company.firstSeen && (
+        {newestRole && listingDate(newestRole).timestamp && (
           <div className={styles.firstSeen}>
-            {(() => {
-              const d = new Date(company.firstSeen);
-              const now = new Date();
-              const diffDays = Math.max(0, Math.floor((now - d) / 86400000));
-              const label = diffDays === 0 ? "Today" : diffDays === 1 ? "1 day ago" : `${diffDays}d ago`;
-              return `Added ${label}`;
-            })()}
+            {formatListingAge(newestRole)}
           </div>
         )}
       </div>
@@ -54,11 +60,18 @@ const CompanyCard = memo(function CompanyCard({ company, salary, feedHealth }) {
         </div>
       )}
 
-      {salary?.best != null && (
+      {bestRange && (
         <div className={styles.salaryBox}>
-          <div className={styles.salaryLabel}>Heuristic estimate</div>
-          <span title="Model estimate, not an advertised salary" className={styles.salaryAmount} data-tier={salary.best >= 70 ? "high" : salary.best >= 60 ? "midhi" : salary.best >= 55 ? "mid" : "low"}>
-            €{salary.best}k
+          <div>
+            <div className={styles.salaryLabel}>{bestRange.label}</div>
+            <div className={styles.salaryConfidence}>{bestRange.confidence} confidence · gross/year</div>
+          </div>
+          <span
+            title={`${bestRange.label}; ${bestRange.reasons.join(", ")}`}
+            className={styles.salaryAmount}
+            data-tier={bestRange.target >= 70 ? "high" : bestRange.target >= 60 ? "midhi" : bestRange.target >= 55 ? "mid" : "low"}
+          >
+            €{bestRange.min}–{bestRange.max}k
           </span>
         </div>
       )}
@@ -96,9 +109,19 @@ const CompanyCard = memo(function CompanyCard({ company, salary, feedHealth }) {
             <a key={i} href={role.url} target="_blank" rel="noopener noreferrer" className={styles.roleLink}>
               <span className={styles.roleDetails}>
                 <span>{role.title}</span>
-                {role.source && <span className={styles.roleSource}>{role.source}</span>}
+                <span className={styles.roleMetadata}>
+                  {role.source && <span className={styles.roleSource}>{role.source}</span>}
+                  <span className={styles.roleDate}>{formatListingAge(role)}</span>
+                </span>
               </span>
-              {salary?.roles?.[i] && <span className={styles.roleEstimate}>€{salary.roles[i].estimate}k</span>}
+              {salary?.roles?.[i] && (
+                <span
+                  className={styles.roleEstimate}
+                  title={`${salary.roles[i].label}; target €${salary.roles[i].target}k`}
+                >
+                  €{salary.roles[i].min}–{salary.roles[i].max}k
+                </span>
+              )}
             </a>
           ))}
         </div>

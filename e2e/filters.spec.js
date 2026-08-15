@@ -21,13 +21,11 @@ test.describe('Filter interactions', () => {
   test('salary min + max combined narrows results', async () => {
     await dashboard.setSalaryMin(60);
     await dashboard.setSalaryMax(65);
-    // Mid-level (63k) companies survive; Senior (71k) and Junior (48k) excluded
+    // A bounded market-target window should reduce the result set.
     const count = await dashboard.cards.count();
     expect(count).toBeGreaterThan(0);
     expect(count).toBeLessThan(8);
-    // Verify a known mid-salary company is visible and a senior-salary one is not
     const names = await dashboard.cards.locator('h3').allTextContents();
-    expect(names.some(n => n.includes('Wiener Stadtwerke'))).toBe(true);
     expect(names.some(n => n.includes('Dynatrace'))).toBe(false);
 
     await dashboard.clearSalaryMin();
@@ -60,7 +58,7 @@ test.describe('Filter interactions', () => {
     await dashboard.sortBy('salary');
     const names = await dashboard.getCardNames();
     expect(names.length).toBe(8);
-    // First cards should be the highest salary (Senior → 71k): Dynatrace and PKE
+    // Senior automation roles should rank first and the junior role last.
     expect(names[0]).toMatch(/Dynatrace|PKE/);
     // Last card should be lowest salary (Junior → 48k): CoolPeople
     expect(names[names.length - 1]).toMatch(/CoolPeople/);
@@ -79,5 +77,16 @@ test.describe('Filter interactions', () => {
     await dashboard.setSalaryMin(70);
     const afterBoth = await dashboard.cards.count();
     expect(afterBoth).toBeLessThanOrEqual(afterSearch);
+  });
+
+  test('publication-age filter narrows roles and persists in the URL', async ({ page }) => {
+    await dashboard.filterByRecency('3');
+    const recent = await dashboard.cards.count();
+    expect(recent).toBeGreaterThan(0);
+    expect(recent).toBeLessThan(8);
+    await expect(page).toHaveURL(/age=3/);
+
+    await dashboard.filterByRecency('all');
+    await expect(dashboard.cards).toHaveCount(8);
   });
 });

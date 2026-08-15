@@ -4,6 +4,8 @@ import { pathToFileURL } from "url";
 import { datasetHash } from "./jobLifecycle.mjs";
 
 const LANGUAGES = new Set(["en", "de-basic", "de-fluent", "unknown"]);
+const DATE_CONFIDENCE = new Set(["high", "medium", "low"]);
+const SALARY_KINDS = new Set(["range", "minimum"]);
 
 export function validateFeed(data, { now = new Date(), maxFullySuccessfulAgeHours = 72 } = {}) {
   const errors = [];
@@ -27,6 +29,27 @@ export function validateFeed(data, { now = new Date(), maxFullySuccessfulAgeHour
     }
     if (!LANGUAGES.has(job?.langReq)) errors.push(`${prefix}.langReq is invalid`);
     if (!Array.isArray(job?.techStack)) errors.push(`${prefix}.techStack must be an array`);
+    if (job?.publishedAt) {
+      const published = new Date(job.publishedAt);
+      if (Number.isNaN(published.getTime())) errors.push(`${prefix}.publishedAt is invalid`);
+      else if (published.getTime() > now.getTime() + 86_400_000) errors.push(`${prefix}.publishedAt is in the future`);
+      if (!DATE_CONFIDENCE.has(job.publishedAtConfidence)) {
+        errors.push(`${prefix}.publishedAtConfidence is invalid`);
+      }
+    }
+    const salaryMin = job?.advertisedSalaryMin;
+    const salaryMax = job?.advertisedSalaryMax;
+    if (salaryMin != null || salaryMax != null) {
+      if (!(typeof salaryMin === "number" && Number.isFinite(salaryMin) && salaryMin > 0)) {
+        errors.push(`${prefix}.advertisedSalaryMin must be a positive annual amount`);
+      }
+      if (salaryMax != null && !(typeof salaryMax === "number" && Number.isFinite(salaryMax) && salaryMax >= salaryMin)) {
+        errors.push(`${prefix}.advertisedSalaryMax must be at least advertisedSalaryMin`);
+      }
+      if (job.advertisedSalaryCurrency !== "EUR") errors.push(`${prefix}.advertisedSalaryCurrency must be EUR`);
+      if (job.advertisedSalaryPeriod !== "year") errors.push(`${prefix}.advertisedSalaryPeriod must be year`);
+      if (!SALARY_KINDS.has(job.advertisedSalaryKind)) errors.push(`${prefix}.advertisedSalaryKind is invalid`);
+    }
     const hasLat = typeof job?.lat === "number";
     const hasLng = typeof job?.lng === "number";
     if (hasLat !== hasLng) errors.push(`${prefix} must provide both lat and lng`);

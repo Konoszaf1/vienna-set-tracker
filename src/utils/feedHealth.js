@@ -5,10 +5,9 @@ export function feedHealth(meta = {}, now = new Date(), staleAfterHours = 48) {
   const ageHours = valid ? Math.max(0, (now.getTime() - parsed.getTime()) / 3_600_000) : Infinity;
   const stale = !valid || ageHours > staleAfterHours;
   const sourceStatuses = Object.values(meta.sourceHealth || {}).map(source => source?.status);
-  const partial = Boolean(meta.partial || sourceStatuses.some(status =>
-    ["partial", "error", "unavailable", "healthy-with-warnings"].includes(status)
-  ));
-  const status = stale ? "stale" : partial ? "partial" : "fresh";
+  const partial = Boolean(meta.partial || sourceStatuses.some(status => ["partial", "error"].includes(status)));
+  const warning = sourceStatuses.some(status => ["unavailable", "healthy-with-warnings"].includes(status));
+  const status = stale ? "stale" : partial ? "partial" : warning ? "warning" : "fresh";
 
   let ageLabel = "unknown";
   if (valid) {
@@ -17,5 +16,5 @@ export function feedHealth(meta = {}, now = new Date(), staleAfterHours = 48) {
     else ageLabel = `${Math.floor(ageHours / 24)}d ago`;
   }
 
-  return { status, stale, partial, timestamp, ageHours, ageLabel };
+  return { status, stale, partial, warning, timestamp, ageHours, ageLabel };
 }

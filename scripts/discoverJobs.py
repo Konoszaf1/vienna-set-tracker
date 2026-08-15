@@ -18,7 +18,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import date, datetime, time as datetime_time, timezone
 from pathlib import Path
 
 from jobspy import scrape_jobs
@@ -125,6 +125,15 @@ CORP_SUFFIXES = re.compile(
 AGGREGATOR_COMPANIES = {"devjobs"}
 TRACKING_PARAMS = {"ref", "refid", "trk", "trackingid", "originalsubdomain", "src", "source"}
 
+SALARY_PERIOD_FACTORS = {
+    "yearly": 1,
+    "annual": 1,
+    "monthly": 14,
+    "weekly": 52,
+    "daily": 260,
+    "hourly": 38.5 * 52,
+}
+
 # Gender markers stripped from titles during dedup comparison
 GENDER_MARKERS = re.compile(
     r"\s*\(m/[wfd](/[xd])?\)\s*|\s*\(all\s+genders?\)\s*",
@@ -210,6 +219,91 @@ def stable_job_id(job: dict) -> str:
 
 def job_fingerprint(job: dict) -> str:
     return f"{normalize_company(str(job.get('company', '')))}::{clean_title(str(job.get('title', ''))).lower()}"
+
+
+def clean_scalar(value):
+    """Return a usable scalar while treating pandas/NumPy NaN and NaT as missing."""
+    if value is None:
+        return None
+    try:
+        if value != value:
+            return None
+    except Exception:
+        pass
+    text = str(value).strip()
+    return None if not text or text.lower() in {"nan", "nat", "none", "null"} else value
+
+
+def normalize_posted_at(value) -> str | None:
+    value = clean_scalar(value)
+    if value is None:
+        return None
+    if hasattr(value, "to_pydatetime"):
+        value = value.to_pydatetime()
+    if isinstance(value, datetime):
+        parsed = value
+    elif isinstance(value, date):
+        parsed = datetime.combine(value, datetime_time.min)
+    else:
+        try:
+            parsed = datetime.fromisoformat(str(value).strip().replace("Z", "+00:00"))
+        except ValueError:
+            return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc).isoformat()
+
+
+def annualize_salary(value, interval) -> int | None:
+    value = clean_scalar(value)
+    if value is None:
+        return None
+    try:
+        amount = float(value)
+    except (TypeError, ValueError):
+        return None
+    if not math.isfinite(amount) or amount <= 0:
+        return None
+    factor = SALARY_PERIOD_FACTORS.get(str(clean_scalar(interval) or "yearly").lower(), 1)
+    return round(amount * factor)
+
+
+def jobspy_metadata(row, site: str) -> dict:
+    """Extract source-owned publication and advertised salary evidence."""
+    metadata: dict = {}
+    published_at = normalize_posted_at(row.get("date_posted"))
+    if published_at:
+        metadata.update({
+            "publishedAt": published_at,
+            "publishedAtSource": f"jobspy-{site}-date-posted",
+            "publishedAtConfidence": "high",
+        })
+
+    currency = str(clean_scalar(row.get("currency")) or "EUR").upper()
+    if currency in {"EUR", "€"}:
+        interval = clean_scalar(row.get("interval")) or "yearly"
+        salary_min = annualize_salary(row.get("min_amount"), interval)
+        salary_max = annualize_salary(row.get("max_amount"), interval)
+        if salary_min is not None or salary_max is not None:
+            if salary_min is not None and salary_max is not None and salary_min > salary_max:
+                salary_min, salary_max = salary_max, salary_min
+            kind = "range" if salary_min is not None and salary_max is not None and salary_min != salary_max else "minimum"
+            metadata.update({
+                "advertisedSalaryMin": salary_min if salary_min is not None else salary_max,
+                "advertisedSalaryMax": salary_max if kind == "range" else None,
+                "advertisedSalaryCurrency": "EUR",
+                "advertisedSalaryPeriod": "year",
+                "advertisedSalaryKind": kind,
+                "advertisedSalarySource": f"jobspy-{site}-{clean_scalar(row.get('salary_source')) or 'listing'}",
+            })
+
+    job_type = clean_scalar(row.get("job_type"))
+    if job_type:
+        metadata["employmentType"] = str(job_type).lower()
+    is_remote = clean_scalar(row.get("is_remote"))
+    if isinstance(is_remote, bool):
+        metadata["remoteMode"] = "remote" if is_remote else "onsite-or-hybrid"
+    return metadata
 
 
 def hydrate_job(job: dict, now: str, observed: bool, fallback_first_seen: str | None = None) -> dict:
@@ -395,6 +489,7 @@ def main():
                 "lng": None,
                 "techStack": [],
                 "langReq": "unknown",
+                **jobspy_metadata(row, site),
             })
             added += 1
 

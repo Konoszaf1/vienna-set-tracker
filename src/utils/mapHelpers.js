@@ -92,8 +92,13 @@ export function buildPopupHtml({ company: c, salary: sal, distance: km, color, e
   const rolesHtml = openRoles.length > 0 ? `<div style="margin-top:8px"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Open roles (${openRoles.length})</div>${openRoles.map((role, ri) => {
     const eTitle = escapeHtml(role.title);
     const roleUrl = isHttpUrl(role.url) ? escapeHtml(role.url) : null;
-    const roleEst = sal?.roles?.[ri]?.estimate;
-    const estLabel = roleEst ? ` · €${roleEst}k` : "";
+    const roleSalary = sal?.roles?.[ri];
+    const roleAmount = roleSalary?.min != null && roleSalary?.max != null
+      ? `€${roleSalary.min}–${roleSalary.max}k`
+      : roleSalary?.estimate
+        ? `€${roleSalary.estimate}k`
+        : "";
+    const estLabel = roleAmount ? ` · ${roleAmount}` : "";
     return roleUrl
       ? `<a href="${roleUrl}" target="_blank" rel="noopener noreferrer" style="display:block;padding:4px 6px;margin:2px 0;background:#18181b;border-radius:4px;color:#a1a1aa;text-decoration:none;font-size:11px;border:1px solid #27272a">${eTitle}<span style="color:#6366f1;font-weight:600">${estLabel}</span></a>`
       : `<div style="padding:4px 6px;margin:2px 0;background:#18181b;border-radius:4px;color:#a1a1aa;font-size:11px">${eTitle}${estLabel}</div>`;
@@ -117,7 +122,7 @@ export function buildPopupHtml({ company: c, salary: sal, distance: km, color, e
         ${statusBadge}
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px">
-        ${estimate ? `<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Salary</div><div style="font-size:16px;font-weight:700;color:${color}">€${estimate}k</div></div>` : ""}
+        ${estimate ? `<div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">${sal?.bestRange ? "Salary range" : "Salary"}</div><div style="font-size:14px;font-weight:700;color:${color}">${sal?.bestRange ? `€${sal.bestRange.min}–${sal.bestRange.max}k` : `€${estimate}k`}</div></div>` : ""}
         <div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Distance</div><div style="font-size:14px;font-weight:700;color:#a1a1aa">${km.toFixed(1)} km</div></div>
         <div style="background:#18181b;padding:6px 8px;border-radius:6px;text-align:center"><div style="font-size:8px;color:#71717a;text-transform:uppercase;letter-spacing:.06em">Commute</div><div style="font-size:11px;font-weight:600;color:#a1a1aa">${commuteNote}</div></div>
       </div>

@@ -15,18 +15,32 @@ const company = {
   jobUrl: "https://test.com",
   langReq: "en",
   openRoles: [
-    { title: "Senior SDET", url: "https://test.com/senior" },
+    {
+      title: "Senior SDET",
+      url: "https://test.com/senior",
+      publishedAt: "2026-08-10T00:00:00Z",
+      verificationStatus: "alive",
+    },
   ],
 };
 
-const salary = { best: 71, roles: [{ title: "Senior SDET", estimate: 71 }] };
+const range = {
+  min: 64,
+  target: 74,
+  max: 86,
+  estimate: 74,
+  label: "Vienna market range",
+  confidence: "medium-low",
+  reasons: ["2026 Vienna senior benchmark"],
+};
+const salary = { best: 74, bestRange: range, roles: [{ title: "Senior SDET", ...range }] };
 
 describe("CompanyCard", () => {
-  it("renders company name and salary estimate", () => {
+  it("renders company name and evidence-labelled salary range", () => {
     render(<CompanyCard company={company} salary={salary} />);
     expect(screen.getByText("Test Corp")).toBeInTheDocument();
-    expect(screen.getByText("Heuristic estimate")).toBeInTheDocument();
-    expect(screen.getAllByText(/€71k/).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText("Vienna market range")).toBeInTheDocument();
+    expect(screen.getAllByText(/€64–86k/).length).toBeGreaterThanOrEqual(1);
   });
 
   it("renders tech stack badges", () => {
@@ -43,7 +57,7 @@ describe("CompanyCard", () => {
   it("renders open roles with per-role estimate", () => {
     render(<CompanyCard company={company} salary={salary} />);
     expect(screen.getByText("Senior SDET")).toBeInTheDocument();
-    expect(screen.getAllByText(/€71k/).length).toBe(2); // salary box + role estimate
+    expect(screen.getAllByText(/€64–86k/).length).toBe(2); // salary box + role estimate
   });
 
   it("hides salary box when salary is null", () => {
@@ -60,5 +74,11 @@ describe("CompanyCard", () => {
     const noRatings = { ...company, kununuRating: null };
     render(<CompanyCard company={noRatings} salary={salary} />);
     expect(screen.queryByText("Kununu")).not.toBeInTheDocument();
+  });
+
+  it("uses role verification rather than optional source warnings for the listing badge", () => {
+    render(<CompanyCard company={company} salary={salary} feedHealth={{ partial: true, stale: false }} />);
+    expect(screen.getByText("Verified listing")).toBeInTheDocument();
+    expect(screen.queryByText("Partially verified")).not.toBeInTheDocument();
   });
 });

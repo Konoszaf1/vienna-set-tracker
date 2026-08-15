@@ -47,20 +47,20 @@ export default function AnalyticsView({ entries, jobs, salaryMap, firstSeenMap, 
       <div className={styles.summary}>
         <Stat label="Companies" value={entries.length} delta={pulse.companiesDelta} />
         <Stat label="Open roles" value={totalRoles} delta={pulse.jobsDelta} />
-        <Stat label="Unique seen" value={timeSeries.totalUnique} />
+        <Stat label="Dated listings" value={timeSeries.totalUnique} />
         <Stat label="Tracked days" value={trackedDays} muted />
-        <Stat label="New today" value={newToday} />
+        <Stat label="Posted/found today" value={newToday} />
       </div>
 
       <Section title="Active job openings over time" subtitle="Daily live listing count after 404 and expired postings are pruned">
         <LineChart points={activePoints} ariaLabel="Active job openings over time" showArea={false} color="#10b981" />
       </Section>
 
-      <Section title="Unique listings discovered over time" subtitle={`Cumulative — based on when this browser first saw each role`}>
+      <Section title="Listings by known opening date" subtitle="Uses board publication dates where available and tracker discovery dates as a labelled fallback">
         <LineChart points={cumulativePoints} ariaLabel="Cumulative unique listings over time" />
       </Section>
 
-      <Section title="Weekly new listings" subtitle="Discovered by this tracker, grouped by week Monday to Sunday">
+      <Section title="Weekly posted/found listings" subtitle="Source publication dates with discovery-date fallback, grouped Monday to Sunday">
         <BarChart data={weeklyNew} ariaLabel="Weekly new listings" />
       </Section>
 

@@ -1,9 +1,14 @@
-function roleEstimate(salaryMap, companyId, role, index) {
+function roleSalary(salaryMap, companyId, role, index) {
   const salary = salaryMap?.[companyId];
   const match = salary?.roles?.find(item =>
     (role.id && item.id === role.id) || (role.url && item.url === role.url)
   );
-  return match?.estimate ?? salary?.roles?.[index]?.estimate ?? salary?.best ?? null;
+  return match ?? salary?.roles?.[index] ?? (salary?.best != null ? { estimate: salary.best, target: salary.best } : null);
+}
+
+function roleEstimate(salaryMap, companyId, role, index) {
+  const salary = roleSalary(salaryMap, companyId, role, index);
+  return salary?.target ?? salary?.estimate ?? null;
 }
 
 function languageSummary(roles, fallback) {
@@ -20,7 +25,7 @@ function languageSummary(roles, fallback) {
   }, "unknown");
 }
 
-function roleMatches({ role, companyMatchesSearch, query, language, estimate, salaryMin, salaryMax }) {
+function roleMatches({ role, companyMatchesSearch, query, language, estimate, salaryMin, salaryMax, recency, now }) {
   if (query && !companyMatchesSearch) {
     const text = [
       role.title,
@@ -39,10 +44,21 @@ function roleMatches({ role, companyMatchesSearch, query, language, estimate, sa
   if (language === "unknown" && roleLanguage !== "unknown") return false;
   if (salaryMin != null && (estimate == null || estimate < salaryMin)) return false;
   if (salaryMax != null && (estimate == null || estimate > salaryMax)) return false;
+  if (!matchesRecency(role, recency, now)) return false;
   return true;
 }
 
-export function filterAndSort({ companies, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax }) {
+export function filterAndSort({
+  companies,
+  salaryMap,
+  search,
+  filterLang,
+  sortBy,
+  salaryMin,
+  salaryMax,
+  recency = "all",
+  now = new Date(),
+}) {
   const query = String(search || "").trim().toLowerCase();
   salaryMap ||= {};
   const filtered = [];
@@ -61,13 +77,15 @@ export function filterAndSort({ companies, salaryMap, search, filterLang, sortBy
         estimate: roleEstimate(salaryMap, company.id, role, index),
         salaryMin,
         salaryMax,
+        recency,
+        now,
       }));
       if (matchingRoles.length === 0) continue;
 
       const estimates = matchingRoles
         .map(role => roleEstimate(salaryMap, company.id, role, roles.indexOf(role)))
         .filter(value => value != null);
-      const dates = matchingRoles.map(role => role.firstSeenAt).filter(Boolean).sort();
+      const dates = matchingRoles.map(role => listingDate(role).timestamp).filter(Boolean).sort();
       filtered.push({
         ...company,
         openRoles: matchingRoles,
@@ -87,6 +105,7 @@ export function filterAndSort({ companies, salaryMap, search, filterLang, sortBy
     const estimate = salaryMap[company.id]?.best;
     if (salaryMin != null && (estimate == null || estimate < salaryMin)) continue;
     if (salaryMax != null && (estimate == null || estimate > salaryMax)) continue;
+    if (recency !== "all") continue;
     filtered.push(company);
   }
 
@@ -104,3 +123,4 @@ export function filterAndSort({ companies, salaryMap, search, filterLang, sortBy
     return 0;
   });
 }
+import { listingDate, matchesRecency } from "./listingRecency";

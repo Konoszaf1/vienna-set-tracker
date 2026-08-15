@@ -20,7 +20,9 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - name: Check Python discovery script
-        run: python3 -m py_compile scripts/discoverJobs.py
+        run: |
+          python3 -m py_compile scripts/discoverJobs.py
+          python3 -m unittest scripts/discoverJobs_test.py
       - run: npm run test:coverage
 
       - name: Upload coverage

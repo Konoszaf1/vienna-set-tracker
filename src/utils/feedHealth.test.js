@@ -30,7 +30,7 @@ describe("feedHealth", () => {
       lastFullySuccessfulAt: "2026-08-14T10:00:00.000Z",
       sourceHealth: { scraper: { status: "healthy-with-warnings" } },
     };
-    expect(feedHealth(meta, NOW)).toMatchObject({ status: "partial", stale: false });
+    expect(feedHealth(meta, NOW)).toMatchObject({ status: "warning", warning: true, partial: false, stale: false });
   });
 
   it("marks old or missing data stale", () => {

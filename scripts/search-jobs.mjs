@@ -24,6 +24,7 @@ import { parse } from "node-html-parser";
 import { fileURLToPath } from "url";
 import { writeJsonAtomic } from "./atomicJson.mjs";
 import { datasetHash, hydrateJob, reconcileJobs } from "./jobLifecycle.mjs";
+import { extractJobPostingMetadata, extractSalaryFromText, normalizePublishedAt } from "./jobMetadata.mjs";
 import { validateJob } from "./jobValidator.mjs";
 
 const USER_AGENT =
@@ -156,6 +157,7 @@ async function fetchKununuSearch({ q, label }) {
           : null;
         if (!jobUrl) continue;
 
+        const publishedAt = normalizePublishedAt(job.datePosted || job.publishedAt || job.createdAt);
         jobs.push({
           url: jobUrl,
           title: job.title || "",
@@ -167,6 +169,11 @@ async function fetchKununuSearch({ q, label }) {
           kununuScore: job.profile?.score || null,
           techStack: [],
           langReq: "de-basic",
+          ...(publishedAt ? {
+            publishedAt,
+            publishedAtSource: "kununu-search-data",
+            publishedAtConfidence: "high",
+          } : {}),
         });
       }
 
@@ -329,6 +336,7 @@ async function fetchDevjobsDetail(page, card, source) {
     const location = extractDevjobsLocation(detail.text, detail.details, detail.mapHref);
     if (!isViennaLocation(detail.details.Ort)) return { job: null, complete: true };
     const techStack = detail.techStack.length > 0 ? detail.techStack : extractTechStack(detail.text);
+    const salary = extractSalaryFromText(detail.details.Gehalt || detail.text);
 
     return {
       complete: true,
@@ -343,6 +351,7 @@ async function fetchDevjobsDetail(page, card, source) {
         lng: location.lng,
         techStack,
         langReq: extractLangReq(detail.text),
+        ...salary,
       },
     };
   } catch (e) {
@@ -786,6 +795,7 @@ async function main() {
       });
       if (res.ok) {
         const html = await res.text();
+        Object.assign(job, extractJobPostingMetadata(html));
         const loc = extractJobLocation(html);
         if (loc) {
           job.address = loc.address;

@@ -165,4 +165,35 @@ describe("filterAndSort", () => {
     const result = filterAndSort({ ...defaults, salaryMin: null, salaryMax: null });
     expect(result.map(c => c.id)).toEqual(["a", "b", "c"]);
   });
+
+  it("filters recency at vacancy level using publication date before first-seen date", () => {
+    const dated = [{
+      id: "dated",
+      name: "Dated GmbH",
+      langReq: "en",
+      openRoles: [
+        {
+          id: "old-post",
+          title: "QA Engineer",
+          langReq: "en",
+          publishedAt: "2026-08-01T00:00:00Z",
+          firstSeenAt: "2026-08-14T00:00:00Z",
+        },
+        {
+          id: "new-post",
+          title: "SDET",
+          langReq: "en",
+          publishedAt: "2026-08-13T00:00:00Z",
+          firstSeenAt: "2026-08-14T00:00:00Z",
+        },
+      ],
+    }];
+    const result = filterAndSort({
+      ...defaults,
+      companies: dated,
+      recency: "3",
+      now: new Date("2026-08-15T00:00:00Z"),
+    });
+    expect(result[0].openRoles.map(role => role.id)).toEqual(["new-post"]);
+  });
 });

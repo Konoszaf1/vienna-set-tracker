@@ -44,6 +44,25 @@ describe("job lifecycle", () => {
     expect(result.jobs[0].lastSeenAt).toBe(NOW);
   });
 
+  it("preserves source publication and advertised salary evidence across refreshes", () => {
+    const previous = hydrateJob(job({
+      publishedAt: "2026-04-28T00:00:00.000Z",
+      publishedAtSource: "jobspy-linkedin-date-posted",
+      publishedAtConfidence: "high",
+      advertisedSalaryMin: 55_000,
+      advertisedSalaryMax: 70_000,
+      advertisedSalaryCurrency: "EUR",
+      advertisedSalaryPeriod: "year",
+      advertisedSalaryKind: "range",
+    }), { now: "2026-05-01T00:00:00.000Z" });
+    const result = reconcileJobs({ previous: [previous], current: [job()], now: NOW });
+    expect(result.jobs[0]).toMatchObject({
+      publishedAt: "2026-04-28T00:00:00.000Z",
+      advertisedSalaryMin: 55_000,
+      advertisedSalaryMax: 70_000,
+    });
+  });
+
   it("retains jobs from a failed source without advancing misses", () => {
     const previous = hydrateJob(job(), { now: "2026-05-01T00:00:00.000Z" });
     const result = reconcileJobs({ previous: [previous], current: [], completedSources: [], now: NOW });

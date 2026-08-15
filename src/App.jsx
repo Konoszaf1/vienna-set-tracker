@@ -2,12 +2,13 @@ import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { PROFILE_STORAGE_KEY } from "./constants";
 import { filterAndSort } from "./utils/filterSort";
 import defaultProfileData from "./data/defaultProfile.json";
-import { estimateSalary } from "./utils/salaryEstimate";
+import { estimateSalaryRange } from "./utils/salaryEstimate";
 import { normalizeCompanyName } from "./utils/normalizeCompany";
 import { resolveCompanyLocation } from "./utils/companyLocation";
 import { deriveJobCompany, isRemoteRole } from "./utils/jobCompany";
 import { feedHealth as deriveFeedHealth } from "./utils/feedHealth";
 import { canonicalizeTechStack } from "./utils/normalizeTech";
+import { listingDate } from "./utils/listingRecency";
 import CompanyCard from "./components/CompanyCard";
 import MapView from "./components/MapView";
 import AnalyticsView from "./components/AnalyticsView";
@@ -17,6 +18,7 @@ import styles from './App.module.css';
 const VALID_VIEWS = new Set(["grid", "map", "analytics"]);
 const VALID_LANG_FILTERS = new Set(["all", "accessible", "de-fluent", "unknown"]);
 const VALID_SORTS = new Set(["name", "newest", "salary", "rating"]);
+const VALID_RECENCY = new Set(["all", "1", "3", "7", "14", "30", "unknown"]);
 
 function queryParam(name, fallback, validValues) {
   const value = new URLSearchParams(window.location.search).get(name);
@@ -48,6 +50,7 @@ export default function App() {
   const [sortBy, setSortBy] = useState(() => queryParam("sort", "name", VALID_SORTS));
   const [salaryMin, setSalaryMin] = useState(() => numericQueryParam("min"));
   const [salaryMax, setSalaryMax] = useState(() => numericQueryParam("max"));
+  const [recency, setRecency] = useState(() => queryParam("age", "all", VALID_RECENCY));
   const [jobs, setJobs] = useState([]);
   const [jobsMeta, setJobsMeta] = useState({});
   const [jobHistory, setJobHistory] = useState({ snapshots: [] });
@@ -150,9 +153,10 @@ export default function App() {
     if (sortBy !== "name") params.set("sort", sortBy);
     if (salaryMin != null) params.set("min", String(salaryMin));
     if (salaryMax != null) params.set("max", String(salaryMax));
+    if (recency !== "all") params.set("age", recency);
     const query = params.toString();
     window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`);
-  }, [view, search, filterLang, sortBy, salaryMin, salaryMax]);
+  }, [view, search, filterLang, sortBy, salaryMin, salaryMax, recency]);
 
   // Prefer feed-owned lifecycle dates; retain a bounded browser fallback for
   // legacy feeds so temporarily missing jobs do not become "new" on return.
@@ -178,6 +182,12 @@ export default function App() {
     try { localStorage.setItem("sdet-first-seen", JSON.stringify(firstSeenMap)); } catch {}
   }, [jobs, firstSeenMap]);
 
+  const listingDateMap = useMemo(() => Object.fromEntries(
+    jobs
+      .map(job => [job.url, listingDate(job).timestamp])
+      .filter(([, timestamp]) => Boolean(timestamp))
+  ), [jobs]);
+
   // Group jobs by normalized company name (collapses ÖBB / ÖBB-Konzern etc.)
   const entries = useMemo(() => {
     const groups = {};
@@ -197,7 +207,7 @@ export default function App() {
       // Display the longest original company name (usually the most informative)
       const displayName = roles.reduce((a, b) => b.company.length > a.length ? b.company : a, roles[0].company);
       const first = roles[0];
-      const roleDates = roles.map(r => r.firstSeenAt).filter(Boolean);
+      const roleDates = roles.map(r => listingDate(r).timestamp).filter(Boolean);
       const firstSeen = roleDates.length > 0
         ? roleDates.reduce((a, b) => a > b ? a : b)
         : null;
@@ -240,20 +250,19 @@ export default function App() {
     });
   }, [jobs, firstSeenMap, locationsCache, locationOverrides]);
 
-  // Simple seniority-based salary estimate per company (best across roles)
+  // Evidence-ranked salary range per role; company summary uses the role with
+  // the highest market target while retaining the full range and provenance.
   const salaryMap = useMemo(() => {
     const map = {};
     for (const c of entries) {
-      const estimates = (c.openRoles || []).map(r => ({
-        id: r.id,
-        url: r.url,
-        title: r.title,
-        estimate: estimateSalary(r),
-      }));
-      const best = estimates.length > 0
-        ? estimates.reduce((a, b) => a.estimate > b.estimate ? a : b).estimate
+      const estimates = (c.openRoles || []).map(r => {
+        const range = estimateSalaryRange(r);
+        return { id: r.id, url: r.url, title: r.title, ...range, estimate: range.target };
+      });
+      const bestRange = estimates.length > 0
+        ? estimates.reduce((a, b) => a.target > b.target ? a : b)
         : null;
-      map[c.id] = { best, roles: estimates };
+      map[c.id] = { best: bestRange?.target ?? null, bestRange, roles: estimates };
     }
     return map;
   }, [entries]);
@@ -267,20 +276,24 @@ export default function App() {
   }, []);
 
   const filtered = useMemo(() => {
-    return filterAndSort({ companies: entries, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax });
-  }, [entries, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax]);
+    return filterAndSort({ companies: entries, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax, recency });
+  }, [entries, salaryMap, search, filterLang, sortBy, salaryMin, salaryMax, recency]);
 
   const displaySalaryMap = useMemo(() => {
     const map = {};
     for (const company of filtered) {
       const original = salaryMap[company.id]?.roles || [];
-      const roles = company.openRoles.map(role =>
-        original.find(item => (role.id && item.id === role.id) || item.url === role.url)
-        || { id: role.id, url: role.url, title: role.title, estimate: estimateSalary(role) }
-      );
+      const roles = company.openRoles.map(role => {
+        const existing = original.find(item => (role.id && item.id === role.id) || item.url === role.url);
+        if (existing) return existing;
+        const range = estimateSalaryRange(role);
+        return { id: role.id, url: role.url, title: role.title, ...range, estimate: range.target };
+      });
+      const bestRange = roles.length ? roles.reduce((a, b) => a.target > b.target ? a : b) : null;
       map[company.id] = {
         roles,
-        best: roles.length ? Math.max(...roles.map(role => role.estimate)) : null,
+        best: bestRange?.target ?? null,
+        bestRange,
       };
     }
     return map;
@@ -292,13 +305,14 @@ export default function App() {
     [filtered, health.status]
   );
   const matchingRoleCount = filtered.reduce((total, company) => total + company.openRoles.length, 0);
-  const hasActiveFilters = Boolean(search || filterLang !== "all" || salaryMin != null || salaryMax != null);
+  const hasActiveFilters = Boolean(search || filterLang !== "all" || salaryMin != null || salaryMax != null || recency !== "all");
 
   const resetFilters = () => {
     setSearch("");
     setFilterLang("all");
     setSalaryMin(null);
     setSalaryMax(null);
+    setRecency("all");
   };
 
   if (loading) {
@@ -341,7 +355,13 @@ export default function App() {
 
         <div className={styles.freshness} data-status={health.status} role="status" data-testid="feed-freshness">
           <span className={styles.freshnessTitle}>
-            {health.stale ? "Feed is stale" : health.partial ? "Feed partially refreshed" : "Feed verified"}
+            {health.stale
+              ? "Feed is stale"
+              : health.partial
+                ? "Feed partially refreshed"
+                : health.warning
+                  ? "Feed verified · some discovery sources unavailable"
+                  : "Feed verified"}
           </span>
           <span>
             Last fully refreshed {health.ageLabel}
@@ -372,6 +392,16 @@ export default function App() {
             <option value="newest">Sort: Newest</option>
             <option value="salary">Sort: Salary</option>
             <option value="rating">Sort: Rating</option>
+          </select>
+
+          <select value={recency} onChange={e => setRecency(e.target.value)} className={`${styles.input} ${styles.sortSelect}`} data-testid="recency-select" aria-label="Listing recency filter">
+            <option value="all">Any Posting Age</option>
+            <option value="1">Posted/Found: 24 Hours</option>
+            <option value="3">Posted/Found: 3 Days</option>
+            <option value="7">Posted/Found: 7 Days</option>
+            <option value="14">Posted/Found: 14 Days</option>
+            <option value="30">Posted/Found: 30 Days</option>
+            <option value="unknown">Posting Date Unknown</option>
           </select>
 
           <div className={styles.salaryRange}>
@@ -432,7 +462,7 @@ export default function App() {
             entries={entries}
             jobs={jobs}
             salaryMap={salaryMap}
-            firstSeenMap={firstSeenMap}
+            firstSeenMap={listingDateMap}
             jobHistory={jobHistory}
             jobsMeta={jobsMeta}
           />

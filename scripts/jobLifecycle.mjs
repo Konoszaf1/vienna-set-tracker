@@ -109,7 +109,14 @@ export function mergeJobs(existing, incoming, now = new Date().toISOString()) {
     consecutiveMisses: 0,
   };
 
-  for (const field of ["address", "city", "zip", "lat", "lng", "kununuScore", "glassdoorScore", "reportedSalary"]) {
+  merged.publishedAt = earlierTimestamp(previous.publishedAt, next.publishedAt);
+  if (!merged.publishedAt) delete merged.publishedAt;
+
+  for (const field of [
+    "address", "city", "zip", "lat", "lng", "kununuScore", "glassdoorScore", "reportedSalary",
+    "publishedAtSource", "publishedAtConfidence", "advertisedSalaryMin", "advertisedSalaryMax",
+    "advertisedSalaryCurrency", "advertisedSalaryPeriod", "advertisedSalaryKind", "advertisedSalarySource",
+  ]) {
     if ((next[field] == null || next[field] === "") && previous[field] != null && previous[field] !== "") {
       merged[field] = previous[field];
     }
