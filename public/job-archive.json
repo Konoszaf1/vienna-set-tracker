@@ -1,0 +1,36 @@
+{
+  "jobs": [
+    {
+      "url": "https://www.linkedin.com/jobs/view/4440672135",
+      "title": "Software Tester",
+      "company": "FB Consulting & Trade GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1991777,
+      "lng": 16.3500903,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4440672135",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4440672135"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-15T07:35:08.264969+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-08-15T19:03:30.977Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-08-16T07:34:54.344Z",
+      "closeReason": "LinkedIn inactive message"
+    }
+  ],
+  "lastUpdated": "2026-08-16T07:34:54.344Z"
+}
