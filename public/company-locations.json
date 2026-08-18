@@ -12,7 +12,7 @@
   "michael page international austria gmbh": {
     "lat": 48.2251975,
     "lng": 16.3559533,
-    "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund"
+    "address": "Wien"
   },
   "qnit austria gmbh": {
     "lat": 48.2364804,
@@ -153,7 +153,7 @@
   "t-systems austria": {
     "lat": 48.1867515,
     "lng": 16.4032705,
-    "address": "Rennweg 97-99, 1030 Wien, Landstraße"
+    "address": "Wien"
   },
   "designer group": {
     "lat": 48.1943005,
@@ -378,7 +378,7 @@
   "michael page": {
     "lat": 48.2251975,
     "lng": 16.3559533,
-    "address": "Alserbachstraße, 5, 1090, Himmelpfortgrund"
+    "address": "Wien"
   },
   "öbb-konzern": {
     "lat": 48.2006384,
@@ -974,12 +974,12 @@
   "ximes": {
     "lat": 48.2156598,
     "lng": 16.3767547,
-    "address": "Hollandstraße 12/12, 1020 Wien"
+    "address": "Wien"
   },
   "ximes gmbh": {
     "lat": 48.2156598,
     "lng": 16.3767547,
-    "address": "Hollandstraße 12/12, 1020 Wien"
+    "address": "Wien"
   },
   "ivm consulting co": {
     "lat": null,
@@ -996,5 +996,17 @@
     "lat": 48.2510399,
     "lng": 16.4447756,
     "address": "Wagramer Straße, 162, 1220, KG Kagran"
+  },
+  "regionalmedien ober": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-08-18T07:42:09.647Z"
+  },
+  "regionalmedien oberösterreich": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-08-18T07:42:09.647Z"
   }
 }
