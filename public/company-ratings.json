@@ -167,11 +167,13 @@
   },
   "deutsche telekom": {
     "kununu": null,
-    "fetchedAt": "2026-08-04T09:43:27.648Z"
+    "fetchedAt": "2026-08-19T07:43:33.912Z",
+    "lastErrorAt": null
   },
   "delegate": {
     "kununu": null,
-    "fetchedAt": "2026-08-04T09:43:25.642Z"
+    "fetchedAt": "2026-08-19T07:43:31.899Z",
+    "lastErrorAt": null
   },
   "t systems": {
     "kununu": null,
@@ -187,7 +189,8 @@
   },
   "enpulsion": {
     "kununu": null,
-    "fetchedAt": "2026-08-04T09:43:23.635Z"
+    "fetchedAt": "2026-08-19T07:43:35.924Z",
+    "lastErrorAt": null
   },
   "akkodis": {
     "kununu": {
@@ -435,7 +438,8 @@
   },
   "techbiz global": {
     "kununu": null,
-    "fetchedAt": "2026-06-18T11:14:28.994Z"
+    "fetchedAt": "2026-08-19T07:43:41.959Z",
+    "lastErrorAt": null
   },
   "dedalus healthcare ges m b h": {
     "kununu": null,
@@ -467,7 +471,8 @@
   },
   "fonio ai": {
     "kununu": null,
-    "fetchedAt": "2026-06-13T10:01:13.616Z"
+    "fetchedAt": "2026-08-19T07:43:39.947Z",
+    "lastErrorAt": null
   },
   "alstom": {
     "kununu": null,
@@ -595,11 +600,13 @@
   },
   "epunkt": {
     "kununu": null,
-    "fetchedAt": "2026-08-04T09:43:19.620Z"
+    "fetchedAt": "2026-08-19T07:43:37.936Z",
+    "lastErrorAt": null
   },
   "ximes": {
     "kununu": null,
-    "fetchedAt": "2026-08-04T09:43:21.628Z"
+    "fetchedAt": "2026-08-19T07:43:43.969Z",
+    "lastErrorAt": null
   },
   "ivm consulting co": {
     "kununu": null,
