@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4442804847",
+      "title": "Test Engineer Embedded Software",
+      "company": "SBG Associates",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1395494,
+      "lng": 16.3440133,
+      "id": "job-linkedin-4442804847",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4442804847"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-08-18T07:41:50.223014+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-08-19T07:44:16.939Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-08-05T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-08-20T07:45:01.319Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4440672135",
       "title": "Software Tester",
       "company": "FB Consulting & Trade GmbH",
@@ -32,5 +67,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-08-16T07:34:54.344Z"
+  "lastUpdated": "2026-08-20T07:45:01.319Z"
 }
