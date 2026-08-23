@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4449867072",
+      "title": "Test Automation Engineer - Senior Consultant (m,w,d)",
+      "company": "QESTIT DACH",
+      "source": "jobspy-linkedin",
+      "address": "Marc-Aurel-Straße 4, 1010 Wien, Innere Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2117568,
+      "lng": 16.3728768,
+      "id": "job-linkedin-4449867072",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4449867072"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-08-18T07:41:50.223014+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-08-22T07:35:37.349Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-08-11T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-08-23T07:37:28.964Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4442804847",
       "title": "Test Engineer Embedded Software",
       "company": "SBG Associates",
@@ -67,5 +102,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-08-20T07:45:01.319Z"
+  "lastUpdated": "2026-08-23T07:37:28.964Z"
 }
