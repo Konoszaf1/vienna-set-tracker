@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4455202567",
+      "title": "Test Automation Engineer (w/m/d)",
+      "company": "RegionalMedien Oberösterreich",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "techStack": [],
+      "langReq": "unknown",
+      "publishedAt": "2026-08-16T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4455202567",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4455202567"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-18T07:41:50.223014+00:00",
+      "lastSeenAt": "2026-08-18T07:41:50.223014+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-08-25T07:47:35.516Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-08-26T07:50:44.128Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4449867072",
       "title": "Test Automation Engineer - Senior Consultant (m,w,d)",
       "company": "QESTIT DACH",
@@ -102,5 +137,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-08-23T07:37:28.964Z"
+  "lastUpdated": "2026-08-26T07:50:44.128Z"
 }
