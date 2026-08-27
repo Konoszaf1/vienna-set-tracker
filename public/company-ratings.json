@@ -421,11 +421,13 @@
   },
   "atomic energy agency": {
     "kununu": null,
-    "fetchedAt": "2026-08-13T08:26:18.414Z"
+    "fetchedAt": "2026-08-27T18:11:15.215Z",
+    "lastErrorAt": null
   },
   "atomic energy agency iaea": {
     "kununu": null,
-    "fetchedAt": "2026-08-13T08:26:16.389Z"
+    "fetchedAt": "2026-08-27T18:11:17.223Z",
+    "lastErrorAt": null
   },
   "bosch österreich": {
     "kununu": null,
@@ -634,6 +636,16 @@
   "regionalmedien ober": {
     "kununu": null,
     "fetchedAt": "2026-08-18T07:41:52.564Z",
+    "lastErrorAt": null
+  },
+  "cellcube energy storage": {
+    "kununu": null,
+    "fetchedAt": "2026-08-27T18:11:13.206Z",
+    "lastErrorAt": null
+  },
+  "viewpointsystem": {
+    "kununu": null,
+    "fetchedAt": "2026-08-27T18:11:19.229Z",
     "lastErrorAt": null
   }
 }

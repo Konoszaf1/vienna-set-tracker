@@ -1008,5 +1008,17 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-08-18T07:42:09.647Z"
+  },
+  "cellcube energy storage": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-08-27T18:11:36.577Z"
+  },
+  "viewpointsystem": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-08-27T18:11:46.372Z"
   }
 }
