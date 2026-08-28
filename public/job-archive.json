@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4455181848",
+      "title": "Software Tester / QA Engineer (m/w/d)",
+      "company": "XIMES GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2156598,
+      "lng": 16.3767547,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4455181848",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4455181848"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-17T07:56:50.049017+00:00",
+      "lastSeenAt": "2026-08-19T07:43:31.555750+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-08-27T18:11:47.942Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-08-16T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-08-28T19:20:49.884Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4455202567",
       "title": "Test Automation Engineer (w/m/d)",
       "company": "RegionalMedien Oberösterreich",
@@ -137,5 +172,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-08-26T07:50:44.128Z"
+  "lastUpdated": "2026-08-28T19:20:49.884Z"
 }

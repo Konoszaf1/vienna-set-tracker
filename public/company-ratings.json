@@ -28,7 +28,8 @@
   },
   "xxxldigital part of xxxl": {
     "kununu": null,
-    "fetchedAt": "2026-08-14T08:21:13.074Z"
+    "fetchedAt": "2026-08-28T19:20:45.259Z",
+    "lastErrorAt": null
   },
   "schrack technik": {
     "kununu": null,
@@ -36,7 +37,8 @@
   },
   "österreichische post": {
     "kununu": null,
-    "fetchedAt": "2026-08-14T08:21:17.090Z"
+    "fetchedAt": "2026-08-28T19:20:47.271Z",
+    "lastErrorAt": null
   },
   "admiral technologies": {
     "kununu": null,
@@ -563,7 +565,8 @@
   },
   "fronius österreich": {
     "kununu": null,
-    "fetchedAt": "2026-08-14T08:21:15.083Z"
+    "fetchedAt": "2026-08-28T19:20:43.244Z",
+    "lastErrorAt": null
   },
   "drei österreich": {
     "kununu": null,
