@@ -1020,5 +1020,15 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-08-27T18:11:46.372Z"
+  },
+  "mavoco": {
+    "lat": 48.1849117,
+    "lng": 16.3781345,
+    "address": "Gertrude-Fröhlich-Sandner-Straße 13a,, 1100 Wien"
+  },
+  "mavoco ag": {
+    "lat": 48.1849117,
+    "lng": 16.3781345,
+    "address": "Gertrude-Fröhlich-Sandner-Straße 13a,, 1100 Wien"
   }
 }

@@ -47,7 +47,7 @@
   },
   "software daten service m b h": {
     "kununu": null,
-    "fetchedAt": "2026-08-17T07:56:54.408Z",
+    "fetchedAt": "2026-08-31T14:57:22.132Z",
     "lastErrorAt": null
   },
   "melecs ews": {
@@ -305,7 +305,7 @@
   },
   "mercury": {
     "kununu": null,
-    "fetchedAt": "2026-08-17T07:56:50.390Z",
+    "fetchedAt": "2026-08-31T14:57:20.125Z",
     "lastErrorAt": null
   },
   "wüstenrot": {
@@ -649,6 +649,11 @@
   "viewpointsystem": {
     "kununu": null,
     "fetchedAt": "2026-08-27T18:11:19.229Z",
+    "lastErrorAt": null
+  },
+  "mavoco": {
+    "kununu": null,
+    "fetchedAt": "2026-08-31T14:57:18.117Z",
     "lastErrorAt": null
   }
 }
