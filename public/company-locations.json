@@ -1030,5 +1030,15 @@
     "lat": 48.1849117,
     "lng": 16.3781345,
     "address": "Gertrude-Fröhlich-Sandner-Straße 13a,, 1100 Wien"
+  },
+  "rheinmetall": {
+    "lat": 48.1392809,
+    "lng": 16.295877,
+    "address": "Seybelgasse, 1230, Katastralgemeinde Liesing"
+  },
+  "roche": {
+    "lat": 48.2131934,
+    "lng": 16.367351,
+    "address": "Wipplingerstraße, 27, 1010, Innere Stadt"
   }
 }

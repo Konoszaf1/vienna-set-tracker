@@ -18,7 +18,7 @@
   },
   "michael page": {
     "kununu": null,
-    "fetchedAt": "2026-08-17T07:56:52.401Z",
+    "fetchedAt": "2026-09-01T12:27:21.670Z",
     "lastErrorAt": null
   },
   "qnit": {
@@ -188,7 +188,7 @@
   },
   "t systems": {
     "kununu": null,
-    "fetchedAt": "2026-08-18T07:41:54.583Z",
+    "fetchedAt": "2026-09-01T12:27:27.699Z",
     "lastErrorAt": null
   },
   "designer": {
@@ -618,7 +618,7 @@
   },
   "evolit schweiz": {
     "kununu": null,
-    "fetchedAt": "2026-08-18T07:41:50.543Z",
+    "fetchedAt": "2026-09-01T12:27:19.659Z",
     "lastErrorAt": null
   },
   "epunkt": {
@@ -654,6 +654,16 @@
   "mavoco": {
     "kununu": null,
     "fetchedAt": "2026-08-31T14:57:18.117Z",
+    "lastErrorAt": null
+  },
+  "rheinmetall": {
+    "kununu": null,
+    "fetchedAt": "2026-09-01T12:27:23.681Z",
+    "lastErrorAt": null
+  },
+  "roche": {
+    "kununu": null,
+    "fetchedAt": "2026-09-01T12:27:25.690Z",
     "lastErrorAt": null
   }
 }
