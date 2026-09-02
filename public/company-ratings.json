@@ -178,12 +178,12 @@
   },
   "deutsche telekom": {
     "kununu": null,
-    "fetchedAt": "2026-08-19T07:43:33.912Z",
+    "fetchedAt": "2026-09-02T12:02:44.986Z",
     "lastErrorAt": null
   },
   "delegate": {
     "kununu": null,
-    "fetchedAt": "2026-08-19T07:43:31.899Z",
+    "fetchedAt": "2026-09-02T12:02:42.978Z",
     "lastErrorAt": null
   },
   "t systems": {
@@ -200,7 +200,7 @@
   },
   "enpulsion": {
     "kununu": null,
-    "fetchedAt": "2026-08-19T07:43:35.924Z",
+    "fetchedAt": "2026-09-02T12:02:46.993Z",
     "lastErrorAt": null
   },
   "akkodis": {
@@ -454,7 +454,7 @@
   },
   "techbiz global": {
     "kununu": null,
-    "fetchedAt": "2026-08-19T07:43:41.959Z",
+    "fetchedAt": "2026-09-02T12:02:57.034Z",
     "lastErrorAt": null
   },
   "dedalus healthcare ges m b h": {
@@ -490,7 +490,7 @@
   },
   "fonio ai": {
     "kununu": null,
-    "fetchedAt": "2026-08-19T07:43:39.947Z",
+    "fetchedAt": "2026-09-02T12:02:51.010Z",
     "lastErrorAt": null
   },
   "alstom": {
@@ -623,7 +623,7 @@
   },
   "epunkt": {
     "kununu": null,
-    "fetchedAt": "2026-08-19T07:43:37.936Z",
+    "fetchedAt": "2026-09-02T12:02:49.001Z",
     "lastErrorAt": null
   },
   "ximes": {
@@ -664,6 +664,21 @@
   "roche": {
     "kununu": null,
     "fetchedAt": "2026-09-01T12:27:25.690Z",
+    "lastErrorAt": null
+  },
+  "aaa all about apps": {
+    "kununu": null,
+    "fetchedAt": "2026-09-02T12:02:40.969Z",
+    "lastErrorAt": null
+  },
+  "philips dictation speech processing solutions": {
+    "kununu": null,
+    "fetchedAt": "2026-09-02T12:02:53.017Z",
+    "lastErrorAt": null
+  },
+  "speech processing solutions": {
+    "kununu": null,
+    "fetchedAt": "2026-09-02T12:02:55.026Z",
     "lastErrorAt": null
   }
 }

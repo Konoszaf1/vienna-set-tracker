@@ -1,6 +1,73 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4460010235",
+      "title": "QA Automation Engineer @ MAVOCO AG",
+      "company": "MAVOCO AG",
+      "source": "jobspy-linkedin",
+      "address": "Gertrude-Fröhlich-Sandner-Straße 13a,, 1100 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1849117,
+      "lng": 16.3781345,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4460010235",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4460010235"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-31T14:57:17.790805+00:00",
+      "lastSeenAt": "2026-08-31T14:57:17.790805+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-01T12:27:33.363Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-09-02T12:03:41.734Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4450488954",
+      "title": "Senior Software Tester (w/m/x) - Community Lead",
+      "company": "Pineapple Recruiting GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2237941,
+      "lng": 16.3968471,
+      "id": "job-linkedin-4450488954",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4450488954"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-08-31T14:57:17.790805+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-01T12:27:33.363Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-08-13T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-09-02T12:03:41.734Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4455181848",
       "title": "Software Tester / QA Engineer (m/w/d)",
       "company": "XIMES GmbH",
@@ -172,5 +239,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-08-28T19:20:49.884Z"
+  "lastUpdated": "2026-09-02T12:03:41.734Z"
 }
