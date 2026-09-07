@@ -23,6 +23,30 @@ npm run dev
 
 Run tests with `npm test` (unit) and `npm run e2e` (Playwright against a production build).
 
+## Map tiles
+
+The map uses OpenStreetMap tiles when no CARTO key is configured. To use the
+original CARTO Voyager style, request a free key for `konoszaf1.github.io` at
+[CARTO](https://carto.com/basemaps/apikey/). For local development, add
+`VITE_CARTO_API_KEY=your-key` to `.env.local`. For GitHub Pages, set the repository
+Actions secret `CARTO_API_KEY` and rebuild; both deployment workflows pass it to
+Vite. This is a browser tile key and will be visible in the built app and tile
+requests. CARTO now watermarks tiles requested without a valid key.
+
+OpenStreetMap attribution stays visible and browser caching is used, following
+the [tile usage policy](https://operations.osmfoundation.org/policies/tiles/).
+Leaflet styles are bundled with the app so map layout does not depend on a CSS CDN.
+
+## Discovery failures
+
+JobSpy boards are queried separately so a Google rate limit cannot discard
+LinkedIn or Indeed results. After two consecutive exceptions, the remaining
+queries for that board are skipped for the run. Failed boards retain their prior
+listings and record per-board query health in `sourceHealth.jobspy.boards`.
+Even when all JobSpy boards fail, the workflow can finish other sources and
+liveness verification; the existing feed validation and freshness gate still
+decide whether the result can be published.
+
 ## Project structure
 
 ```
@@ -101,7 +125,7 @@ npm run test:coverage # unit + coverage report
 npm run e2e           # Playwright across 5 browser targets
 ```
 
-**Unit tests** (303 JavaScript tests across 29 files plus 3 Python metadata tests) cover utilities, components, posting-date and salary extraction, lifecycle/reconciliation logic, source boundaries, feed validation, and the JSON schema contract. All tests use deterministic fixtures — no live network calls.
+**Unit tests** (305 JavaScript tests across 30 files plus 9 Python tests) cover utilities, components, posting-date and salary extraction, lifecycle/reconciliation logic, source failure isolation, map provider configuration, feed validation, and the JSON schema contract. All tests use deterministic fixtures — no live network calls.
 
 **E2E tests** (28 scenarios across 5 browser targets = 140 tests) run against a production build with fixture data, covering search/language/salary/recency filters, settings and URL persistence, network recovery, external link safety, WCAG AA contrast/accessibility, and keyboard navigation.
 

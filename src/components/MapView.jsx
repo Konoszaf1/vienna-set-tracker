@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { DEFAULT_HOME, DEFAULT_HOME_ADDRESS } from "../constants";
 import { escapeHtml } from "../utils/escape";
+import { mapTileConfig } from "../utils/mapTiles";
+import 'leaflet/dist/leaflet.css';
 import { haversine, salaryColor, buildPopupHtml, computeStackingIndex, stemHeight, clusterSize, clusterAvgSalary } from "../utils/mapHelpers";
 import styles from './MapView.module.css';
 
@@ -92,10 +94,8 @@ export default function MapView({ companies, profile, salaryMap, onHomeMove }) {
         center: home, zoom: 13,
         zoomControl: true, attributionControl: true,
       });
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: "abcd", maxZoom: 19,
-      }).addTo(mapInstanceRef.current);
+      const tiles = mapTileConfig();
+      L.tileLayer(tiles.url, tiles.options).addTo(mapInstanceRef.current);
 
       prevHomeRef.current = home;
     }

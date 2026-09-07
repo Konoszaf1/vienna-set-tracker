@@ -35,7 +35,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: pw-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: pw-chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - name: Install Playwright Chromium
         if: steps.pw-cache.outputs.cache-hit != 'true'
@@ -93,6 +93,8 @@ jobs:
 
       - name: Build site
         run: npm run build
+        env:
+          VITE_CARTO_API_KEY: ${{ secrets.CARTO_API_KEY }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

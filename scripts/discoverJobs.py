@@ -363,6 +363,42 @@ def geocode(address: str, cache: dict):
 # Main
 # ---------------------------------------------------------------------------
 
+def search_by_site(source_health: dict):
+    """Isolate board failures so one rejected request cannot discard other results."""
+    for site in SITES:
+        health = {"status": "healthy", "successfulQueries": 0, "failedQueries": [], "skippedQueries": []}
+        source_health[site] = health
+        consecutive_failures = 0
+        for index, term in enumerate(SEARCHES):
+            if consecutive_failures >= 2:
+                health["skippedQueries"] = SEARCHES[index:]
+                print(f"  Skipping remaining {site} searches after repeated failures")
+                break
+            print(f'  Searching {site}: "{term}" ...', end=" ", flush=True)
+            try:
+                results = scrape_jobs(
+                    site_name=[site],
+                    search_term=term,
+                    google_search_term=f"{term} Vienna Austria",
+                    location="Vienna, Austria",
+                    results_wanted=RESULTS_PER_SITE,
+                    hours_old=HOURS_OLD,
+                    country_indeed="Austria",
+                )
+            except Exception as error:
+                print(f"FAILED ({error})")
+                health["failedQueries"].append(term)
+                consecutive_failures += 1
+            else:
+                health["successfulQueries"] += 1
+                consecutive_failures = 0
+                yield results
+            finally:
+                time.sleep(2)  # Back off after failed requests as well as successes.
+        if health["failedQueries"]:
+            health["status"] = "partial" if health["successfulQueries"] else "error"
+
+
 def main():
     apply = "--apply" in sys.argv
 
@@ -408,31 +444,13 @@ def main():
     # --- Discover ----------------------------------------------------------
     print(f"Discovering jobs via JobSpy ({', '.join(SITES)}) ...")
     if prev_count:
-        print(f"  Replacing {prev_count} previous jobspy entries with fresh results\n")
+        print(f"  Reconciling {prev_count} previous jobspy entries with fresh results\n")
 
     discovered: list[dict] = []
     seen_urls: set[str] = set()
-    any_succeeded = False
-    failed_terms: list[str] = []
+    board_health: dict = {}
 
-    for term in SEARCHES:
-        print(f'  Searching: "{term}" ...', end=" ", flush=True)
-        try:
-            results = scrape_jobs(
-                site_name=SITES,
-                search_term=term,
-                google_search_term=f"{term} Vienna Austria",
-                location="Vienna, Austria",
-                results_wanted=RESULTS_PER_SITE,
-                hours_old=HOURS_OLD,
-                country_indeed="Austria",
-            )
-            any_succeeded = True
-        except Exception as e:
-            print(f"FAILED ({e})")
-            failed_terms.append(term)
-            continue
-
+    for results in search_by_site(board_health):
         if results.empty:
             print("0 results")
             continue
@@ -494,15 +512,21 @@ def main():
             added += 1
 
         print(f"{added} new")
-        time.sleep(2)  # rate-limit between search terms
 
     # --- Safety check ------------------------------------------------------
+    any_succeeded = any(health["successfulQueries"] for health in board_health.values())
+    failed_terms = [
+        f"{site}: {term}"
+        for site, health in board_health.items()
+        for term in health["failedQueries"]
+    ]
     if not any_succeeded:
         print(
-            "\nERROR: All JobSpy searches failed. "
+            "\nWARNING: All JobSpy searches failed. "
             "Keeping previous discoveries unchanged."
         )
-        sys.exit(1)
+        # Persist source health and retain prior rows; the final feed validator
+        # still rejects stale or invalid data before the workflow can deploy.
 
     print(f"\n{'─' * 55}")
     print(f"Discovered {len(discovered)} jobs across {', '.join(SITES)}")
@@ -543,8 +567,10 @@ def main():
             incoming = hydrate_job(found, now, observed=True)
             existing = previous_by_url.get(incoming["url"]) or previous_by_fingerprint.get(job_fingerprint(incoming))
             if existing:
+                stable_id = existing["id"]
                 first_seen = existing.get("firstSeenAt") or incoming["firstSeenAt"]
                 existing.update({k: v for k, v in incoming.items() if v not in (None, "", [])})
+                existing["id"] = stable_id
                 existing["firstSeenAt"] = first_seen
                 existing["lastSeenAt"] = now
                 existing["sourceStatus"] = "healthy"
@@ -569,8 +595,9 @@ def main():
             ),
         )
         data["count"] = len(data["jobs"])
-        data["lastUpdated"] = now
-        data["contentUpdatedAt"] = now
+        if any_succeeded:
+            data["lastUpdated"] = now
+            data["contentUpdatedAt"] = now
         count_cliff = prev_count > 0 and len(discovered) < math.ceil(prev_count * 0.25)
         pipeline_partial = bool(data.get("partial")) or bool(failed_terms) or count_cliff
         if not pipeline_partial:
@@ -578,12 +605,13 @@ def main():
         data["partial"] = pipeline_partial
         source_health = data.setdefault("sourceHealth", {})
         source_health["jobspy"] = {
-            "status": "healthy" if not failed_terms and not count_cliff else "partial",
+            "status": "error" if not any_succeeded else "partial" if failed_terms or count_cliff else "healthy",
             "checkedAt": now,
             "failedQueries": failed_terms,
             "countCliff": count_cliff,
             "discovered": len(discovered),
-            "retained": len(merged_jobspy) - len(discovered),
+            "retained": sum(job["sourceStatus"] == "retained-until-verified" for job in merged_jobspy),
+            "boards": board_health,
         }
         atomic_write_json(JOBS_FILE, data)
         atomic_write_json(GEOCACHE_FILE, geocache)

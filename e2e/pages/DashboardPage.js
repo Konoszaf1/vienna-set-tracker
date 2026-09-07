@@ -29,6 +29,13 @@ export class DashboardPage {
 
   /** Route jobs.json to fixture, clear localStorage, navigate. */
   async goto() {
+    // Map rendering is tested with local tiles, without consuming provider quota.
+    await this.page.route(/^https:\/\/(?:tile\.openstreetmap\.org|[a-d]\.basemaps\.cartocdn\.com)\//, route => {
+      route.fulfill({
+        contentType: 'image/svg+xml',
+        body: '<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><rect width="256" height="256" fill="#e8e5df"/></svg>',
+      });
+    });
     const now = Date.now();
     const datedFixture = {
       ...fixture,

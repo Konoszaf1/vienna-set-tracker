@@ -23,11 +23,16 @@ test('search filters to matching company', async ({ page }) => {
   await expect(dashboard.cards.first().locator('h3')).toHaveText('Dynatrace Austria GmbH');
 });
 
-test('map view toggle shows map container', async ({ page }) => {
+test('map renders tiles, bundled styles and attribution without a CSS CDN', async ({ page }) => {
+  await page.route('https://cdnjs.cloudflare.com/**', route => route.abort());
   const dashboard = new DashboardPage(page);
   await dashboard.switchToMap();
   await expect(dashboard.mapContainer).toBeVisible();
   await expect(page.locator('.leaflet-container')).toBeVisible({ timeout: 10000 });
+  await expect(page.locator('.leaflet-tile-loaded').first()).toBeVisible();
+  await expect(page.locator('.leaflet-tile').first()).toHaveCSS('position', 'absolute');
+  await expect(page.locator('.leaflet-control-attribution')).toContainText('OpenStreetMap');
+  await expect(dashboard.mapContainer.getByText('🏠 Home', { exact: true })).toBeVisible();
 });
 
 test('salary min filter reduces visible cards and clearing restores them', async ({ page }) => {
