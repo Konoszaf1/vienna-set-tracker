@@ -1,6 +1,37 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4438330029",
+      "title": "C# Entwickler für Testautomatisierung Solar & Energy (m/w/d)",
+      "company": "Fronius Österreich",
+      "source": "jobspy-linkedin",
+      "address": "Daumegasse, 1100, Katastralgemeinde Favoriten",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1653639,
+      "lng": 16.375847,
+      "id": "job-linkedin-4438330029",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4438330029"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-06T11:36:10.531Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-09-07T14:04:39.270Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4447950790",
       "title": "Test Engineer",
       "company": "SCIENTIFIC GAMES",
@@ -274,5 +305,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-09-03T12:02:15.879Z"
+  "lastUpdated": "2026-09-07T14:04:39.270Z"
 }
