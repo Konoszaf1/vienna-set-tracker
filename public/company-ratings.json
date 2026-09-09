@@ -358,7 +358,8 @@
   },
   "bundesrechenzentrum": {
     "kununu": null,
-    "fetchedAt": "2026-08-09T07:58:34.516Z"
+    "fetchedAt": "2026-09-09T12:15:49.128Z",
+    "lastErrorAt": null
   },
   "3 s it dienstleistungen": {
     "kununu": null,
@@ -482,12 +483,12 @@
   },
   "atos": {
     "kununu": null,
-    "fetchedAt": "2026-08-26T07:50:37.527Z",
+    "fetchedAt": "2026-09-09T12:15:47.113Z",
     "lastErrorAt": null
   },
   "it services der sozialversicherung": {
     "kununu": null,
-    "fetchedAt": "2026-08-26T07:50:39.535Z",
+    "fetchedAt": "2026-09-09T12:15:51.140Z",
     "lastErrorAt": null
   },
   "fonio ai": {
