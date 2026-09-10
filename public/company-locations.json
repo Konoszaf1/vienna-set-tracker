@@ -336,7 +336,7 @@
   "bundesrechenzentrum gmbh": {
     "lat": 48.2087649,
     "lng": 16.385966,
-    "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße"
+    "address": "Wien"
   },
   "fb consulting & trade gmbh": {
     "lat": 48.1991777,
@@ -413,7 +413,7 @@
   "bundesrechenzentrum": {
     "lat": 48.2087649,
     "lng": 16.385966,
-    "address": "Hintere Zollamtsstraße, 4, 1030, Katastralgemeinde Landstraße"
+    "address": "Wien"
   },
   "melecs ews": {
     "lat": 48.203565,
@@ -1065,5 +1065,15 @@
     "lat": 48.1974447,
     "lng": 16.3677852,
     "address": "Frankenberggasse, 13, 1040, Wieden"
+  },
+  "docfinder": {
+    "lat": 48.1872814,
+    "lng": 16.2876549,
+    "address": "Hietzinger Hauptstraße 50, 1130 Wien"
+  },
+  "docfinder gmbh": {
+    "lat": 48.1872814,
+    "lng": 16.2876549,
+    "address": "Hietzinger Hauptstraße 50, 1130 Wien"
   }
 }
