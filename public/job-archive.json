@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4461154692",
+      "title": "Software Test Engineer & Documentation Writer (w/m/d)",
+      "company": "Delegate Group",
+      "source": "jobspy-linkedin",
+      "address": "Jakov-Lind-Straße 2, 1020 Wien, Leopoldstadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2223709,
+      "lng": 16.392406,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4461154692",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4461154692"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-09-09T12:15:46.784975+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-10T12:09:52.832Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-09-04T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "HTTP 404 via Playwright",
+      "closedAt": "2026-09-11T12:07:37.524Z",
+      "closeReason": "HTTP 404 via Playwright"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4438330029",
       "title": "C# Entwickler für Testautomatisierung Solar & Energy (m/w/d)",
       "company": "Fronius Österreich",
@@ -305,5 +340,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-09-07T14:04:39.270Z"
+  "lastUpdated": "2026-09-11T12:07:37.524Z"
 }
