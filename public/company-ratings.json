@@ -189,7 +189,7 @@
   },
   "t systems": {
     "kununu": null,
-    "fetchedAt": "2026-09-01T12:27:27.699Z",
+    "fetchedAt": "2026-09-15T12:34:20.224Z",
     "lastErrorAt": null
   },
   "designer": {
@@ -306,7 +306,7 @@
   },
   "mercury": {
     "kununu": null,
-    "fetchedAt": "2026-08-31T14:57:20.125Z",
+    "fetchedAt": "2026-09-15T12:34:14.185Z",
     "lastErrorAt": null
   },
   "wüstenrot": {
@@ -535,7 +535,8 @@
   },
   "kontron transportation": {
     "kununu": null,
-    "fetchedAt": "2026-07-31T09:49:37.926Z"
+    "fetchedAt": "2026-09-15T12:34:12.174Z",
+    "lastErrorAt": null
   },
   "ge vernova": {
     "kununu": null,
@@ -621,7 +622,7 @@
   },
   "evolit schweiz": {
     "kununu": null,
-    "fetchedAt": "2026-09-01T12:27:19.659Z",
+    "fetchedAt": "2026-09-15T12:34:10.159Z",
     "lastErrorAt": null
   },
   "epunkt": {
@@ -661,12 +662,12 @@
   },
   "rheinmetall": {
     "kununu": null,
-    "fetchedAt": "2026-09-01T12:27:23.681Z",
+    "fetchedAt": "2026-09-15T12:34:16.198Z",
     "lastErrorAt": null
   },
   "roche": {
     "kununu": null,
-    "fetchedAt": "2026-09-01T12:27:25.690Z",
+    "fetchedAt": "2026-09-15T12:34:18.211Z",
     "lastErrorAt": null
   },
   "aaa all about apps": {
