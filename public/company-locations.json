@@ -1075,5 +1075,10 @@
     "lat": 48.1872814,
     "lng": 16.2876549,
     "address": "Hietzinger Hauptstraße 50, 1130 Wien"
+  },
+  "kontron transportation gmbh": {
+    "lat": 48.1699953,
+    "lng": 16.331851,
+    "address": "Lehrbachgasse 11, 1120 Wien"
   }
 }
