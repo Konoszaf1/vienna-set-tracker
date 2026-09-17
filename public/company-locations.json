@@ -1080,5 +1080,25 @@
     "lat": 48.1699953,
     "lng": 16.331851,
     "address": "Lehrbachgasse 11, 1120 Wien"
+  },
+  "rexel": {
+    "lat": 48.2006384,
+    "lng": 16.4268953,
+    "address": "Leopoldstadt, 1020 Wien"
+  },
+  "rexel austria gmbh": {
+    "lat": 48.2006384,
+    "lng": 16.4268953,
+    "address": "Leopoldstadt, 1020 Wien"
+  },
+  "schiebel elektronische geräte": {
+    "lat": 48.213192,
+    "lng": 16.303243,
+    "address": "Thaliastraße, 157, 1160, Katastralgemeinde Ottakring"
+  },
+  "schiebel elektronische geräte gmbh": {
+    "lat": 48.213192,
+    "lng": 16.303243,
+    "address": "Thaliastraße, 157, 1160, Katastralgemeinde Ottakring"
   }
 }
