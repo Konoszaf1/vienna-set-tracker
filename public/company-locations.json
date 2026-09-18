@@ -605,13 +605,13 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-08-19T07:44:15.337Z"
+    "lastTried": "2026-09-18T12:10:47.860Z"
   },
   "techbiz global gmbh": {
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-08-19T07:44:15.337Z"
+    "lastTried": "2026-09-18T12:10:47.860Z"
   },
   "dedalus healthcare": {
     "lat": 48.1866526,
@@ -673,13 +673,13 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-08-19T07:43:55.775Z"
+    "lastTried": "2026-09-18T12:10:12.264Z"
   },
   "fonio.ai": {
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-08-19T07:43:55.775Z"
+    "lastTried": "2026-09-18T12:10:12.264Z"
   },
   "alstom": {
     "lat": 48.265492,
@@ -1094,9 +1094,29 @@
   "schiebel elektronische geräte": {
     "lat": 48.213192,
     "lng": 16.303243,
-    "address": "Thaliastraße, 157, 1160, Katastralgemeinde Ottakring"
+    "address": "Wien"
   },
   "schiebel elektronische geräte gmbh": {
+    "lat": 48.213192,
+    "lng": 16.303243,
+    "address": "Wien"
+  },
+  "kalegra by kdc one": {
+    "lat": 48.2336273,
+    "lng": 16.411618,
+    "address": "Donau-City-Strasse 11, 1220 Wien"
+  },
+  "kalegra by kdc/one": {
+    "lat": 48.2336273,
+    "lng": 16.411618,
+    "address": "Donau-City-Strasse 11, 1220 Wien"
+  },
+  "schiebel": {
+    "lat": 48.213192,
+    "lng": 16.303243,
+    "address": "Thaliastraße, 157, 1160, Katastralgemeinde Ottakring"
+  },
+  "schiebel corporation": {
     "lat": 48.213192,
     "lng": 16.303243,
     "address": "Thaliastraße, 157, 1160, Katastralgemeinde Ottakring"

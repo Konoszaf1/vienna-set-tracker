@@ -595,7 +595,7 @@
   },
   "qualysoft": {
     "kununu": null,
-    "fetchedAt": "2026-09-04T12:04:01.778Z",
+    "fetchedAt": "2026-09-18T12:09:57.661Z",
     "lastErrorAt": null
   },
   "uniqa": {
@@ -698,6 +698,21 @@
   "schiebel elektronische geräte": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:43.417Z",
+    "lastErrorAt": null
+  },
+  "kalegra by kdc one": {
+    "kununu": null,
+    "fetchedAt": "2026-09-18T12:09:55.652Z",
+    "lastErrorAt": null
+  },
+  "schiebel": {
+    "kununu": null,
+    "fetchedAt": "2026-09-18T12:09:59.669Z",
+    "lastErrorAt": null
+  },
+  "schiebel corporation": {
+    "kununu": null,
+    "fetchedAt": "2026-09-18T12:10:01.677Z",
     "lastErrorAt": null
   }
 }
