@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4463248823",
+      "title": "Test Engineer",
+      "company": "SCIENTIFIC GAMES",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "techStack": [],
+      "langReq": "unknown",
+      "publishedAt": "2026-09-08T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4463248823",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4463248823"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-09-09T12:15:46.784975+00:00",
+      "lastSeenAt": "2026-09-09T12:15:46.784975+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-18T12:10:49.358Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-09-19T11:53:17.707Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4416251107",
       "title": "Supplier Quality Assurance Engineer (all genders)",
       "company": "Beyond Gravity",
@@ -410,5 +445,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-09-18T12:10:49.358Z"
+  "lastUpdated": "2026-09-19T11:53:17.707Z"
 }
