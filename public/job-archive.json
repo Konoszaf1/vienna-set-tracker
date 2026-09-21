@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4442094269",
+      "title": "Test Automation Engineer",
+      "company": "Delta Electronics EMEA",
+      "source": "jobspy-linkedin",
+      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1769482,
+      "lng": 16.4138082,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4442094269",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4442094269"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-23T07:37:09.957739+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-20T12:07:55.049Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-07-24T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-09-21T13:45:54.397Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4463248823",
       "title": "Test Engineer",
       "company": "SCIENTIFIC GAMES",
@@ -445,5 +480,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-09-19T11:53:17.707Z"
+  "lastUpdated": "2026-09-21T13:45:54.397Z"
 }
