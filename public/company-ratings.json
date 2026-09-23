@@ -358,7 +358,7 @@
   },
   "bundesrechenzentrum": {
     "kununu": null,
-    "fetchedAt": "2026-09-09T12:15:49.128Z",
+    "fetchedAt": "2026-09-23T12:40:15.887Z",
     "lastErrorAt": null
   },
   "3 s it dienstleistungen": {
@@ -483,12 +483,12 @@
   },
   "atos": {
     "kununu": null,
-    "fetchedAt": "2026-09-09T12:15:47.113Z",
+    "fetchedAt": "2026-09-23T12:40:13.877Z",
     "lastErrorAt": null
   },
   "it services der sozialversicherung": {
     "kununu": null,
-    "fetchedAt": "2026-09-09T12:15:51.140Z",
+    "fetchedAt": "2026-09-23T12:40:17.896Z",
     "lastErrorAt": null
   },
   "fonio ai": {
@@ -713,6 +713,11 @@
   "schiebel corporation": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:10:01.677Z",
+    "lastErrorAt": null
+  },
+  "tailored apps": {
+    "kununu": null,
+    "fetchedAt": "2026-09-23T12:40:19.904Z",
     "lastErrorAt": null
   }
 }

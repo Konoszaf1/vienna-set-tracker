@@ -695,13 +695,13 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-08-24T08:01:37.322Z"
+    "lastTried": "2026-09-23T12:40:31.635Z"
   },
   "ivm technical consultants vienna - the technical experts": {
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-08-24T08:01:37.322Z"
+    "lastTried": "2026-09-23T12:40:31.635Z"
   },
   "fronius usa llc": {
     "lat": 48.1653639,
@@ -1120,5 +1120,15 @@
     "lat": 48.213192,
     "lng": 16.303243,
     "address": "Thaliastraße, 157, 1160, Katastralgemeinde Ottakring"
+  },
+  "tailored apps": {
+    "lat": 48.2174991,
+    "lng": 16.3623583,
+    "address": "Liechtensteinstraße, 12, 1090, Alsergrund"
+  },
+  "tailored apps gmbh": {
+    "lat": 48.2174991,
+    "lng": 16.3623583,
+    "address": "Liechtensteinstraße, 12, 1090, Alsergrund"
   }
 }
