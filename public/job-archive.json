@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4462826481",
+      "title": "Software Test Engineer",
+      "company": "Philips Dictation | Speech Processing Solutions",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1630906,
+      "lng": 16.3368178,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4462826481",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4462826481"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-09-02T12:02:40.705969+00:00",
+      "lastSeenAt": "2026-09-22T12:29:15.293311+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-23T12:40:40.050Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-09-03T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-09-24T12:39:45.396Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4442094269",
       "title": "Test Automation Engineer",
       "company": "Delta Electronics EMEA",
@@ -480,5 +515,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-09-21T13:45:54.397Z"
+  "lastUpdated": "2026-09-24T12:39:45.396Z"
 }

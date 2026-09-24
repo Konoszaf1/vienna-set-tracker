@@ -1130,5 +1130,11 @@
     "lat": 48.2174991,
     "lng": 16.3623583,
     "address": "Liechtensteinstraße, 12, 1090, Alsergrund"
+  },
+  "hcltech": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-09-24T12:39:43.949Z"
   }
 }
