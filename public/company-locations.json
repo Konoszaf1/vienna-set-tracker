@@ -1136,5 +1136,15 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-09-24T12:39:43.949Z"
+  },
+  "snap": {
+    "lat": 48.1908055,
+    "lng": 16.3865427,
+    "address": "Kölblgasse 8-10, 1030 Wien"
+  },
+  "snap inc.": {
+    "lat": 48.1908055,
+    "lng": 16.3865427,
+    "address": "Kölblgasse 8-10, 1030 Wien"
   }
 }

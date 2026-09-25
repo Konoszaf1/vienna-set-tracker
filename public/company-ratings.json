@@ -426,7 +426,7 @@
   },
   "atomic energy agency": {
     "kununu": null,
-    "fetchedAt": "2026-09-11T12:07:31.009Z",
+    "fetchedAt": "2026-09-25T12:41:50.216Z",
     "lastErrorAt": null
   },
   "atomic energy agency iaea": {
@@ -647,12 +647,12 @@
   },
   "cellcube energy storage": {
     "kununu": null,
-    "fetchedAt": "2026-09-11T12:07:28.985Z",
+    "fetchedAt": "2026-09-25T12:41:48.204Z",
     "lastErrorAt": null
   },
   "viewpointsystem": {
     "kununu": null,
-    "fetchedAt": "2026-09-11T12:07:35.058Z",
+    "fetchedAt": "2026-09-25T12:41:54.232Z",
     "lastErrorAt": null
   },
   "mavoco": {
@@ -723,6 +723,11 @@
   "hcltech": {
     "kununu": null,
     "fetchedAt": "2026-09-24T12:39:20.431Z",
+    "lastErrorAt": null
+  },
+  "snap": {
+    "kununu": null,
+    "fetchedAt": "2026-09-25T12:41:52.224Z",
     "lastErrorAt": null
   }
 }
