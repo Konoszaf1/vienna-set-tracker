@@ -1013,13 +1013,12 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-08-27T18:11:36.577Z"
+    "lastTried": "2026-09-27T12:55:45.183Z"
   },
   "viewpointsystem": {
-    "lat": null,
-    "lng": null,
-    "address": null,
-    "lastTried": "2026-08-27T18:11:46.372Z"
+    "lat": 48.2228259,
+    "lng": 16.5086285,
+    "address": "Christine-Touaillon-Straße, 11, 1220, Katastralgemeinde Aspern"
   },
   "mavoco": {
     "lat": 48.1849117,
