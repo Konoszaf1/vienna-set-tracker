@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4458629819",
+      "title": "Quality Engineer (all genders)",
+      "company": "CellCube Energy Storage",
+      "source": "jobspy-linkedin",
+      "address": "Wiener Neudorf, Lower Austria",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4458629819",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4458629819"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-27T18:11:12.864975+00:00",
+      "lastSeenAt": "2026-09-26T12:10:42.118653+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-27T12:55:48.224Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-08-27T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-09-28T15:07:01.270Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4462826481",
       "title": "Software Test Engineer",
       "company": "Philips Dictation | Speech Processing Solutions",
@@ -515,5 +550,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-09-24T12:39:45.396Z"
+  "lastUpdated": "2026-09-28T15:07:01.270Z"
 }
