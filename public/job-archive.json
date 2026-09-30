@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4446394630",
+      "title": "SENIOR SOFTWARE TESTER / TEST LEAD (W/M/D)",
+      "company": "Evolit Schweiz AG",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4446394630",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4446394630"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-08-27T18:11:12.864975+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-29T13:54:21.307Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-07-28T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-09-30T13:28:03.309Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4458629819",
       "title": "Quality Engineer (all genders)",
       "company": "CellCube Energy Storage",
@@ -550,5 +585,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-09-28T15:07:01.270Z"
+  "lastUpdated": "2026-09-30T13:28:03.309Z"
 }
