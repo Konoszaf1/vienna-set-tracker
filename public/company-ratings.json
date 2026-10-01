@@ -58,7 +58,8 @@
   "ivm technical consultants": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:39.376Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-01T14:21:32.447Z",
+    "lastError": "HTTP 405"
   },
   "softcom consulting": {
     "kununu": null,
@@ -693,12 +694,14 @@
   "rexel": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:41.397Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-01T14:21:34.461Z",
+    "lastError": "HTTP 405"
   },
   "schiebel elektronische geräte": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:43.417Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-01T14:21:36.468Z",
+    "lastError": "HTTP 405"
   },
   "kalegra by kdc one": {
     "kununu": null,

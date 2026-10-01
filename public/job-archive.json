@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4440095394",
+      "title": "Senior Supplier Quality Engineer (m/f/d)",
+      "company": "GE Vernova",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "id": "job-linkedin-4440095394",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4440095394"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-09-07T14:04:34.339130+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-09-30T13:28:03.309Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-08-26T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-01T14:21:39.032Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4446394630",
       "title": "SENIOR SOFTWARE TESTER / TEST LEAD (W/M/D)",
       "company": "Evolit Schweiz AG",
@@ -585,5 +620,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-09-30T13:28:03.309Z"
+  "lastUpdated": "2026-10-01T14:21:39.032Z"
 }
