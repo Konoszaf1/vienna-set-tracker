@@ -1,6 +1,76 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4442757159",
+      "title": "Software Tester mit Schwerpunkt Billing Systeme (m/w/d)",
+      "company": "Deutsche Telekom",
+      "source": "jobspy-linkedin",
+      "address": "Rennweg 97-99, 1030 Wien, Landstraße",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1867515,
+      "lng": 16.4032705,
+      "id": "job-linkedin-4442757159",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4442757159"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-08-19T07:43:31.555750+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-01T14:21:39.032Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-07-20T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-02T13:44:57.412Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4440148776",
+      "title": "Test Engineer",
+      "company": "ENPULSION",
+      "source": "jobspy-linkedin",
+      "address": "Viktor Kaplan-Straße 2, 2700 Wiener Neustadt, Niederösterreich",
+      "city": "Wien",
+      "zip": null,
+      "lat": 47.8370619,
+      "lng": 16.2530127,
+      "id": "job-linkedin-4440148776",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4440148776"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-09-07T14:04:34.339130+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-01T14:21:39.032Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-09-02T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-02T13:44:57.412Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4440095394",
       "title": "Senior Supplier Quality Engineer (m/f/d)",
       "company": "GE Vernova",
@@ -620,5 +690,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-10-01T14:21:39.032Z"
+  "lastUpdated": "2026-10-02T13:44:57.412Z"
 }

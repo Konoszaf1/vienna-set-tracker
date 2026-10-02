@@ -58,7 +58,7 @@
   "ivm technical consultants": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:39.376Z",
-    "lastErrorAt": "2026-10-01T14:21:32.447Z",
+    "lastErrorAt": "2026-10-02T13:44:20.387Z",
     "lastError": "HTTP 405"
   },
   "softcom consulting": {
@@ -597,7 +597,8 @@
   "qualysoft": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:57.661Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-02T13:44:24.401Z",
+    "lastError": "HTTP 405"
   },
   "uniqa": {
     "kununu": null,
@@ -694,29 +695,32 @@
   "rexel": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:41.397Z",
-    "lastErrorAt": "2026-10-01T14:21:34.461Z",
+    "lastErrorAt": "2026-10-02T13:44:26.408Z",
     "lastError": "HTTP 405"
   },
   "schiebel elektronische geräte": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:43.417Z",
-    "lastErrorAt": "2026-10-01T14:21:36.468Z",
+    "lastErrorAt": "2026-10-02T13:44:32.425Z",
     "lastError": "HTTP 405"
   },
   "kalegra by kdc one": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:55.652Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-02T13:44:22.394Z",
+    "lastError": "HTTP 405"
   },
   "schiebel": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:59.669Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-02T13:44:28.414Z",
+    "lastError": "HTTP 405"
   },
   "schiebel corporation": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:10:01.677Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-02T13:44:30.420Z",
+    "lastError": "HTTP 405"
   },
   "tailored apps": {
     "kununu": null,
@@ -732,5 +736,17 @@
     "kununu": null,
     "fetchedAt": "2026-09-25T12:41:52.224Z",
     "lastErrorAt": null
+  },
+  "ait austrian institute of technology": {
+    "lastErrorAt": "2026-10-02T13:44:14.365Z",
+    "lastError": "HTTP 405"
+  },
+  "austrian institute of technology": {
+    "lastErrorAt": "2026-10-02T13:44:16.374Z",
+    "lastError": "HTTP 405"
+  },
+  "bawag": {
+    "lastErrorAt": "2026-10-02T13:44:18.382Z",
+    "lastError": "HTTP 405"
   }
 }
