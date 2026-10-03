@@ -1166,5 +1166,20 @@
     "lat": 48.2212911,
     "lng": 16.3214256,
     "address": "Hernalser Hauptstraße, 133, 1170, Katastralgemeinde Hernals"
+  },
+  "tttech": {
+    "lat": 48.1956123,
+    "lng": 16.3619001,
+    "address": "Schönbrunner Straße, 1040, Wieden"
+  },
+  "tttech computertechnik": {
+    "lat": 48.1950348,
+    "lng": 16.3613907,
+    "address": "Schönbrunner Straße, 7, 1040, Wieden"
+  },
+  "tttech computertechnik ag": {
+    "lat": 48.1950348,
+    "lng": 16.3613907,
+    "address": "Schönbrunner Straße, 7, 1040, Wieden"
   }
 }
