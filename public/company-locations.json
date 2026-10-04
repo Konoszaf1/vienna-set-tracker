@@ -1181,5 +1181,10 @@
     "lat": 48.1950348,
     "lng": 16.3613907,
     "address": "Schönbrunner Straße, 7, 1040, Wieden"
+  },
+  "specs": {
+    "lat": 48.201104,
+    "lng": 16.3944588,
+    "address": "Hainburger Straße 19, 1030 Wien"
   }
 }

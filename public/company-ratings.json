@@ -6,7 +6,8 @@
   "öbb": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:52.586Z",
-    "lastErrorAt": null,
+    "lastErrorAt": "2026-10-04T13:09:53.140Z",
+    "lastError": "HTTP 405",
     "reportedSalary": 62
   },
   "beko solutions": {
@@ -24,7 +25,8 @@
   "qnit": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:46.529Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-04T13:09:30.939Z",
+    "lastError": "HTTP 405"
   },
   "xxxldigital part of xxxl": {
     "kununu": null,
@@ -58,7 +60,7 @@
   "ivm technical consultants": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:39.376Z",
-    "lastErrorAt": "2026-10-03T12:21:58.902Z",
+    "lastErrorAt": "2026-10-04T13:09:22.868Z",
     "lastError": "HTTP 405"
   },
   "softcom consulting": {
@@ -88,7 +90,8 @@
   "sv chipkarten betriebs und errichtungsges m b h": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:50.566Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-04T13:09:47.085Z",
+    "lastError": "HTTP 405"
   },
   "frequentis": {
     "kununu": null,
@@ -148,12 +151,14 @@
   "qestit dach": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:44.509Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-04T13:09:28.921Z",
+    "lastError": "HTTP 405"
   },
   "pke": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:42.488Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-04T13:09:26.904Z",
+    "lastError": "HTTP 405"
   },
   "coolpeople": {
     "kununu": {
@@ -169,7 +174,8 @@
   "adesso": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:40.466Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-04T13:09:14.793Z",
+    "lastError": "HTTP 405"
   },
   "ringana": {
     "kununu": {
@@ -303,7 +309,8 @@
   "scientific games": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:48.549Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-04T13:09:43.051Z",
+    "lastError": "HTTP 405"
   },
   "mercury": {
     "kununu": null,
@@ -597,7 +604,7 @@
   "qualysoft": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:57.661Z",
-    "lastErrorAt": "2026-10-03T12:22:02.918Z",
+    "lastErrorAt": "2026-10-04T13:09:32.959Z",
     "lastError": "HTTP 405"
   },
   "uniqa": {
@@ -695,31 +702,31 @@
   "rexel": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:41.397Z",
-    "lastErrorAt": "2026-10-03T12:22:04.925Z",
+    "lastErrorAt": "2026-10-04T13:09:34.977Z",
     "lastError": "HTTP 405"
   },
   "schiebel elektronische geräte": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:43.417Z",
-    "lastErrorAt": "2026-10-03T12:22:10.982Z",
+    "lastErrorAt": "2026-10-04T13:09:41.033Z",
     "lastError": "HTTP 405"
   },
   "kalegra by kdc one": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:55.652Z",
-    "lastErrorAt": "2026-10-03T12:22:00.910Z",
+    "lastErrorAt": "2026-10-04T13:09:24.886Z",
     "lastError": "HTTP 405"
   },
   "schiebel": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:59.669Z",
-    "lastErrorAt": "2026-10-03T12:22:06.932Z",
+    "lastErrorAt": "2026-10-04T13:09:36.996Z",
     "lastError": "HTTP 405"
   },
   "schiebel corporation": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:10:01.677Z",
-    "lastErrorAt": "2026-10-03T12:22:08.939Z",
+    "lastErrorAt": "2026-10-04T13:09:39.015Z",
     "lastError": "HTTP 405"
   },
   "tailored apps": {
@@ -738,23 +745,27 @@
     "lastErrorAt": null
   },
   "ait austrian institute of technology": {
-    "lastErrorAt": "2026-10-03T12:21:52.879Z",
+    "lastErrorAt": "2026-10-04T13:09:16.814Z",
     "lastError": "HTTP 405"
   },
   "austrian institute of technology": {
-    "lastErrorAt": "2026-10-03T12:21:54.889Z",
+    "lastErrorAt": "2026-10-04T13:09:18.832Z",
     "lastError": "HTTP 405"
   },
   "bawag": {
-    "lastErrorAt": "2026-10-03T12:21:56.895Z",
+    "lastErrorAt": "2026-10-04T13:09:20.850Z",
     "lastError": "HTTP 405"
   },
   "tttech": {
-    "lastErrorAt": "2026-10-03T12:22:12.989Z",
+    "lastErrorAt": "2026-10-04T13:09:49.104Z",
     "lastError": "HTTP 405"
   },
   "tttech computertechnik": {
-    "lastErrorAt": "2026-10-03T12:22:14.997Z",
+    "lastErrorAt": "2026-10-04T13:09:51.121Z",
+    "lastError": "HTTP 405"
+  },
+  "specs": {
+    "lastErrorAt": "2026-10-04T13:09:45.068Z",
     "lastError": "HTTP 405"
   }
 }

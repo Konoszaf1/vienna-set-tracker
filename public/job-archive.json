@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4442754250",
+      "title": "Software Test Engineer (m/w/d)",
+      "company": "T-Systems Austria",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1867515,
+      "lng": 16.4032705,
+      "techStack": [],
+      "langReq": "unknown",
+      "publishedAt": "2026-08-04T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4442754250",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4442754250"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-18T07:41:50.223014+00:00",
+      "lastSeenAt": "2026-09-02T12:02:40.705969+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-03T12:22:20.353Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-04T13:10:05.794Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4462491225",
       "title": "Test Engineer (m/w/d)",
       "company": "Deutsche Telekom",
@@ -725,5 +760,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-10-03T12:22:20.353Z"
+  "lastUpdated": "2026-10-04T13:10:05.794Z"
 }
