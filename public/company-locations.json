@@ -7,7 +7,8 @@
   "beko solutions gmbh": {
     "lat": null,
     "lng": null,
-    "address": null
+    "address": null,
+    "lastTried": "2026-10-05T15:43:33.023Z"
   },
   "michael page international austria gmbh": {
     "lat": 48.2251975,
@@ -1185,6 +1186,17 @@
   "specs": {
     "lat": 48.201104,
     "lng": 16.3944588,
-    "address": "Hainburger Straße 19, 1030 Wien"
+    "address": "Wien"
+  },
+  "beko solutions": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-10-05T15:43:33.023Z"
+  },
+  "genetec": {
+    "lat": 48.2120772,
+    "lng": 16.415016,
+    "address": "Stella-Klein-Löw-Weg, 13, 1020, Leopoldstadt"
   }
 }

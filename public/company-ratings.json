@@ -6,7 +6,7 @@
   "öbb": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:52.586Z",
-    "lastErrorAt": "2026-10-04T13:09:53.140Z",
+    "lastErrorAt": "2026-10-05T15:43:08.373Z",
     "lastError": "HTTP 405",
     "reportedSalary": 62
   },
@@ -15,7 +15,9 @@
       "score": 3.8,
       "reviews": 0
     },
-    "fetchedAt": "2026-04-13T14:28:32.103Z"
+    "fetchedAt": "2026-04-13T14:28:32.103Z",
+    "lastErrorAt": "2026-10-05T15:42:34.113Z",
+    "lastError": "HTTP 405"
   },
   "michael page": {
     "kununu": null,
@@ -25,7 +27,7 @@
   "qnit": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:46.529Z",
-    "lastErrorAt": "2026-10-04T13:09:30.939Z",
+    "lastErrorAt": "2026-10-05T15:42:46.196Z",
     "lastError": "HTTP 405"
   },
   "xxxldigital part of xxxl": {
@@ -60,7 +62,7 @@
   "ivm technical consultants": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:39.376Z",
-    "lastErrorAt": "2026-10-04T13:09:22.868Z",
+    "lastErrorAt": "2026-10-05T15:42:38.140Z",
     "lastError": "HTTP 405"
   },
   "softcom consulting": {
@@ -90,7 +92,7 @@
   "sv chipkarten betriebs und errichtungsges m b h": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:50.566Z",
-    "lastErrorAt": "2026-10-04T13:09:47.085Z",
+    "lastErrorAt": "2026-10-05T15:43:02.330Z",
     "lastError": "HTTP 405"
   },
   "frequentis": {
@@ -151,13 +153,13 @@
   "qestit dach": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:44.509Z",
-    "lastErrorAt": "2026-10-04T13:09:28.921Z",
+    "lastErrorAt": "2026-10-05T15:42:44.182Z",
     "lastError": "HTTP 405"
   },
   "pke": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:42.488Z",
-    "lastErrorAt": "2026-10-04T13:09:26.904Z",
+    "lastErrorAt": "2026-10-05T15:42:42.168Z",
     "lastError": "HTTP 405"
   },
   "coolpeople": {
@@ -174,7 +176,7 @@
   "adesso": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:40.466Z",
-    "lastErrorAt": "2026-10-04T13:09:14.793Z",
+    "lastErrorAt": "2026-10-05T15:42:26.057Z",
     "lastError": "HTTP 405"
   },
   "ringana": {
@@ -309,7 +311,7 @@
   "scientific games": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:48.549Z",
-    "lastErrorAt": "2026-10-04T13:09:43.051Z",
+    "lastErrorAt": "2026-10-05T15:42:58.302Z",
     "lastError": "HTTP 405"
   },
   "mercury": {
@@ -604,7 +606,7 @@
   "qualysoft": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:57.661Z",
-    "lastErrorAt": "2026-10-04T13:09:32.959Z",
+    "lastErrorAt": "2026-10-05T15:42:48.210Z",
     "lastError": "HTTP 405"
   },
   "uniqa": {
@@ -702,31 +704,31 @@
   "rexel": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:41.397Z",
-    "lastErrorAt": "2026-10-04T13:09:34.977Z",
+    "lastErrorAt": "2026-10-05T15:42:50.224Z",
     "lastError": "HTTP 405"
   },
   "schiebel elektronische geräte": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:43.417Z",
-    "lastErrorAt": "2026-10-04T13:09:41.033Z",
+    "lastErrorAt": "2026-10-05T15:42:56.287Z",
     "lastError": "HTTP 405"
   },
   "kalegra by kdc one": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:55.652Z",
-    "lastErrorAt": "2026-10-04T13:09:24.886Z",
+    "lastErrorAt": "2026-10-05T15:42:40.155Z",
     "lastError": "HTTP 405"
   },
   "schiebel": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:59.669Z",
-    "lastErrorAt": "2026-10-04T13:09:36.996Z",
+    "lastErrorAt": "2026-10-05T15:42:52.239Z",
     "lastError": "HTTP 405"
   },
   "schiebel corporation": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:10:01.677Z",
-    "lastErrorAt": "2026-10-04T13:09:39.015Z",
+    "lastErrorAt": "2026-10-05T15:42:54.252Z",
     "lastError": "HTTP 405"
   },
   "tailored apps": {
@@ -745,27 +747,31 @@
     "lastErrorAt": null
   },
   "ait austrian institute of technology": {
-    "lastErrorAt": "2026-10-04T13:09:16.814Z",
+    "lastErrorAt": "2026-10-05T15:42:28.074Z",
     "lastError": "HTTP 405"
   },
   "austrian institute of technology": {
-    "lastErrorAt": "2026-10-04T13:09:18.832Z",
+    "lastErrorAt": "2026-10-05T15:42:30.085Z",
     "lastError": "HTTP 405"
   },
   "bawag": {
-    "lastErrorAt": "2026-10-04T13:09:20.850Z",
+    "lastErrorAt": "2026-10-05T15:42:32.099Z",
     "lastError": "HTTP 405"
   },
   "tttech": {
-    "lastErrorAt": "2026-10-04T13:09:49.104Z",
+    "lastErrorAt": "2026-10-05T15:43:04.343Z",
     "lastError": "HTTP 405"
   },
   "tttech computertechnik": {
-    "lastErrorAt": "2026-10-04T13:09:51.121Z",
+    "lastErrorAt": "2026-10-05T15:43:06.359Z",
     "lastError": "HTTP 405"
   },
   "specs": {
-    "lastErrorAt": "2026-10-04T13:09:45.068Z",
+    "lastErrorAt": "2026-10-05T15:43:00.316Z",
+    "lastError": "HTTP 405"
+  },
+  "genetec": {
+    "lastErrorAt": "2026-10-05T15:42:36.126Z",
     "lastError": "HTTP 405"
   }
 }
