@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4471737288",
+      "title": "QA Engineer (all genders) - Bug Hunter",
+      "company": "Viewpointsystem",
+      "source": "jobspy-linkedin",
+      "address": "Christine-Touaillon-Straße, 11, 1220, Katastralgemeinde Aspern",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2228259,
+      "lng": 16.5086285,
+      "techStack": [],
+      "langReq": "unknown",
+      "publishedAt": "2026-09-29T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4458831961",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4471737288"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-27T18:11:12.864975+00:00",
+      "lastSeenAt": "2026-10-04T13:09:14.430031+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-05T15:43:35.776Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-06T14:05:38.307Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4442754250",
       "title": "Software Test Engineer (m/w/d)",
       "company": "T-Systems Austria",
@@ -760,5 +795,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-10-04T13:10:05.794Z"
+  "lastUpdated": "2026-10-06T14:05:38.307Z"
 }
