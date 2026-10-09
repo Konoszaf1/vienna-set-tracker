@@ -6,7 +6,7 @@
   "öbb": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:52.586Z",
-    "lastErrorAt": "2026-10-08T14:31:10.874Z",
+    "lastErrorAt": "2026-10-09T14:17:23.651Z",
     "lastError": "HTTP 403",
     "reportedSalary": 62
   },
@@ -16,7 +16,7 @@
       "reviews": 0
     },
     "fetchedAt": "2026-04-13T14:28:32.103Z",
-    "lastErrorAt": "2026-10-08T14:30:20.291Z",
+    "lastErrorAt": "2026-10-09T14:16:29.470Z",
     "lastError": "HTTP 403"
   },
   "michael page": {
@@ -27,7 +27,7 @@
   "qnit": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:46.529Z",
-    "lastErrorAt": "2026-10-08T14:30:48.617Z",
+    "lastErrorAt": "2026-10-09T14:16:59.567Z",
     "lastError": "HTTP 403"
   },
   "xxxldigital part of xxxl": {
@@ -57,13 +57,13 @@
   "melecs ews": {
     "kununu": null,
     "fetchedAt": "2026-09-22T12:29:21.634Z",
-    "lastErrorAt": "2026-10-08T14:30:42.549Z",
+    "lastErrorAt": "2026-10-09T14:16:53.548Z",
     "lastError": "HTTP 403"
   },
   "ivm technical consultants": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:39.376Z",
-    "lastErrorAt": "2026-10-08T14:30:36.479Z",
+    "lastErrorAt": "2026-10-09T14:16:47.529Z",
     "lastError": "HTTP 403"
   },
   "softcom consulting": {
@@ -154,13 +154,13 @@
   "qestit dach": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:44.509Z",
-    "lastErrorAt": "2026-10-08T14:30:46.595Z",
+    "lastErrorAt": "2026-10-09T14:16:57.561Z",
     "lastError": "HTTP 403"
   },
   "pke": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:42.488Z",
-    "lastErrorAt": "2026-10-08T14:30:44.573Z",
+    "lastErrorAt": "2026-10-09T14:16:55.554Z",
     "lastError": "HTTP 403"
   },
   "coolpeople": {
@@ -177,7 +177,7 @@
   "adesso": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:40.466Z",
-    "lastErrorAt": "2026-10-08T14:30:10.172Z",
+    "lastErrorAt": "2026-10-09T14:16:19.429Z",
     "lastError": "HTTP 403"
   },
   "ringana": {
@@ -312,7 +312,7 @@
   "scientific games": {
     "kununu": null,
     "fetchedAt": "2026-09-20T12:07:48.549Z",
-    "lastErrorAt": "2026-10-08T14:31:00.760Z",
+    "lastErrorAt": "2026-10-09T14:17:11.609Z",
     "lastError": "HTTP 403"
   },
   "mercury": {
@@ -370,8 +370,8 @@
   "bundesrechenzentrum": {
     "kununu": null,
     "fetchedAt": "2026-09-23T12:40:15.887Z",
-    "lastErrorAt": "2026-10-08T14:30:22.314Z",
-    "lastError": "HTTP 405"
+    "lastErrorAt": "2026-10-09T14:16:31.477Z",
+    "lastError": "HTTP 403"
   },
   "3 s it dienstleistungen": {
     "kununu": null,
@@ -439,7 +439,8 @@
   "atomic energy agency": {
     "kununu": null,
     "fetchedAt": "2026-09-25T12:41:50.216Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-09T14:16:43.517Z",
+    "lastError": "HTTP 403"
   },
   "atomic energy agency iaea": {
     "kununu": null,
@@ -487,7 +488,7 @@
   "delta electronics emea": {
     "kununu": null,
     "fetchedAt": "2026-09-22T12:29:15.611Z",
-    "lastErrorAt": "2026-10-08T14:30:24.337Z",
+    "lastErrorAt": "2026-10-09T14:16:33.484Z",
     "lastError": "HTTP 403"
   },
   "dedalus": {
@@ -497,13 +498,13 @@
   "atos": {
     "kununu": null,
     "fetchedAt": "2026-09-23T12:40:13.877Z",
-    "lastErrorAt": "2026-10-08T14:30:14.221Z",
+    "lastErrorAt": "2026-10-09T14:16:23.445Z",
     "lastError": "HTTP 403"
   },
   "it services der sozialversicherung": {
     "kununu": null,
     "fetchedAt": "2026-09-23T12:40:17.896Z",
-    "lastErrorAt": "2026-10-08T14:30:34.457Z",
+    "lastErrorAt": "2026-10-09T14:16:45.523Z",
     "lastError": "HTTP 403"
   },
   "fonio ai": {
@@ -522,7 +523,7 @@
   "ivm technical consultants vienna the technical experts": {
     "kununu": null,
     "fetchedAt": "2026-09-22T12:29:19.627Z",
-    "lastErrorAt": "2026-10-08T14:30:38.503Z",
+    "lastErrorAt": "2026-10-09T14:16:49.535Z",
     "lastError": "HTTP 403"
   },
   "fronius usa llc": {
@@ -612,7 +613,7 @@
   "qualysoft": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:57.661Z",
-    "lastErrorAt": "2026-10-08T14:30:50.640Z",
+    "lastErrorAt": "2026-10-09T14:17:01.573Z",
     "lastError": "HTTP 403"
   },
   "uniqa": {
@@ -705,86 +706,87 @@
   "docfinder": {
     "kununu": null,
     "fetchedAt": "2026-09-24T12:39:18.410Z",
-    "lastErrorAt": "2026-10-08T14:30:26.360Z",
+    "lastErrorAt": "2026-10-09T14:16:35.491Z",
     "lastError": "HTTP 403"
   },
   "rexel": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:41.397Z",
-    "lastErrorAt": "2026-10-08T14:30:52.662Z",
+    "lastErrorAt": "2026-10-09T14:17:03.581Z",
     "lastError": "HTTP 403"
   },
   "schiebel elektronische geräte": {
     "kununu": null,
     "fetchedAt": "2026-09-17T12:31:43.417Z",
-    "lastErrorAt": "2026-10-08T14:30:58.737Z",
+    "lastErrorAt": "2026-10-09T14:17:09.602Z",
     "lastError": "HTTP 403"
   },
   "kalegra by kdc one": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:55.652Z",
-    "lastErrorAt": "2026-10-08T14:30:40.526Z",
+    "lastErrorAt": "2026-10-09T14:16:51.541Z",
     "lastError": "HTTP 403"
   },
   "schiebel": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:09:59.669Z",
-    "lastErrorAt": "2026-10-08T14:30:54.691Z",
+    "lastErrorAt": "2026-10-09T14:17:05.588Z",
     "lastError": "HTTP 403"
   },
   "schiebel corporation": {
     "kununu": null,
     "fetchedAt": "2026-09-18T12:10:01.677Z",
-    "lastErrorAt": "2026-10-08T14:30:56.714Z",
+    "lastErrorAt": "2026-10-09T14:17:07.595Z",
     "lastError": "HTTP 403"
   },
   "tailored apps": {
     "kununu": null,
     "fetchedAt": "2026-09-23T12:40:19.904Z",
-    "lastErrorAt": "2026-10-08T14:31:04.805Z",
+    "lastErrorAt": "2026-10-09T14:17:17.631Z",
     "lastError": "HTTP 403"
   },
   "hcltech": {
     "kununu": null,
     "fetchedAt": "2026-09-24T12:39:20.431Z",
-    "lastErrorAt": "2026-10-08T14:30:32.431Z",
+    "lastErrorAt": "2026-10-09T14:16:41.511Z",
     "lastError": "HTTP 403"
   },
   "snap": {
     "kununu": null,
     "fetchedAt": "2026-09-25T12:41:52.224Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-10-09T14:17:13.615Z",
+    "lastError": "HTTP 403"
   },
   "ait austrian institute of technology": {
-    "lastErrorAt": "2026-10-08T14:30:12.197Z",
+    "lastErrorAt": "2026-10-09T14:16:21.439Z",
     "lastError": "HTTP 403"
   },
   "austrian institute of technology": {
-    "lastErrorAt": "2026-10-08T14:30:16.244Z",
+    "lastErrorAt": "2026-10-09T14:16:25.453Z",
     "lastError": "HTTP 403"
   },
   "bawag": {
-    "lastErrorAt": "2026-10-08T14:30:18.268Z",
+    "lastErrorAt": "2026-10-09T14:16:27.460Z",
     "lastError": "HTTP 403"
   },
   "tttech": {
-    "lastErrorAt": "2026-10-08T14:31:06.828Z",
+    "lastErrorAt": "2026-10-09T14:17:19.637Z",
     "lastError": "HTTP 403"
   },
   "tttech computertechnik": {
-    "lastErrorAt": "2026-10-08T14:31:08.852Z",
+    "lastErrorAt": "2026-10-09T14:17:21.645Z",
     "lastError": "HTTP 403"
   },
   "specs": {
-    "lastErrorAt": "2026-10-08T14:31:02.783Z",
+    "lastErrorAt": "2026-10-09T14:17:15.622Z",
     "lastError": "HTTP 403"
   },
   "genetec": {
-    "lastErrorAt": "2026-10-08T14:30:30.408Z",
+    "lastErrorAt": "2026-10-09T14:16:39.505Z",
     "lastError": "HTTP 403"
   },
   "dolpheen it": {
-    "lastErrorAt": "2026-10-08T14:30:28.384Z",
-    "lastError": "HTTP 403"
+    "lastErrorAt": "2026-10-09T14:16:37.497Z",
+    "lastError": "HTTP 405"
   }
 }

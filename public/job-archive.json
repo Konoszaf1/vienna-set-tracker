@@ -1,6 +1,42 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4446756955",
+      "title": "Agile Senior Software Testautomation Engineer (m/w/x)",
+      "company": "ÖBB",
+      "source": "jobspy-linkedin",
+      "address": "Leopoldstadt, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2006384,
+      "lng": 16.4268953,
+      "reportedSalary": 62,
+      "id": "job-linkedin-4446756955",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4446756955"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-09-09T12:15:46.784975+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-08T14:31:13.478Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-08-10T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-09T14:17:26.276Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4471737288",
       "title": "QA Engineer (all genders) - Bug Hunter",
       "company": "Viewpointsystem",
@@ -795,5 +831,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-10-06T14:05:38.307Z"
+  "lastUpdated": "2026-10-09T14:17:26.276Z"
 }
