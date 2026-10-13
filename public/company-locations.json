@@ -1148,10 +1148,9 @@
     "address": "Kölblgasse 8-10, 1030 Wien"
   },
   "ait austrian institute of technology": {
-    "lat": null,
-    "lng": null,
-    "address": null,
-    "lastTried": "2026-10-02T13:44:50.206Z"
+    "lat": 48.269137,
+    "lng": 16.4266762,
+    "address": "Giefinggasse, 4, 1210, Katastralgemeinde Leopoldau"
   },
   "austrian institute of technology": {
     "lat": 48.269137,
@@ -1222,5 +1221,27 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-10-12T16:40:43.529Z"
+  },
+  "ait austrian institute of technology gmbh": {
+    "lat": 48.269137,
+    "lng": 16.4266762,
+    "address": "Giefinggasse, 4, 1210, Katastralgemeinde Leopoldau"
+  },
+  "austrian federal computing centre": {
+    "lat": 48.210337,
+    "lng": 16.3614778,
+    "address": "Universitätsring, 2, 1010, Innere Stadt"
+  },
+  "rabcat computer graphics": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-10-13T14:59:48.626Z"
+  },
+  "rabcat computer graphics gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-10-13T14:59:48.626Z"
   }
 }
