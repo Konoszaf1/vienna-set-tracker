@@ -565,12 +565,12 @@
   "bosch österreich": {
     "lat": 48.2004858,
     "lng": 16.4007318,
-    "address": "Göllnergasse, 15-17, 1030, Erdberg"
+    "address": "Wien"
   },
   "bosch-gruppe österreich": {
     "lat": 48.2004858,
     "lng": 16.4007318,
-    "address": "Göllnergasse, 15-17, 1030, Erdberg"
+    "address": "Wien"
   },
   "bosch": {
     "lat": 48.1980958,
@@ -1243,5 +1243,11 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-10-13T14:59:48.626Z"
+  },
+  "tieto": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-10-14T12:50:29.703Z"
   }
 }
