@@ -1249,5 +1249,10 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-10-14T12:50:29.703Z"
+  },
+  "hitachi energy": {
+    "lat": 48.2420895,
+    "lng": 16.3836777,
+    "address": "Handelskai, 92, 1200, Brigittenau"
   }
 }
