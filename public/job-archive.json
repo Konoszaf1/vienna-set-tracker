@@ -1,6 +1,38 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4467719583",
+      "title": "Software Test & Integration Engineer Telekommunikation (m/w/d)",
+      "company": "Kontron Transportation",
+      "source": "jobspy-linkedin",
+      "address": "Lehrbachgasse 11, 1120 Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1699953,
+      "lng": 16.331851,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4467719583",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4467719583"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-09-15T12:34:09.826591+00:00",
+      "lastSeenAt": "2026-09-15T12:34:09.826591+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-16T12:13:23.301Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-17T11:32:14.017Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4452395395",
       "title": "Software Test Engineer (f/m/d)",
       "company": "SCIENTIFIC GAMES",
@@ -866,5 +898,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-10-16T12:13:23.301Z"
+  "lastUpdated": "2026-10-17T11:32:14.017Z"
 }

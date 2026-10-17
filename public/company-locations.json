@@ -1254,5 +1254,20 @@
     "lat": 48.2420895,
     "lng": 16.3836777,
     "address": "Handelskai, 92, 1200, Brigittenau"
+  },
+  "hitachi rail": {
+    "lat": 48.2420895,
+    "lng": 16.3836777,
+    "address": "Handelskai, 92, 1200, Brigittenau"
+  },
+  "t mobile": {
+    "lat": 48.200323,
+    "lng": 16.393364,
+    "address": "Landstraßer Hauptstraße, 1030, Landstraße"
+  },
+  "t-mobile": {
+    "lat": 48.200323,
+    "lng": 16.393364,
+    "address": "Landstraßer Hauptstraße, 1030, Landstraße"
   }
 }
