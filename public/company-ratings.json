@@ -852,12 +852,19 @@
     "lastErrorAt": null
   },
   "hitachi rail": {
-    "lastErrorAt": "2026-10-17T11:32:05.784Z",
-    "lastError": "HTTP 405"
+    "lastErrorAt": null,
+    "lastError": "HTTP 405",
+    "kununu": null,
+    "fetchedAt": "2026-10-18T12:02:55.478Z"
   },
   "t mobile": {
     "kununu": null,
     "fetchedAt": "2026-10-17T11:32:07.796Z",
+    "lastErrorAt": null
+  },
+  "senior quality jobplattform 45plus": {
+    "kununu": null,
+    "fetchedAt": "2026-10-18T12:02:57.488Z",
     "lastErrorAt": null
   }
 }

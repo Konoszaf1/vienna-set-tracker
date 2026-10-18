@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4446572382",
+      "title": "Senior Workflow Automation Engineer - Post Business Solutions GmbH (w/m/d)",
+      "company": "Österreichische Post AG",
+      "source": "jobspy-linkedin",
+      "address": "Wagramer Straße, 162, 1220, KG Kagran",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2510399,
+      "lng": 16.4447756,
+      "id": "job-linkedin-4446572382",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4446572382"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "techStack": [],
+      "langReq": "unknown",
+      "firstSeenAt": "2026-08-14T08:21:12.807882+00:00",
+      "lastSeenAt": "2026-10-13T14:57:45.287693+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-17T11:32:14.017Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-10-01T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-18T12:03:00.097Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4467719583",
       "title": "Software Test & Integration Engineer Telekommunikation (m/w/d)",
       "company": "Kontron Transportation",
@@ -898,5 +933,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-10-17T11:32:14.017Z"
+  "lastUpdated": "2026-10-18T12:03:00.097Z"
 }
