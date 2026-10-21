@@ -223,7 +223,8 @@
   },
   "bybit eu": {
     "kununu": null,
-    "fetchedAt": "2026-06-01T12:43:08.353Z"
+    "fetchedAt": "2026-10-21T12:50:51.215Z",
+    "lastErrorAt": null
   },
   "raiffeisen it": {
     "kununu": null,
