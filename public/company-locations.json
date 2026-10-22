@@ -174,7 +174,7 @@
   "bybit eu": {
     "lat": 48.2319522,
     "lng": 16.4137062,
-    "address": "Donau-City-Straße 7, 1220 Wien, Donaustadt"
+    "address": "Wien"
   },
   "raiffeisen group it gmbh": {
     "lat": 48.2380565,
@@ -474,7 +474,7 @@
   "bybit": {
     "lat": 48.2319522,
     "lng": 16.4137062,
-    "address": "Donau-City-Straße 7, 1220 Wien, Donaustadt"
+    "address": "Wien"
   },
   "adesso": {
     "lat": 48.1833424,
@@ -1279,5 +1279,15 @@
     "lat": 48.2006384,
     "lng": 16.4268953,
     "address": "Leopoldstadt, Vienna"
+  },
+  "corda business information engineering": {
+    "lat": 48.1411061,
+    "lng": 16.2939161,
+    "address": "Liesing, 1230 Wien"
+  },
+  "corda business & information engineering gmbh": {
+    "lat": 48.1411061,
+    "lng": 16.2939161,
+    "address": "Liesing, 1230 Wien"
   }
 }
