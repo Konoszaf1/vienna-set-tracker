@@ -872,5 +872,9 @@
     "kununu": null,
     "fetchedAt": "2026-10-22T12:54:21.014Z",
     "lastErrorAt": null
+  },
+  "qestit": {
+    "lastErrorAt": "2026-10-25T12:28:28.719Z",
+    "lastError": "HTTP 405"
   }
 }

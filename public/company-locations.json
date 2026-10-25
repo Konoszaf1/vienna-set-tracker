@@ -1135,7 +1135,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-09-24T12:39:43.949Z"
+    "lastTried": "2026-10-25T12:28:49.976Z"
   },
   "snap": {
     "lat": 48.1908055,
@@ -1289,5 +1289,11 @@
     "lat": 48.1411061,
     "lng": 16.2939161,
     "address": "Liesing, 1230 Wien"
+  },
+  "qestit": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-10-25T12:28:58.928Z"
   }
 }
