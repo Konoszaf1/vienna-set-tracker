@@ -874,7 +874,9 @@
     "lastErrorAt": null
   },
   "qestit": {
-    "lastErrorAt": "2026-10-25T12:28:28.719Z",
-    "lastError": "HTTP 405"
+    "lastErrorAt": null,
+    "lastError": "HTTP 405",
+    "kununu": null,
+    "fetchedAt": "2026-10-26T14:14:07.190Z"
   }
 }
