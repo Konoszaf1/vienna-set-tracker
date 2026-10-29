@@ -1,6 +1,73 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4477884268",
+      "title": "ServiceNow Test Engineer (m/w/d) – AI Governance",
+      "company": "Capture Group",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4477884268",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4477884268"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-10-10T13:25:12.404087+00:00",
+      "lastSeenAt": "2026-10-27T13:07:32.069255+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-28T13:57:28.167Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-10-09T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-29T14:06:31.313Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4480885226",
+      "title": "Test Engineer (m/w/x)",
+      "company": "Senior Quality - Jobplattform 45plus",
+      "source": "jobspy-linkedin",
+      "address": "Leopoldstadt, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2006384,
+      "lng": 16.4268953,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4480885226",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4480885226"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-10-18T12:02:55.098269+00:00",
+      "lastSeenAt": "2026-10-18T12:02:55.098269+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-28T13:57:28.167Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-29T14:06:31.313Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4468997944",
       "title": "Senior Supplier Quality Engineer",
       "company": "HCLTech",
@@ -968,5 +1035,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-10-26T14:14:09.590Z"
+  "lastUpdated": "2026-10-29T14:06:31.313Z"
 }

@@ -24,7 +24,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-09-28T15:06:59.672Z"
+    "lastTried": "2026-10-29T14:06:29.700Z"
   },
   "schrack technik gmbh": {
     "lat": 48.1409112,
@@ -505,7 +505,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-09-28T15:06:59.672Z"
+    "lastTried": "2026-10-29T14:06:29.700Z"
   },
   "isi": {
     "lat": 48.263822,
@@ -1295,5 +1295,37 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-10-25T12:28:58.928Z"
+  },
+  "cns solutions support": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-10-29T14:06:00.557Z"
+  },
+  "cns-solutions & support gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-10-29T14:06:00.557Z"
+  },
+  "spar ics information communication services": {
+    "lat": 48.1662603,
+    "lng": 16.3818866,
+    "address": "Favoritenstraße, 183, 1100, Katastralgemeinde Favoriten"
+  },
+  "spar ics – information & communication services": {
+    "lat": 48.1662603,
+    "lng": 16.3818866,
+    "address": "Favoritenstraße, 183, 1100, Katastralgemeinde Favoriten"
+  },
+  "upnano": {
+    "lat": 48.1875724,
+    "lng": 16.4172,
+    "address": "Modecenterstrasse 22/D36, 1030 Wien"
+  },
+  "upnano gmbh": {
+    "lat": 48.1875724,
+    "lng": 16.4172,
+    "address": "Modecenterstrasse 22/D36, 1030 Wien"
   }
 }
