@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4471729677",
+      "title": "Quality Engineer",
+      "company": "SPECS",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.201104,
+      "lng": 16.3944588,
+      "techStack": [],
+      "langReq": "unknown",
+      "publishedAt": "2026-09-29T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4471729677",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4471729677"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-10-04T13:09:14.430031+00:00",
+      "lastSeenAt": "2026-10-28T13:57:27.345931+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-10-29T14:06:31.313Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-10-30T13:58:23.304Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4477884268",
       "title": "ServiceNow Test Engineer (m/w/d) – AI Governance",
       "company": "Capture Group",
@@ -1035,5 +1070,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-10-29T14:06:31.313Z"
+  "lastUpdated": "2026-10-30T13:58:23.304Z"
 }

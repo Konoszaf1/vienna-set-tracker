@@ -502,7 +502,7 @@
   },
   "atos": {
     "kununu": null,
-    "fetchedAt": "2026-10-16T12:13:11.276Z",
+    "fetchedAt": "2026-10-30T13:58:15.213Z",
     "lastErrorAt": null,
     "lastError": "HTTP 405"
   },
@@ -702,8 +702,8 @@
   },
   "aaa all about apps": {
     "kununu": null,
-    "fetchedAt": "2026-10-15T12:35:02.701Z",
-    "lastErrorAt": "2026-10-29T14:03:52.251Z",
+    "fetchedAt": "2026-10-30T13:58:13.203Z",
+    "lastErrorAt": null,
     "lastError": "HTTP 405"
   },
   "philips dictation speech processing solutions": {
@@ -850,7 +850,7 @@
   },
   "hitachi energy": {
     "kununu": null,
-    "fetchedAt": "2026-10-16T12:13:13.297Z",
+    "fetchedAt": "2026-10-30T13:58:19.230Z",
     "lastErrorAt": null
   },
   "hitachi rail": {
@@ -893,6 +893,11 @@
   "upnano": {
     "kununu": null,
     "fetchedAt": "2026-10-29T14:05:32.781Z",
+    "lastErrorAt": null
+  },
+  "eaton": {
+    "kununu": null,
+    "fetchedAt": "2026-10-30T13:58:17.222Z",
     "lastErrorAt": null
   }
 }
