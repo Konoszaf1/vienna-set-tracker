@@ -854,7 +854,7 @@
     "lastErrorAt": null
   },
   "hitachi rail": {
-    "lastErrorAt": null,
+    "lastErrorAt": "2026-11-01T14:11:55.467Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-10-18T12:02:55.478Z"
