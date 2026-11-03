@@ -854,10 +854,10 @@
     "lastErrorAt": null
   },
   "hitachi rail": {
-    "lastErrorAt": "2026-11-02T17:00:00.912Z",
+    "lastErrorAt": null,
     "lastError": "HTTP 405",
     "kununu": null,
-    "fetchedAt": "2026-10-18T12:02:55.478Z"
+    "fetchedAt": "2026-11-03T14:58:01.024Z"
   },
   "t mobile": {
     "kununu": null,
