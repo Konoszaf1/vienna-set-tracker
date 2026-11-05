@@ -8,7 +8,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-10-05T15:43:33.023Z"
+    "lastTried": "2026-11-05T15:18:19.924Z"
   },
   "michael page international austria gmbh": {
     "lat": 48.2251975,
@@ -67,9 +67,9 @@
     "address": null
   },
   "sv-chipkarten betriebs- und errichtungsges.m.b.h.": {
-    "lat": 48.2240208,
-    "lng": 16.3965462,
-    "address": "Wien"
+    "lat": 48.2006384,
+    "lng": 16.4268953,
+    "address": "Leopoldstadt, 1020 Wien"
   },
   "frequentis ag": {
     "lat": 48.1639426,
@@ -989,9 +989,9 @@
     "lastTried": "2026-08-06T09:44:46.358Z"
   },
   "sv chipkarten betriebs und errichtungsges": {
-    "lat": 48.2240208,
-    "lng": 16.3965462,
-    "address": "Wien"
+    "lat": 48.2006384,
+    "lng": 16.4268953,
+    "address": "Leopoldstadt, 1020 Wien"
   },
   "österreichische post": {
     "lat": 48.2510399,
@@ -1191,7 +1191,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-10-05T15:43:33.023Z"
+    "lastTried": "2026-11-05T15:18:19.924Z"
   },
   "genetec": {
     "lat": 48.2120772,
@@ -1202,7 +1202,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-10-06T14:05:36.788Z"
+    "lastTried": "2026-11-05T15:18:48.634Z"
   },
   "bd": {
     "lat": null,
