@@ -1337,5 +1337,15 @@
     "lat": 48.2420895,
     "lng": 16.3836777,
     "address": "Handelskai, 92, 1200, Brigittenau"
+  },
+  "itsv": {
+    "lat": 48.2056608,
+    "lng": 16.4321116,
+    "address": "Johann-Böhm-Platz, 1, 1020, Katastralgemeinde Leopoldstadt"
+  },
+  "itsv gmbh": {
+    "lat": 48.2056608,
+    "lng": 16.4321116,
+    "address": "Johann-Böhm-Platz, 1, 1020, Katastralgemeinde Leopoldstadt"
   }
 }

@@ -760,7 +760,7 @@
   },
   "hcltech": {
     "kununu": null,
-    "fetchedAt": "2026-10-15T12:35:45.083Z",
+    "fetchedAt": "2026-11-06T14:54:32.026Z",
     "lastErrorAt": null,
     "lastError": "HTTP 403"
   },
@@ -898,6 +898,11 @@
   "eaton": {
     "kununu": null,
     "fetchedAt": "2026-10-30T13:58:17.222Z",
+    "lastErrorAt": null
+  },
+  "itsv": {
+    "kununu": null,
+    "fetchedAt": "2026-11-06T14:54:34.035Z",
     "lastErrorAt": null
   }
 }
