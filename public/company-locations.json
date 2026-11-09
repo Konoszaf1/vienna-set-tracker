@@ -1205,10 +1205,9 @@
     "lastTried": "2026-11-05T15:18:48.634Z"
   },
   "bd": {
-    "lat": null,
-    "lng": null,
-    "address": null,
-    "lastTried": "2026-10-10T13:26:31.629Z"
+    "lat": 48.2130534,
+    "lng": 16.3681078,
+    "address": "Wipplingerstrasse 28, 1010 Wien"
   },
   "sea ai": {
     "lat": null,
