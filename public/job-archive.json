@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4465988008",
+      "title": "Quality Engineer & IFS Broker Coordinator",
+      "company": "kalegra by kdc/one",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2336273,
+      "lng": 16.411618,
+      "techStack": [],
+      "langReq": "unknown",
+      "publishedAt": "2026-09-16T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4465988008",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4465988008"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-09-18T12:09:55.363985+00:00",
+      "lastSeenAt": "2026-10-14T12:48:40.482563+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-10T15:32:08.857Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-11-11T15:02:10.928Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4474067546",
       "title": "Junior Software Tester:in (m/w/d) in Wien",
       "company": "Dolpheen IT",
@@ -1172,5 +1207,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-11-06T14:54:41.164Z"
+  "lastUpdated": "2026-11-11T15:02:10.928Z"
 }
