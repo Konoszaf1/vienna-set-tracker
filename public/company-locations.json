@@ -754,12 +754,12 @@
   "sportsbook software": {
     "lat": 48.2143607,
     "lng": 16.4860715,
-    "address": "Donaustadt, 1220 Wien"
+    "address": "Wien"
   },
   "sportsbook software gmbh": {
     "lat": 48.2143607,
     "lng": 16.4860715,
-    "address": "Donaustadt, 1220 Wien"
+    "address": "Wien"
   },
   "hays": {
     "lat": 48.1961765,
@@ -1210,16 +1210,14 @@
     "address": "Wipplingerstrasse 28, 1010 Wien"
   },
   "sea ai": {
-    "lat": null,
-    "lng": null,
-    "address": null,
-    "lastTried": "2026-10-12T16:40:43.529Z"
+    "lat": 48.1976026,
+    "lng": 16.3597565,
+    "address": "Köstlergasse 1/21, 1060 Wien"
   },
   "sea.ai": {
-    "lat": null,
-    "lng": null,
-    "address": null,
-    "lastTried": "2026-10-12T16:40:43.529Z"
+    "lat": 48.1976026,
+    "lng": 16.3597565,
+    "address": "Köstlergasse 1/21, 1060 Wien"
   },
   "ait austrian institute of technology gmbh": {
     "lat": 48.269137,
@@ -1235,13 +1233,13 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-10-13T14:59:48.626Z"
+    "lastTried": "2026-11-12T15:56:44.796Z"
   },
   "rabcat computer graphics gmbh": {
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-10-13T14:59:48.626Z"
+    "lastTried": "2026-11-12T15:56:44.796Z"
   },
   "tieto": {
     "lat": null,
@@ -1346,5 +1344,15 @@
     "lat": 48.2056608,
     "lng": 16.4321116,
     "address": "Wien"
+  },
+  "österreichische beamtenversicherung vvag öbv": {
+    "lat": 48.2100072,
+    "lng": 16.3697034,
+    "address": "Innere Stadt, 1010 Wien"
+  },
+  "österreichische beamtenversicherung, vvag (öbv)": {
+    "lat": 48.2100072,
+    "lng": 16.3697034,
+    "address": "Innere Stadt, 1010 Wien"
   }
 }

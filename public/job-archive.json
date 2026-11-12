@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4472836606",
+      "title": "Software Test Engineer (w/m/d)",
+      "company": "AIT Austrian Institute of Technology",
+      "source": "jobspy-linkedin",
+      "address": "Giefinggasse, 4, 1210, Katastralgemeinde Leopoldau",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.269137,
+      "lng": 16.4266762,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4472836606",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4472836606"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-10-02T13:44:14.081025+00:00",
+      "lastSeenAt": "2026-10-12T16:39:07.633310+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-11T15:02:10.928Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-10-01T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-11-12T15:57:08.860Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4465988008",
       "title": "Quality Engineer & IFS Broker Coordinator",
       "company": "kalegra by kdc/one",
@@ -1207,5 +1242,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-11-11T15:02:10.928Z"
+  "lastUpdated": "2026-11-12T15:57:08.860Z"
 }
