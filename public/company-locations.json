@@ -1242,10 +1242,9 @@
     "lastTried": "2026-11-12T15:56:44.796Z"
   },
   "tieto": {
-    "lat": null,
-    "lng": null,
-    "address": null,
-    "lastTried": "2026-10-14T12:50:29.703Z"
+    "lat": 48.1926272,
+    "lng": 16.4131233,
+    "address": "Thomas-Klestil-Platz 13, 1030 Wien"
   },
   "hitachi energy": {
     "lat": 48.2420895,

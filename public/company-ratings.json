@@ -177,7 +177,7 @@
   "adesso": {
     "kununu": null,
     "fetchedAt": "2026-10-29T14:03:54.267Z",
-    "lastErrorAt": "2026-11-12T15:54:59.121Z",
+    "lastErrorAt": "2026-11-13T15:14:29.638Z",
     "lastError": "HTTP 405"
   },
   "ringana": {
@@ -502,7 +502,7 @@
   },
   "atos": {
     "kununu": null,
-    "fetchedAt": "2026-10-30T13:58:15.213Z",
+    "fetchedAt": "2026-11-13T15:14:31.661Z",
     "lastErrorAt": null,
     "lastError": "HTTP 405"
   },
@@ -851,7 +851,7 @@
   },
   "hitachi energy": {
     "kununu": null,
-    "fetchedAt": "2026-10-30T13:58:19.230Z",
+    "fetchedAt": "2026-11-13T15:14:35.697Z",
     "lastErrorAt": null
   },
   "hitachi rail": {
@@ -898,7 +898,7 @@
   },
   "eaton": {
     "kununu": null,
-    "fetchedAt": "2026-10-30T13:58:17.222Z",
+    "fetchedAt": "2026-11-13T15:14:33.680Z",
     "lastErrorAt": null
   },
   "itsv": {
