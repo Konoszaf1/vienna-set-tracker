@@ -176,8 +176,8 @@
   },
   "adesso": {
     "kununu": null,
-    "fetchedAt": "2026-10-29T14:03:54.267Z",
-    "lastErrorAt": "2026-11-13T15:14:29.638Z",
+    "fetchedAt": "2026-11-14T14:03:18.364Z",
+    "lastErrorAt": null,
     "lastError": "HTTP 405"
   },
   "ringana": {
@@ -862,7 +862,7 @@
   },
   "t mobile": {
     "kununu": null,
-    "fetchedAt": "2026-10-31T13:28:44.594Z",
+    "fetchedAt": "2026-11-14T14:03:22.380Z",
     "lastErrorAt": null
   },
   "senior quality jobplattform 45plus": {
@@ -909,6 +909,11 @@
   "österreichische beamtenversicherung vvag öbv": {
     "kununu": null,
     "fetchedAt": "2026-11-12T15:56:33.448Z",
+    "lastErrorAt": null
+  },
+  "ergo versicherung aktiengesellschaft": {
+    "kununu": null,
+    "fetchedAt": "2026-11-14T14:03:20.373Z",
     "lastErrorAt": null
   }
 }
