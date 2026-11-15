@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4464858415",
+      "title": "Junior QA Engineer",
+      "company": "Delta Electronics EMEA",
+      "source": "jobspy-linkedin",
+      "address": "Simmeringer Hauptstraße, 87, 1110, Katastralgemeinde Simmering",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1769482,
+      "lng": 16.4138082,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4464858415",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4464858415"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-09-11T12:07:28.681839+00:00",
+      "lastSeenAt": "2026-10-20T12:40:06.024894+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-14T14:03:32.299Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-09-23T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "LinkedIn inactive message",
+      "closedAt": "2026-11-15T14:38:04.165Z",
+      "closeReason": "LinkedIn inactive message"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4472836606",
       "title": "Software Test Engineer (w/m/d)",
       "company": "AIT Austrian Institute of Technology",
@@ -1242,5 +1277,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-11-12T15:57:08.860Z"
+  "lastUpdated": "2026-11-15T14:38:04.165Z"
 }
