@@ -754,12 +754,12 @@
   "sportsbook software": {
     "lat": 48.2143607,
     "lng": 16.4860715,
-    "address": "Wien"
+    "address": "Donaustadt, 1220 Wien"
   },
   "sportsbook software gmbh": {
     "lat": 48.2143607,
     "lng": 16.4860715,
-    "address": "Wien"
+    "address": "Donaustadt, 1220 Wien"
   },
   "hays": {
     "lat": 48.1961765,
@@ -1358,5 +1358,29 @@
     "lat": 48.1837603,
     "lng": 16.4139441,
     "address": "Modecenterstraße, 17, 1110, Katastralgemeinde Simmering"
+  },
+  "jtm digital": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-11-16T16:53:26.753Z"
+  },
+  "jtm digital gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-11-16T16:53:26.753Z"
+  },
+  "techpeople": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-11-16T16:53:43.093Z"
+  },
+  "techpeople group": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-11-16T16:53:43.093Z"
   }
 }
