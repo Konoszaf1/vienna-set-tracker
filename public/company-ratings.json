@@ -855,7 +855,7 @@
     "lastErrorAt": null
   },
   "hitachi rail": {
-    "lastErrorAt": null,
+    "lastErrorAt": "2026-11-17T16:53:07.258Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-11-03T14:58:01.024Z"
@@ -917,7 +917,7 @@
     "lastErrorAt": null
   },
   "jtm digital": {
-    "lastErrorAt": "2026-11-16T16:53:16.469Z",
+    "lastErrorAt": "2026-11-17T16:53:09.267Z",
     "lastError": "HTTP 405"
   },
   "techpeople": {
