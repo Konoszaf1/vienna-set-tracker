@@ -224,7 +224,8 @@
   "bybit eu": {
     "kununu": null,
     "fetchedAt": "2026-11-04T15:16:26.053Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-11-18T16:23:33.087Z",
+    "lastError": "HTTP 405"
   },
   "raiffeisen it": {
     "kununu": null,
@@ -313,8 +314,8 @@
   "scientific games": {
     "kununu": null,
     "fetchedAt": "2026-10-15T12:36:27.447Z",
-    "lastErrorAt": null,
-    "lastError": "HTTP 403"
+    "lastErrorAt": "2026-11-18T16:23:39.143Z",
+    "lastError": "HTTP 405"
   },
   "mercury": {
     "kununu": null,
@@ -855,7 +856,7 @@
     "lastErrorAt": null
   },
   "hitachi rail": {
-    "lastErrorAt": "2026-11-17T16:53:07.258Z",
+    "lastErrorAt": "2026-11-18T16:23:35.106Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-11-03T14:58:01.024Z"
@@ -917,7 +918,7 @@
     "lastErrorAt": null
   },
   "jtm digital": {
-    "lastErrorAt": "2026-11-17T16:53:09.267Z",
+    "lastErrorAt": "2026-11-18T16:23:37.125Z",
     "lastError": "HTTP 405"
   },
   "techpeople": {
