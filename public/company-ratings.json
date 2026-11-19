@@ -93,8 +93,8 @@
   "sv chipkarten betriebs und errichtungsges m b h": {
     "kununu": null,
     "fetchedAt": "2026-11-05T15:18:00.449Z",
-    "lastErrorAt": null,
-    "lastError": "HTTP 403"
+    "lastErrorAt": "2026-11-19T16:32:37.229Z",
+    "lastError": "HTTP 405"
   },
   "frequentis": {
     "kununu": null,
@@ -224,7 +224,7 @@
   "bybit eu": {
     "kununu": null,
     "fetchedAt": "2026-11-04T15:16:26.053Z",
-    "lastErrorAt": "2026-11-18T16:23:33.087Z",
+    "lastErrorAt": "2026-11-19T16:32:27.191Z",
     "lastError": "HTTP 405"
   },
   "raiffeisen it": {
@@ -314,7 +314,7 @@
   "scientific games": {
     "kununu": null,
     "fetchedAt": "2026-10-15T12:36:27.447Z",
-    "lastErrorAt": "2026-11-18T16:23:39.143Z",
+    "lastErrorAt": "2026-11-19T16:32:35.221Z",
     "lastError": "HTTP 405"
   },
   "mercury": {
@@ -856,7 +856,7 @@
     "lastErrorAt": null
   },
   "hitachi rail": {
-    "lastErrorAt": "2026-11-18T16:23:35.106Z",
+    "lastErrorAt": "2026-11-19T16:32:31.208Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-11-03T14:58:01.024Z"
@@ -874,7 +874,8 @@
   "corda business information engineering": {
     "kununu": null,
     "fetchedAt": "2026-11-05T15:17:58.439Z",
-    "lastErrorAt": null
+    "lastErrorAt": "2026-11-19T16:32:29.201Z",
+    "lastError": "HTTP 405"
   },
   "qestit": {
     "lastErrorAt": null,
@@ -918,7 +919,7 @@
     "lastErrorAt": null
   },
   "jtm digital": {
-    "lastErrorAt": "2026-11-18T16:23:37.125Z",
+    "lastErrorAt": "2026-11-19T16:32:33.214Z",
     "lastError": "HTTP 405"
   },
   "techpeople": {

@@ -2535,7 +2535,27 @@
         "Testautomatisierung Wien": 7
       },
       "recordedAt": "2026-11-18T16:25:01.946Z"
+    },
+    {
+      "date": "2026-11-19",
+      "activeJobs": 77,
+      "activeCompanies": 59,
+      "sourceLastUpdated": "2026-11-19T16:32:26.754659+00:00",
+      "sourceLastVerified": "2026-11-19T16:32:39.890Z",
+      "lastFullySuccessfulAt": "2026-11-19T16:32:26.754659+00:00",
+      "partial": false,
+      "datasetHash": "6c86e4d02d2da3ef511868dc0a00abca5df06630e1123a6d463a780134aacbc2",
+      "sourceCounts": {
+        "jobspy-indeed": 21,
+        "jobspy-linkedin": 39,
+        "QA Engineer Wien": 1,
+        "Quality Assurance Wien": 1,
+        "Software Tester Wien": 8,
+        "Test Automation Wien": 1,
+        "Testautomatisierung Wien": 6
+      },
+      "recordedAt": "2026-11-19T16:33:27.041Z"
     }
   ],
-  "lastUpdated": "2026-11-18T16:25:01.946Z"
+  "lastUpdated": "2026-11-19T16:33:27.041Z"
 }
