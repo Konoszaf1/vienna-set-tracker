@@ -224,7 +224,7 @@
   "bybit eu": {
     "kununu": null,
     "fetchedAt": "2026-11-04T15:16:26.053Z",
-    "lastErrorAt": "2026-11-20T16:06:35.064Z",
+    "lastErrorAt": "2026-11-21T15:15:58.951Z",
     "lastError": "HTTP 405"
   },
   "raiffeisen it": {
@@ -763,7 +763,7 @@
   "hcltech": {
     "kununu": null,
     "fetchedAt": "2026-11-06T14:54:32.026Z",
-    "lastErrorAt": "2026-11-20T16:06:39.080Z",
+    "lastErrorAt": "2026-11-21T15:16:00.958Z",
     "lastError": "HTTP 405"
   },
   "snap": {
@@ -856,7 +856,7 @@
     "lastErrorAt": null
   },
   "hitachi rail": {
-    "lastErrorAt": "2026-11-20T16:06:41.087Z",
+    "lastErrorAt": "2026-11-21T15:16:02.965Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-11-03T14:58:01.024Z"
@@ -906,7 +906,7 @@
   "itsv": {
     "kununu": null,
     "fetchedAt": "2026-11-06T14:54:34.035Z",
-    "lastErrorAt": "2026-11-20T16:06:43.095Z",
+    "lastErrorAt": "2026-11-21T15:16:04.972Z",
     "lastError": "HTTP 405"
   },
   "österreichische beamtenversicherung vvag öbv": {
@@ -920,7 +920,7 @@
     "lastErrorAt": null
   },
   "jtm digital": {
-    "lastErrorAt": "2026-11-20T16:06:45.103Z",
+    "lastErrorAt": "2026-11-21T15:16:06.978Z",
     "lastError": "HTTP 405"
   },
   "techpeople": {
