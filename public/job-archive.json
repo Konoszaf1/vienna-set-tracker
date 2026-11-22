@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4434656218",
+      "title": "Senior Test Automation Engineer (m/w/d) – Gefahrenmanagementsysteme",
+      "company": "PKE",
+      "source": "jobspy-linkedin",
+      "address": "Computerstraße, 6, 1100, KG Inzersdorf Stadt",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1591557,
+      "lng": 16.3401205,
+      "techStack": [],
+      "langReq": "unknown",
+      "id": "job-linkedin-4434656218",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4434656218"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-08-14T23:31:35.399730+00:00",
+      "lastSeenAt": "2026-11-18T16:23:32.768413+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-21T15:16:09.529Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-11-11T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "remoteMode": "onsite-or-hybrid",
+      "verificationReason": "HTTP 404 via Playwright",
+      "closedAt": "2026-11-22T15:15:18.253Z",
+      "closeReason": "HTTP 404 via Playwright"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4425302065",
       "title": "Test Automation Engineer (m/f/d)",
       "company": "Atos",
@@ -1382,5 +1417,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-11-20T16:06:51.734Z"
+  "lastUpdated": "2026-11-22T15:15:18.253Z"
 }

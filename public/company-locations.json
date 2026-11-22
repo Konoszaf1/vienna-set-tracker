@@ -696,13 +696,13 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-10-23T12:44:38.439Z"
+    "lastTried": "2026-11-22T15:15:16.659Z"
   },
   "ivm technical consultants vienna - the technical experts": {
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-10-23T12:44:38.439Z"
+    "lastTried": "2026-11-22T15:15:16.659Z"
   },
   "fronius usa llc": {
     "lat": 48.1653639,
@@ -1382,5 +1382,17 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-11-16T16:53:43.093Z"
+  },
+  "dewetron": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-11-22T15:15:10.025Z"
+  },
+  "dewetron gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-11-22T15:15:10.025Z"
   }
 }
