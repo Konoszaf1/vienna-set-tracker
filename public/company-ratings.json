@@ -224,7 +224,7 @@
   "bybit eu": {
     "kununu": null,
     "fetchedAt": "2026-11-04T15:16:26.053Z",
-    "lastErrorAt": "2026-11-22T15:14:52.237Z",
+    "lastErrorAt": "2026-11-23T19:08:55.176Z",
     "lastError": "HTTP 405"
   },
   "raiffeisen it": {
