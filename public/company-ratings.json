@@ -172,7 +172,8 @@
   },
   "ketryx": {
     "kununu": null,
-    "fetchedAt": "2026-04-28T09:26:36.207Z"
+    "fetchedAt": "2026-11-24T18:49:45.030Z",
+    "lastErrorAt": null
   },
   "adesso": {
     "kununu": null,
@@ -223,8 +224,8 @@
   },
   "bybit eu": {
     "kununu": null,
-    "fetchedAt": "2026-11-04T15:16:26.053Z",
-    "lastErrorAt": "2026-11-23T19:08:55.176Z",
+    "fetchedAt": "2026-11-24T18:49:43.017Z",
+    "lastErrorAt": null,
     "lastError": "HTTP 405"
   },
   "raiffeisen it": {
