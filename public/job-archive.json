@@ -1,6 +1,76 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4459931592",
+      "title": "Quality Engineer (m/w/d)",
+      "company": "IVM Technical Consultants",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1345908,
+      "lng": 16.3256384,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4459931592",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4459931592"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-09-02T12:02:40.705969+00:00",
+      "lastSeenAt": "2026-10-01T14:21:32.074507+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-24T18:50:00.558Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-09-02T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "HTTP 404 via Playwright",
+      "closedAt": "2026-11-25T17:58:04.618Z",
+      "closeReason": "HTTP 404 via Playwright"
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4459937453",
+      "title": "Senior Software Tester (m/w/d)",
+      "company": "IVM Technical Consultants Vienna - The Technical Experts",
+      "source": "jobspy-linkedin",
+      "address": "Vienna, Vienna",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1857192,
+      "lng": 16.4221587,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4459937453",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4459937453"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-09-02T12:02:40.705969+00:00",
+      "lastSeenAt": "2026-09-16T12:31:56.255849+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-24T18:50:00.558Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-09-02T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "HTTP 404 via Playwright",
+      "closedAt": "2026-11-25T17:58:04.618Z",
+      "closeReason": "HTTP 404 via Playwright"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4485808112",
       "title": "Senior Supplier Quality Engineer",
       "company": "HCLTech",
@@ -1452,5 +1522,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-11-24T18:50:00.558Z"
+  "lastUpdated": "2026-11-25T17:58:04.618Z"
 }
