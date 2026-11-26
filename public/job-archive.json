@@ -1,6 +1,41 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4489905595",
+      "title": "Softwaretester (m/w/d)",
+      "company": "Sportsbook Software GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.2143607,
+      "lng": 16.4860715,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4489905595",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4489905595"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-11-11T15:02:06.164326+00:00",
+      "lastSeenAt": "2026-11-15T14:38:03.620897+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-25T17:58:04.618Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-11-11T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "HTTP 404 via Playwright",
+      "closedAt": "2026-11-26T17:43:27.272Z",
+      "closeReason": "HTTP 404 via Playwright"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4459931592",
       "title": "Quality Engineer (m/w/d)",
       "company": "IVM Technical Consultants",
@@ -1522,5 +1557,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-11-25T17:58:04.618Z"
+  "lastUpdated": "2026-11-26T17:43:27.272Z"
 }
