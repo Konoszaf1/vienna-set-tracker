@@ -13,7 +13,7 @@
   "beko solutions": {
     "kununu": null,
     "fetchedAt": "2026-11-12T15:55:11.168Z",
-    "lastErrorAt": "2026-11-26T17:42:06.358Z",
+    "lastErrorAt": "2026-11-27T17:25:22.400Z",
     "lastError": "HTTP 405"
   },
   "michael page": {
@@ -375,7 +375,7 @@
   "bundesrechenzentrum": {
     "kununu": null,
     "fetchedAt": "2026-11-12T15:55:13.174Z",
-    "lastErrorAt": "2026-11-26T17:42:08.370Z",
+    "lastErrorAt": "2026-11-27T17:25:24.416Z",
     "lastError": "HTTP 405"
   },
   "3 s it dienstleistungen": {
@@ -781,13 +781,13 @@
     "fetchedAt": "2026-11-12T15:55:01.133Z"
   },
   "austrian institute of technology": {
-    "lastErrorAt": "2026-11-26T17:42:00.325Z",
+    "lastErrorAt": "2026-11-27T17:25:16.353Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-11-12T15:55:05.147Z"
   },
   "bawag": {
-    "lastErrorAt": "2026-11-26T17:42:02.336Z",
+    "lastErrorAt": "2026-11-27T17:25:18.368Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-11-12T15:55:07.154Z"
@@ -823,7 +823,7 @@
     "fetchedAt": "2026-11-12T15:55:23.203Z"
   },
   "bd": {
-    "lastErrorAt": "2026-11-26T17:42:04.347Z",
+    "lastErrorAt": "2026-11-27T17:25:20.383Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-11-12T15:55:09.161Z"
@@ -835,7 +835,7 @@
     "fetchedAt": "2026-11-26T17:42:58.654Z"
   },
   "austrian federal computing centre": {
-    "lastErrorAt": "2026-11-26T17:41:58.312Z",
+    "lastErrorAt": "2026-11-27T17:25:14.336Z",
     "lastError": "HTTP 405",
     "kununu": null,
     "fetchedAt": "2026-11-12T15:55:03.139Z"
@@ -854,7 +854,7 @@
   },
   "hitachi energy": {
     "kununu": null,
-    "fetchedAt": "2026-11-13T15:14:35.697Z",
+    "fetchedAt": "2026-11-27T17:25:28.450Z",
     "lastErrorAt": null
   },
   "hitachi rail": {
@@ -902,7 +902,7 @@
   },
   "eaton": {
     "kununu": null,
-    "fetchedAt": "2026-11-13T15:14:33.680Z",
+    "fetchedAt": "2026-11-27T17:25:26.435Z",
     "lastErrorAt": null
   },
   "itsv": {

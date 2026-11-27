@@ -434,12 +434,12 @@
   "kontron": {
     "lat": 48.1719649,
     "lng": 16.3286908,
-    "address": "Meidling, 1120 Wien"
+    "address": "Wien"
   },
   "kontron ag": {
     "lat": 48.1719649,
     "lng": 16.3286908,
-    "address": "Meidling, 1120 Wien"
+    "address": "Wien"
   },
   "bev bundesamt für eich und vermessungswesen": {
     "lat": 48.2188239,
@@ -1290,7 +1290,7 @@
     "lat": null,
     "lng": null,
     "address": null,
-    "lastTried": "2026-11-24T18:49:59.121Z"
+    "lastTried": "2026-11-27T17:25:39.537Z"
   },
   "cns solutions support": {
     "lat": null,
@@ -1394,5 +1394,11 @@
     "lng": null,
     "address": null,
     "lastTried": "2026-11-22T15:15:10.025Z"
+  },
+  "qestit gmbh": {
+    "lat": null,
+    "lng": null,
+    "address": null,
+    "lastTried": "2026-11-27T17:25:39.537Z"
   }
 }

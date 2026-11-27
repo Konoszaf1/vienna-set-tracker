@@ -1,6 +1,76 @@
 {
   "jobs": [
     {
+      "url": "https://www.linkedin.com/jobs/view/4493190290",
+      "title": "Test Engineer - Python & Test Automation @ DEWETRON GmbH",
+      "company": "DEWETRON GmbH",
+      "source": "jobspy-linkedin",
+      "address": "Wien",
+      "city": "Wien",
+      "zip": null,
+      "lat": null,
+      "lng": null,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4493190290",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4493190290"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-11-22T15:14:51.921513+00:00",
+      "lastSeenAt": "2026-11-23T19:08:54.911116+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-26T17:43:27.272Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-11-22T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "HTTP 404 via Playwright",
+      "closedAt": "2026-11-27T17:25:41.026Z",
+      "closeReason": "HTTP 404 via Playwright"
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/4459278363",
+      "title": "Quality Engineer (m/w/d)",
+      "company": "Rheinmetall",
+      "source": "jobspy-linkedin",
+      "address": "Seybelgasse, 1230, Katastralgemeinde Liesing",
+      "city": "Wien",
+      "zip": null,
+      "lat": 48.1392809,
+      "lng": 16.295877,
+      "techStack": [],
+      "langReq": "unknown",
+      "remoteMode": "onsite-or-hybrid",
+      "id": "job-linkedin-4459278363",
+      "urlAliases": [
+        "https://www.linkedin.com/jobs/view/4459278363"
+      ],
+      "sources": [
+        "jobspy-linkedin"
+      ],
+      "firstSeenAt": "2026-09-01T12:27:19.288852+00:00",
+      "lastSeenAt": "2026-09-30T13:27:48.600329+00:00",
+      "status": "closed",
+      "consecutiveMisses": 0,
+      "sourceStatus": "retained-until-verified",
+      "lastCheckedAt": "2026-11-26T17:43:27.272Z",
+      "verificationStatus": "probation",
+      "consecutiveDeadChecks": 2,
+      "publishedAt": "2026-09-01T00:00:00+00:00",
+      "publishedAtSource": "jobspy-linkedin-date-posted",
+      "publishedAtConfidence": "high",
+      "verificationReason": "HTTP 404 via Playwright",
+      "closedAt": "2026-11-27T17:25:41.026Z",
+      "closeReason": "HTTP 404 via Playwright"
+    },
+    {
       "url": "https://www.linkedin.com/jobs/view/4489905595",
       "title": "Softwaretester (m/w/d)",
       "company": "Sportsbook Software GmbH",
@@ -1557,5 +1627,5 @@
       "closeReason": "LinkedIn inactive message"
     }
   ],
-  "lastUpdated": "2026-11-26T17:43:27.272Z"
+  "lastUpdated": "2026-11-27T17:25:41.026Z"
 }
